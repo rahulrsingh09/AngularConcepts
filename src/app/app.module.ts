@@ -12,13 +12,15 @@ import { counterReducer } from './counter';
 import {routing} from "./app.routing";
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { ReactiveComponent } from './reactive/reactive.component';
+import { Angular4Component } from './angular4/angular4.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NgrxComponent,
     TemplateDrivenComponent,
-    ReactiveComponent
+    ReactiveComponent,
+    Angular4Component
   ],
   imports: [
     BrowserModule,
