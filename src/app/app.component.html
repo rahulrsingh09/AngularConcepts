@@ -2,77 +2,12 @@
   {{title}}
 </h1>
 
-<form #f = "ngForm" novalidate>
 
-  <label>Name:</label>
-  <input type = "text" name = "name" [(ngModel)] = "user.name">
-  <br>
-  <label>Age:</label>
-  <input type = "number" name = "age" [(ngModel)] = "user.age">
+<ng-template #loading>Loading...</ng-template>
 
-  <div>
-    <label>Gender:</label>
-    <div *ngFor = "let gender of genders">
-      <label>
-        <input type = "radio" name = "gender" [value] = "gender.value">{{gender.display}}
-      </label>
-    </div>
-  </div>
-
-  <div>
-    <label>Role</label>
-    <select name = "role" [(ngModel)] = "user.role">
-      <option *ngFor = "let role of roles" [value] = "role.value">
-        {{role.display}}
-      </option>
-    </select>
-  </div>
-
-  <div>
-    <label>Theme</label>
-    <select name = "theme" [(ngModel)] = "user.theme">
-      <option *ngFor = "let theme of themes" [ngValue] = "theme">
-        {{theme.display}}
-      </option>
-    </select>
-  </div>
-
-
-  <div>
-    <label>Topics</label>
-    <select multiple name = "topics" [(ngModel)] = "user.topics">
-      <option *ngFor = "let topic of topics" [ngValue] = "topic.value">
-        {{topic.display}}
-      </option>
-    </select>
-  </div>
-
-
-  <div>
-    <label>
-      <input type = "checkbox" name = "isActive" [(ngModel)] = "user.isActive"> Is Active
-    </label>
-  </div>
-
-
-
-  <div>
-    <input type="hidden" name = "toggle" [(ngModel)] = "user.toggle">
-    <div>
-      <label>
-        <input type="checkbox"
-               [checked] = "user.toggle === toggles[0].value"
-               (change) = "$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-        {{toggles[0].display}}
-      </label>
-    </div>
-  </div>
-
-  <br>
-  <hr>
-  <button type = "submit" (click)="save(f.valid,f.value)">Submit</button>
-
-</form>
+<div *ngIf="1==1; else loading;">
+ Hello
+</div>
 
 
 <app-ngrx></app-ngrx>
@@ -80,3 +15,6 @@
 <hr>
 
 <app-reactive></app-reactive>
+<router-outlet></router-outlet>
+
+
