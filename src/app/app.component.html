@@ -1,7 +1,31 @@
-<h1>
-  Home Component
-</h1>
-<hr>
-<router-outlet></router-outlet>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Angular Concepts</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li [routerLinkActive]="['active']"><a routerLink="/template">Template Driven Forms</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/reactive">Data Driven Forms</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/ngrx">Ngrx</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/viewchild">View Child</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
 
-
+  <div class ="top">
+    <h1>
+      Home Component
+    </h1>
+    <hr>
+    <router-outlet></router-outlet>
+  <div>

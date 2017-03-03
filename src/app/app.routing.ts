@@ -8,15 +8,16 @@ import {TemplateDrivenComponent} from "./template-driven/template-driven.compone
 import {ReactiveComponent} from "./reactive/reactive.component";
 import {NgrxComponent} from "./ngrx/ngrx.component";
 import {Angular4Component} from "./angular4/angular4.component";
+import {ViewChildContentEgComponent} from "./childrenEg/view-child-content-eg.component";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component:  AppComponent},
+  { path: '', redirectTo: 'a4', pathMatch: 'full' },
+  { path: 'a4', component:  Angular4Component},
   { path: 'template', component:  TemplateDrivenComponent},
   { path: 'reactive', component:  ReactiveComponent},
   { path: 'ngrx', component:  NgrxComponent},
-  { path: 'a4', component:  Angular4Component}
+  { path: 'viewchild', component:  ViewChildContentEgComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

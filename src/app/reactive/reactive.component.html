@@ -1,0 +1,69 @@
+<h2> Reactive Forms</h2>
+
+<form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
+  <label>Name:</label>
+  <input type = "text"  formControlName="name">
+  <br>
+  <label>Age:</label>
+  <input type = "number" formControlName="age" >
+  <div>
+    <label>Gender:</label>
+    <div *ngFor = "let gender of genders">
+      <label>
+        <input type = "radio" [value] = "gender.value" formControlName="gender">{{gender.display}}
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <label>Role</label>
+    <select formControlName="role">
+      <option *ngFor = "let role of roles" [value] = "role.value">
+        {{role.display}}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>Theme</label>
+    <select formControlName="theme">
+      <option *ngFor = "let theme of themes" [ngValue] = "theme">
+        {{theme.display}}
+      </option>
+    </select>
+  </div>
+
+
+  <div>
+    <label>Topics</label>
+    <select multiple name = "topics" formControlName="topics">
+      <option *ngFor = "let topic of topics" [ngValue] = "topic.value">
+        {{topic.display}}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>
+      <input type = "checkbox" formControlName="isActive"> Is Active
+    </label>
+  </div>
+
+  <div>
+    <input type="hidden" >
+    <div>
+      <label>
+        <input type="checkbox"
+               [checked] = "toggle === toggles[0].value"
+               (change) = "$event.target.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)"
+               formControlName="toggle" >
+        {{toggles[0].display}}
+      </label>
+    </div>
+  </div>
+
+  <button type="submit">Sign up</button>
+</form>
+
+
+
