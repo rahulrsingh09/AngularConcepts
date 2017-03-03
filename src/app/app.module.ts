@@ -17,6 +17,10 @@ import { Angular4Component } from './angular4/angular4.component';
 import {Tabs} from './childrenEg/tabs';
 import {Tab} from './childrenEg/tab';
 import {ViewChildContentEgComponent} from "./childrenEg/view-child-content-eg.component";
+import { ParentHostComponent } from './parent-host/parent-host.component';
+import { ChildComponent } from './parent-host/child.component';
+
+
 
 
 @NgModule({
@@ -28,7 +32,9 @@ import {ViewChildContentEgComponent} from "./childrenEg/view-child-content-eg.co
     Angular4Component,
     Tabs,
     Tab,
-    ViewChildContentEgComponent
+    ViewChildContentEgComponent,
+    ParentHostComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+:host(.parent-host){
+  color:red;
+}
+
+:host-context(.parent-host-context){
+  color: darkgreen;
+}
