@@ -5,6 +5,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Angular Core Concepts
 
 <li>View Child , View Children and Content Children Example</li>
+<li>Ngrx Store[Redux] Simple Example</li>
+<li>Form Controls In Template Driven Forms</li>
+<li>Form Controls in Reactive or Data Driven Forms </li>
+<li>Angular 4 Rc2 IF else</li>
+
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
