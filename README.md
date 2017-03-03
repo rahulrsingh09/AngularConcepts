@@ -11,6 +11,7 @@ Angular Core Concepts
 <li>Form Controls In Template Driven Forms</li>
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Angular 4 Rc2 IF else</li>
+<li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
 
 
 ## Development server
