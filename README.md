@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
 By Rahul Singh <rahulrsingh09@gmail.com>
 
+This Repo Gives a code Demo of some of the Concepts of Angular 2 in a basic way , will update it for more soon :- 
 Angular Core Concepts
 
 <li>View Child , View Children and Content Children Example</li>
