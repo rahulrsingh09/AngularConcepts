@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-angular4',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Angular4Component implements OnInit {
 
-  constructor() { }
+  message:string;
+
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.message = this.route.snapshot.params['message'];
+
   }
 
 }

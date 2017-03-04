@@ -19,6 +19,10 @@ import {Tab} from './childrenEg/tab';
 import {ViewChildContentEgComponent} from "./childrenEg/view-child-content-eg.component";
 import { ParentHostComponent } from './parent-host/parent-host.component';
 import { ChildComponent } from './parent-host/child.component';
+import { GuardsComponent } from './guards/guards.component';
+import { CheckComponent } from './guards/check.component';
+import {AuthGuard} from "./guards/auth.guard";
+import {DeactivateGuard} from "./guards/deactivate.guard";
 
 
 
@@ -34,7 +38,9 @@ import { ChildComponent } from './parent-host/child.component';
     Tab,
     ViewChildContentEgComponent,
     ParentHostComponent,
-    ChildComponent
+    ChildComponent,
+    GuardsComponent,
+    CheckComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,7 @@ import { ChildComponent } from './parent-host/child.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService,AuthGuard,DeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
