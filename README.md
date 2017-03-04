@@ -14,6 +14,8 @@ Angular Core Concepts
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Angular 4 Rc2 IF else</li>
 <li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
+<li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
+<li>Angular Router Resolve Explanation</li>
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts
