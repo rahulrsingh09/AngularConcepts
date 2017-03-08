@@ -8,14 +8,18 @@ Please Forgive the use of CSS here as this more to do with Angular than UI and U
 This Repo Gives a code Demo of some of the Concepts of Angular 2 in a basic way , will update it for more soon :- 
 Angular Core Concepts
 
+<li>Simple Angular  Component</li>
+<li>Custom Pipes</li>
+<li>Custom Directives</li>
+<li>Form Controls in Reactive or Data Driven Forms </li>
+<li>Form Controls In Template Driven Forms</li>
+<li>Angular 4 Rc2 IF else</li>
+<li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
+<li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
 <li>View Child , View Children and Content Children Example</li>
 <li>Ngrx Store[Redux] Simple Example</li>
-<li>Form Controls In Template Driven Forms</li>
-<li>Form Controls in Reactive or Data Driven Forms </li>
-<li>Angular 4 Rc2 IF else</li>
-<li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
-<li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
 <li>Angular Router Resolve Explanation</li>
+
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts

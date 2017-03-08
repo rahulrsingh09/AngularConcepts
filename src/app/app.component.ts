@@ -12,6 +12,8 @@ import {User} from "./shared/user.interface";
 
 export class AppComponent implements OnInit{
 
+  hello = "Angular";
+
   constructor(private weatherService:WeatherService){}
 
   ngOnInit() {

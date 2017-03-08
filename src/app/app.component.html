@@ -19,6 +19,8 @@
         <li [routerLinkActive]="['active']"><a routerLink="/viewchild">View Child</a></li>
         <li [routerLinkActive]="['active']"><a routerLink="/host">Host & Host-Context</a></li>
         <li [routerLinkActive]="['active']"><a routerLink="/guard">Guards</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/directives">Custom Directives</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/pipes">Custom Pipes</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -28,6 +30,7 @@
     <h1>
       Home Component
     </h1>
+    <h3>Hello  {{hello}} </h3>
     <hr>
     <router-outlet></router-outlet>
   <div>

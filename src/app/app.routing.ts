@@ -13,6 +13,8 @@ import {GuardsComponent} from "./guards/guards.component";
 import {CheckComponent} from "./guards/check.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {DeactivateGuard} from "./guards/deactivate.guard";
+import {DirectivesComponent} from "./directives/directives.component";
+import {PipesComponent} from "./pipes/pipes.component";
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'ngrx', component:  NgrxComponent},
   { path: 'viewchild', component:  ViewChildContentEgComponent},
   { path: 'host', component:  ParentHostComponent},
+  { path: 'directives', component:  DirectivesComponent},
+  { path: 'pipes', component:  PipesComponent},
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]}
 ];

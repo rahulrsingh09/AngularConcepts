@@ -1,0 +1,22 @@
+<p>
+  pipes works!
+</p>
+
+<input type="number" [(ngModel)] = "val" placeholder="Enter the Number to be Squared">
+
+<p>Squared Number is  {{val | square}} </p>
+
+<hr>
+Sending Values to Pipes adding two to the resultant square
+<p>Squared Number plus 2 is {{val | square:2}} </p>
+
+
+<!--Passing Multiple Arguments is also possible in  Pipe through array like
+<p>Squared Number plus 2 is {{val | square:[2,2]}} </p>
+transform(value: number, args?: number[]): number {
+OR
+<p>Squared Number plus 2 is {{val | square:2,2}} </p>
+transform(value: number, args?: number,args2?:number[]): number {
+
+Also help in traversing through nested objects in Ngfor please check my repo football details for such pipes
+-->

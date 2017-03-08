@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { counterReducer } from './counter';
+import { counterReducer, itemReducer} from './counter';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,11 @@ import { GuardsComponent } from './guards/guards.component';
 import { CheckComponent } from './guards/check.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {DeactivateGuard} from "./guards/deactivate.guard";
+import { DirectivesComponent } from './directives/directives.component';
+import { ConfirmDirective } from './directives/confirm.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import { SquarePipe } from './pipes/square.pipe';
+
 
 
 
@@ -40,11 +46,18 @@ import {DeactivateGuard} from "./guards/deactivate.guard";
     ParentHostComponent,
     ChildComponent,
     GuardsComponent,
-    CheckComponent
+    CheckComponent,
+    DirectivesComponent,
+    ConfirmDirective,
+    PipesComponent,
+    SquarePipe
   ],
   imports: [
     BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer }),
+    StoreModule.provideStore({ counter: counterReducer ,item : itemReducer}),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({
+      maxAge: 5
+    }),
     FormsModule,
     routing,
     RouterModule,
