@@ -28,6 +28,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { ConfirmDirective } from './directives/confirm.directive';
 import { PipesComponent } from './pipes/pipes.component';
 import { SquarePipe } from './pipes/square.pipe';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 
 
@@ -50,7 +51,8 @@ import { SquarePipe } from './pipes/square.pipe';
     DirectivesComponent,
     ConfirmDirective,
     PipesComponent,
-    SquarePipe
+    SquarePipe,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
