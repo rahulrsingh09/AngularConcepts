@@ -20,6 +20,10 @@ Angular Core Concepts
 <li>View Child , View Children and Content Children Example</li>
 <li>Ngrx Store[Redux] Simple Example</li>
 <li>Angular Router Resolve Explanation</li>
+<li>For Router Resolve Please Refer to my Other repo as i have used them in detail over there in https://github.com/rahulrsingh09/footballdetails</li>
+<li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/footballdetails I have used them in Detail</li>
+<li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/footballdetails </li>
+<li></li>
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts
