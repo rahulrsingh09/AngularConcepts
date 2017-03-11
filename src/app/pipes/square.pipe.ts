@@ -6,11 +6,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SquarePipe implements PipeTransform {
 
   transform(value: number, args?: number): number {
-    if(value != null){
-        return Math.pow(value,2) + args;
+    if(!args){
+      if(value != null){
+        //console.log("Arg[0]"+args[1]+"Args[1]"+args[1]);
+        return Math.pow(value,2);
+      }else{
+        return 0;
+      }
     }
     else {
-      return 0;
+      if(value != null){
+        //console.log("Arg[0]"+args[1]+"Args[1]"+args[1]);
+        return Math.pow(value,2) + args;
+      }else{
+        return 0;
+      }
     }
   }
 
