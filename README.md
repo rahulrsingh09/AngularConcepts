@@ -3,7 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
 By Rahul Singh <rahulrsingh09@gmail.com>
 
-Please Forgive the use of CSS here as this more to do with Angular than UI and UX design.
+Please pardon the use of CSS here as this more to do with Angular than UI and UX design.
+
+Please fork this repo or write to me at rahulrsingh09@gmail.com to add more concepts that you have any problem with will be glad to help.
 
 This Repo Gives a code Demo of some of the Concepts of Angular 2 in a basic way , will update it for more soon :- 
 Angular Core Concepts
@@ -23,7 +25,7 @@ Angular Core Concepts
 <li>For Router Resolve Please Refer to my Other repo as i have used them in detail over there in https://github.com/rahulrsingh09/footballdetails</li>
 <li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/footballdetails I have used them in Detail</li>
 <li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/footballdetails </li>
-<li></li>
+
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts
