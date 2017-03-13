@@ -14,11 +14,16 @@ import {User} from "./shared/user.interface";
 export class AppComponent implements OnInit{
 
   hello = "Angular";
+  cityName :string;
 
   constructor(private weatherService:WeatherService){}
 
   ngOnInit() {
-    this.weatherService.getWeatherForCity().subscribe();
+
+    this.weatherService.getWeatherForCity().subscribe(data => {
+      this.cityName = data.name;
+
+    });
   }
 }
 

@@ -1,7 +1,7 @@
 /**
  * Created by SINGH on 3/13/2017.
  */
-import {async, ComponentFixture, TestBed, ComponentFixtureAutoDetect} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed, ComponentFixtureAutoDetect, inject} from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import {DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
@@ -37,8 +37,17 @@ describe('TestComponent', () => {
     el = de.nativeElement;
   });
 
-  it('should display Original Titile', () => {
+  it('should display Title as Hello Angular', () => {
     console.log("Angular "+el.textContent);
     expect(el.textContent).toContain("Hello  Angular");
   });
+
+  it('Display City name From Weather Service', inject([WeatherService],(weatherService) => {
+    weatherService.getWeatherForCity().subscribe( response => {
+      console.log("Value Returned By Service "+ response.name);
+      expect (response.name).toBe("London");
+
+    });
+  }));
+
 });

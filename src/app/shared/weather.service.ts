@@ -10,9 +10,7 @@ export class WeatherService {
 
   getWeatherForCity(){
       //let headers = new Headers();
-      return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ae7307a14567cec9e97e644ff46b702d').map(response => {
-        console.log(response.json());
-      });
+      return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ae7307a14567cec9e97e644ff46b702d').map(response => response.json());
 
   }
 }
