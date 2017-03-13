@@ -43,10 +43,8 @@ describe('TestComponent', () => {
   });
 
   it('Display City name From Weather Service', inject([WeatherService],(weatherService) => {
-    weatherService.getWeatherForCity().subscribe( response => {
-      console.log("Value Returned By Service "+ response.name);
-      expect (response.name).toBe("London");
-
+    weatherService.getWeatherForCity().subscribe(response => {
+      expect(response.name).toBe("London");
     });
   }));
 
