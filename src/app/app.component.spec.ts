@@ -27,15 +27,14 @@ describe('TestComponent', () => {
       schemas: [ NO_ERRORS_SCHEMA]
     })
       .compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     //fixture.detectChanges(); this is beacuse we imported the Component Auto Detect
     de = fixture.debugElement.query(By.css('h3'));
     el = de.nativeElement;
-  });
+  }));
+
 
   it('should display Title as Hello Angular', () => {
     console.log("Angular "+el.textContent);
