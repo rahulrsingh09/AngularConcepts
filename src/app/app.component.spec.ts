@@ -1,32 +1,44 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+/**
+ * Created by SINGH on 3/13/2017.
+ */
+import {async, ComponentFixture, TestBed, ComponentFixtureAutoDetect} from '@angular/core/testing';
 
-describe('AppComponent', () => {
-  beforeEach(() => {
+import { AppComponent } from './app.component';
+import {DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
+import {By} from "@angular/platform-browser";
+import {WeatherService} from "./shared/weather.service";
+import {HttpModule} from "@angular/http";
+
+
+describe('TestComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
+
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      declarations: [ AppComponent ],
+      providers: [
+        { provide: ComponentFixtureAutoDetect, useValue: true},
+         WeatherService
       ],
-    });
-    TestBed.compileComponents();
+      imports: [HttpModule],
+      schemas: [ NO_ERRORS_SCHEMA]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    //fixture.detectChanges(); this is beacuse we imported the Component Auto Detect
+    de = fixture.debugElement.query(By.css('h3'));
+    el = de.nativeElement;
   });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  }));
+  it('should display Original Titile', () => {
+    console.log("Angular "+el.textContent);
+    expect(el.textContent).toContain("Hello  Angular");
+  });
 });
