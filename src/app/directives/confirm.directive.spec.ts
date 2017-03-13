@@ -26,4 +26,5 @@ describe('ConfirmDirective', () => {
     expect(window.alert).toHaveBeenCalled();
   });
 
+
   });
