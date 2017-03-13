@@ -15,6 +15,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import {DeactivateGuard} from "./guards/deactivate.guard";
 import {DirectivesComponent} from "./directives/directives.component";
 import {PipesComponent} from "./pipes/pipes.component";
+import {ViewencapsulationComponent} from "./viewencapsulation/viewencapsulation.component";
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'host', component:  ParentHostComponent},
   { path: 'directives', component:  DirectivesComponent},
   { path: 'pipes', component:  PipesComponent},
+  { path: 'view', component:  ViewencapsulationComponent },
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]}
 ];

@@ -16,6 +16,7 @@
             <li [routerLinkActive]="['active']"><a routerLink="/directives">Custom Directives</a></li>
             <li [routerLinkActive]="['active']"><a routerLink="/pipes">Custom Pipes</a></li>
             <li [routerLinkActive]="['active']"><a routerLink="/guard">Guards</a></li>
+            <li [routerLinkActive]="['active']"><a routerLink="/view">View Encapsulation</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Advanced Concepts</li>
             <li [routerLinkActive]="['active']"><a routerLink="/ngrx">Ngrx</a></li>
@@ -35,7 +36,7 @@
     <h1>
       Home Component
     </h1>
-    <h3>Hello  {{hello}} </h3>
+    <h3 class = "test">Hello  {{hello}} </h3>
     <hr>
     <router-outlet></router-outlet>
   <div>
