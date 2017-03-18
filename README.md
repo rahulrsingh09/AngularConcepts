@@ -17,6 +17,7 @@ Angular Core Concepts
 <li>Form Controls In Template Driven Forms</li>
 <li><Example of Http Module how to create a service in angular/li>
 <li>Angular 4 Rc2 IF else</li>
+<li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
 <li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
 <li>View Child , View Children and Content Children Example</li>
