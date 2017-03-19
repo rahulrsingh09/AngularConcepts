@@ -19,6 +19,7 @@ Angular Core Concepts
 <li>Angular 4 Rc2 IF else</li>
 <li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
+<li>Passing Data via Router and also Retriving them look at Angular4Component for code</li>
 <li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
 <li>View Child , View Children and Content Children Example</li>
 <li>Ngrx Store[Redux] Simple Example</li>

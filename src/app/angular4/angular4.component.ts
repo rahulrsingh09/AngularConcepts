@@ -9,12 +9,14 @@ import {ActivatedRoute} from "@angular/router";
 export class Angular4Component implements OnInit {
 
   message:string;
-
-  constructor(private route:ActivatedRoute) { }
+  data:string;
+  constructor(private route:ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.message = this.route.snapshot.params['message'];
-
+    this.data = this.route.snapshot.data['ping'];
+    console.log("t"+this.data);
   }
 
 }

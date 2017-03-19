@@ -24,11 +24,14 @@ describe('PipesComponent', () => {
       imports: [ FormsModule ],
       declarations: [ PipesComponent,MockPipe ], // declare the test component
     })
-      .compileComponents().then(()=>TestBed.createComponent(PipesComponent));  // compile template and css
+      .compileComponents();  // compile template and css
+
+
+    fixture = TestBed.createComponent(PipesComponent);
+    component = fixture.componentInstance;
+
   }));
 
-  fixture = TestBed.createComponent(PipesComponent);
-  component = fixture.componentInstance;
 
 
   it('should have a defined component', () => {
