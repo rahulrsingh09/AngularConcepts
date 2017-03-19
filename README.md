@@ -15,7 +15,7 @@ Angular Core Concepts
 <li>Custom Directives</li>
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Form Controls In Template Driven Forms</li>
-<li><Example of Http Module how to create a service in angular/li>
+<li><Example of Http Module how to create a service in angular and error handling in Services/li>
 <li>Angular 4 Rc2 IF else</li>
 <li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
