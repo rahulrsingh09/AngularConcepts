@@ -33,6 +33,8 @@ import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulatio
 import { ParentchildComponent } from './parentchild/parentchild.component';
 import { ChildparentComponent } from './parentchild/childparent.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

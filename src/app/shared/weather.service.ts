@@ -25,12 +25,12 @@ export class WeatherService {
   getLukeSkywalkerObservable(){
       return this.http.get('http://swapi.co/api/people/1/')
               .map(res => {
-                 return  res.json();
+                 return  res.json(); // using maps to filter data returned form the http call
               }).map(data => {
-                return data;
+                return data; // using maps of maps to filter data returned form the map
         }).flatMap((jedi) => this.http.get(jedi.homeworld))
           .map(res => {
-           return res.json().name;
+           return res.json().name; // using flat maps to combine data returned from two observables into one
           }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
