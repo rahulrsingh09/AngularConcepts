@@ -1,0 +1,17 @@
+<p>Parentchild works!</p>
+
+Enter the Text you want to send to the Child Component : <input type="text" #parentInput (keyup)="0">
+<!-- (keyup) is a dummy event to just show this demo -->
+
+<br>
+
+Value passed by Child Component : {{childValue}}
+
+<hr>
+
+<app-childparent [valuepassed]="parentInput.value" (toParent)="childValue = $event"></app-childparent>
+
+<!--You can also pass the event to a method-->
+
+
+

@@ -30,11 +30,8 @@ import { PipesComponent } from './pipes/pipes.component';
 import { SquarePipe } from './pipes/square.pipe';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulation.component';
-
-
-
-
-
+import { ParentchildComponent } from './parentchild/parentchild.component';
+import { ChildparentComponent } from './parentchild/childparent.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +52,9 @@ import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulatio
     PipesComponent,
     SquarePipe,
     DropdownDirective,
-    ViewencapsulationComponent
+    ViewencapsulationComponent,
+    ParentchildComponent,
+    ChildparentComponent
   ],
   imports: [
     BrowserModule,
