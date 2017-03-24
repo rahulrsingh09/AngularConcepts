@@ -21,4 +21,17 @@ export class WeatherService {
         }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+
+  getLukeSkywalkerObservable(){
+      return this.http.get('http://swapi.co/api/people/1/')
+              .map(res => {
+                 return  res.json();
+              }).map(data => {
+                return data;
+        }).flatMap((jedi) => this.http.get(jedi.homeworld))
+          .map(res => {
+           return res.json().name;
+          }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 }
