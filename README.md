@@ -13,6 +13,7 @@ Angular Core Concepts
 <li>Simple Angular  Component</li>
 <li>Custom Pipes</li>
 <li>Custom Directives</li>
+<li>Event Emitters  Input & Output</li>
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Form Controls In Template Driven Forms</li>
 <li><Example of Http Module how to create a service in angular and error handling in Services/li>

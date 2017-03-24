@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ParentchildComponent } from './parentchild.component';
+import {ChildparentComponent} from "./childparent.component";
 
 describe('ParentchildComponent', () => {
   let component: ParentchildComponent;
@@ -8,7 +9,7 @@ describe('ParentchildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParentchildComponent ]
+      declarations: [ ParentchildComponent,ChildparentComponent]
     })
     .compileComponents();
   }));
@@ -17,9 +18,11 @@ describe('ParentchildComponent', () => {
     fixture = TestBed.createComponent(ParentchildComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.valueToBePassed = "XYZ";
+    component.childValue = "CC";
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create Parent Child Component', () => {
+    expect(component).toBeDefined()
   });
 });
