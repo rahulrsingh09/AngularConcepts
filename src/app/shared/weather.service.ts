@@ -8,6 +8,11 @@ import {Observable} from "rxjs";
 @Injectable()
 export class WeatherService {
 
+  private username = 'rahulrsingh09';
+  private client_id = "ca1f1104614b5c2440b3";
+  private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
+
+
   constructor(private http:Http) { }
 
   getWeatherForCity(){
@@ -32,6 +37,34 @@ export class WeatherService {
           .map(res => {
            return res.json().name; // using flat maps to combine data returned from two observables into one
           }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
+      //switchMap is very similar to flatMap, but with a very important distinction.
+    // Any events to be merged into the trunk stream are ignored if a new event comes in.
+  }
+
+
+  getLukeSkywalkerPromise(){
+    return this.http.get('http://swapi.co/api/people/1/').toPromise()
+      .then((data) => {
+        console.log(data); // binding the result from the promise
+        return data.json();
+      }).then((data) => {
+        console.log(data.name); // more like map of map but limited functionality
+        return data.name;
+      }).catch((ex) => {
+          console.error('Server Error'+ex);
+      })
+  }
+// In oreder to bind two promises what you can do is You can also call toPromise() on an Observable and convert it to a regular promise as well.
+ // and then bind it using flat map as when we use in observables.
+
+
+  getUser(user:string){
+    return this.http.get('https://api.github.com/users/'+user)
+      .map(response => response.json())
+      .map(data => console.log("No of public Repos" + data.public_repos));
   }
 
 }
+
+
