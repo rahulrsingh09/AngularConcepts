@@ -2,10 +2,13 @@
   angular4 works!
 </h3>
 
-<ng-template #loading>Angular 4 Else</ng-template>
-<div *ngIf="1==1; else loading;">
-  Hello Angular 4 If else
-</div>
+<ng-template #fetching>
+  <p>Fetching...</p>
+</ng-template>
+
+<p *ngIf="auth | async; else fetching; let user">
+  {{user.username }}
+</p>
 
 <div *ngIf = "message">
   Data passed via router {{message}}
