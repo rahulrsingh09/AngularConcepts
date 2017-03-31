@@ -11,6 +11,7 @@ import {Theme} from "../shared/theme.interface";
 export class ReactiveComponent implements OnInit {
 
   user:FormGroup;
+  toggle
 
   constructor() { }
 

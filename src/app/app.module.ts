@@ -32,6 +32,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulation.component';
 import { ParentchildComponent } from './parentchild/parentchild.component';
 import { ChildparentComponent } from './parentchild/childparent.component';
+import {MomentModule} from "angular2-moment";
 
 
 
@@ -68,7 +69,8 @@ import { ChildparentComponent } from './parentchild/childparent.component';
     routing,
     RouterModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    MomentModule
   ],
   providers: [WeatherService,AuthGuard,DeactivateGuard],
   bootstrap: [AppComponent]

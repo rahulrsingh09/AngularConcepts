@@ -22,6 +22,9 @@ export class Angular4Component implements OnInit {
   searchField: FormControl;
   coolForm: FormGroup;
 
+  //Testing moments
+  myDate : Date;
+
 
   code:string = `
   getLukeSkywalkerObservable(){
@@ -63,6 +66,8 @@ export class Angular4Component implements OnInit {
       .switchMap(term => this.weatherService.getUser(term))
       .subscribe((result) => {
       });
+
+    this.myDate = new Date();
   }
 
   ngOnInit() {
