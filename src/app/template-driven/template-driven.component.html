@@ -1,39 +1,38 @@
-<h2>Tenmplate Driven Forms</h2>
+<h2>Template Driven Forms</h2>
 
 <form #f="ngForm" novalidate>
 
-  <label>Name:</label>
-  <input type="text" name="name" [(ngModel)]="user.name">
+  <md-input-container>
+    <input mdInput type="text" placeholder="Name" name = "name" [(ngModel)] = "user.name">
+  </md-input-container>
+
+  <md-input-container>
+    <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
+  </md-input-container>
+
   <br>
-  <label>Age:</label>
-  <input type="number" name="age" [(ngModel)]="user.age">
 
-  <div>
-    <label>Gender:</label>
-    <div *ngFor="let gender of genders">
-      <label>
-        <input type="radio" name="gender" [value]="gender.value">{{gender.display}}
-      </label>
-    </div>
-  </div>
+  <label> Gender -  </label>
+  <md-radio-group>
+    <md-radio-button *ngFor="let gender of genders" [(ngModel)]="user.gender"
+                     name = "gender" [value]="gender.value"> {{gender.display}} </md-radio-button>
+  </md-radio-group>
 
-  <div>
-    <label>Role</label>
-    <select name="role" [(ngModel)]="user.role">
-      <option *ngFor="let role of roles" [value]="role.value">
-        {{role.display}}
-      </option>
-    </select>
-  </div>
+  <br>
 
-  <div>
-    <label>Theme</label>
-    <select name="theme" [(ngModel)]="user.theme">
-      <option *ngFor="let theme of themes" [ngValue]="theme">
-        {{theme.display}}
-      </option>
-    </select>
-  </div>
+  <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
+    <md-option *ngFor="let role of roles" [value]="role.value">
+      {{role.display}}
+    </md-option>
+  </md-select>
+
+
+  <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
+    <md-option *ngFor="let theme of themes" [ngValue] = "theme">
+      {{theme.display}}
+    </md-option>
+  </md-select>
+
 
 
   <div>

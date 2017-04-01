@@ -33,6 +33,8 @@ import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulatio
 import { ParentchildComponent } from './parentchild/parentchild.component';
 import { ChildparentComponent } from './parentchild/childparent.component';
 import {MomentModule} from "angular2-moment";
+import {MaterialModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -70,7 +72,9 @@ import {MomentModule} from "angular2-moment";
     RouterModule,
     ReactiveFormsModule,
     HttpModule,
-    MomentModule
+    MomentModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [WeatherService,AuthGuard,DeactivateGuard],
   bootstrap: [AppComponent]
