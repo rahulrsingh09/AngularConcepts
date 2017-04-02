@@ -1,48 +1,62 @@
-<h3 class = "test">
-  angular4 works!
-</h3>
+<div class="row">
 
-<ng-template #fetching>
-  <p>Fetching...</p>
-</ng-template>
+  <h3 class = "test">
+    Angular4 works!
+  </h3>
 
-<p *ngIf="auth | async; else fetching; let user">
-  {{user.username }}
-</p>
+  <hr>
 
-Tetsing Moment
+  <ng-template #fetching>
+    <p>Fetching...</p>
+  </ng-template>
 
-Last updated: {{myDate | amTimeAgo}}
+  <p *ngIf="auth | async; else fetching; let user">
+    Angular 4 If else Usage - {{user.username }}
+  </p>
 
+  <hr>
 
-<div *ngIf = "message">
-  Data passed via router {{message}}
+  Testing Moment in Angular
+
+  Last updated: {{myDate | amTimeAgo}}
+
+  <div *ngIf = "message">
+    Data passed via router {{message}}
+  </div>
+
+  <hr>
+  <br><br>
+
+  <p>Planet of the Greatest Jedi {{lsObservable}}</p>
+  <hr>
+  Code for the Same using observables
+  <pre>
+    <code [innerHTML]="code"></code>
+  </pre>
+
+  <br>
+
+  <p>Greatest Jedi  {{lsPromise}} </p>
+  <hr>
+  Code for the Same using Promises
+  <pre>
+    <code [innerHTML]="promsieCode"></code>
+  </pre>
+
+  <br>
+
+  <p>Search Starwars Api Look in console Press F12: </p>
+
+  <form [formGroup]="coolForm">
+    <md-input-container>
+      <input mdInput type="text" placeholder="Search Github Repo" formControlName="search">
+    </md-input-container>
+  </form>
+
+  <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we show how we can use debouce time and switchmap in a form control to limit request to a server.
+    To have a enlarged view of this example Please check my repo https://github.com/rahulrsingh09/GitSearch-App which has a full reporduction of the above example.</p>
+  <br>
+
+  <p>Angular Testing Gist </p><a href = "https://gist.github.com/wkwiatek/e8a4a9d92abc4739f04f5abddd3de8a7">Testing Gist</a>
+
 </div>
-
-<br>
-
-<p>Planet of the Greatest Jedi {{lsObservable}}</p>
-<br>Code for the Same using observables
-<pre>
-  <code [innerHTML]="code"></code>
-</pre>
-
-<br>
-
-<p>Greatest Jedi  {{lsPromise}} </p>
-<br>Code for the Same using Promises
-<pre>
-  <code [innerHTML]="promsieCode"></code>
-</pre>
-
-<br>
-
-<p>Search Starwars Api Look in console Press f12: </p> <form [formGroup]="coolForm"><input formControlName="search" placeholder="Search Github User Repos"></form>
-
-<p>This above Example of Seraching Git repo is very crud but what the main moto of thsi example is that we show how we can use debouce time and switchmap in a form control to limit request to a server.
-  To have a enlarged view of this example Please check my repo https://github.com/rahulrsingh09/GitSearch-App which has a full reporduction of the above example.</p>
-<br>
-
-<p>Angular Testing Gist </p>
-<a href = "https://gist.github.com/wkwiatek/e8a4a9d92abc4739f04f5abddd3de8a7">Testing Gist</a>
-
