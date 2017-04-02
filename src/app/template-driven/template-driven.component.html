@@ -1,71 +1,87 @@
-<h2>Template Driven Forms</h2>
+<div class="row">
 
-<form #f="ngForm" novalidate>
+  <h2>Template Driven Forms</h2>
 
-  <md-input-container>
-    <input mdInput type="text" placeholder="Name" name = "name" [(ngModel)] = "user.name">
-  </md-input-container>
+  <br><br>
 
-  <md-input-container>
-    <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
-  </md-input-container>
+  <form #f="ngForm" novalidate>
 
-  <br>
+    <md-input-container>
+      <input mdInput type="text" placeholder="Name" name = "name" [(ngModel)] = "user.name">
+    </md-input-container>
 
-  <label> Gender -  </label>
-  <md-radio-group>
-    <md-radio-button *ngFor="let gender of genders" [(ngModel)]="user.gender"
-                     name = "gender" [value]="gender.value"> {{gender.display}} </md-radio-button>
-  </md-radio-group>
+    <md-input-container>
+      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
+    </md-input-container>
 
-  <br>
+    <br>
 
-  <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
-    <md-option *ngFor="let role of roles" [value]="role.value">
-      {{role.display}}
-    </md-option>
-  </md-select>
+    <!--<label> Gender - &nbsp;&nbsp; </label>-->
+    <!--<md-radio-group [(ngModel)] = "gender">-->
+      <!--<md-radio-button *ngFor="let gender of genders"-->
+                       <!--name = "gender" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>-->
+    <!--</md-radio-group>-->
+
+    <!--<div>-->
+      <!--<label>Gender</label>-->
+      <!--<div *ngFor="let gender of genders">-->
+        <!--<label>-->
+          <!--<input type="radio" name="gender" [(ngModel)]="user.gender"-->
+                 <!--[value]="gender.value">-->
+          <!--{{gender.display}}-->
+        <!--</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <br><br>
+
+    <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
+      <md-option *ngFor="let role of roles" [value]="role.value">
+        {{role.display}}
+      </md-option>
+    </md-select>
 
 
-  <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
-    <md-option *ngFor="let theme of themes" [ngValue] = "theme">
-      {{theme.display}}
-    </md-option>
-  </md-select>
+    <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
+      <md-option *ngFor="let theme of themes" [value] = "theme">
+        {{theme.display}}
+      </md-option>
+    </md-select>
 
 
-
-  <div>
-    <label>Topics</label>
-    <select multiple name="topics" [(ngModel)]="user.topics">
-      <option *ngFor="let topic of topics" [ngValue]="topic.value">
+    <md-select placeholder="Topics" name="topics" [(ngModel)]="user.topics">
+      <md-option  *ngFor="let topic of topics" [value]="topic.value">
         {{topic.display}}
-      </option>
-    </select>
-  </div>
+      </md-option>
+    </md-select>
 
+    <br><br>
 
-  <div>
-    <label>
-      <input type="checkbox" name="isActive" [(ngModel)]="user.isActive"> Is Active
-    </label>
-  </div>
+    <md-checkbox name="isActive" [(ngModel)]="user.isActive" >Is Active!</md-checkbox>
 
-
-  <div>
     <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
-    <div>
-      <label>
-        <input type="checkbox"
-               [checked]="user.toggle === toggles[0].value"
-               (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-        {{toggles[0].display}}
-      </label>
-    </div>
-  </div>
+    <md-checkbox [checked]="user.toggle === toggles[0].value"
+                   (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+        {{toggles[0].display}}</md-checkbox>
 
-  <br>
-  <hr>
-  <button type="submit" (click)="save(f.valid,f.value)">Submit</button>
 
-</form>
+
+    <!--<div>-->
+      <!--<input type="hidden" name="toggle" [(ngModel)]="user.toggle">-->
+      <!--<div>-->
+        <!--<label>-->
+          <!--<input type="checkbox"-->
+                 <!--[checked]="user.toggle === toggles[0].value"-->
+                 <!--(change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">-->
+          <!--{{toggles[0].display}}-->
+        <!--</label>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <br>
+    <hr>
+    <button md-raised-button type="submit" (click)="save(f.valid,f.value)" >Submit</button>
+
+  </form>
+
+</div>
