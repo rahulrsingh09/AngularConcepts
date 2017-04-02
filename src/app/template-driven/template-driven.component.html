@@ -49,7 +49,7 @@
     </md-select>
 
 
-    <md-select placeholder="Topics" name="topics" [(ngModel)]="user.topics">
+    <md-select multiple placeholder="Topics" name="topics" [(ngModel)]="user.topics">
       <md-option  *ngFor="let topic of topics" [value]="topic.value">
         {{topic.display}}
       </md-option>
@@ -61,8 +61,8 @@
 
     <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
     <md-checkbox [checked]="user.toggle === toggles[0].value"
-                   (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-        {{toggles[0].display}}</md-checkbox>
+                   (change)="$event.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+     {{toggles[0].display}}</md-checkbox>
 
 
 

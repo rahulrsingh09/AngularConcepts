@@ -32,9 +32,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ViewencapsulationComponent } from './viewencapsulation/viewencapsulation.component';
 import { ParentchildComponent } from './parentchild/parentchild.component';
 import { ChildparentComponent } from './parentchild/childparent.component';
-import {MomentModule} from "angular2-moment";
-import {MaterialModule} from "@angular/material";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { MomentModule }  from "angular2-moment";
+import { MaterialModule } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 
