@@ -62,6 +62,7 @@ export class ReactiveComponent implements OnInit {
     if(this.user.get('toggle').value){
       this.user.controls['toggle'].setValue('toggled');
     }else{
+      console.log("here");
       this.user.controls['toggle'].setValue('untoggled');
     }
   }
