@@ -1,36 +1,25 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
+  <md-toolbar color = "primary">
+    <button md-button class="md-primary" [routerLink]="['/basic']"><md-icon class = "icon-20">home</md-icon> &nbsp;Angular Concepts</button>
+    <button md-button [mdMenuTriggerFor]="bMenu">Basic Concepts</button>
+    <md-menu #bMenu="mdMenu">
+      <button md-menu-item [routerLink]="['/a4']">Angular Component</button>
+      <button md-menu-item [routerLink]="['/inout']">Event Emitters</button>
+      <button md-menu-item [routerLink]="['/template']">Template Driven Forms</button>
+      <button md-menu-item [routerLink]="['/reactive']">Data Driven Forms</button>
+      <button md-menu-item [routerLink]="['/directives']">Angular Custom Directives</button>
+      <button md-menu-item [routerLink]="['/pipes']">Custom Pipes</button>
+      <button md-menu-item [routerLink]="['/viewchild']">View Child</button>
+      <button md-menu-item [routerLink]="['/view']">View Encapsulation</button>
+    </md-menu>
 
-      <a class="navbar-brand" href="#">Angular Concepts</a>
-    </div>
-    <div id="navbar" class="">
-      <ul class="nav navbar-nav">
-        <li class="dropdown" appDropdown>
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Concepts [This is the work of a Custom Directive] <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li [routerLinkActive]="['active']"><a routerLink="/a4">Angular Component</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/inout">Event Emitters</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/template">Template Driven Forms</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/reactive">Data Driven Forms</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/directives">Custom Directives</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/pipes">Custom Pipes</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/guard">Guards</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/view">View Encapsulation</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Advanced Concepts</li>
-            <li [routerLinkActive]="['active']"><a routerLink="/ngrx">Ngrx</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/viewchild">View Child</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/host">Host & Host-Context</a></li>
-            <li [routerLinkActive]="['active']"><a routerLink="/guard">Guards</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
-
+    <button md-button [mdMenuTriggerFor]="aMenu">Advanced Concepts</button>
+    <md-menu #aMenu="mdMenu">
+      <button md-menu-item [routerLink]="['/ngrx']">Angular Redux using ngrx/store</button>
+      <button md-menu-item [routerLink]="['/guard']">Angular Guards</button>
+      <button md-menu-item [routerLink]="['/host']">Host & Host-Context</button>
+    </md-menu>
+  </md-toolbar>
 
 
   <div class ="top">

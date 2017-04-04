@@ -35,6 +35,8 @@ import { ChildparentComponent } from './parentchild/childparent.component';
 import { MomentModule }  from "angular2-moment";
 import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AngularcliComponent } from './angularcli/angularcli.component';
+import { BasicComponent } from './basic/basic.component';
 
 
 
@@ -59,7 +61,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     DropdownDirective,
     ViewencapsulationComponent,
     ParentchildComponent,
-    ChildparentComponent
+    ChildparentComponent,
+    AngularcliComponent,
+    BasicComponent
   ],
   imports: [
     BrowserModule,

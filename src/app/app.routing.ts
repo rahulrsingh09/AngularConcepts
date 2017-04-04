@@ -17,10 +17,12 @@ import {DirectivesComponent} from "./directives/directives.component";
 import {PipesComponent} from "./pipes/pipes.component";
 import {ViewencapsulationComponent} from "./viewencapsulation/viewencapsulation.component";
 import {ParentchildComponent} from "./parentchild/parentchild.component";
+import {BasicComponent} from "./basic/basic.component";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'a4', pathMatch: 'full' },
+  { path: '', redirectTo: 'basic', pathMatch: 'full' },
+  { path: 'basic', component: BasicComponent },
   { path: 'a4', component:  Angular4Component, data:{ ping:'passed via router'}},
   { path: 'a4/:message', component:  Angular4Component, data:{ ping:'passed via router'}},
   { path: 'inout' , component:ParentchildComponent},
