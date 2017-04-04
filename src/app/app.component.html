@@ -4,6 +4,7 @@
     <button md-button [mdMenuTriggerFor]="bMenu">Basic Concepts</button>
     <md-menu #bMenu="mdMenu">
       <button md-menu-item [routerLink]="['/a4']">Angular Component</button>
+      <button md-menu-item [routerLink]="['/cli ']">Angular CLI</button>
       <button md-menu-item [routerLink]="['/inout']">Event Emitters</button>
       <button md-menu-item [routerLink]="['/template']">Template Driven Forms</button>
       <button md-menu-item [routerLink]="['/reactive']">Data Driven Forms</button>
@@ -19,6 +20,8 @@
       <button md-menu-item [routerLink]="['/guard']">Angular Guards</button>
       <button md-menu-item [routerLink]="['/host']">Host & Host-Context</button>
     </md-menu>
+
+    <button md-button (click)="openDialog()">&nbsp;Contact Card</button>
   </md-toolbar>
 
 

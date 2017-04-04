@@ -7,7 +7,7 @@ import { counterReducer, itemReducer} from './counter';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
-import { AppComponent } from './app.component';
+import {AppComponent, DialogResultExampleDialog} from './app.component';
 import { WeatherService } from "./shared/weather.service";
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { StoreModule } from '@ngrx/store';
@@ -36,7 +36,7 @@ import { MomentModule }  from "angular2-moment";
 import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularcliComponent } from './angularcli/angularcli.component';
-import { BasicComponent } from './basic/basic.component';
+import { BasicComponent} from './basic/basic.component';
 
 
 
@@ -63,7 +63,8 @@ import { BasicComponent } from './basic/basic.component';
     ParentchildComponent,
     ChildparentComponent,
     AngularcliComponent,
-    BasicComponent
+    BasicComponent,
+    DialogResultExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -81,6 +82,7 @@ import { BasicComponent } from './basic/basic.component';
     BrowserAnimationsModule
   ],
   providers: [WeatherService,AuthGuard,DeactivateGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogResultExampleDialog]
 })
 export class AppModule { }
