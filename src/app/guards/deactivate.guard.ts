@@ -18,6 +18,6 @@ export class DeactivateGuard implements CanDeactivate<GuardsComponent>{
 
   canDeactivate(target : GuardsComponent):Observable<boolean> | boolean{
     console.log("Indeactivate Guard");
-    return target.canDeactivate ? target.canDeactivate() : true;
+    return target.canDeactivate();
   }
 }

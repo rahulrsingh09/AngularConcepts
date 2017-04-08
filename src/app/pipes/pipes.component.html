@@ -1,8 +1,11 @@
 <p>
-  pipes works!
+  Pipes works!
 </p>
 
-<input type="number" [(ngModel)] = "val" placeholder="Enter the Number to be Squared">
+<md-input-container>
+  <input mdInput type="number" [(ngModel)] = "val" placeholder="Number to be Squared">
+</md-input-container>
+
 <p>Squared Number is  {{val | square}} </p>
 
 <hr>

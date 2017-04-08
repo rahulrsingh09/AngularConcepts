@@ -40,7 +40,6 @@ export class GuardsComponent implements OnInit {
       if (user == "x") {
       return window.confirm('Discard changes?');
     }
-
     return true;
   }
 

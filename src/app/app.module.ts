@@ -37,6 +37,7 @@ import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularcliComponent } from './angularcli/angularcli.component';
 import { BasicComponent} from './basic/basic.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -79,7 +80,8 @@ import { BasicComponent} from './basic/basic.component';
     HttpModule,
     MomentModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [WeatherService,AuthGuard,DeactivateGuard],
   bootstrap: [AppComponent],
