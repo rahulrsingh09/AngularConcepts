@@ -8,6 +8,8 @@ import {DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
 import {By} from "@angular/platform-browser";
 import {WeatherService} from "./shared/weather.service";
 import {HttpModule} from "@angular/http";
+import { MaterialModule } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 describe('TestComponent', () => {
@@ -23,7 +25,7 @@ describe('TestComponent', () => {
         { provide: ComponentFixtureAutoDetect, useValue: true},
          WeatherService
       ],
-      imports: [HttpModule],
+      imports: [HttpModule,MaterialModule,BrowserAnimationsModule],
       schemas: [ NO_ERRORS_SCHEMA]
     })
       .compileComponents();
@@ -38,7 +40,7 @@ describe('TestComponent', () => {
 
   it('should display Title as Hello Angular', () => {
     console.log("Angular "+el.textContent);
-    expect(el.textContent).toContain("Hello  Angular");
+    expect(el.textContent).toContain("Hello Angular");
   });
 
   it('Display City name From Weather Service', inject([WeatherService],(weatherService) => {
