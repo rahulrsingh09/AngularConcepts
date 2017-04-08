@@ -36,9 +36,15 @@ import { MomentModule }  from "angular2-moment";
 import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularcliComponent } from './angularcli/angularcli.component';
-import { BasicComponent} from './basic/basic.component';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import { BasicComponent } from './basic/basic.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+import { ChartsComponent } from './charts/charts.component';
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 
 @NgModule({
@@ -65,7 +71,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ChildparentComponent,
     AngularcliComponent,
     BasicComponent,
-    DialogResultExampleDialog
+    DialogResultExampleDialog,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     }),
+    ChartModule,
     FormsModule,
     routing,
     RouterModule,
@@ -83,7 +91,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [WeatherService,AuthGuard,DeactivateGuard],
+  providers: [WeatherService,
+              AuthGuard,
+              DeactivateGuard,
+              {
+                provide: HighchartsStatic,
+                useFactory: highchartsFactory
+              }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultExampleDialog]
 })
