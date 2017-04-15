@@ -19,6 +19,7 @@ import {ViewencapsulationComponent} from "./viewencapsulation/viewencapsulation.
 import {ParentchildComponent} from "./parentchild/parentchild.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AngularcliComponent} from "./angularcli/angularcli.component";
+import {ChartsComponent} from "./charts/charts.component";
 
 
 const routes: Routes = [
@@ -37,7 +38,9 @@ const routes: Routes = [
   { path: 'pipes', component:  PipesComponent},
   { path: 'view', component:  ViewencapsulationComponent },
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
-  { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]}
+  { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
+  { path: 'charts', component:  ChartsComponent }
+
 ];
 
 export const routing = RouterModule.forRoot(routes);

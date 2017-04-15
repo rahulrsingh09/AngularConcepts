@@ -42,9 +42,17 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { ChartsComponent } from './charts/charts.component';
+
 export function highchartsFactory() {
-  return require('highcharts');
+  var hc = require('highcharts');
+  var hcm = require('highcharts/highcharts-more');
+  var exp = require('highcharts/modules/exporting');
+
+  hcm(hc);
+  exp(hc);
+  return hc;
 }
+
 
 
 @NgModule({

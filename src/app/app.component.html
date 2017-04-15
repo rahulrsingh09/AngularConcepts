@@ -5,7 +5,7 @@
 
     <md-menu #bMenu="mdMenu">
       <button md-menu-item [routerLink]="['/a4']">Angular Component</button>
-      <button md-menu-item [routerLink]="['/cli ']">Angular CLI</button>
+      <button md-menu-item [routerLink]="['/cli']">Angular CLI</button>
       <button md-menu-item [routerLink]="['/inout']">Event Emitters</button>
       <button md-menu-item [routerLink]="['/template']">Template Driven Forms</button>
       <button md-menu-item [routerLink]="['/reactive']">Data Driven Forms</button>
@@ -22,13 +22,18 @@
       <button md-menu-item [routerLink]="['/host']">Host & Host-Context</button>
     </md-menu>
 
+    <button md-button [mdMenuTriggerFor]="cMenu">Additional</button>
+    <md-menu #cMenu="mdMenu">
+      <button md-menu-item [routerLink]="['/charts']">Angular 2 + HighCharts</button>
+    </md-menu>
+
     <button md-button (click)="openDialog()">&nbsp;Contact Card</button>
   </md-toolbar>
 
 
   <div class ="top">
     <div class="container">
-    <h3>Hello {{hello}}</h3>
+    <!--<h3>Hello {{hello}}</h3>-->
     <router-outlet></router-outlet>
     </div>
   <div>
