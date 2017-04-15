@@ -47,9 +47,11 @@ export function highchartsFactory() {
   var hc = require('highcharts');
   var hcm = require('highcharts/highcharts-more');
   var exp = require('highcharts/modules/exporting');
+  var drill = require('highcharts/modules/drilldown');
 
   hcm(hc);
   exp(hc);
+  drill(hc)
   return hc;
 }
 
