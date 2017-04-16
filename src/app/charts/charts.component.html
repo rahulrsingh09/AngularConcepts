@@ -3,13 +3,24 @@
 </p>
 <hr>
 
-<div style="float: left">
-  <chart [options]="drilldown"></chart>
+
+
+<div class="row">
+  <div class="col-md-12"><a href="http://jsfiddle.net/dacbyL1s/">Multi level Drill Down Example </a>
+  </div>
 </div>
 
-<div style="float: right">
-  <chart [options]="piechart" class="float-right"></chart>
+<br>
+
+<div class="row">
+  <div class="col-md-6"><chart [options]="drilldown"></chart></div>
+  <div class="col-md-6"><chart [options]="piechart"></chart></div>
 </div>
 
+<br>
 
+<div class="row">
+  <div class="col-md-6"><chart [options]="multi"></chart></div>
+  <div class="col-md-6"></div>
+</div>
 
