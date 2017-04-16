@@ -65,6 +65,11 @@ export class WeatherService {
       .map(data => console.log("No of public Repos" + data.public_repos));
   }
 
+  getChartDataAsync(){
+    return this.http.get("https://cdn.rawgit.com/gevgeny/angular2-highcharts/99c6324d/examples/aapl.json")
+                .map(reponse => reponse.json());
+  }
+
 }
 
 

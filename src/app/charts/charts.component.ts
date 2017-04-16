@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WeatherService} from "../shared/weather.service";
 
 @Component({
   selector: 'app-charts',
@@ -8,17 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class ChartsComponent implements OnInit {
 
   drilldown: Object;
-  piechart:Object;
+  piechart: Object;
 
-  constructor(){
-     }
+
+  constructor() {
+  }
 
   ngOnInit() {
 
     this.drilldown = {
-    chart: {
-      type: 'column'
-    },
+      chart: {
+        type: 'column'
+      },
       title: {
         text: 'Basic drilldown'
       },
@@ -40,48 +42,80 @@ export class ChartsComponent implements OnInit {
       },
 
       series: [{
-        name: 'Things',
+        name: 'Country',
         colorByPoint: true,
         data: [{
-          name: 'Animals',
-          y: 5,
-          drilldown: 'animals'
-        }, {
-          name: 'Fruits',
+          name: 'India',
           y: 2,
-          drilldown: 'fruits'
+          drilldown: 'india'
         }, {
-          name: 'Cars',
-          y: 4,
-          drilldown: 'cars'
+          name: 'United Kindom',
+          y: 2,
+          drilldown: 'uk'
         }]
       }],
       drilldown: {
         series: [{
-          id: 'animals',
-          data: [
-            ['Cats', 4],
-            ['Dogs', 2],
-            ['Cows', 1],
-            ['Sheep', 2],
-            ['Pigs', 1]
-          ]
+          name: 'Popular Destinations',
+          id: 'india',
+          data: [{
+            name: 'WB',
+            y: 3,
+            drilldown: 'wbdes'
+          },
+            {
+              name: 'CHD',
+              y: 2,
+              drilldown: 'chddes'
+            }]
         }, {
-          id: 'fruits',
-          data: [
-            ['Apples', 4],
-            ['Oranges', 2]
-          ]
+          name: 'Popular Destinations',
+          id: 'uk',
+          data: [{
+            name: 'london',
+            y: 2,
+            drilldown: 'londondes'
+          },
+            {
+              name: 'manchester',
+              y: 1,
+              drilldown: 'manchesterdes'
+            }]
         }, {
-          id: 'cars',
+          name: 'votes',
+          id: 'londondes',
           data: [
-            ['Toyota', 4],
-            ['Opel', 2],
-            ['Volkswagen', 2]
+            ['Stamford Bridge', 40],
+            ['Kings Road', 2]
           ]
-        }]
+        },
+          {
+            name: 'votes',
+            id: 'manchesterdes',
+            data: [
+              ['Old Trafford', 4]
+            ]
+          },
+          {
+            name: 'votes',
+            id: 'wbdes',
+            data: [
+              ['victoria memorial', 4],
+              ['eden garden', 2],
+              ['Home', 1]
+            ]
+          },
+          {
+            name: 'votes',
+            id: 'chddes',
+            data: [
+              ['Sukhna Lake', 4],
+              ['Infosys', 2]
+            ]
+          }]
       }
     };
+
 
     this.piechart = {
       chart: {
@@ -103,9 +137,7 @@ export class ChartsComponent implements OnInit {
           dataLabels: {
             enabled: true,
             format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-            style: {
-
-            }
+            style: {}
           }
         }
       },
@@ -135,7 +167,6 @@ export class ChartsComponent implements OnInit {
         }]
       }]
     };
-
 
   }
 
