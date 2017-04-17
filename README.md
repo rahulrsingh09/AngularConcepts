@@ -29,7 +29,7 @@ Angular Core Concepts
 <li>For Router Resolve Please Refer to my Other repo as i have used them in detail over there in https://github.com/rahulrsingh09/footballdetails</li>
 <li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/footballdetails I have used them in Detail</li>
 <li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/footballdetails </li>
-<li>Use of HighCharts to Show Graphical Info of Data that is mostly used now a days in web apps</li>
+<li>Use of HighCharts to Show Graphical Info of Data that is mostly used now a days in web apps [Multi level , Multi level - multi chart  Drill Down Included]</li>
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts

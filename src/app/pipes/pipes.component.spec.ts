@@ -5,6 +5,8 @@ import {FormsModule} from "@angular/forms";
 
 
 import {Pipe, PipeTransform} from '@angular/core';
+import {MaterialModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @Pipe({name: 'square'})
 class MockPipe implements PipeTransform {
@@ -21,7 +23,7 @@ describe('PipesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule ],
+      imports: [ FormsModule,MaterialModule,BrowserAnimationsModule ],
       declarations: [ PipesComponent,MockPipe ], // declare the test component
     })
       .compileComponents();  // compile template and css

@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ParentchildComponent } from './parentchild.component';
 import {ChildparentComponent} from "./childparent.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MaterialModule} from "@angular/material";
 
 describe('ParentchildComponent', () => {
   let component: ParentchildComponent;
@@ -9,7 +11,8 @@ describe('ParentchildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParentchildComponent,ChildparentComponent]
+      declarations: [ ParentchildComponent,ChildparentComponent],
+      imports: [MaterialModule,BrowserAnimationsModule],
     })
     .compileComponents();
   }));
