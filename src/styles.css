@@ -2,3 +2,8 @@
 
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.img-circle{
+  width: 100px;
+  height: 100px;
+}
