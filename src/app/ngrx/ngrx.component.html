@@ -13,7 +13,7 @@
     <input mdInput type="text" placeholder="Add to List" #list>
   </md-input-container>
 
-  <button md-raised-button (click)="add(list.value)" [@ngrxStore] = "state">Add to List</button>
+  <button md-raised-button (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>
 
   <div *ngFor = "let i of item | async" [@flyInOut] >
     <div class = "well" (click) = get(i,index)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
