@@ -29,7 +29,7 @@ export function counterReducer(state: number = 0, action: Action) {
 }
 
 export function itemReducer(state: string[] = [], action: Action){
-  switch(action.type){
+  switch (action.type) {
     case ADD:
       state.push(action.payload);
       return state;

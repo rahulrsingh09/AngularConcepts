@@ -5,15 +5,16 @@
   <button md-mini-fab (click)="increment()">+</button>
   <button md-mini-fab (click)="decrement()">-</button>
 
-  <div><h3>Current Count: {{ counter | async }}</h3></div>
-
-
-  <button md-raised-button (click)="reset()">Reset</button>
-
-  <button md-raised-button (click)="add()" [@ngrxStore] = "state">Add to List</button>
+  <div><h3>Current Count: {{ counter | async }}</h3>
+    <button md-raised-button (click)="reset()">Reset</button></div>
 
   <hr>
+  <md-input-container>
+    <input mdInput type="text" placeholder="Add to List" #list>
+  </md-input-container>
 
-  <div *ngFor = "let i of item | async ; let index = index" [@flyInOut] >
-    <div class = "well" (click) = get(i,index)>{{i}} -- {{index}}</div>
+  <button md-raised-button (click)="add(list.value)" [@ngrxStore] = "state">Add to List</button>
+
+  <div *ngFor = "let i of item | async" [@flyInOut] >
+    <div class = "well" (click) = get(i,index)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
   </div>

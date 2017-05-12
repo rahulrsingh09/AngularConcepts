@@ -71,15 +71,14 @@ export class NgrxComponent implements OnInit,OnChanges {
     this.store.dispatch({ type: RESET });
   }
 
-  add() {
+  add(list: string) {
     this.state = (this.state === 'active') ? 'inactive' : 'active';
-    this.store.dispatch({type: ADD , payload : 'Hello'});
+    this.store.dispatch({type: ADD , payload : list});
   }
   ngOnInit() {
   }
 
-  get(item: string, index: string) {
-    console.log("Item"+ item + "index" + index);
+  get(item: string) {
     this.store.dispatch({type: DEL , payload : item});
 
   }
