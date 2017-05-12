@@ -9,6 +9,7 @@ export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
 export const ADD = 'ADD';
+export const DEL = 'DEL';
 
 
 export function counterReducer(state: number = 0, action: Action) {
@@ -27,13 +28,15 @@ export function counterReducer(state: number = 0, action: Action) {
   }
 }
 
-export function itemReducer(state : string[] = [],action:Action){
+export function itemReducer(state: string[] = [], action: Action){
   switch(action.type){
     case ADD:
-      console.log("payload"+action.payload);
       state.push(action.payload);
-      //console.log("state"+state);
       return state;
+    case DEL:
+      return state.filter(item => {
+        return item !== action.payload;
+      });
     default:
       return state;
   }

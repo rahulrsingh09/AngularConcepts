@@ -42,6 +42,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { ChartsComponent } from './charts/charts.component';
+import { PocComponent } from './poc/poc.component';
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -82,7 +83,8 @@ export function highchartsFactory() {
     AngularcliComponent,
     BasicComponent,
     DialogResultExampleDialog,
-    ChartsComponent
+    ChartsComponent,
+    PocComponent
   ],
   imports: [
     BrowserModule,

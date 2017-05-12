@@ -20,6 +20,7 @@ import {ParentchildComponent} from "./parentchild/parentchild.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AngularcliComponent} from "./angularcli/angularcli.component";
 import {ChartsComponent} from "./charts/charts.component";
+import {PocComponent} from "./poc/poc.component";
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   { path: 'cli', component: AngularcliComponent },
   { path: 'a4', component:  Angular4Component, data:{ ping:'passed via router'}},
   { path: 'a4/:message', component:  Angular4Component, data:{ ping:'passed via router'}},
-  { path: 'inout' , component:ParentchildComponent},
+  { path: 'inout' , component: ParentchildComponent},
   { path: 'template', component:  TemplateDrivenComponent},
   { path: 'reactive', component:  ReactiveComponent},
   { path: 'ngrx', component:  NgrxComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
   { path: 'view', component:  ViewencapsulationComponent },
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
-  { path: 'charts', component:  ChartsComponent }
+  { path: 'charts', component:  ChartsComponent },
+  { path: 'ad', component:  PocComponent }
+
 
 ];
 

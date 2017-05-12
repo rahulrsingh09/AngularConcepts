@@ -87,7 +87,9 @@ export class Angular4Component implements OnInit {
 
     this.message = this.route.snapshot.params['message'];
     this.data = this.route.snapshot.data['ping'];
-    console.log("t"+this.data);
+    //console.log("t"+this.data);
+
+
 
   }
 

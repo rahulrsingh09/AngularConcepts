@@ -10,10 +10,10 @@
 
   <button md-raised-button (click)="reset()">Reset</button>
 
-  <button md-raised-button (click)="add()">Add to List</button>
+  <button md-raised-button (click)="add()" [@ngrxStore] = "state">Add to List</button>
 
   <hr>
 
-  <div *ngFor = "let i of item | async">
-      {{i}} <hr>
+  <div *ngFor = "let i of item | async ; let index = index" [@flyInOut] >
+    <div class = "well" (click) = get(i,index)>{{i}} -- {{index}}</div>
   </div>

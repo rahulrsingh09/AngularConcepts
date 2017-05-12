@@ -70,6 +70,13 @@ export class WeatherService {
                 .map(reponse => reponse.json());
   }
 
+
+  getPocData(cid: string, tc: string, channel: string, pageType: string, productId: string, searchText: string, rid: string){
+    return this.http.get("http://localhost:8080/ad?CID="+cid+"&TC="+tc+"&CHANNEL="+channel+"&pageType="+pageType+"&productId="+productId+"&searchText="+searchText+"&rid="+rid)
+      .map(response => response.json());
+  }
+
+
 }
 
 

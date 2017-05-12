@@ -2,7 +2,14 @@ import {Component, OnInit, OnChanges} from '@angular/core';
 import {Observable} from "rxjs";
 
 import { Store } from '@ngrx/store';
-import {INCREMENT, DECREMENT, RESET, ADD} from '../counter';
+import {INCREMENT, DECREMENT, RESET, ADD, DEL} from '../counter';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 interface AppState {
   counter: number;
@@ -12,12 +19,39 @@ interface AppState {
 @Component({
   selector: 'app-ngrx',
   templateUrl: './ngrx.component.html',
-  styleUrls: ['./ngrx.component.css']
+  styleUrls: ['./ngrx.component.css'],
+  animations: [
+    trigger('ngrxStore',[
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active', style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-in')),
+    ]),
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate('300ms ease-in')
+      ]),
+      transition('* => void', [
+        animate(300, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+
+
+  ]
 })
 export class NgrxComponent implements OnInit,OnChanges {
 
   counter: Observable<number>;
   item : Observable<string[]>;
+  state:string = 'inactive';
 
 
   constructor(private store: Store<AppState>){
@@ -33,15 +67,21 @@ export class NgrxComponent implements OnInit,OnChanges {
     this.store.dispatch({ type: DECREMENT });
   }
 
-  reset(){
+  reset() {
     this.store.dispatch({ type: RESET });
   }
 
-  add(){
-    console.log("In Add Method");
-    this.store.dispatch({type: ADD ,payload : "Hello"});
+  add() {
+    this.state = (this.state === 'active') ? 'inactive' : 'active';
+    this.store.dispatch({type: ADD , payload : 'Hello'});
   }
   ngOnInit() {
+  }
+
+  get(item: string, index: string) {
+    console.log("Item"+ item + "index" + index);
+    this.store.dispatch({type: DEL , payload : item});
+
   }
 
   ngOnChanges(){
