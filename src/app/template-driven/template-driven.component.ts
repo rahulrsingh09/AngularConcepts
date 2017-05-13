@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 
 import {User} from "../shared/user.interface";
 import {Theme} from "../shared/theme.interface";
@@ -6,9 +6,14 @@ import {Theme} from "../shared/theme.interface";
 @Component({
   selector: 'app-template-driven',
   templateUrl: './template-driven.component.html',
-  styleUrls: ['./template-driven.component.css']
+  styleUrls: ['./template-driven.component.css'],
+  host: {'(click)': 'onClick()'}
 })
 export class TemplateDrivenComponent implements OnInit {
+
+  @HostListener('click') onClick(){
+    console.log("User Click using Host Listner");
+  }
 
   public user:User;
 
@@ -57,6 +62,7 @@ export class TemplateDrivenComponent implements OnInit {
       topics:[this.topics[1].value]
     }
   }
+
 
 
 }
