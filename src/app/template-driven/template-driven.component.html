@@ -7,8 +7,24 @@
   <form #f="ngForm" novalidate>
 
     <md-input-container>
-      <input mdInput type="text" placeholder="Name" name = "name" [(ngModel)] = "user.name">
+      <input mdInput type="text"
+             placeholder="Name"
+             name = "name"
+             [(ngModel)] = "user.name"
+             #userName = "ngModel"
+             minlength="5"
+             required
+             nameRahul>
     </md-input-container>
+    <div *ngIf="userName.errors?.required && userName.touched" class="error">
+      Name is required
+    </div>
+    <div *ngIf="userName.errors?.minlength && userName.touched" class="error">
+      Min Length is required (5)
+    </div>
+    <div *ngIf="userName.errors?.nameRahul && userName.touched" class="error">
+      Required Name is Rahul
+    </div>
 
     <md-input-container>
       <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
@@ -85,5 +101,7 @@
     <button md-raised-button type="submit" (click)="save(f.valid,f.value)" >Submit</button>
 
   </form>
+
+  {{ f.value | json }}
 
 </div>

@@ -109,8 +109,8 @@ export class NgrxComponent implements OnInit, OnChanges {
 
   }
 
-  ngOnChanges(){
-    console.log("Item value" + this.item);
+  ngOnChanges() {
+    console.log('Item value' + this.item);
   }
 
   animationStarted() {
