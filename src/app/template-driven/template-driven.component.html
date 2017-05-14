@@ -16,23 +16,14 @@
              required
              nameRahul>
     </md-input-container>
-    <div *ngIf="userName.errors?.required && userName.touched" class="error">
-      Name is required
-    </div>
-    <div *ngIf="userName.errors?.minlength && userName.touched" class="error">
-      Min Length is required (5)
-    </div>
-    <div *ngIf="userName.errors?.nameRahul && userName.touched" class="error">
-      Required Name is Rahul
+    <div *ngIf="formErrors.name" class="alert alert-danger">
+      {{ formErrors.name }}
     </div>
 
     <md-input-container>
-      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" #age = "ngModel" asyncValidator>
+      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
     </md-input-container>
 
-    <div *ngIf="age.errors?.asyncInvalid && userName.touched" class="error">
-      Age Should be 20
-    </div>
     <br>
 
 <!--
