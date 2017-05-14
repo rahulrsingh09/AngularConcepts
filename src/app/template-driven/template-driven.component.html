@@ -27,9 +27,12 @@
     </div>
 
     <md-input-container>
-      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age">
+      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" #age = "ngModel" asyncValidator>
     </md-input-container>
 
+    <div *ngIf="age.errors?.asyncInvalid && userName.touched" class="error">
+      Age Should be 20
+    </div>
     <br>
 
 <!--
@@ -98,7 +101,7 @@
 
     <br>
     <hr>
-    <button md-raised-button type="submit" (click)="save(f.valid,f.value)" >Submit</button>
+    <button md-raised-button type="submit" (click)="save(f.valid,f.value)" [disabled] = !f.valid >Submit</button>
 
   </form>
 

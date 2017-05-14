@@ -44,6 +44,7 @@ import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { ChartsComponent } from './charts/charts.component';
 import { PocComponent } from './poc/poc.component';
 import {NameValidatorDirective} from "./template-driven/NameValidator";
+import {AsyncAgeValidator} from "./template-driven/AsyncAgeValidator";
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -86,7 +87,8 @@ export function highchartsFactory() {
     DialogResultExampleDialog,
     ChartsComponent,
     PocComponent,
-    NameValidatorDirective
+    NameValidatorDirective,
+    AsyncAgeValidator
   ],
   imports: [
     BrowserModule,
