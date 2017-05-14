@@ -17,11 +17,11 @@ import {Observable} from "rxjs";
 
 export class AsyncAgeValidator implements Validator{
 
-  validate(c: AbstractControl):  Promise<{[key : string] : any}>|Observable<{[key : number] : any}>{
-      return this.validateAgePromise(c.value);
+  validate(c: AbstractControl): Observable<{[key : number] : any}>{
+      return this.validateAgeObservable(c.value);
   }
 
-  validateAgeObservable( age : number ) {
+  validateAgeObservable( age: number ) {
 
 
     return new Observable(observer => {

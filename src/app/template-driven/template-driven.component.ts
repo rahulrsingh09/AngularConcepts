@@ -10,7 +10,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./template-driven.component.css'],
   host: {'(click)': 'onClick()'}
 })
-export class TemplateDrivenComponent implements OnInit,AfterViewChecked {
+export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
 
   // all field related validation moved to the backend model instead of the template
   f: NgForm;
@@ -51,7 +51,7 @@ export class TemplateDrivenComponent implements OnInit,AfterViewChecked {
 
   formErrors = {
     'name': '',
-    'power': ''
+    'age' : ''
   };
 
   validationMessages = {
@@ -59,6 +59,10 @@ export class TemplateDrivenComponent implements OnInit,AfterViewChecked {
       'required': 'Name is required.',
       'minlength': 'Name must be at least 4 characters long.',
       'nameRahul': 'Name Must be Rahul'
+    },
+    'age': {
+      'required': 'Age is Required',
+      'asyncInvalid' : 'Async Validator'
     }
   };
 
