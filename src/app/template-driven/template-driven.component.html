@@ -26,6 +26,12 @@
       <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
     </md-input-container>
 
+    <div *ngIf="formErrors.age|json">
+      <div *ngFor = "let data of formErrors.age" class="alert alert-danger">
+        {{data}}
+      </div>
+    </div>
+
     <br>
 
 <!--

@@ -25,9 +25,9 @@ export class AsyncAgeValidator implements Validator{
     return new Observable(observer => {
 
       if( age === 20 ) {
-        observer.next({asyncInvalid: true});
+        observer.next(null);
       } else {
-        observer.next({asyncInvalid: false});
+        observer.next({asyncInvalid: true});
         console.log('validate');
       }
     });
