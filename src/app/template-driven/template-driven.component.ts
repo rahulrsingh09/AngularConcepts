@@ -37,21 +37,21 @@ export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
 
     for (const field in this.formErrors) {
       // clear previous error message (if any)
-      this.formErrors[field] = '';
+      this.formErrors[field] = [];
       const control = form.get(field);
 
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
+          this.formErrors[field].push(messages[key]);
         }
       }
     }
   }
 
   formErrors = {
-    'name': '',
-    'age' : ''
+    'name': [],
+    'age' : []
   };
 
   validationMessages = {

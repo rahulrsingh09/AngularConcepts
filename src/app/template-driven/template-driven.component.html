@@ -12,16 +12,18 @@
              name = "name"
              [(ngModel)] = "user.name"
              #userName = "ngModel"
-             minlength="5"
+             minlength="4"
              required
              nameRahul>
     </md-input-container>
-    <div *ngIf="formErrors.name" class="alert alert-danger">
-      {{ formErrors.name }}
+    <div *ngIf="formErrors.name[0]">
+      <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
+        {{data}}
+      </div>
     </div>
 
     <md-input-container>
-      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" asyncValidator>
+      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
     </md-input-container>
 
     <br>

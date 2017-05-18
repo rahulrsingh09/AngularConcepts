@@ -22,8 +22,6 @@ export class AsyncAgeValidator implements Validator{
   }
 
   validateAgeObservable( age: number ) {
-
-
     return new Observable(observer => {
 
       if( age === 20 ) {
