@@ -18,18 +18,14 @@ import {Observable} from "rxjs";
 export class AsyncAgeValidator implements Validator{
 
   validate(c: AbstractControl): Observable<{[key : number] : any}>{
-      return this.validateAgeObservable(c.value);
+    // return this.validateAgeObservable(c.value);
+    return this.validateAgeObservable(c.value).first();
   }
 
   validateAgeObservable( age: number ) {
     return new Observable(observer => {
-
-      if( age === 20 ) {
-        observer.next(null);
-      } else {
-        observer.next({asyncInvalid: true});
-        console.log('validate');
-      }
+      observer.next(age === 20 ? null : {asyncInvalid: true});
+      // observer.complete(); or this or .first();
     });
   }
 
