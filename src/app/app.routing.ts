@@ -21,6 +21,7 @@ import {BasicComponent} from "./basic/basic.component";
 import {AngularcliComponent} from "./angularcli/angularcli.component";
 import {ChartsComponent} from "./charts/charts.component";
 import {PocComponent} from "./poc/poc.component";
+import {DynamicComponentComponent} from "./dynamic-component/dynamic-component.component";
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
-  { path: 'ad', component:  PocComponent }
+  { path: 'ad', component:  PocComponent },
+  { path: 'dynamic', component : DynamicComponentComponent}
 
 
 ];

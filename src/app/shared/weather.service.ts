@@ -3,6 +3,9 @@ import { Http,Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs";
+import {HeroProfileComponent} from "../dynamic-component/hero-profile-ad.component";
+import {AdItem} from "../dynamic-component/ad-item";
+import {HeroJobAdComponent} from "../dynamic-component/hero-job-ad.component";
 
 
 @Injectable()
@@ -74,6 +77,23 @@ export class WeatherService {
   getPocData(cid: string, tc: string, channel: string, pageType: string, productId: string, searchText: string, rid: string){
     return this.http.get("http://localhost:8080/ad?CID="+cid+"&TC="+tc+"&CHANNEL="+channel+"&pageType="+pageType+"&productId="+productId+"&searchText="+searchText+"&rid="+rid)
       .map(response => response.json());
+  }
+
+
+  //AdService
+
+  getAds() {
+    return [
+      new AdItem(HeroProfileComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
+
+      new AdItem(HeroProfileComponent, {name: 'Dr IQ', bio: 'Smart as they come'}),
+
+      new AdItem(HeroJobAdComponent,   {headline: 'Hiring for several positions',
+        body: 'Submit your resume today!'}),
+
+      new AdItem(HeroJobAdComponent,   {headline: 'Openings in all departments',
+        body: 'Apply today'}),
+    ];
   }
 
 

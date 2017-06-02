@@ -45,6 +45,11 @@ import { ChartsComponent } from './charts/charts.component';
 import { PocComponent } from './poc/poc.component';
 import {NameValidatorDirective} from "./template-driven/NameValidator";
 import {AsyncAgeValidator} from "./template-driven/AsyncAgeValidator";
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { DynamicDirectiveDirective } from './dynamic-component/dynamic-directive.directive';
+import {HeroJobAdComponent} from "./dynamic-component/hero-job-ad.component";
+import {HeroProfileComponent} from "./dynamic-component/hero-profile-ad.component";
+import {AdBannerComponent} from "./dynamic-component/ad-banner.component";
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -88,7 +93,12 @@ export function highchartsFactory() {
     ChartsComponent,
     PocComponent,
     NameValidatorDirective,
-    AsyncAgeValidator
+    AsyncAgeValidator,
+    DynamicComponentComponent,
+    DynamicDirectiveDirective,
+    AdBannerComponent,
+    HeroJobAdComponent,
+    HeroProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -116,6 +126,6 @@ export function highchartsFactory() {
               }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogResultExampleDialog]
+  entryComponents: [DialogResultExampleDialog, HeroJobAdComponent, HeroProfileComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ export class PipesComponent implements OnInit {
 
   val :number;
 
+
   constructor() { }
 
   ngOnInit() {
