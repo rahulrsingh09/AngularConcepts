@@ -68,10 +68,10 @@ export class WeatherService {
       .map(data => console.log("No of public Repos" + data.public_repos));
   }
 
-  getChartDataAsync(){
+ /* getChartDataAsync(){
     return this.http.get("https://cdn.rawgit.com/gevgeny/angular2-highcharts/99c6324d/examples/aapl.json")
                 .map(reponse => reponse.json());
-  }
+  }*/
 
 
   getPocData(cid: string, tc: string, channel: string, pageType: string, productId: string, searchText: string, rid: string){
@@ -84,11 +84,11 @@ export class WeatherService {
 
   getAds() {
     return [
-      new AdItem(HeroProfileComponent, {name: 'Bombasto', bio: 'Brave as they come'}),
+      new AdItem(HeroProfileComponent, {name: 'Rahul Singh', bio: 'Angular Admirer'}),
 
-      new AdItem(HeroProfileComponent, {name: 'Dr IQ', bio: 'Smart as they come'}),
+      new AdItem(HeroProfileComponent, {name: 'Mom', bio: 'Smart as they come'}),
 
-      new AdItem(HeroJobAdComponent,   {headline: 'Hiring for several positions',
+      new AdItem(HeroJobAdComponent,   {headline: 'Hiring Angular Dev',
         body: 'Submit your resume today!'}),
 
       new AdItem(HeroJobAdComponent,   {headline: 'Openings in all departments',

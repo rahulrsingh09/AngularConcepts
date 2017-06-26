@@ -113,7 +113,7 @@ export class NgrxComponent implements OnInit, OnChanges {
     console.log('Item value' + this.item);
   }
 
-  animationStarted() {
+  animationStarted(event : any) {
     console.log('Started Animation');
   }
 

@@ -1,4 +1,7 @@
-import { Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
+import {
+  Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy,
+  AfterContentInit
+} from '@angular/core';
 import {AdItem} from "./ad-item";
 import {DynamicDirectiveDirective} from "./dynamic-directive.directive";
 import {AdComponent} from "./ad.component";
@@ -13,7 +16,7 @@ import {AdComponent} from "./ad.component";
               </div>
             `
 })
-export class AdBannerComponent implements AfterViewInit, OnDestroy {
+export class AdBannerComponent implements AfterContentInit, OnDestroy {
   @Input() ads: AdItem[];
   currentAddIndex: number = -1;
   @ViewChild(DynamicDirectiveDirective) adHost: DynamicDirectiveDirective;
@@ -22,7 +25,7 @@ export class AdBannerComponent implements AfterViewInit, OnDestroy {
 
   constructor(private _componentFactoryResolver: ComponentFactoryResolver) { }
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     this.loadComponent();
     this.getAds();
   }
