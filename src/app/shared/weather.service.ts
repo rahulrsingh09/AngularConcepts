@@ -31,7 +31,7 @@ export class WeatherService {
 
 
   getLukeSkywalkerObservable(){
-      return this.http.get('http://swapi.co/api/people/1/')
+      return this.http.get('https://swapi.co/api/people/1/')
               .map(res => {
                  return  res.json(); // using maps to filter data returned form the http call
               }).map(data => {
@@ -47,7 +47,7 @@ export class WeatherService {
 
 
   getLukeSkywalkerPromise(){
-    return this.http.get('http://swapi.co/api/people/1/').toPromise()
+    return this.http.get('https://swapi.co/api/people/1/').toPromise()
       .then((data) => {
         console.log(data); // binding the result from the promise
         return data.json();

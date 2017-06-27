@@ -43,7 +43,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { ChartsComponent } from './charts/charts.component';
-import { PocComponent } from './poc/poc.component';
 import {NameValidatorDirective} from './template-driven/NameValidator';
 import {AsyncAgeValidator} from './template-driven/AsyncAgeValidator';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
@@ -92,7 +91,6 @@ export function highchartsFactory() {
     BasicComponent,
     DialogResultExampleDialog,
     ChartsComponent,
-    PocComponent,
     NameValidatorDirective,
     AsyncAgeValidator,
     DynamicComponentComponent,

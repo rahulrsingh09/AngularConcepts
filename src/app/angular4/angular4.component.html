@@ -1,11 +1,25 @@
 <div class="row">
 
-  <h3 class = "test">
-    Angular4 Component works!
-  </h3>
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="test">
+        Angular4 Component works!
+      </h3>
+    </div>
 
-  <a href ="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html"> Angular Components Doc</a>
+    <div class="col-md-4">
+      <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/angular4">
+          <img src="/assets/images/code.png" alt="Image">
+        </a>
+      </span>
+    </div>
+  </div>
 
+  <br>
+
+  <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html"> Angular Components Doc</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md"> Angular 4 ChangeLog</a>
   <hr>
 
   <ng-template #fetching>
@@ -13,17 +27,17 @@
   </ng-template>
 
   <p *ngIf="auth | async; else fetching; let user">
-  Angular 4 If else Usage - {{user.username }}
-</p>
+    Angular 4 If else Usage - {{user.username }}
+  </p>
 
-  <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md"> Angular 4 ChangeLog</a>
+
   <hr>
 
   Testing Moment in Angular
 
   Last updated: {{myDate | amTimeAgo}}
 
-  <div *ngIf = "message">
+  <div *ngIf="message">
     Data passed via router <h2>{{message}}</h2>
   </div>
 
@@ -39,7 +53,7 @@
 
   <br>
 
-  <p>Greatest Jedi  {{lsPromise}} </p>
+  <p>Greatest Jedi {{lsPromise}} </p>
   <hr>
   Code for the Same using Promises
   <pre>
@@ -49,7 +63,7 @@
   <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt4.html">Angular Services</a>
   <br>
 
-  <p>Search Starwars Api Look in console Press F12: </p>
+  <p>Search Git Api Look in console Press F12: </p>
 
   <form [formGroup]="coolForm">
     <md-input-container>
@@ -57,12 +71,17 @@
     </md-input-container>
   </form>
 
-  <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we show how we can use debouce time and switchmap in a form control to limit request to a server.
-    To have a enlarged view of this example Please check my repo https://github.com/rahulrsingh09/GitSearch-App which has a full reporduction of the above example.</p>
+  <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we
+    show how we can use debouce time and switchmap in a form control to limit request to a server.
+    To have a enlarged view of this example Please check my repo https://github.com/rahulrsingh09/GitSearch-App which
+    has
+    a full reporduction of the above example.</p>
   <br>
 
-  <p>Angular Testing Gist </p><a href = "https://gist.github.com/wkwiatek/e8a4a9d92abc4739f04f5abddd3de8a7">Testing Gist</a>
+  <p>Angular Testing Gist </p><a href="https://gist.github.com/wkwiatek/e8a4a9d92abc4739f04f5abddd3de8a7">Testing
+  Gist</a>
 
-  <p>Angular Input Control Gist </p><a href = "http://lishman.io/angular-2-input-binding#?mode=ide&guide=Radio">Input Controls in Angular </a>
+  <p>Angular Input Control Gist </p><a href="http://lishman.io/angular-2-input-binding#?mode=ide&guide=Radio">Input
+  Controls in Angular </a>
 
 </div>

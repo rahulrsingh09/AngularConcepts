@@ -1,6 +1,20 @@
-<p>
-  Directives works!
-</p>
+<div class="row">
+  <div class="col-md-8">
+    <h3 class="test">
+      Directives works!
+    </h3>
+  </div>
+
+  <div class="col-md-4">
+      <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/directives/confirm.directive.ts">
+          <img src="/assets/images/code.png" alt="Image">
+        </a>
+      </span>
+  </div>
+</div>
+
+<hr>
 
 
 <!--we can also add the attribute directive liek this [appconfirm] if the input in the directive has same name as appConfirm-->
@@ -9,6 +23,7 @@
 
 <button md-raised-button appConfirm value = "Rahul">Click to Send to Directive</button>
 
-<br>
+<br> <br>
+
 <!--Check this link for more on directives-->
 <a href="https://angular-2-training-book.rangle.io/handout/advanced-angular/directives/creating_an_attribute_directive.html">More on Directives</a>

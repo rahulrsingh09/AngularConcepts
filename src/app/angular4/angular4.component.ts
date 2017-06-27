@@ -93,12 +93,4 @@ export class Angular4Component implements OnInit {
 
   }
 
-
-  onChange(name:string){
-    this.weatherService.getUser(name)
-      .debounceTime(500)
-      .distinctUntilChanged()
-
-      .subscribe();
-  }
 }

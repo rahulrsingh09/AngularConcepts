@@ -10,12 +10,30 @@ import {Tab} from './tab';
 
   selector: 'view-child-content',
   template: `
+    
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="test">
+          View Child & Children
+        </h3>
+      </div>
+    
+      <div class="col-md-4">
+          <span mdTooltip="View Source">
+            <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg">
+              <img src="/assets/images/code.png" alt="Image">
+            </a>
+          </span>
+      </div>
+    </div>
+
+
     <tabs>
       <tab [tabTitle]="'Tab 1'" (click) = "update()">Tab 1 Content</tab>
-      <tab [tabTitle]="'Tab X'">Tab 2 Content</tab>
+       <tab [tabTitle]="'Tab X'">Tab 2 Content</tab>
     </tabs>
-    <div #child>My Value
-    <div>My Value2</div></div>
+    <div #child>Check Console for View Child Example
+    <div>Check Console for View Children Example</div></div>
     
   `
 })
@@ -28,7 +46,6 @@ export class ViewChildContentEgComponent implements AfterViewInit{
   ngAfterViewInit() {
     // After the view is initialized, this.userProfile will be available
     this.update();
-
     console.log(this.div);
   }
 

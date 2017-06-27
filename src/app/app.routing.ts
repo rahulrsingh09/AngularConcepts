@@ -42,8 +42,8 @@ const routes: Routes = [
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
-  { path: 'ad', component:  PocComponent },
-  { path: 'dynamic', component : DynamicComponentComponent}
+  { path: 'dynamic', component : DynamicComponentComponent},
+  { path: 'tabs', component : ViewChildContentEgComponent}
 
 
 ];
