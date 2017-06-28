@@ -43,8 +43,7 @@ const routes: Routes = [
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
   { path: 'dynamic', component : DynamicComponentComponent},
-  { path: 'tabs', component : ViewChildContentEgComponent},
-  { path: 'notes', component : NotesComponent}
+  { path: 'tabs', component : ViewChildContentEgComponent}
 
 
 ];

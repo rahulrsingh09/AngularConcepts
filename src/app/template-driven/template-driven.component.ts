@@ -44,8 +44,6 @@ export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
           this.formErrors[field].push(messages[key]);
-          console.log("===");
-          console.log(this.formErrors[field]);
         }
       }
     }
@@ -67,11 +65,6 @@ export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
       'asyncInvalid' : 'Async Validator'
     }
   };
-
-
-  @HostListener('click') onClick(){
-    console.log("User Click using Host Listner");
-  }
 
 
   public user:User;

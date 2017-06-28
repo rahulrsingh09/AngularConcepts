@@ -29,10 +29,11 @@ import {Tab} from './tab';
 
 
     <tabs>
-      <tab [tabTitle]="'Tab 1'" (click) = "update()">Tab 1 Content</tab>
-       <tab [tabTitle]="'Tab X'">Tab 2 Content</tab>
+      <tab [tabTitle]="'View Child Tab'" (click) = "update()">Click on me & check Content in console</tab>
+       <tab [tabTitle]="'Notes'"><app-notes></app-notes></tab>
     </tabs>
-    <div #child>Check Console for View Child Example
+    <br> 
+    <div #child>Console for View Child Example
     <div>Check Console for View Children Example</div></div>
     
   `

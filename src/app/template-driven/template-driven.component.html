@@ -30,21 +30,11 @@
              required
              nameRahul>
     </md-input-container>
-    <div *ngIf="formErrors.name[0]">
-      <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
-        {{data}}
-      </div>
-    </div>
 
     <md-input-container>
       <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
     </md-input-container>
 
-    <div *ngIf="formErrors.age|json">
-      <div *ngFor = "let data of formErrors.age" class="alert alert-danger">
-        {{data}}
-      </div>
-    </div>
 
     <br>
 
@@ -118,6 +108,19 @@
 
   </form>
 
-  {{ f.value | json }}
+  <br>
+
+  <div *ngIf="formErrors.name[0]">
+    <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
+      {{data}}
+    </div>
+  </div>
+
+
+  <div *ngIf="formErrors.age | json">
+    <div *ngFor = "let data of formErrors.age" class="alert alert-danger">
+      {{data}}
+    </div>
+  </div>
 
 </div>
