@@ -50,6 +50,7 @@ import { DynamicDirectiveDirective } from './dynamic-component/dynamic-directive
 import {HeroJobAdComponent} from './dynamic-component/hero-job-ad.component';
 import {HeroProfileComponent} from './dynamic-component/hero-profile-ad.component';
 import {AdBannerComponent} from './dynamic-component/ad-banner.component';
+import { NotesComponent } from './notes/notes.component';
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -97,7 +98,8 @@ export function highchartsFactory() {
     DynamicDirectiveDirective,
     AdBannerComponent,
     HeroJobAdComponent,
-    HeroProfileComponent
+    HeroProfileComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,

@@ -20,8 +20,8 @@ import {ParentchildComponent} from "./parentchild/parentchild.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AngularcliComponent} from "./angularcli/angularcli.component";
 import {ChartsComponent} from "./charts/charts.component";
-import {PocComponent} from "./poc/poc.component";
 import {DynamicComponentComponent} from "./dynamic-component/dynamic-component.component";
+import {NotesComponent} from "./notes/notes.component";
 
 
 const routes: Routes = [
@@ -43,7 +43,8 @@ const routes: Routes = [
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
   { path: 'dynamic', component : DynamicComponentComponent},
-  { path: 'tabs', component : ViewChildContentEgComponent}
+  { path: 'tabs', component : ViewChildContentEgComponent},
+  { path: 'notes', component : NotesComponent}
 
 
 ];
