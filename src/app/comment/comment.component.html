@@ -1,0 +1,16 @@
+
+<!--<div> {{ (user | async)?.displayName }} </div>-->
+<button (click)="login()">Login</button>
+<button (click)="logout()">Logout</button>
+
+
+<h3>Add new Comment:</h3>
+<input type=”text” [(ngModel)]='comment' (keydown.enter)=add()/>
+
+<div>{{user?.displayName}}</div>
+
+
+
+<div *ngFor = "let i of comments" [@flyInOut] >
+  <div class = "well" (click) = get(i,index)>{{i.name}} ==== {{i.comment}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+</div>
