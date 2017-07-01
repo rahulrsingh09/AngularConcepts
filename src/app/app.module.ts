@@ -5,11 +5,11 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { counterReducer, itemReducer} from './counter';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 
 import {AppComponent, DialogResultExampleDialog} from './app.component';
-import { WeatherService } from './shared/weather.service';
+import { AngularService } from './shared/angular.service';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { StoreModule } from '@ngrx/store';
 import { routing } from './app.routing';
@@ -39,7 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularcliComponent } from './angularcli/angularcli.component';
 import { BasicComponent } from './basic/basic.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { LocalStorageModule } from 'angular-2-local-storage';
 import { ChartModule } from 'angular2-highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { ChartsComponent } from './charts/charts.component';
@@ -51,6 +51,13 @@ import {HeroJobAdComponent} from './dynamic-component/hero-job-ad.component';
 import {HeroProfileComponent} from './dynamic-component/hero-profile-ad.component';
 import {AdBannerComponent} from './dynamic-component/ad-banner.component';
 import { NotesComponent } from './notes/notes.component';
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
+import {AngularFireAuth} from "angularfire2/auth/auth";
+import { CommentComponent } from './comment/comment.component';
+import {FireAuthResolve} from "./comment/fireauth.resolve";
+import {TestService} from "./shared/test.service";
+import { TestComponent } from './test/test.component';
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -64,6 +71,14 @@ export function highchartsFactory() {
   return hc;
 }
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyB0UI7IuR2yzBWYdDlJbMTPVyWVvDIAhZw",
+  authDomain: "angularapp-f8d55.firebaseapp.com",
+  databaseURL: "https://angularapp-f8d55.firebaseio.com",
+  projectId: "angularapp-f8d55",
+  storageBucket: "angularapp-f8d55.appspot.com",
+  messagingSenderId: "538402879016"
+};
 
 
 @NgModule({
@@ -99,7 +114,9 @@ export function highchartsFactory() {
     AdBannerComponent,
     HeroJobAdComponent,
     HeroProfileComponent,
-    NotesComponent
+    NotesComponent,
+    CommentComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -116,16 +133,25 @@ export function highchartsFactory() {
     MomentModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    LocalStorageModule.withConfig({
+      prefix: 'my-app',
+      storageType: 'localStorage'
+    })
   ],
-  providers: [WeatherService,
+  providers: [AngularService,
+    TestService,
     AuthGuard,
     DeactivateGuard,
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
     },
-    {provide: LocationStrategy, useClass: HashLocationStrategy} //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
+    {provide: LocationStrategy, useClass: PathLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
+    AngularFireAuth,
+    FireAuthResolve
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultExampleDialog, HeroJobAdComponent, HeroProfileComponent]

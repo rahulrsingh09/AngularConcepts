@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {WeatherService} from "../shared/weather.service";
+import {AngularService} from "../shared/angular.service";
 
 @Component({
   selector: 'app-charts',

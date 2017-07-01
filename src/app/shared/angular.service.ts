@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Http,Headers } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs";
 import {HeroProfileComponent} from "../dynamic-component/hero-profile-ad.component";
 import {AdItem} from "../dynamic-component/ad-item";
 import {HeroJobAdComponent} from "../dynamic-component/hero-job-ad.component";
-
+import {AngularFireDatabase} from "angularfire2/database/database";
+import * as firebase from 'firebase/app';
 
 @Injectable()
-export class WeatherService {
+export class AngularService {
 
   private username = 'rahulrsingh09';
   private client_id = "ca1f1104614b5c2440b3";
   private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
 
 
-  constructor(private http:Http) { }
+  constructor(private http:Http, private af: AngularFireDatabase) { }
 
   getWeatherForCity(){
       //let headers = new Headers();
@@ -58,7 +59,7 @@ export class WeatherService {
           console.error('Server Error'+ex);
       })
   }
-// In oreder to bind two promises what you can do is You can also call toPromise() on an Observable and convert it to a regular promise as well.
+// In order to bind two promises what you can do is You can also call toPromise() on an Observable and convert it to a regular promise as well.
  // and then bind it using flat map as when we use in observables.
 
 
@@ -72,12 +73,6 @@ export class WeatherService {
     return this.http.get("https://cdn.rawgit.com/gevgeny/angular2-highcharts/99c6324d/examples/aapl.json")
                 .map(reponse => reponse.json());
   }*/
-
-
-  getPocData(cid: string, tc: string, channel: string, pageType: string, productId: string, searchText: string, rid: string){
-    return this.http.get("http://localhost:8080/ad?CID="+cid+"&TC="+tc+"&CHANNEL="+channel+"&pageType="+pageType+"&productId="+productId+"&searchText="+searchText+"&rid="+rid)
-      .map(response => response.json());
-  }
 
 
   //AdService
@@ -94,6 +89,18 @@ export class WeatherService {
       new AdItem(HeroJobAdComponent,   {headline: 'Openings in all departments',
         body: 'Apply today'}),
     ];
+  }
+
+  fetchData(id:string){
+    return this.af.list('/comments/users/'+id);
+  }
+
+  postComment(comment:string, user: firebase.User){
+    const comments = this.af.list('/comments/users/'+ user.uid);
+    comments.push({
+      name: user.displayName,
+      photo: user.photoURL,
+      comment : comment});
   }
 
 

@@ -11,7 +11,7 @@
       <button md-menu-item [routerLink]="['/reactive']">Data Driven Forms</button>
       <button md-menu-item [routerLink]="['/directives']">Angular Custom Directives</button>
       <button md-menu-item [routerLink]="['/pipes']">Custom Pipes</button>
-      <button md-menu-item [routerLink]="['/viewchild']">View Child</button>
+      <button md-menu-item [routerLink]="['/viewchild']">View Child & Notes</button>
       <button md-menu-item [routerLink]="['/view']">View Encapsulation</button>
     </md-menu>
 
@@ -28,7 +28,13 @@
       <button md-menu-item [routerLink]="['/charts']">Angular 2 + HighCharts</button>
     </md-menu>
 
-    <button md-button (click)="openDialog()">&nbsp;Contact Card</button>
+    <button md-button [mdMenuTriggerFor]="bMenu">Feedback</button>
+    <md-menu #bMenu="mdMenu">
+      <button md-button (click)="openDialog()">Contact Card</button>
+      <button md-menu-item [routerLink]="['/comment']">Comments</button>
+    </md-menu>
+
+
   </md-toolbar>
 
 

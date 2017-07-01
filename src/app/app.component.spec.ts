@@ -6,7 +6,7 @@ import {async, ComponentFixture, TestBed, ComponentFixtureAutoDetect, inject} fr
 import { AppComponent } from './app.component';
 import {DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
 import {By} from "@angular/platform-browser";
-import {WeatherService} from "./shared/weather.service";
+import {AngularService} from "./shared/angular.service";
 import {HttpModule} from "@angular/http";
 import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -23,7 +23,7 @@ describe('TestComponent', () => {
       declarations: [ AppComponent ],
       providers: [
         { provide: ComponentFixtureAutoDetect, useValue: true},
-         WeatherService
+         AngularService
       ],
       imports: [HttpModule,MaterialModule,BrowserAnimationsModule],
       schemas: [ NO_ERRORS_SCHEMA]
@@ -43,7 +43,7 @@ describe('TestComponent', () => {
     expect(el.textContent).toContain("Hello Angular");
   });
 
-  it('Display City name From Weather Service', inject([WeatherService],(weatherService) => {
+  it('Display City name From Weather Service', inject([AngularService],(weatherService) => {
     weatherService.getWeatherForCity().subscribe(response => {
       expect(response.name).toBe("London");
     });

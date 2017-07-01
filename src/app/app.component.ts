@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
-import {WeatherService} from "./shared/weather.service";
+import {AngularService} from "./shared/angular.service";
 import { Theme } from './shared/theme.interface';
 import {User} from "./shared/user.interface";
 import {MdDialog, MdDialogRef} from "@angular/material";
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   cityName :string;
   selectedOption: string;
 
-  constructor(private weatherService:WeatherService ,public dialog: MdDialog){}
+  constructor(private weatherService:AngularService , public dialog: MdDialog){}
 
   openDialog() {
     let dialogRef = this.dialog.open(DialogResultExampleDialog);

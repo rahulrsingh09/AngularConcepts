@@ -22,6 +22,8 @@ import {AngularcliComponent} from "./angularcli/angularcli.component";
 import {ChartsComponent} from "./charts/charts.component";
 import {DynamicComponentComponent} from "./dynamic-component/dynamic-component.component";
 import {NotesComponent} from "./notes/notes.component";
+import {CommentComponent} from "./comment/comment.component";
+import {FireAuthResolve} from "./comment/fireauth.resolve";
 
 
 const routes: Routes = [
@@ -43,7 +45,8 @@ const routes: Routes = [
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
   { path: 'dynamic', component : DynamicComponentComponent},
-  { path: 'tabs', component : ViewChildContentEgComponent}
+  { path: 'tabs', component : ViewChildContentEgComponent},
+  { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}}
 
 
 ];

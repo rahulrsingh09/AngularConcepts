@@ -70,7 +70,6 @@ interface AppState {
       ])
     ])
 
-
   ]
 })
 export class NgrxComponent implements OnInit, OnChanges {

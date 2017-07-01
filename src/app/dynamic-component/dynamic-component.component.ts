@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AdItem} from "./ad-item";
-import {WeatherService} from "../shared/weather.service";
+import {AngularService} from "../shared/angular.service";
 
 
 @Component({
@@ -11,7 +11,7 @@ export class DynamicComponentComponent implements OnInit{
 
   ads: AdItem[];
 
-  constructor(private service: WeatherService) {}
+  constructor(private service: AngularService) {}
 
   ngOnInit() {
     this.ads = this.service.getAds();

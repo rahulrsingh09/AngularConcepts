@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {WeatherService} from "../shared/weather.service";
+import {AngularService} from "../shared/angular.service";
 import {FormControl, FormGroup, FormBuilder} from "@angular/forms";
 import {Observable} from "rxjs";
 
@@ -56,7 +56,7 @@ export class Angular4Component implements OnInit {
  // and then bind it using flat map as when we use in observables.
 `;
 
-  constructor(private route:ActivatedRoute,private weatherService:WeatherService,private fb:FormBuilder) {
+  constructor(private route:ActivatedRoute, private weatherService:AngularService, private fb:FormBuilder) {
     this.searchField = new FormControl();
     this.coolForm = fb.group({search: this.searchField});
 

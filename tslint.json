@@ -91,12 +91,12 @@
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
-      "check-type"
+      "check-separator"
+      //"check-type"
     ],
 
     "directive-selector": [true, "attribute", "app", "camelCase"],
