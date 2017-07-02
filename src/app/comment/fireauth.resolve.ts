@@ -19,9 +19,9 @@ export class FireAuthResolve implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
     if (localStorage.getItem("user")){
-      return true;
+      return Observable.of(true);
     } else {
-      return false;
+      return Observable.of(false);
     }
   }
 }

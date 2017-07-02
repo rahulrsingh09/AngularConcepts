@@ -1,16 +1,63 @@
+<ng-template #loginscreen>
+  <div>
+    <h2 class="my-header"> Please Sign In Using any of the Following to Log Comments </h2>
+    <button class="loginBtn loginBtn--facebook">
+      Login with Facebook
+    </button>
+    <button class="loginBtn loginBtn--google" (click)="login()">
+      Login with Google
+    </button>
+  </div>
+</ng-template>
 
-<!--<div> {{ (user | async)?.displayName }} </div>-->
-<button (click)="login()">Login</button>
-<button (click)="logout()">Logout</button>
 
+<div class="row" *ngIf="user;else loginscreen">
+  <div>
+    <div class="col-md-12 user-details">
+      <div class="user-image">
+        <img src="/assets/images/user.png" alt="You Like to Keep it Secret" class="img-circle">
+      </div>
+      <div class="user-info-block">
+        <div class="user-heading">
+          <h3>Yet to Be Made</h3>
+          <span class="help-block">INFO</span>
+        </div>
+        <ul class="navigation">
+          <li>
+            <a data-toggle="tab">
+              <span class="glyphicon glyphicon-comment"></span>
+            </a>
+          </li>
+          <li>
+            <a (click)="logout()">
+              <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+          </li>
+        </ul>
+        <div class="user-body">
+          <div class="tab-content">
+            <div id="email" class="tab-pane active">
+              <div *ngFor = "let i of comments" [@flyInOut] >
+                <div class = "well" (click) = get(i,index)>{{i.name}} ==== {{i.comment}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--
 
 <h3>Add new Comment:</h3>
 <input type=”text” [(ngModel)]='comment' (keydown.enter)=add()/>
 
 <div>{{user?.displayName}}</div>
 
+-->
 
 
-<div *ngFor = "let i of comments" [@flyInOut] >
-  <div class = "well" (click) = get(i,index)>{{i.name}} ==== {{i.comment}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
-</div>

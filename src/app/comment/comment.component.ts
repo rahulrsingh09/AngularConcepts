@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import * as firebase from 'firebase/app';
-import { LocalStorageService } from 'angular-2-local-storage';
 import {ActivatedRoute} from "@angular/router";
 import {AngularService} from "../shared/angular.service";
 import {
@@ -11,6 +10,7 @@ import {
   animate,
   transition, group
 } from '@angular/animations';
+import User = firebase.User;
 
 @Component({
   selector: 'app-comment',
@@ -51,28 +51,41 @@ export class CommentComponent implements OnInit {
   comment:string;
   comments:any;
 
-  constructor(public afAuth: AngularFireAuth,private route: ActivatedRoute,private localStorage: LocalStorageService, private service: AngularService) {}
+  constructor(public afAuth: AngularFireAuth,private route: ActivatedRoute,
+              private service: AngularService) {}
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
-                                    this.user = data;});
+    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    /*this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
+                                    this.user = data;console.log("data"+data);});*/
   }
 
   logout() {
     this.user = null;
     this.afAuth.auth.signOut();
     localStorage.removeItem("user");
-    console.log(this.user);
   }
 
   ngOnInit() {
     this.display = this.route.snapshot.data['Auth'];
-    this.user = JSON.parse(localStorage.getItem("user"));
 
     if(this.display){
-      this.service.fetchData(this.user.uid).subscribe((data) => {this.comments = data;
-                                                        console.log("comments"+JSON.stringify(this.comments));});
+      this.user = JSON.parse(localStorage.getItem("user"));
+      this.service.fetchData(this.user.uid).subscribe((data) => {this.comments = data;});
+    } else {
+      this.afAuth.authState.subscribe((data) => {
+        console.log("Here");
+        if (data) {
+          localStorage.setItem("user", JSON.stringify(data));
+          this.user = data;
+          this.service.fetchData(this.user.uid).subscribe((res) => {
+            this.comments = res;
+          });
+        } else {
+          this.comments = null;
+        }
+      });
+
     }
 
   }
