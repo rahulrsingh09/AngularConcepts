@@ -1,3 +1,9 @@
+
+
+
+<h3>Add new Comment:</h3>
+<input type=”text” [(ngModel)]='comment' (keydown.enter)=add()/>
+
 <ng-template #loginscreen>
   <div>
     <h2 class="my-header"> Please Sign In Using any of the Following to Log Comments </h2>
@@ -37,8 +43,8 @@
         <div class="user-body">
           <div class="tab-content">
             <div id="email" class="tab-pane active">
-              <div *ngFor = "let i of comments" [@flyInOut] >
-                <div class = "well" (click) = get(i,index)>{{i.name}} ==== {{i.comment}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+              <div *ngFor = "let i of comments; let index = index" [@flyInOut] >
+                <div class = "well"><input [id] = "'index'+index" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/><span> Edited <time>{{today | amDifference: i.createdAt :'minutes' : false}}</time> before</span><a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white" (click) = "edit(index)"></i></a></div>
               </div>
             </div>
           </div>
@@ -51,13 +57,5 @@
 
 
 
-<!--
-
-<h3>Add new Comment:</h3>
-<input type=”text” [(ngModel)]='comment' (keydown.enter)=add()/>
-
-<div>{{user?.displayName}}</div>
-
--->
 
 

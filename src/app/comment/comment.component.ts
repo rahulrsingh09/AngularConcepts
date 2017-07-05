@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Renderer2, ViewChild, ElementRef} from "@angular/core";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import * as firebase from 'firebase/app';
 import {ActivatedRoute} from "@angular/router";
@@ -10,7 +10,7 @@ import {
   animate,
   transition, group
 } from '@angular/animations';
-import User = firebase.User;
+
 
 @Component({
   selector: 'app-comment',
@@ -47,17 +47,17 @@ import User = firebase.User;
 export class CommentComponent implements OnInit {
 
   display: boolean;
-  user: firebase.User;
+  user: any;
   comment:string;
   comments:any;
 
   constructor(public afAuth: AngularFireAuth,private route: ActivatedRoute,
-              private service: AngularService) {}
+              private service: AngularService,private el:ElementRef,private r2: Renderer2) {}
 
   login() {
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
     /*this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
-                                    this.user = data;console.log("data"+data);});*/
+     this.user = data;console.log("data"+data);});*/
   }
 
   logout() {
@@ -76,8 +76,14 @@ export class CommentComponent implements OnInit {
       this.afAuth.authState.subscribe((data) => {
         console.log("Here");
         if (data) {
+          //const clone = data;
+          //data.timestamp = {TimeStamp : new Date().getTime()};
+          //console.log(data);
           localStorage.setItem("user", JSON.stringify(data));
+          //console.log(JSON.parse(localStorage.getItem("user")));
           this.user = data;
+          //localStorage.setItem(this.user.uid,""+new Date().getTime());
+          //console.log(this.user);
           this.service.fetchData(this.user.uid).subscribe((res) => {
             this.comments = res;
           });
@@ -93,5 +99,18 @@ export class CommentComponent implements OnInit {
   add(){
     this.service.postComment(this.comment, this.user);
   }
+
+  edit(i:number){
+    //console.log(this.el.nativeElement.querySelector('#index'+i));
+    this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
+    let now = new Date();
+    let ts = new Date(this.comments[0].createdAt);
+    let diff = now.getTime() -  ts.getTime();
+
+    console.log(ts , now);
+
+    console.log(diff > 5 * 60 * 1000);
+  }
+
 
 }

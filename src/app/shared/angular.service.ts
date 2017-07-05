@@ -100,7 +100,9 @@ export class AngularService {
     comments.push({
       name: user.displayName,
       photo: user.photoURL,
-      comment : comment});
+      comment : comment,
+      createdAt : firebase.database.ServerValue.TIMESTAMP});
+
   }
 
 
