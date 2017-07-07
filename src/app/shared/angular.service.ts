@@ -91,16 +91,18 @@ export class AngularService {
     ];
   }
 
-  fetchData(id:string){
-    return this.af.list('/comments/users/'+id);
+  fetchData(){
+    return this.af.list('/comments/users/');
   }
 
   postComment(comment:string, user: firebase.User){
-    const comments = this.af.list('/comments/users/'+ user.uid);
+    //const comments = this.af.list('/comments/users/'+ user.uid);
+    const comments = this.af.list('/comments/users/');
     comments.push({
       name: user.displayName,
       photo: user.photoURL,
       comment : comment,
+      userid : user.uid,
       createdAt : firebase.database.ServerValue.TIMESTAMP});
 
   }

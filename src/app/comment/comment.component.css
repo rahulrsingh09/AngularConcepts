@@ -9,7 +9,7 @@ body {background: #EAEAEA;}
 .navigation li {float: left; margin: 0; padding: 0;}
 .navigation li a {padding: 20px 30px; float: left;}
 .navigation li.active a {background: #428BCA; color: #fff;}
-.user-info-block .user-body {float: left; padding: 5%; width: 90%;}
+.user-info-block .user-body {float: left; padding: 5%; width: 100%;}
 .user-body .tab-content > div {float: left; width: 100%;}
 .user-body .tab-content h4 {width: 100%; margin: 10px 0; color: #333;}
 
@@ -89,4 +89,77 @@ body {background: #EAEAEA;}
   font-size: 28px;
   line-height: 40px;
   letter-spacing: -1px;color: #444;
+}
+
+
+.label-look{
+  border: none;
+  background: none;
+  width:450px;
+}
+
+.well{
+  position: relative;
+  width: 90%;
+  display: inline-block;
+}
+
+.comment-well{
+  position: relative;
+  width: 100%;
+
+}
+
+.edit-Label{
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-color: #673ab7;
+  width: 450px;
+  background-color: transparent;
+}
+
+.edit-Label:focus{
+  outline: none;
+}
+
+.edit-btn{
+   position: absolute;
+   right: 5px;
+   bottom: 5px;
+   font-size: x-small;
+ }
+
+.close-icon{
+  right: 33px;
+  position: absolute;
+  top: 10px;
+}
+
+.delete-icon{
+  position: absolute;
+  top: 10px;
+  right: 8px;
+}
+
+[class*='submit']{
+  display: none;
+}
+
+.remove-edit{
+  display: none;
+}
+
+.comment-sub{
+  right: 8px;
+  position: absolute;
+  top: 25px;
+}
+
+.line{
+ border-bottom: 1px solid #364e92;
+}
+
+.comment-label{
+  font-size: large;
 }

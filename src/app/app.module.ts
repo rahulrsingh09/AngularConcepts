@@ -58,6 +58,7 @@ import { CommentComponent } from './comment/comment.component';
 import {FireAuthResolve} from "./comment/fireauth.resolve";
 import {TestService} from "./shared/test.service";
 import { TestComponent } from './test/test.component';
+import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -116,7 +117,8 @@ export const firebaseConfig = {
     HeroProfileComponent,
     NotesComponent,
     CommentComponent,
-    TestComponent
+    TestComponent,
+    RelativeTimeFilterPipe
   ],
   imports: [
     BrowserModule,

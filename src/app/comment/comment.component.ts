@@ -11,6 +11,7 @@ import {
   transition, group
 } from '@angular/animations';
 
+declare var _:any;
 
 @Component({
   selector: 'app-comment',
@@ -71,7 +72,7 @@ export class CommentComponent implements OnInit {
 
     if(this.display){
       this.user = JSON.parse(localStorage.getItem("user"));
-      this.service.fetchData(this.user.uid).subscribe((data) => {this.comments = data;});
+      this.service.fetchData().subscribe((data) => {this.comments = data;});
     } else {
       this.afAuth.authState.subscribe((data) => {
         console.log("Here");
@@ -84,7 +85,7 @@ export class CommentComponent implements OnInit {
           this.user = data;
           //localStorage.setItem(this.user.uid,""+new Date().getTime());
           //console.log(this.user);
-          this.service.fetchData(this.user.uid).subscribe((res) => {
+          this.service.fetchData().subscribe((res) => {
             this.comments = res;
           });
         } else {
@@ -98,11 +99,17 @@ export class CommentComponent implements OnInit {
 
   add(){
     this.service.postComment(this.comment, this.user);
+    this.comment = "";
   }
 
   edit(i:number){
+    //console.log(_.first([5, 4, 3, 2, 1]));
     //console.log(this.el.nativeElement.querySelector('#index'+i));
+    this.r2.removeClass(this.el.nativeElement.querySelector('#index'+i),"label-look");
+    this.r2.addClass(this.el.nativeElement.querySelector('#index'+i),"edit-Label");
     this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
+    this.r2.removeClass( this.el.nativeElement.querySelector(".submit"+i),"submit"+i);
+    this.r2.addClass( this.el.nativeElement.querySelector("#edit"+i),"remove-edit");
     let now = new Date();
     let ts = new Date(this.comments[0].createdAt);
     let diff = now.getTime() -  ts.getTime();

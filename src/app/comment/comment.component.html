@@ -1,9 +1,3 @@
-
-
-
-<h3>Add new Comment:</h3>
-<input type=”text” [(ngModel)]='comment' (keydown.enter)=add()/>
-
 <ng-template #loginscreen>
   <div>
     <h2 class="my-header"> Please Sign In Using any of the Following to Log Comments </h2>
@@ -21,7 +15,7 @@
   <div>
     <div class="col-md-12 user-details">
       <div class="user-image">
-        <img src="/assets/images/user.png" alt="You Like to Keep it Secret" class="img-circle">
+        <img src="{{user?.photoURL}}" alt="You Like to Keep it Secret" class="img-circle">
       </div>
       <div class="user-info-block">
         <div class="user-heading">
@@ -35,21 +29,47 @@
             </a>
           </li>
           <li>
+            <span mdTooltip="Logout">
             <a (click)="logout()">
               <span class="glyphicon glyphicon-log-out"></span>
             </a>
+            </span>
           </li>
         </ul>
         <div class="user-body">
           <div class="tab-content">
             <div id="email" class="tab-pane active">
-              <div *ngFor = "let i of comments; let index = index" [@flyInOut] >
-                <div class = "well"><input [id] = "'index'+index" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/><span> Edited <time>{{today | amDifference: i.createdAt :'minutes' : false}}</time> before</span><a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white" (click) = "edit(index)"></i></a></div>
+
+              <div class="well comment-well">
+                <input class="edit-Label" type=”text” [(ngModel)]='comment' placeholder="Enter your Comment" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Comment'"/>
+                <a><i class="comment-sub glyphicon glyphicon-ok glyphicon-white" (click) = "add()"></i></a>
+              </div>
+
+              <label><span class="comment-label label label-primary">Comments :-D </span></label>
+              <hr class="line">
+
+
+              <div *ngFor = "let i of comments; let index = index" [@flyInOut]>
+                <div *ngIf = "user?.uid === i?.userid">
+                  <div class = "well">
+                    <input class = "label-look" [id] = "'index'+index" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/>
+                    <span class = "label label-success edit-btn"> - {{i.createdAt | relativeTime}} by me</span>
+                    <a><i  [id] = "'edit'+index"  class="close-icon glyphicon glyphicon-edit glyphicon-white" (click) = "edit(index)"></i></a>
+                    <a><i  [id] = "'delete'+index"  class="delete-icon glyphicon glyphicon-remove glyphicon-white" ></i></a>
+                  </div>
+                  <button [class] = "'submit'+index" (click)="increment()">+</button>
+                </div>
+                <div *ngIf  = "user?.uid != i?.userid">
+                    <div class = "well">
+                      <input class = "label-look" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/>
+                      <span class = "label label-success edit-btn"> - {{i.createdAt | relativeTime}} by {{user.displayName}}</span>
+                    </div>
+                </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
 
