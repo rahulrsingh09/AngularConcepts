@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 import {AngularService} from "./shared/angular.service";
-import { Theme } from './shared/theme.interface';
-import {User} from "./shared/user.interface";
-import {MdDialog, MdDialogRef} from "@angular/material";
+import {MdDialog, MdDialogRef, MdIconRegistry} from "@angular/material";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,12 @@ export class AppComponent implements OnInit{
   cityName :string;
   selectedOption: string;
 
-  constructor(private weatherService:AngularService , public dialog: MdDialog){}
+  constructor(private weatherService:AngularService , public dialog: MdDialog, mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer){
+    mdIconRegistry
+      .addSvgIcon('icon',
+        sanitizer.bypassSecurityTrustResourceUrl('/assets/images/angular.svg'));
+
+  }
 
   openDialog() {
     let dialogRef = this.dialog.open(DialogResultExampleDialog);
