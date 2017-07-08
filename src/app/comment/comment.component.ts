@@ -1,4 +1,4 @@
-import {Component, OnInit, Renderer2, ViewChild, ElementRef} from "@angular/core";
+import {Component, OnInit, Renderer2, ViewChild, ElementRef, ViewContainerRef} from "@angular/core";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import * as firebase from 'firebase/app';
 import {ActivatedRoute} from "@angular/router";
@@ -10,6 +10,10 @@ import {
   animate,
   transition, group
 } from '@angular/animations';
+import {Overlay} from "angular2-modal";
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import {DialogResultExampleDialog} from "../app.component";
+import {MdDialog} from "@angular/material";
 
 declare var _:any;
 
@@ -47,18 +51,27 @@ declare var _:any;
 })
 export class CommentComponent implements OnInit {
 
+  selectedOption: string;
   display: boolean;
   user: any;
   comment:string;
   comments:any;
+  showProgress:boolean = false;
 
   constructor(public afAuth: AngularFireAuth,private route: ActivatedRoute,
-              private service: AngularService,private el:ElementRef,private r2: Renderer2) {}
+              private service: AngularService,private el:ElementRef,private r2: Renderer2,
+              overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal , public dialog: MdDialog) {}
 
-  login() {
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  login(provider:string) {
+    this.showProgress = true;
+    if(provider === 'google') {
+      this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    } else {
+      this.afAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+    }
     /*this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
      this.user = data;console.log("data"+data);});*/
+
   }
 
   logout() {
@@ -71,12 +84,14 @@ export class CommentComponent implements OnInit {
     this.display = this.route.snapshot.data['Auth'];
 
     if(this.display){
+      this.showProgress = true;
       this.user = JSON.parse(localStorage.getItem("user"));
-      this.service.fetchData().subscribe((data) => {this.comments = data;});
+      this.service.fetchData().subscribe((data) => {console.log(data),this.comments = data;this.showProgress = false;});
     } else {
       this.afAuth.authState.subscribe((data) => {
         console.log("Here");
         if (data) {
+          this.showProgress = true;
           //const clone = data;
           //data.timestamp = {TimeStamp : new Date().getTime()};
           //console.log(data);
@@ -87,6 +102,7 @@ export class CommentComponent implements OnInit {
           //console.log(this.user);
           this.service.fetchData().subscribe((res) => {
             this.comments = res;
+            this.showProgress = false;
           });
         } else {
           this.comments = null;
@@ -103,20 +119,43 @@ export class CommentComponent implements OnInit {
   }
 
   edit(i:number){
-    //console.log(_.first([5, 4, 3, 2, 1]));
-    //console.log(this.el.nativeElement.querySelector('#index'+i));
-    this.r2.removeClass(this.el.nativeElement.querySelector('#index'+i),"label-look");
-    this.r2.addClass(this.el.nativeElement.querySelector('#index'+i),"edit-Label");
-    this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
-    this.r2.removeClass( this.el.nativeElement.querySelector(".submit"+i),"submit"+i);
-    this.r2.addClass( this.el.nativeElement.querySelector("#edit"+i),"remove-edit");
     let now = new Date();
-    let ts = new Date(this.comments[0].createdAt);
+    let ts = new Date(this.comments[i].createdAt);
     let diff = now.getTime() -  ts.getTime();
 
-    console.log(ts , now);
 
-    console.log(diff > 5 * 60 * 1000);
+    if(diff <  5 * 60 * 1000){
+      this.r2.removeClass(this.el.nativeElement.querySelector('#index'+i),"label-look");
+      this.r2.addClass(this.el.nativeElement.querySelector('#index'+i),"edit-Label");
+      this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
+      this.r2.removeClass( this.el.nativeElement.querySelector(".submit"+i),"submit"+i);
+      this.r2.addClass( this.el.nativeElement.querySelector("#edit"+i),"remove-edit");
+    } else {
+        this.modal.alert()
+          .size('sm')
+          .body('Cannot be Edited after 5 minutes')
+          .open();
+    }
+
+    //console.log(ts , now);
+  }
+
+  submitEdit(i:number,comment:string){
+    const updated = this.comments[i];
+    updated.comment  = comment;
+    //console.log(updated.$key);
+    this.service.editComment(updated.$key,updated);
+  }
+
+  deleteComment(i:number){
+    this.service.deleteComment(this.comments[i].$key);
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogResultExampleDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
   }
 
 

@@ -12,6 +12,7 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AngularService {
 
+  private increment = 1;
   private username = 'rahulrsingh09';
   private client_id = "ca1f1104614b5c2440b3";
   private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
@@ -99,6 +100,7 @@ export class AngularService {
     //const comments = this.af.list('/comments/users/'+ user.uid);
     const comments = this.af.list('/comments/users/');
     comments.push({
+      id: this.increment += 1,
       name: user.displayName,
       photo: user.photoURL,
       comment : comment,
@@ -107,7 +109,13 @@ export class AngularService {
 
   }
 
+  editComment(key:string,updatedComment:any){
+    this.af.object('/comments/users/'+key).update(updatedComment);
+  }
 
+  deleteComment(key:String){
+    this.af.object('/comments/users/'+key).remove();
+  }
 }
 
 

@@ -15,21 +15,15 @@ export class AppComponent implements OnInit{
 
   hello = "Angular";
   cityName :string;
-  selectedOption: string;
 
-  constructor(private weatherService:AngularService , public dialog: MdDialog, mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer){
+
+  constructor(private weatherService:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer){
     mdIconRegistry
       .addSvgIcon('icon',
         sanitizer.bypassSecurityTrustResourceUrl('/assets/images/angular.svg'));
 
   }
 
-  openDialog() {
-    let dialogRef = this.dialog.open(DialogResultExampleDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      this.selectedOption = result;
-    });
-  }
 
   ngOnInit() {
 
@@ -38,6 +32,7 @@ export class AppComponent implements OnInit{
     });
   }
 }
+
 
 
 @Component({

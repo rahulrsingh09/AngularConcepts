@@ -59,6 +59,8 @@ import {FireAuthResolve} from "./comment/fireauth.resolve";
 import {TestService} from "./shared/test.service";
 import { TestComponent } from './test/test.component';
 import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
+import {ModalModule} from "angular2-modal";
+import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -141,7 +143,9 @@ export const firebaseConfig = {
     LocalStorageModule.withConfig({
       prefix: 'my-app',
       storageType: 'localStorage'
-    })
+    }),
+    ModalModule.forRoot(),
+    BootstrapModalModule
   ],
   providers: [AngularService,
     TestService,

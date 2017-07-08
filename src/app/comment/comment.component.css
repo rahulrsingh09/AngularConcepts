@@ -119,6 +119,10 @@ body {background: #EAEAEA;}
   background-color: transparent;
 }
 
+.large{
+  width: 850px;
+}
+
 .edit-Label:focus{
   outline: none;
 }
