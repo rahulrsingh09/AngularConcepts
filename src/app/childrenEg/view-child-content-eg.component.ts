@@ -21,7 +21,7 @@ import {Tab} from './tab';
       <div class="col-md-4">
           <span mdTooltip="View Source">
             <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg">
-              <img src="../assets/images/code.png" alt="Image">
+              <img src="https://github.com/rahulrsingh09/AngularConcepts/blob/gh-pages/assets/images/code.png" alt="Image">
             </a>
           </span>
       </div>

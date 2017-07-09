@@ -22,7 +22,7 @@ export class AngularService {
 
   getWeatherForCity(){
       //let headers = new Headers();
-      return this.http.get('https://api.openweathermap.org/data/2.5/weather?q=London&appid=ae7307a14567cec9e97e644ff46b702d')
+      return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ae7307a14567cec9e97e644ff46b702d')
         .map(res => {
           if(res.status < 200 || res.status >= 300) {
             throw new Error('This request has failed ' + res.status);
