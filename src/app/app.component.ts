@@ -20,10 +20,7 @@ export class AppComponent implements OnInit{
 
   constructor(private weatherService:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
              , public dialog: MdDialog){
-    //mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('../assets/images/angular.svg'));
-    mdIconRegistry.
-      addSvgIcon('icon',
-      sanitizer.bypassSecurityTrustResourceUrl('https://github.com/rahulrsingh09/AngularConcepts/blob/gh-pages/assets/images/angular.svg'));
+    mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('angular.svg'));
 
   }
 
