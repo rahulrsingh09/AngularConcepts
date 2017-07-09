@@ -55,6 +55,7 @@ export class CommentComponent implements OnInit {
   comments:any;
   showProgress:boolean = false;
   page: number = 1;
+  fakeImage:string = "../assets/images/user.png";
 
   public filter: string = '';
 

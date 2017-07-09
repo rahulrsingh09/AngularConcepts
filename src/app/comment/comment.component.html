@@ -19,7 +19,7 @@
   <div>
     <div class="col-md-12 user-details">
       <div class="user-image">
-        <img src="{{user?.photoURL}}" alt="You Like to Keep it Secret" class="img-circle">
+        <img [src] ="user?.photoURL ? user?.photoURL : fakeImage" alt="You Like to Keep it Secret" class="img-circle">
       </div>
       <div class="user-info-block">
         <div class="user-heading">

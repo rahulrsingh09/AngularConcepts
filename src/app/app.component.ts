@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
              , public dialog: MdDialog){
     mdIconRegistry
       .addSvgIcon('icon',
-        sanitizer.bypassSecurityTrustResourceUrl('/assets/images/angular.svg'));
+        sanitizer.bypassSecurityTrustResourceUrl('../assets/images/angular.svg'));
 
   }
 
