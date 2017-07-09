@@ -159,7 +159,7 @@ export const firebaseConfig = {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
     },
-    {provide: LocationStrategy, useClass: PathLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
+    {provide: LocationStrategy, useClass: HashLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
     AngularFireAuth,
     FireAuthResolve
   ],

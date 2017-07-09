@@ -33,7 +33,7 @@ __decorate([
 ViewChildContentEgComponent = __decorate([
     core_1.Component({
         selector: 'view-child-content',
-        template: "\n    <tabs>\n      <tab [tabTitle]=\"'Tab 1'\" (click) = \"update()\">Tab 1 Content</tab>\n      <tab [tabTitle]=\"'Tab X'\">Tab 2 Content</tab>\n    </tabs>\n    <div #child>My Value\n    <div>My Value2</div></div>\n    \n  "
+        template: "\n    \n    <div class=\"row\">\n      <div class=\"col-md-8\">\n        <h3 class=\"test\">\n          View Child & Children\n        </h3>\n      </div>\n    \n      <div class=\"col-md-4\">\n          <span mdTooltip=\"View Source\">\n            <a href=\"https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg\">\n              <img src=\"/assets/images/code.png\" alt=\"Image\">\n            </a>\n          </span>\n      </div>\n    </div>\n\n\n    <tabs>\n      <tab [tabTitle]=\"'View Child Tab'\" (click) = \"update()\">Click on me & check Content in console</tab>\n       <tab [tabTitle]=\"'Notes'\"><app-notes></app-notes></tab>\n    </tabs>\n    <br> \n    <div #child>Console for View Child Example\n    <div>Check Console for View Children Example</div></div>\n    \n  "
     })
 ], ViewChildContentEgComponent);
 exports.ViewChildContentEgComponent = ViewChildContentEgComponent;
