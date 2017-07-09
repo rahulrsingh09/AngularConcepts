@@ -694,9 +694,7 @@ var AppComponent = (function () {
         this.weatherService = weatherService;
         this.dialog = dialog;
         this.hello = "Angular";
-        //mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('../assets/images/angular.svg'));
-        mdIconRegistry.
-            addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('https://github.com/rahulrsingh09/AngularConcepts/blob/gh-pages/assets/images/angular.svg'));
+        mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('angular.svg'));
     }
     AppComponent.prototype.openDialog = function () {
         var _this = this;
