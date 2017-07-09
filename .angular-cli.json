@@ -21,7 +21,7 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": ["../node_modules/underscore/underscore-min.js"
+      "scripts": [
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

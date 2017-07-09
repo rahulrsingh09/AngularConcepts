@@ -15,8 +15,6 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 import {DialogResultExampleDialog} from "../app.component";
 import {MdDialog} from "@angular/material";
 
-declare var _:any;
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -51,16 +49,18 @@ declare var _:any;
 })
 export class CommentComponent implements OnInit {
 
-  selectedOption: string;
   display: boolean;
   user: any;
   comment:string;
   comments:any;
   showProgress:boolean = false;
+  page: number = 1;
+
+  public filter: string = '';
 
   constructor(public afAuth: AngularFireAuth,private route: ActivatedRoute,
               private service: AngularService,private el:ElementRef,private r2: Renderer2,
-              overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal , public dialog: MdDialog) {}
+              public modal: Modal) {}
 
   login(provider:string) {
     this.showProgress = true;
@@ -81,15 +81,15 @@ export class CommentComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.display = this.route.snapshot.data['Auth'];
 
     if(this.display){
       this.showProgress = true;
       this.user = JSON.parse(localStorage.getItem("user"));
-      this.service.fetchData().subscribe((data) => {console.log(data),this.comments = data;this.showProgress = false;});
+      this.service.fetchData().subscribe((data) => {this.comments = data;this.showProgress = false;});
     } else {
       this.afAuth.authState.subscribe((data) => {
-        console.log("Here");
         if (data) {
           this.showProgress = true;
           //const clone = data;
@@ -149,13 +149,6 @@ export class CommentComponent implements OnInit {
 
   deleteComment(i:number){
     this.service.deleteComment(this.comments[i].$key);
-  }
-
-  openDialog() {
-    let dialogRef = this.dialog.open(DialogResultExampleDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      this.selectedOption = result;
-    });
   }
 
 

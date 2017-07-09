@@ -13,17 +13,26 @@ import {DomSanitizer} from "@angular/platform-browser";
 
 export class AppComponent implements OnInit{
 
+  selectedOption: string;
   hello = "Angular";
   cityName :string;
 
 
-  constructor(private weatherService:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer){
+  constructor(private weatherService:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
+             , public dialog: MdDialog){
     mdIconRegistry
       .addSvgIcon('icon',
         sanitizer.bypassSecurityTrustResourceUrl('/assets/images/angular.svg'));
 
   }
 
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogResultExampleDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
+  }
 
   ngOnInit() {
 

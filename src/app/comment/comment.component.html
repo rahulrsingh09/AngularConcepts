@@ -1,85 +1,97 @@
 <div *ngIf="showProgress">
-  <md-progress-bar  mode="indeterminate"></md-progress-bar>
+  <md-progress-bar mode="indeterminate"></md-progress-bar>
   <br><br>
 </div>
 
-  <ng-template #loginscreen>
-    <button (click)="openDialog()">Contact Card</button>
-    <div>
-      <h2 class="my-header"> Please Sign In Using any of the Following to Log & View Comments </h2>
-      <button class="loginBtn loginBtn--facebook" (click)="login('facebook')">
-        Login with Facebook
-      </button>
-      <button class="loginBtn loginBtn--google" (click)="login('google')">
-        Login with Google
-      </button>
-    </div>
-  </ng-template>
+<ng-template #loginscreen>
+  <div>
+    <h2 class="my-header"> Please Sign In Using any of the Following to Log & View Comments </h2>
+    <button class="loginBtn loginBtn--facebook" (click)="login('facebook')">
+      Login with Facebook
+    </button>
+    <button class="loginBtn loginBtn--google" (click)="login('google')">
+      Login with Google
+    </button>
+  </div>
+</ng-template>
 
-  <div class="row" *ngIf="user;else loginscreen">
-    <button md-button (click)="openDialog()">Contact Card</button>
-    <div>
-      <div class="col-md-12 user-details">
-        <div class="user-image">
-          <img src="{{user?.photoURL}}" alt="You Like to Keep it Secret" class="img-circle">
+<div class="row" *ngIf="user;else loginscreen">
+  <div>
+    <div class="col-md-12 user-details">
+      <div class="user-image">
+        <img src="{{user?.photoURL}}" alt="You Like to Keep it Secret" class="img-circle">
+      </div>
+      <div class="user-info-block">
+        <div class="user-heading">
+          <h3>{{user.displayName}}</h3>
+          <span class="help-block"></span>
         </div>
-        <div class="user-info-block">
-          <div class="user-heading">
-            <h3>{{user.displayName}}</h3>
-            <span class="help-block"></span>
-          </div>
-          <ul class="navigation">
-            <li>
-              <a data-toggle="tab">
-                 <span class="glyphicon glyphicon-comment"></span>
-              </a>
-            </li>
-            <li>
+        <ul class="navigation">
+          <li>
+            <a data-toggle="tab">
+              <span class="glyphicon glyphicon-comment"></span>
+            </a>
+          </li>
+          <li>
             <span mdTooltip="Logout">
             <a (click)="logout()">
               <span class="glyphicon glyphicon-log-out"></span>
             </a>
             </span>
-            </li>
-          </ul>
-          <div class="user-body">
-            <div class="tab-content">
-              <div id="email" class="tab-pane active">
+          </li>
+        </ul>
+        <div class="user-body">
+          <div class="tab-content">
+            <div id="email" class="tab-pane active">
 
-                <div class="well comment-well">
-                  <input class="edit-Label large" type=”text” [(ngModel)]='comment' placeholder="Enter your Comment" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Comment'"/>
-                  <a><i class="comment-sub glyphicon glyphicon-ok glyphicon-white" (click) = "add()"></i></a>
-                </div>
+              <div class="well comment-well">
+                <input class="edit-Label large" type=”text” [(ngModel)]='comment' placeholder="Enter your Comment"
+                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Comment'" (keyup.enter) = "add()"/>
+                <a><i class="comment-sub glyphicon glyphicon-ok glyphicon-white" (click)="add()"></i></a>
+              </div>
 
-                <label><span class="comment-label label label-primary">Comments :-D </span></label>
-                <hr class="line">
+              <label><span class="comment-label label label-primary">Comments :-D </span></label>
+              <hr class="line">
 
+              <label class="control">Filter items :-D
+                <input class="edit-Label" type=”text” [(ngModel)]='filter' placeholder="Filter Comment"
+                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Filter Comment'"/>
+              </label>
 
-                <div *ngFor = "let i of comments; let index = index" [@flyInOut]>
-                  <div *ngIf = "user?.uid === i?.userid">
-                    <div class = "well">
-                      <input class = "label-look" [id] = "'index'+index" type=”text” value="{{i.comment}}" [readonly]="true" #comment/>
-                      <span class = "label label-success edit-btn"> - {{i.createdAt | relativeTime}} by me</span>
-                      <a><i  [id] = "'edit'+index"  class="close-icon glyphicon glyphicon-edit glyphicon-white" (click) = "edit(index)"></i></a>
-                      <a><i  [id] = "'delete'+index"  class="delete-icon glyphicon glyphicon-remove glyphicon-white" (click) = "deleteComment(index)"></i></a>
-                    </div>
-                    <button [class] = "'submit'+index" (click)="submitEdit(index,comment.value)">+</button>
+              <div
+                *ngFor="let i of comments | stringFilter: filter | paginate: { itemsPerPage: 5, currentPage: page } ; let index = index"
+                [@flyInOut]>
+                <div *ngIf="user?.uid === i?.userid">
+                  <div class="well">
+                    <input class="label-look" [id]="'index'+index" type=”text” value="{{i.comment}}" [readonly]="true"
+                           #comment/>
+                    <span class="label label-success edit-btn"> - {{i.createdAt | relativeTime}} by me</span>
+                    <a><i [id]="'edit'+index" class="close-icon glyphicon glyphicon-edit glyphicon-white"
+                          (click)="edit(index)"></i></a>
+                    <a><i [id]="'delete'+index" class="delete-icon glyphicon glyphicon-remove glyphicon-white"
+                          (click)="deleteComment(index)"></i></a>
                   </div>
-                  <div *ngIf  = "user?.uid != i?.userid">
-                    <div class = "well">
-                      <input class = "label-look" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/>
-                      <span class = "label label-success edit-btn"> - {{i.createdAt | relativeTime}} by {{user.displayName}}</span>
-                    </div>
+                  <button [class]="'submit'+index" (click)="submitEdit(index,comment.value)" type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+                </div>
+                <div *ngIf="user?.uid != i?.userid">
+                  <div class="well">
+                    <input class="label-look" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/>
+                    <span
+                      class="label label-success edit-btn"> - {{i.createdAt | relativeTime}} by {{user.displayName}}</span>
                   </div>
                 </div>
+              </div>
+              <div class="has-text-centered">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
+
+</div>
 
 
 

@@ -61,6 +61,8 @@ import { TestComponent } from './test/test.component';
 import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
+import {NgxPaginationModule} from "ngx-pagination";
+import {StringFilterPipe} from "./comment/string.filter.pipe";
 
 export function highchartsFactory() {
   var hc = require('highcharts');
@@ -120,7 +122,8 @@ export const firebaseConfig = {
     NotesComponent,
     CommentComponent,
     TestComponent,
-    RelativeTimeFilterPipe
+    RelativeTimeFilterPipe,
+    StringFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -145,7 +148,8 @@ export const firebaseConfig = {
       storageType: 'localStorage'
     }),
     ModalModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
+    NgxPaginationModule
   ],
   providers: [AngularService,
     TestService,

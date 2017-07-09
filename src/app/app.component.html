@@ -28,11 +28,8 @@
       <button md-menu-item [routerLink]="['/charts']">Angular 2 + HighCharts</button>
     </md-menu>
 
-    <button md-button [mdMenuTriggerFor]="bMenu">Feedback</button>
-    <md-menu #bMenu="mdMenu">
-      <button md-menu-item [routerLink]="['/comment']">Comments</button>
-    </md-menu>
-
+    <button md-button class="md-primary" [routerLink]="['/comment']">Comments</button>
+    <button md-button class="md-primary" (click)="openDialog()">Contact Card</button>
 
   </md-toolbar>
 
