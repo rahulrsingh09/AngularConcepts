@@ -43,10 +43,5 @@ describe('TestComponent', () => {
     expect(el.textContent).toContain("Hello Angular");
   });
 
-  it('Display City name From Weather Service', inject([AngularService],(weatherService) => {
-    weatherService.getWeatherForCity().subscribe(response => {
-      expect(response.name).toBe("London");
-    });
-  }));
 
 });

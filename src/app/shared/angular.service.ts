@@ -20,17 +20,6 @@ export class AngularService {
 
   constructor(private http:Http, private af: AngularFireDatabase) { }
 
-  getWeatherForCity(){
-      //let headers = new Headers();
-      return this.http.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ae7307a14567cec9e97e644ff46b702d')
-        .map(res => {
-          if(res.status < 200 || res.status >= 300) {
-            throw new Error('This request has failed ' + res.status);
-          }
-          return res.json();
-        }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-  }
-
 
   getLukeSkywalkerObservable(){
       return this.http.get('https://swapi.co/api/people/1/')

@@ -56,7 +56,7 @@ export class CommentComponent implements OnInit {
   showProgress:boolean = false;
   page: number = 1;
   //fakeImage:string = "../assets/images/user.png";
-  fakeImage:string = "https://github.com/rahulrsingh09/AngularConcepts/blob/gh-pages/assets/images/user.png";
+  fakeImage:string = "user.png";
 
   public filter: string = '';
 
