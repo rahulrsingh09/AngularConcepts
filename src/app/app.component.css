@@ -1,3 +1,4 @@
+
 .top{
   margin-top: 70px;
 }
@@ -9,5 +10,89 @@
 .icon-20{
   font-size: 20px;
 }
+.navbar {
+  background-color: #673ab7;
+  border-radius: 0px;
+}
+.navbar .navbar-brand {
+  color: #d6d0e1;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #150201;
+}
+.navbar .navbar-text {
+  color: #d6d0e1;
+}
+.navbar .navbar-nav .nav-link {
+  color: #d6d0e1;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #150201;
+}
+.navbar .navbar-nav .dropdown-menu {
+  background-color: #673ab7;
+  border-color: #673ab7;
+}
+.navbar .navbar-nav .dropdown-menu .dropdown-item {
+  color: #d6d0e1;
+}
+.navbar .navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar .navbar-nav .dropdown-menu .dropdown-item:focus,
+.navbar .navbar-nav .dropdown-menu .dropdown-item.active {
+  color: #150201;
+  background-color: #673ab7;
+}
+.navbar .navbar-nav .dropdown-menu .dropdown-divider {
+  background-color: #673ab7;
+}
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #150201;
+  background-color: #673ab7;
+}
+.navbar .navbar-toggle {
+  border-color: #673ab7;
+}
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #673ab7;
+}
+.navbar .navbar-toggle .navbar-toggler-icon {
+  color: #d6d0e1;
+}
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #d6d0e1;
+}
+.navbar .navbar-link {
+  color: #d6d0e1;
+}
+.navbar .navbar-link:hover {
+  color: #150201;
+}
 
+@media (max-width: 767px) {
+  .navbar .navbar-nav .open .dropdown-menu .dropdown-item {
+    color: #d6d0e1;
+  }
+  .navbar .navbar-nav .open .dropdown-menu .dropdown-item:hover,
+  .navbar .navbar-nav .open .dropdown-menu .dropdown-item:focus {
+    color: #150201;
+  }
+  .navbar .navbar-nav .open .dropdown-menu .dropdown-item.active {
+    color: #150201;
+    background-color: #673ab7;
+  }
+}
 
+.nav-item{
+  cursor: pointer;
+}

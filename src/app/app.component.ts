@@ -13,6 +13,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 
 export class AppComponent implements OnInit{
 
+  isActive:boolean = false;
   selectedOption: string;
   hello = "Angular";
   cityName :string;
@@ -24,7 +25,6 @@ export class AppComponent implements OnInit{
 
   }
 
-
   openDialog() {
     let dialogRef = this.dialog.open(DialogResultExampleDialog);
     dialogRef.afterClosed().subscribe(result => {
@@ -34,6 +34,8 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
   }
+
+
 }
 
 

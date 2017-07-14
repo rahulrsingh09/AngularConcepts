@@ -83,6 +83,7 @@ export class AngularService {
 
   fetchData(){
     return this.af.list('/comments/users/');
+
   }
 
   postComment(comment:string, user: firebase.User){

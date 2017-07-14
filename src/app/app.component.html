@@ -1,40 +1,63 @@
-<!-- Fixed navbar -->
-<md-toolbar color = "primary">
-    <button md-button class="md-primary" [routerLink]="['/basic']"><md-icon svgIcon="icon"></md-icon>&nbsp;Angular Concepts</button>
-    <button md-button [mdMenuTriggerFor]="bMenu">Basic Concepts</button>
+ <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation" (clickOutside)="close($event)" (click)="isActive = !isActive">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   <a><img src="code.png" alt="Image"></a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass] = "{show : isActive}">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" appDropdown>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Basic Concepts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a [routerLink]="['/a4']" class="dropdown-item">Angular Component</a>
+          <a [routerLink]="['/cli']" class="dropdown-item">Angular CLI</a>
+          <a [routerLink]="['/inout']" class="dropdown-item">Event Emitters</a>
+          <a class="dropdown-item" [routerLink]="['/template']">Template Driven Forms</a>
+          <a class="dropdown-item" [routerLink]="['/reactive']">Data Driven Forms</a>
+          <a class="dropdown-item" [routerLink]="['/directives']">Angular Custom Directives</a>
+          <a class="dropdown-item" [routerLink]="['/pipes']">Custom Pipes</a>
+          <a class="dropdown-item" [routerLink]="['/viewchild']">View Child & Notes</a>
+          <a class="dropdown-item" [routerLink]="['/view']">View Encapsulation</a>
+        </div>
+      </li>
 
-    <md-menu #bMenu="mdMenu">
-      <button md-menu-item [routerLink]="['/a4']">Angular Component</button>
-      <button md-menu-item [routerLink]="['/cli']">Angular CLI</button>
-      <button md-menu-item [routerLink]="['/inout']">Event Emitters</button>
-      <button md-menu-item [routerLink]="['/template']">Template Driven Forms</button>
-      <button md-menu-item [routerLink]="['/reactive']">Data Driven Forms</button>
-      <button md-menu-item [routerLink]="['/directives']">Angular Custom Directives</button>
-      <button md-menu-item [routerLink]="['/pipes']">Custom Pipes</button>
-      <button md-menu-item [routerLink]="['/viewchild']">View Child & Notes</button>
-      <button md-menu-item [routerLink]="['/view']">View Encapsulation</button>
-    </md-menu>
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" appDropdown>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Advanced Concepts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+          <a class="dropdown-item" [routerLink]="['/ngrx']">Angular Redux using ngrx/store</a>
+          <a class="dropdown-item" [routerLink]="['/guard']">Angular Guards</a>
+          <a class="dropdown-item" [routerLink]="['/host']">Host & Host-Context</a>
+          <a class="dropdown-item" [routerLink]="['/dynamic']">Dynamic Component</a>
+        </div>
+      </li>
 
-    <button md-button [mdMenuTriggerFor]="aMenu">Advanced Concepts</button>
-    <md-menu #aMenu="mdMenu">
-      <button md-menu-item [routerLink]="['/ngrx']">Angular Redux using ngrx/store</button>
-      <button md-menu-item [routerLink]="['/guard']">Angular Guards</button>
-      <button md-menu-item [routerLink]="['/host']">Host & Host-Context</button>
-      <button md-menu-item [routerLink]="['/dynamic']">Dynamic Component</button>
-    </md-menu>
+      <li class="nav-item dropdown" [routerLinkActive]="['active']" appDropdown>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Additional
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+          <a class="dropdown-item" [routerLink]="['/charts']">Angular 2 + HighCharts</a>
+        </div>
+      </li>
 
-    <button md-button [mdMenuTriggerFor]="cMenu">Additional</button>
-    <md-menu #cMenu="mdMenu">
-      <button md-menu-item [routerLink]="['/charts']">Angular 2 + HighCharts</button>
-    </md-menu>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['/comment']">Comments</a>
+      </li>
 
-    <button md-button class="md-primary" [routerLink]="['/comment']">Comments</button>
-    <button md-button class="md-primary" (click)="openDialog()">Contact Card</button>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" (click)="openDialog()">Contact Card</a>
+      </li>
 
-  </md-toolbar>
+    </ul>
+  </div>
+</nav>
 
 
-  <div class ="top">
+<div class ="top">
     <div class="container">
     <!--<h3>Hello {{hello}}</h3>  un comment this or one test spec will fail should display hello Angular the error message-->
     <router-outlet></router-outlet>

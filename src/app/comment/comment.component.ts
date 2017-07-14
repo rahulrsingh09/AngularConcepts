@@ -1,19 +1,10 @@
-import {Component, OnInit, Renderer2, ViewChild, ElementRef, ViewContainerRef} from "@angular/core";
+import {Component, OnInit, Renderer2, ElementRef} from "@angular/core";
 import {AngularFireAuth} from "angularfire2/auth/auth";
-import * as firebase from 'firebase/app';
+import * as firebase from "firebase/app";
 import {ActivatedRoute} from "@angular/router";
 import {AngularService} from "../shared/angular.service";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition, group
-} from '@angular/animations';
-import {Overlay} from "angular2-modal";
-import { Modal } from 'angular2-modal/plugins/bootstrap';
-import {DialogResultExampleDialog} from "../app.component";
-import {MdDialog} from "@angular/material";
+import {trigger, state, style, animate, transition, group} from "@angular/animations";
+import {Modal} from "angular2-modal/plugins/bootstrap";
 
 @Component({
   selector: 'app-comment',

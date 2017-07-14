@@ -1,79 +1,81 @@
 <div class="row">
+  <div class="col-md-8">
+    <p class="myPara">
+      Angular4 Component works!
+    </p>
+  </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="test">
-        Angular4 Component works!
-      </h3>
-    </div>
-
-    <div class="col-md-4">
+  <div class="col-md-4">
       <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/angular4">
           <img src="code.png" alt="Image">
         </a>
       </span>
-    </div>
   </div>
+</div>
+<br><br>
 
-  <br>
-
-  <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html"> Angular Components Doc</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md"> Angular 4 ChangeLog</a>
-  <hr>
-
-  <ng-template #fetching>
-    <p>Fetching...</p>
-  </ng-template>
-
-  <p *ngIf="auth | async; else fetching; let user">
-    Angular 4 If else Usage - {{user.username }}
-  </p>
-
-
-  <hr>
-
-  Testing Moment in Angular
-
-  Last updated: {{myDate | amTimeAgo}}
-
-  <div *ngIf="message">
-    Data passed via router <h2>{{message}}</h2>
+<div class="row">
+  <div class="col-md-6"><a href="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html"><p>Angular Components Doc</p></a></div>
+  <div class="col-md-6"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md"> <p>Angular 4 ChangeLog</p></a>
   </div>
+</div>
+<hr>
+<br>
 
-  <hr>
-  <br><br>
+<div class="row">
+  <div class = "col-md-4">
+    <ng-template #fetching>
+      <p>Fetching...</p>
+    </ng-template>
 
-  <p>Planet of the Greatest Jedi {{lsObservable}}</p>
-  <hr>
-  Code for the Same using observables
-  <pre>
+    <p *ngIf="auth | async; else fetching; let user">
+      Angular 4 If else Usage - {{user.username }}
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p><strong>Testing Moment in Angular</strong></p>
+
+    <p>Last updated: {{myDate | amTimeAgo}}</p>
+  </div>
+  <div class="col-md-4">
+    <p>Data passed via router -- <span *ngIf="message">
+      {{message}}
+    </span></p>
+    <p>Planet of the Greatest Jedi using Observable{{lsObservable}}</p>
+    <p>Greatest Jedi using promise {{lsPromise}} </p>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <p><strong>Code for Fetching Greatest Jedi using observables</strong></p>
+    <pre>
     <code [innerHTML]="code"></code>
   </pre>
-
-  <br>
-
-  <p>Greatest Jedi {{lsPromise}} </p>
-  <hr>
-  Code for the Same using Promises
-  <pre>
+  </div>
+  <div class="col-md-6">
+    <p><strong>Code for Fetching Greatest Jedi using Promises</strong></p>
+    <pre>
     <code [innerHTML]="promsieCode"></code>
   </pre>
-  <br>
+  </div>
+</div>
+<hr>
 
-  <p>Search Git Api Look in console Press F12: </p>
-
-  <form [formGroup]="coolForm">
-    <md-input-container>
-      <input mdInput type="text" placeholder="Search Github Repo" formControlName="search">
-    </md-input-container>
-  </form>
-
-  <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we
-    show how we can use debouce time and switchmap in a form control to limit request to a server.
-    To have a enlarged view of this example Please check my repo <a
-      href="https://github.com/rahulrsingh09/GitSearch-App"> Repo </a> which
-    has a full Reproduction of the above example.</p>
-  <br>
-
+<div class="row">
+  <div class="col-md-12">
+    <p>Search Git Api Look in console Press F12: </p>
+    <form [formGroup]="coolForm">
+      <md-input-container>
+        <input mdInput type="text" placeholder="Search Github Repo" formControlName="search">
+      </md-input-container>
+    </form>
+    <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we
+      show how we can use debouce time and switchmap in a form control to limit request to a server.
+      To have a enlarged view of this example Please check my repo <a
+        href="https://github.com/rahulrsingh09/GitSearch-App"> Repo </a> which
+      has a full Reproduction of the above example.</p>
+    <br>
+  </div>
 </div>
