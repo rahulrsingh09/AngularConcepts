@@ -11,3 +11,8 @@ pre code {
   overflow-wrap: normal;
   white-space: pre;
 }
+
+
+img{
+  object-fit: contain;
+}

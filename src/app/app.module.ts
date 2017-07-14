@@ -62,7 +62,7 @@ import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {TestResolve} from "./test/test.resolve";
-import {ShowDirective} from "./shared/show.directive";
+
 
 export function highchartsFactory() {
   var hc = require('highcharts');
