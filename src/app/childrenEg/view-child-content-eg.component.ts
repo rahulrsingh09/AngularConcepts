@@ -10,33 +10,25 @@ import {Tab} from './tab';
 
   selector: 'view-child-content',
   template: `
-    
+      
     <div class="row">
-      <div class="col-md-8">
-        <h3 class="test">
-          View Child & Children
-        </h3>
-      </div>
-    
-      <div class="col-md-4">
-          <span mdTooltip="View Source">
-            <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg">
-              <img src="code.png" alt="Image">
-            </a>
-          </span>
+      <div class="col-md-12">
+        <p class="myHeader">
+          View Child & Children Including Some Notes on Angular :)
+        </p>
       </div>
     </div>
-
-
+    <hr>
     <tabs>
-      <tab [tabTitle]="'View Child Tab'" (click) = "update()">Click on me & check Content in console</tab>
+      <tab [tabTitle]="'View Child Tab'" (click) = "update()"><p>Click on me & see alert</p></tab>
        <tab [tabTitle]="'Notes'"><app-notes></app-notes></tab>
     </tabs>
-    <br> 
+    <div class="small">
     <div #child>Console for View Child Example
     <div>Check Console for View Children Example</div></div>
-    
-  `
+    </div>
+  `,
+  styles : ['.small { font-size: 5px; }']
 })
 
 
@@ -47,7 +39,7 @@ export class ViewChildContentEgComponent implements AfterViewInit{
   ngAfterViewInit() {
     // After the view is initialized, this.userProfile will be available
     this.update();
-    console.log(this.div);
+    alert(JSON.stringify(this.div));
   }
 
   update(){

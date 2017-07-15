@@ -18,6 +18,6 @@ export class Tab {
   @Input() active = false;
 
   print(){
-      console.log("View Child Example");
+    alert("VIew Child Example");
   }
 }

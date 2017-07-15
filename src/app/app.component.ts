@@ -38,8 +38,6 @@ export class AppComponent implements OnInit{
 
 }
 
-
-
 @Component({
   selector: 'dialog-result-example-dialog',
   templateUrl: './dialog-result-example-dialog.html',

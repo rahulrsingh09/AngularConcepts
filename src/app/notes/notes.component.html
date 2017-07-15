@@ -1,77 +1,149 @@
 <div class="row">
-
-  <div class="well">
-    <strong>Instead of Using Observables use either a Behaviour Subject or a Replay Subject .</strong>
-    <br>
-    A detailed info on using behaviour subject or replay subject can be found on this link
-    <span mdTooltip="Stack Link ans by Mark">
+  <div class="col-md-8">
+    <div class="well">
+      <p><strong>Instead of Using Observables use either a Behaviour Subject or a Replay Subject .</strong>
+      <br>A detailed info on using behaviour subject or replay subject can be found on this link</p>
+      <span mdTooltip="Stack Link ans by Mark">
         <a href="https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular2">
           <img src="code.png" alt="Image">
         </a>
       </span>
-
-    <br>
-    And if you want to go with Event Emitters even if it is not recommended then follow this link
-
-    <span mdTooltip="Stack Link ans by Mark">
+      <br>
+      <p>& if you want to go with Event Emitters even if it is not recommended then follow this link</p>
+      <span mdTooltip="Stack Link ans by Mark">
         <a href="https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular2/34402436#34402436">
           <img src="code.png" alt="Image">
         </a>
       </span>
-
-
+    </div>
   </div>
 
-
-  <div class="well">
-    <strong>Testing Gist</strong>&nbsp;&nbsp;
-    <span mdTooltip="Testing Gist">
+  <div class="col-md-4">
+    <div class="well">
+      <p><strong>Testing Gist</strong></p>
+      <span mdTooltip="Testing Gist">
         <a href="https://gist.github.com/wkwiatek/e8a4a9d92abc4739f04f5abddd3de8a7">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="well">
+      <p><strong>Show Loading Screen Before Router Resolves</strong><br> Recommended by Stackoverflow</p>
+      <span mdTooltip="Stack Overflow Answer">
+        <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
+          <img src="code.png" alt="Image">
+        </a>
+      </span><p>My implementaion for the same problem</p>
+      <span mdTooltip="My Implementation of the Same">
+        <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
+          <img src="code.png" alt="Image">
+        </a>
+      </span>
+    </div>
   </div>
 
-  <div class="well">
-    <strong>Input Control  Gist</strong> &nbsp;&nbsp;
-    <span mdTooltip="Input Control Gist">
+  <div class="col-md-4">
+    <div class="well">
+      <p><strong>Input Control  Gist</strong></p>
+      <span mdTooltip="Input Control Gist">
         <a href="http://lishman.io/angular-2-input-binding#?mode=ide&guide=Radio">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </div>
   </div>
 
-  <div class="well">
-    <strong>Show Loading Screen Before Router Resolves</strong> &nbsp;&nbsp;
-    <span mdTooltip="Stack Overflow Answer">
-        <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
-          <img src="code.png" alt="Image">
-        </a>
-      </span> &nbsp;&nbsp;&nbsp;&nbsp;
-    <span mdTooltip="My Implementation of the Same">
-        <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
-          <img src="code.png" alt="Image">
-        </a>
-      </span>
-  </div>
-
-  <div class="well">
-    <strong>Use of NgClass Directive</strong> &nbsp;&nbsp;
-    <span mdTooltip="Stack Overflow Answer">
+  <div class="col-md-4">
+    <div class="well">
+      <p><strong>Use of NgClass Directive</strong></p>
+      <span mdTooltip="Stack Overflow Answer">
         <a href="https://stackoverflow.com/questions/45015658/how-to-hide-navigation-default-show-on-click-how-to-add-class-to-image-div-a/45015785#45015785">
           <img src="code.png" alt="Image">
         </a>
-      </span> &nbsp;&nbsp;&nbsp;&nbsp;
+      </span>
+    </div>
   </div>
 
-  <div class="well">
-    <strong>Combining Multiple Http Streams Observables</strong> &nbsp;&nbsp;
-    <span mdTooltip="Blog Link">
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="well">
+      <p><strong>Combining Multiple Http Streams Observables</strong></p>
+      <span mdTooltip="Blog Link">
         <a href="http://blog.danieleghidoli.it/2016/10/22/http-rxjs-observables-angular/">
           <img src="code.png" alt="Image">
         </a>
-      </span> &nbsp;&nbsp;&nbsp;&nbsp;
+      </span>
+    </div>
+  </div>
+
+  <div class = "col-md-3">
+    <div class="well">
+      <ng-template #fetching>
+        <p>Fetching...</p>
+      </ng-template>
+
+      <p *ngIf="auth | async; else fetching; let user">
+        <strong>Angular 4 If else Usage - {{user.username }}</strong>
+      </p>
+    </div>
   </div>
 
 
+  <div class="col-md-3">
+    <div class="well">
+      <p><strong>Testing Moment in Angular</strong></p>
+      <p>Last updated: {{myDate | amTimeAgo}}</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="well">
+      <p>Data passed via router -- <span *ngIf="message">
+        {{message}}
+      </span></p>
+      <p>Planet of the Greatest Jedi using Observable - {{lsObservable}}</p>
+      <p>Greatest Jedi using promise - {{lsPromise}} </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <p><strong>Code for Fetching Greatest Jedi using observables</strong></p>
+    <pre>
+    <code [innerHTML]="code"></code>
+  </pre>
+  </div>
+  <div class="col-md-6">
+    <p><strong>Code for Fetching Greatest Jedi using Promises</strong></p>
+    <pre>
+    <code [innerHTML]="promsieCode"></code>
+  </pre>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>Search Git Api Look in console Press F12: </p>
+    <form [formGroup]="coolForm">
+      <md-input-container>
+        <input mdInput type="text" placeholder="Search Github Repo" formControlName="search">
+      </md-input-container>
+    </form>
+    <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we
+      show how we can use debouce time and switchmap in a form control to limit request to a server.
+      To have a enlarged view of this example Please check my repo <a
+        href="https://github.com/rahulrsingh09/GitSearch-App"> Repo </a> which
+      has a full Reproduction of the above example.</p>
+    <br>
+  </div>
 </div>
