@@ -14,7 +14,7 @@ import {Tab} from './tab';
     <div class="row">
       <div class="col-md-12">
         <p class="myHeader">
-          View Child & Children Including Some Notes on Angular :)
+          View Child & Children + Some Notes on Angular Common Questions :D
         </p>
       </div>
     </div>

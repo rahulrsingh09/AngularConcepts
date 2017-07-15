@@ -18,8 +18,8 @@ import { Component } from '@angular/core';
   
   selector: 'my-component',  
   template: 
-    &lt;div&gt;Hello my name is {{name}}.&lt;div&gt;
-
+    &lt;div&gt;Hello my name is {{name}}.&lt;div&gt;,
+  styles : ['div { font-size: 20px; }']
 })
 export class MyComponent implements onInit{
   

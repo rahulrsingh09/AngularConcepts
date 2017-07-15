@@ -29,8 +29,8 @@ import {TestResolve} from "./test/test.resolve";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'basic', pathMatch: 'full' },
-  { path: 'basic', component: BasicComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: BasicComponent },
   { path: 'cli', component: AngularcliComponent },
   { path: 'a4', component:  Angular4Component, data:{ ping:'passed via router'}},
   { path: 'a4/:message', component:  Angular4Component, data:{ ping:'passed via router'}},
