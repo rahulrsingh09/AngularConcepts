@@ -1,29 +1,43 @@
-<div *ngIf="showProgress">
-  <md-progress-bar mode="indeterminate"></md-progress-bar>
-  <br><br>
+<div class="row" *ngIf="showProgress">
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
 </div>
+<br><br>
 
 <ng-template #loginscreen>
-  <div>
-    <h2 class="my-header"> Please Sign In Using any of the Following to Log & View Comments </h2>
+<div class="row">
+  <div class="col-md-12">
+      <div>
+        <p class="myHeader">Wanna Post Any Comment, Something not Right or Just For Fun Please Sign In No personal Data is Stored <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/comment">
+          <img src="code.png" alt="Image">
+        </a>
+      </span></p>
+      </div>
+  </div>
+</div>
+  <hr>
+<div class="row">
+  <div class="col-md-3">
     <button class="loginBtn loginBtn--facebook" (click)="login('facebook')">
       Login with Facebook
     </button>
+  </div>
+  <div class="col-md-3">
     <button class="loginBtn loginBtn--google" (click)="login('google')">
       Login with Google
     </button>
   </div>
+</div>
 </ng-template>
 
 <div class="row" *ngIf="user;else loginscreen">
-  <div>
     <div class="col-md-12 user-details">
       <div class="user-image">
         <img [src] ="user?.photoURL ? user?.photoURL : fakeImage" alt="You Like to Keep it Secret" class="img-circle">
       </div>
       <div class="user-info-block">
         <div class="user-heading">
-          <h3>{{user.displayName}}</h3>
+          <p class="myHeader">{{user.displayName}}</p>
           <span class="help-block"></span>
         </div>
         <ul class="navigation">
@@ -43,28 +57,28 @@
         <div class="user-body">
           <div class="tab-content">
             <div id="email" class="tab-pane active">
-
               <div class="well comment-well">
-                <input class="edit-Label large" type=”text” [(ngModel)]='comment' placeholder="Enter your Comment"
+                <input class="edit-Label" type=”text” [(ngModel)]='comment' placeholder="Enter your Comment"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Comment'" (keyup.enter) = "add()"/>
                 <a><i class="comment-sub glyphicon glyphicon-ok glyphicon-white" (click)="add()"></i></a>
               </div>
 
-              <label><span class="comment-label label label-primary">Comments :-D </span></label>
+              <label><p><span class="comment-label label label-primary">All Comments :-D </span></p></label>
+
               <hr class="line">
 
-              <label class="control">Filter items :-D
+              <div style="margin-left: 20px">
                 <input class="edit-Label" type=”text” [(ngModel)]='filter' placeholder="Filter Comment"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Filter Comment'"/>
-              </label>
+              </div><br>
 
               <div
                 *ngFor="let i of comments | stringFilter: filter | paginate: { itemsPerPage: 5, currentPage: page } ; let index = index"
                 [@flyInOut]>
                 <div *ngIf="user?.uid === i?.userid">
                   <div class="well">
-                    <input class="label-look" [id]="'index'+index" type=”text” value="{{i.comment}}" [readonly]="true"
-                           #comment/>
+                    <textarea class="label-look" [id]="'index'+index" type=”text” value="{{i.comment}}" [readonly]="true"
+                              #comment></textarea>
                     <span class="label label-success edit-btn"> - {{i.createdAt | relativeTime}} by me</span>
                     <a><i [id]="'edit'+index" class="close-icon glyphicon glyphicon-edit glyphicon-white"
                           (click)="edit(index)"></i></a>
@@ -75,7 +89,7 @@
                 </div>
                 <div *ngIf="user?.uid != i?.userid">
                   <div class="well">
-                    <input class="label-look" type=”text” value="{{i.name}} ==== {{i.comment}}" [readonly]="true"/>
+                    <textarea class="label-look" type=”text” value="{{i.comment}}" [readonly]="true"></textarea>
                     <span
                       class="label label-success edit-btn"> - {{i.createdAt | relativeTime}} by {{user.displayName}}</span>
                   </div>
@@ -89,8 +103,6 @@
         </div>
       </div>
     </div>
-  </div>
-
 </div>
 
 

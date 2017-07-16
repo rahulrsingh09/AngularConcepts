@@ -1,25 +1,31 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      View Encapsulation
-    </h3>
-  </div>
 
-  <div class="col-md-4">
-      <span mdTooltip="View Source">
+<div class="row">
+  <div class="col-md-12">
+    <div>
+      <p class="myHeader">Making Styles Flow from Parent to Child and Vice versa using View Encapsulation<span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/viewencapsulation">
           <img src="code.png" alt="Image">
         </a>
-      </span>
+      </span></p>
+    </div>
   </div>
 </div>
-<div class="none">
-  <p>The div is applied with class none the css is defined in app.component.css and due to viewEncapsulation set to none in app.component the style
-    can flow from one component to another</p>
-  viewencapsulation works!
-</div>
-<br>
-For more info on the same check out <a href="https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation"> View Encapuslation</a>
-<br>
+<hr>
 
-<iframe style="width: 100%; height: 400px" src="https://plnkr.co/iVatYgdxXXiKwaZlpYdZ" frameborder="0" allowfullscren="allowfullscren"></iframe>
+<div class="row">
+  <div class="col-md-4">
+    <div class="none">
+      <p>The div is applied with class none the css is defined in app.component.css and due to viewEncapsulation set to none in app.component the style
+        can flow from one component to another view encapsulation works! </p>
+    </div>
+    <p>For more info on the same check out <a href="https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation"> View Encapuslation</a></p>
+  </div>
+
+  <div class="col-md-8">
+    <div class="intrinsic-container">
+    <iframe style="width: 100%; height: 400px" src="https://plnkr.co/iVatYgdxXXiKwaZlpYdZ" frameborder="0" allowfullscren></iframe>
+    </div>
+  </div>
+</div>
+
+
