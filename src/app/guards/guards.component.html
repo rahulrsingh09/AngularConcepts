@@ -1,40 +1,43 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      Guards works!
-    </h3>
-  </div>
 
-  <div class="col-md-4">
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Prevent Unwanted User for accessing Content  ? Angular Guards & Resolve
       <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/guards/auth.guard.ts">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>Pass Input Value as X to navigate to the Guarded component. Else wont be allowed to enter .</p>
+    <md-input-container>
+      <input mdInput type="text" placeholder="Pass value" #input>
+    </md-input-container>
+    <button md-raised-button type="submit" (click)="navigate(input.value)">Navigate</button>
   </div>
 </div>
 
-<hr>
-<br>
-
-<p>Pass Input Value as X to navigate to child component. Else will get an error msg .</p>
-<md-input-container>
-  <input mdInput type="text" placeholder="Pass value" #input>
-</md-input-container>
-
-<button md-raised-button type="submit" (click)="navigate(input.value)">Naviagte</button>
-<br>
-<hr>
-<div>
-  In order to do some task when routing from one component to another we can make use of Router resolve which will only
-  load the page when all the service realted tasks have been done and we can add a loading spinner to it to display it to the user.
-
-  <h3>Router Resolve</h3>
-  <p>like eg :-</p>
-
-
+<div class="row">
+  <div class="col-md-8">
+    <p><strong>Router Resolve</strong></p>
     <pre>
       <code [innerHTML]="code"></code>
     </pre>
-
+  </div>
+  <div class="col-md-4">
+    <p>In order to do some task when routing from one component to another we can make use of Router resolve which will only
+      load the page when all the xyz tasks have been done and we can add a loading spinner to it to display it to the user.
+      For eg :- Take the scenario where you want the user to show datatable which has millions of records which has to be fetched via
+      a http call, here if you donot use resolve the component will load but the content will take some time to load which will
+      reduce the user experience so instead we make use of router resolve display the component when data is ready and in the mean while
+      when the resolve is working we can display a loading screen enhancing UX. We can also make use of Resolves for checking authentic users and
+      guide them to appropriate routes same as with guards. but the general use case of resolve is to load a component when some task is done.
+    </p>
+  </div>
 </div>

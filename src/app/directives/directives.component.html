@@ -1,29 +1,39 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      Directives works!
-    </h3>
-  </div>
 
-  <div class="col-md-4">
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      TO add behaviour to your components use this , Its called a Directive Plug and play
+    </p>
+  </div>
+</div>
+<hr>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <pre>
+        <code [innerHTML]="directive">
+        </code>
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+      <button md-raised-button appConfirm value = "Rahul"><p>Click to intitate a Directive</p></button>
       <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/directives/confirm.directive.ts">
           <img src="code.png" alt="Image">
         </a>
       </span>
-  </div>
+    </div>
+    <div class="col-md-8">
+      <p>Directives aren't limited attribute usage. Directives add behaviour to an existing DOM element. One example use case for @Directive would be to add a highlight on mouse hover.
+        Directives is a like an attribute (but more than an attribute) . you can get elements from the existing DOM and then can make changes to it or even modify the DOM model.
+        Keep in mind Directive is not the template it just a extension that allows you to modify the template.
+
+        <a href="https://angular-2-training-book.rangle.io/handout/advanced-angular/directives/creating_an_attribute_directive.html">More on Directives</a></p>
+    </div>
 </div>
 
-<hr>
-
-
-<!--we can also add the attribute directive liek this [appconfirm] if the input in the directive has same name as appConfirm-->
-
-<!--we can also pass values to the directives from the component like instead of "[value]" send a variable from component-->
-
-<button md-raised-button appConfirm value = "Rahul">Click to Send to Directive</button>
-
-<br> <br>
-
-<!--Check this link for more on directives-->
-<a href="https://angular-2-training-book.rangle.io/handout/advanced-angular/directives/creating_an_attribute_directive.html">More on Directives</a>

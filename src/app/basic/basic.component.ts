@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -9,9 +9,12 @@ import {Router} from "@angular/router";
 })
 export class BasicComponent implements OnInit {
 
-  constructor(private router: Router){}
+  message:string;
+
+  constructor(private router: Router,private route: ActivatedRoute){}
 
   ngOnInit() {
+    this.message = this.route.snapshot.params['message'];
   }
 
 

@@ -1,24 +1,40 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      Host and Host-Context in Angular Components.
-    </h3>
-  </div>
 
-  <div class="col-md-4">
-      <span mdTooltip="View Source">
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Modifying Css from Parent to Child ? hmm Host and Host-Context to the rescue<span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/parent-host">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
   </div>
 </div>
+<hr>
 
-<hr>
-The Class Applied here is using host
-<app-child class = "parent-host">This Should be red</app-child>
-<hr>
-The Class Applied here is using host Context
-<div class ="parent-host-context">
-<app-child> This should be green</app-child>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <p>The Class Applied here is using host</p>
+    <app-child class = "parent-host"><p>This Should be red</p></app-child>
+  </div>
+
+  <div class="col-md-6">
+    <p>The Class Applied here is using host Context</p>
+    <div class ="parent-host-context">
+      <app-child><p>This should be green</p></app-child>
+    </div>
+  </div>
+
 </div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p><a href="https://alligator.io/angular/styles-between-components-angular/"> More About Host and Host Context pseudo selector</a></p>
+  </div>
+
+</div>
+
+
+

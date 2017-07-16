@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate{
       if(route.params['key'] == "X"){
         return true;
       }
-      this.router.navigate(['/a4',{message:"Not Authorised"}]);
+      this.router.navigate(['/home',{message:"Not Authorised"}]);
       return false;
     }
 }

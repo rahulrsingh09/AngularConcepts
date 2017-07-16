@@ -2,8 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-childparent',
-  templateUrl: './childparent.component.html',
-  styleUrls: ['./childparent.component.css']
+  templateUrl: './childparent.component.html'
 })
 export class ChildparentComponent implements OnInit {
 

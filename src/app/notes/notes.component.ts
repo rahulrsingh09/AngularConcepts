@@ -11,7 +11,6 @@ import {Observable} from "rxjs";
 })
 export class NotesComponent implements OnInit {
 
-  message: string;
   data: string;
   show: boolean;
   auth: Observable<{}>;
@@ -85,7 +84,6 @@ export class NotesComponent implements OnInit {
       this.lsPromise = data;
     });
 
-    this.message = this.route.snapshot.params['message'];
     this.data = this.route.snapshot.data['ping'];
     //console.log("t"+this.data);
 

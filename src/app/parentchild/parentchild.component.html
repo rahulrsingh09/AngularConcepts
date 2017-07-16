@@ -1,39 +1,48 @@
+
 <div class="row">
-
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="test">
-        Parent Child Angular 2
-      </h3>
-    </div>
-
-    <div class="col-md-4">
-      <span mdTooltip="View Source">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Event Emitters Data Passing between Components Now Easy<span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/parentchild">
           <img src="code.png" alt="Image">
         </a>
       </span>
-    </div>
+    </p>
   </div>
-
-
-Enter the Text you want to send to the Child Component :
-  <md-input-container>
-    <input mdInput type="text" placeholder="Enter" #parentInput (keyup)="0">
-  </md-input-container>
-
-<!-- (keyup) is a dummy event to just show this demo -->
-
-<br>
-
-Value passed by Child Component : {{childValue}}
-
+</div>
 <hr>
 
-<app-childparent [valuepassed]="parentInput.value" (toParent)="childValue = $event"></app-childparent>
+<div class="row">
+  <div class="col-md-6">
+    <p class="myHeader">Parent Component</p>
+  </div>
+
+  <div class="col-md-6">
+    <p class="myHeader">Child Component</p>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6">
+    Enter the Text  to send to the Child Component :
+    <md-input-container>
+      <input mdInput type="text" placeholder="Enter" #parentInput (keyup)="0">
+    </md-input-container>
+
+    <br>
+    Value passed by Child Component : {{childValue}}
+    <!-- (keyup) is a dummy event to just show this demo -->
+  </div>
+
+  <div class="col-md-6">
+    <app-childparent [valuepassed]="parentInput.value" (toParent)="childValue = $event"></app-childparent>
+  </div>
+</div>
+
+
 
 <!--You can also pass the event to a method-->
 <!--You can also send in objects in input parameters-->
 
-</div>
 
