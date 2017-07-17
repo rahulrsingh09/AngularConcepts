@@ -6,8 +6,7 @@ import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-angular4',
-  templateUrl: './angular4.component.html',
-  styleUrls: ['./angular4.component.css']
+  templateUrl: './angular4.component.html'
 })
 export class Angular4Component implements OnInit {
 

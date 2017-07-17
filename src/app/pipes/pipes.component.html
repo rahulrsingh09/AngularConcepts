@@ -1,39 +1,45 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      Angular Pipe
-    </h3>
-  </div>
 
-  <div class="col-md-4">
-      <span mdTooltip="View Source">
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Pipes the New Filters in Angular :|<span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/pipes/square.pipe.ts">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-4">
+    <md-input-container>
+      <input mdInput type="number" [(ngModel)] = "val" placeholder="Number to be Squared">
+    </md-input-container>
+
+    <p>Squared Number is  {{val | square}} </p>
+    <br>
+    <p>Sending Values to Pipes adding two to the resultant square {{<code>val | square:2</code>}}
+    <br>Squared Number plus 2 is {{val | square:2}} </p>
+
+    <p>
+    <p> Passing Multiple Arguments is also possible in  Pipe through array like <br>Squared Number plus 2 is {{<code>val | square:[2,2]</code>}}
+    <code>transform(value: number, args?: number[]): number </code></p>
+    <br>
+    <p>OR</p>
+    <br>
+    <p>Squared Number plus 2 is {{<code>val | square:2,2</code>}}
+    <code>transform(value: number, args?: number,args2?:number[]): number </code>
+    </p>
+  </div>
+
+  <div class="col-md-8">
+    <pre>
+      <code [innerHTML]="pipeCode">
+      </code>
+    </pre>
   </div>
 </div>
 
 
-<md-input-container>
-  <input mdInput type="number" [(ngModel)] = "val" placeholder="Number to be Squared">
-</md-input-container>
-
-<p>Squared Number is  {{val | square}} </p>
-
-<hr>
-Sending Values to Pipes adding two to the resultant square
-<p>Squared Number plus 2 is {{val | square:2}} </p>
-
-
-
-
-<!--Passing Multiple Arguments is also possible in  Pipe through array like
-<p>Squared Number plus 2 is {{val | square:[2,2]}} </p>
-transform(value: number, args?: number[]): number {
-OR
-<p>Squared Number plus 2 is {{val | square:2,2}} </p>
-transform(value: number, args?: number,args2?:number[]): number {
-
-Also help in traversing through nested objects in Ngfor please check my repo football details for such pipes
--->

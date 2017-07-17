@@ -1,126 +1,134 @@
+
 <div class="row">
-
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="test">
-        Template Driven Forms with Custom Validator (Async and Sync)
-      </h3>
-    </div>
-
-    <div class="col-md-4">
-      <span mdTooltip="View Source">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Forms in Angular (1) Template Driven <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/template-driven">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
+  </div>
+</div>
+<hr>
+
+
+
+<p><strong>Simple Angular Template Driven Form</strong></p>
+<br>
+<form #f="ngForm" novalidate>
+  <div class="row">
+    <div class="col-md-4">
+      <md-input-container>
+        <input mdInput type="text"
+               placeholder="Name"
+               name = "name"
+               [(ngModel)] = "user.name"
+               #userName = "ngModel"
+               minlength="4"
+               required
+               nameRahul>
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container>
+        <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
+      </md-input-container>
     </div>
   </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
+        <md-option *ngFor="let role of roles" [value]="role.value">
+          {{role.display}}
+        </md-option>
+      </md-select>
+    </div>
 
-  <br><br>
+    <div class="col-md-4">
+      <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
+        <md-option *ngFor="let theme of themes" [value] = "theme">
+          {{theme.display}}
+        </md-option>
+      </md-select>
+    </div>
 
-  <form #f="ngForm" novalidate>
-
-    <md-input-container>
-      <input mdInput type="text"
-             placeholder="Name"
-             name = "name"
-             [(ngModel)] = "user.name"
-             #userName = "ngModel"
-             minlength="4"
-             required
-             nameRahul>
-    </md-input-container>
-
-    <md-input-container>
-      <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
-    </md-input-container>
-
-
-    <br>
-
-<!--
-    <md-radio-group [(ngModel)]="user.gender">
-      <md-radio-button ngDefaultControl *ngFor="let gender of genders" [checked]="gender.value == user.gender"
-                       name="gender" [value]="gender.value"> {{gender.display}} </md-radio-button>
-    </md-radio-group>
--->
-
-
-    <!--<div>-->
-      <!--<label>Gender</label>-->
-      <!--<div *ngFor="let gender of genders">-->
-        <!--<label>-->
-          <!--<input type="radio" name="gender" [(ngModel)]="user.gender"-->
-                 <!--[value]="gender.value">-->
-          <!--{{gender.display}}-->
-        <!--</label>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <br><br>
-
-    <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
-      <md-option *ngFor="let role of roles" [value]="role.value">
-        {{role.display}}
-      </md-option>
-    </md-select>
-
-
-    <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
-      <md-option *ngFor="let theme of themes" [value] = "theme">
-        {{theme.display}}
-      </md-option>
-    </md-select>
-
-
-    <md-select multiple placeholder="Topics" name="topics" [(ngModel)]="user.topics">
-      <md-option  *ngFor="let topic of topics" [value]="topic.value">
-        {{topic.display}}
-      </md-option>
-    </md-select><!-- Multiple select is not active in multiple select -->
-
-    <br><br>
-
-    <md-checkbox name="isActive" [(ngModel)]="user.isActive" >Is Active!</md-checkbox>
-
-    <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
-    <md-checkbox [checked]="user.toggle === toggles[0].value"
-                   (change)="$event.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-     {{toggles[0].display}}</md-checkbox>
-
-
-
-    <!--<div>-->
-      <!--<input type="hidden" name="toggle" [(ngModel)]="user.toggle">-->
-      <!--<div>-->
-        <!--<label>-->
-          <!--<input type="checkbox"-->
-                 <!--[checked]="user.toggle === toggles[0].value"-->
-                 <!--(change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">-->
-          <!--{{toggles[0].display}}-->
-        <!--</label>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <br>
-    <hr>
-    <button md-raised-button type="submit" (click)="save(f.valid,f.value)" [disabled] = !f.valid >Submit</button>
-
-  </form>
-
+    <div class="col-md-4">
+      <md-select multiple placeholder="Topics" name="topics" [(ngModel)]="user.topics">
+        <md-option  *ngFor="let topic of topics" [value]="topic.value">
+          {{topic.display}}
+        </md-option>
+      </md-select><!-- Multiple select is not active in multiple select -->
+    </div>
+  </div>
   <br>
 
-  <div *ngIf="formErrors.name[0]">
-    <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
-      {{data}}
+  <div class="row">
+    <div class="col-md-3">
+      <md-checkbox name="isActive" [(ngModel)]="user.isActive" >Is Active!</md-checkbox>
+    </div>
+    <div class="col-md-3">
+      <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
+      <md-checkbox [checked]="user.toggle === toggles[0].value"
+                   (change)="$event.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+        {{toggles[0].display}}</md-checkbox>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <button md-raised-button type="submit" (click)="save(f.valid,f.value)" [disabled] = !f.valid >Submit</button>
     </div>
   </div>
 
 
-  <div *ngIf="formErrors.age | json">
+<!--
+  <md-radio-group [(ngModel)]="user.gender">
+    <md-radio-button ngDefaultControl *ngFor="let gender of genders" [checked]="gender.value == user.gender"
+                     name="gender" [value]="gender.value"> {{gender.display}}
+    </md-radio-button>
+  </md-radio-group>
+  <div>
+    <label>Gender</label>
+    <div *ngFor="let gender of genders">
+      <label>
+        <input type="radio" name="gender" [(ngModel)]="user.gender"
+               [value]="gender.value">
+        {{gender.display}}
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
+    <div>
+      <label>
+        <input type="checkbox"
+               [checked]="user.toggle === toggles[0].value"
+               (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+        {{toggles[0].display}}
+      </label>
+    </div>
+  </div>
+-->
+
+</form>
+<br><br>
+<div class="row">
+  <div class="col-md-3" *ngIf="formErrors.name[0]">
+      <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
+        {{data}}
+      </div>
+  </div>
+
+  <div class="col-md-3" *ngIf="formErrors.age | json">
     <div *ngFor = "let data of formErrors.age" class="alert alert-danger">
       {{data}}
     </div>
   </div>
-
 </div>
+
+
+
+

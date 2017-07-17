@@ -1,71 +1,93 @@
-<div class="row">
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="test">
-        Reactive Forms
-      </h3>
-    </div>
 
-    <div class="col-md-4">
-      <span mdTooltip="View Source">
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Forms in Angular (2) Reactive or Data Driven Forms <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/reactive">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
+  </div>
+</div>
+<hr>
+
+
+
+
+<form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
+
+  <div class="row">
+    <div class="col-md-4">
+      <md-input-container>
+        <input mdInput type="text" placeholder="Name" formControlName="name">
+      </md-input-container>
+    </div>
+    <div class="col-md-4">
+      <md-input-container>
+        <input mdInput type="number" formControlName="age" placeholder="Age">
+      </md-input-container>
     </div>
   </div>
-  <br><br>
 
-  <form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
-    <md-input-container>
-      <input mdInput type="text" placeholder="Name" formControlName="name">
-    </md-input-container>
+  <br>
 
-    <md-input-container>
-      <input mdInput type="number" formControlName="age" placeholder="Age">
-    </md-input-container>
+  <div class="row">
+    <div class="col-md-6">
+      <label> Gender - &nbsp;&nbsp; </label>
+      <md-radio-group formControlName="gender">
+        <md-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>
+      </md-radio-group>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <md-select placeholder="Role" formControlName="role">
+        <md-option *ngFor="let role of roles" [value]="role.value">
+          {{role.display}}
+        </md-option>
+      </md-select>
+    </div>
 
+    <div class="col-md-3">
+      <md-select placeholder="Theme"  formControlName="theme">
+        <md-option *ngFor="let theme of themes" [value] = "theme">
+          {{theme.display}}
+        </md-option>
+      </md-select>
+    </div>
     <br>
+    <div class="col-md-3">
+      <md-select multiple placeholder="Topics" formControlName="topics">
+        <md-option  *ngFor="let topic of topics" [value]="topic.value">
+          {{topic.display}}
+        </md-option>
+      </md-select><!-- Multiple select is not active in multiple select -->
+    </div>
 
-    <label> Gender - &nbsp;&nbsp; </label>
-    <md-radio-group formControlName="gender">
-      <md-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>
-    </md-radio-group>
+  </div>
 
-    <br><br>
+  <br>
 
-    <md-select placeholder="Role" formControlName="role">
-      <md-option *ngFor="let role of roles" [value]="role.value">
-        {{role.display}}
-      </md-option>
-    </md-select>
+  <div class="row">
+    <div class="col-md-3">
+      <md-checkbox name="isActive" formControlName="isActive" >Is Active!</md-checkbox>
+    </div>
 
-    <md-select placeholder="Theme"  formControlName="theme">
-      <md-option *ngFor="let theme of themes" [value] = "theme">
-        {{theme.display}}
-      </md-option>
-    </md-select>
+    <div class="col-md-3">
+      <input type="hidden">
+      <md-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
+        {{toggles[0].display}}</md-checkbox>
+    </div>
+  </div>
+  <br>
 
-    <md-select multiple placeholder="Topics" formControlName="topics">
-      <md-option  *ngFor="let topic of topics" [value]="topic.value">
-        {{topic.display}}
-      </md-option>
-    </md-select><!-- Multiple select is not active in multiple select -->
-
-    <br><br>
-
-    <md-checkbox name="isActive" formControlName="isActive" >Is Active!</md-checkbox>
-
-    <input type="hidden">
-    <md-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
-      {{toggles[0].display}}</md-checkbox>
-
-    <br>
-    <hr>
-
-    <button md-raised-button type="submit">Submit</button>
-
-  </form>
-</div>
+  <div class="row">
+    <div class="col-md-3">
+      <button md-raised-button type="submit">Submit</button>
+    </div>
+  </div>
+</form>
 
 

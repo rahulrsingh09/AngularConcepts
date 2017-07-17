@@ -1,3 +1,4 @@
-.center{
-  text-align: center;
+
+md-input-container{
+  display: inherit;
 }
