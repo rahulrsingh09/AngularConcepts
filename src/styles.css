@@ -1,25 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Bangers");
 @import '~bootstrap/dist/css/bootstrap.css';
 
-
 body, html {
   font-family: 'Open Sans', sans-serif;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
   text-align: justify;
-  line-height:25px;
+  line-height: 25px;
 }
 
-p{
-  font-size:16px;
+p {
+  font-size: 16px;
 }
 
-
-pre{
-  overflow-x:auto;
+pre {
+  overflow-x: auto;
   height: 450px;
 }
 
@@ -31,14 +28,12 @@ pre code {
 
 .myHeader {
   font-family: 'Bangers', cursive;
-  color: rgba(0,0,0,0.7);
-  font-size:30px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 30px;
   text-align: center;
 }
 
-
-
-.img-circle{
+.img-circle {
   width: 100px;
   height: 100px;
 }
