@@ -100,3 +100,8 @@
     line-height: normal;
   }
 }
+
+.myImage{
+  height: 40px;
+  width: 40px;
+}

@@ -3,7 +3,7 @@
           aria-label="Toggle navigation" (click)="isActive = !isActive">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a><img src="code.png" alt="Image"></a>
+   <a routerLink = "/home"><img src="angular.png" class = "myImage" alt="Image"/></a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass] = "{show : isActive}">
     <ul class="navbar-nav">
       <li class="nav-item dropdown" [routerLinkActive]="['active']" appDropdown>
