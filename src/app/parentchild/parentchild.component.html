@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-12">
     <p class="myHeader">
@@ -14,32 +13,35 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p class="myHeader">Parent Component</p>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="myHeader">Parent</p>
+      </div>
+      <div class="col-md-12">
+        <p>Enter the Text to send to the Child Component :</p>
+        <md-input-container>
+          <input mdInput type="text" placeholder="Enter" #parentInput (keyup)="0">
+        </md-input-container>
+
+        <br>
+        <p>Value passed by Child Component : {{childValue}}</p>
+        <!-- (keyup) is a dummy event to just show this demo -->
+      </div>
+    </div>
   </div>
 
   <div class="col-md-6">
-    <p class="myHeader">Child Component</p>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="myHeader">Child Component</p>
+      </div>
+      <div class="col-md-12">
+        <app-childparent [valuepassed]="parentInput.value" (toParent)="childValue = $event"></app-childparent>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="row">
-
-  <div class="col-md-6">
-    <p>Enter the Text  to send to the Child Component :</p>
-    <md-input-container>
-      <input mdInput type="text" placeholder="Enter" #parentInput (keyup)="0">
-    </md-input-container>
-
-    <br>
-    <p>Value passed by Child Component : {{childValue}}</p>
-    <!-- (keyup) is a dummy event to just show this demo -->
-  </div>
-
-  <div class="col-md-6">
-    <app-childparent [valuepassed]="parentInput.value" (toParent)="childValue = $event"></app-childparent>
-  </div>
-</div>
-
 
 
 <!--You can also pass the event to a method-->

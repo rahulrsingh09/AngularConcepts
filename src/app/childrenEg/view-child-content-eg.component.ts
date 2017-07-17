@@ -14,7 +14,11 @@ import {Tab} from './tab';
     <div class="row">
       <div class="col-md-12">
         <p class="myHeader">
-          View Child & Children + Some Notes on Angular Common Questions :D
+          View Child & Children + Some Notes on Angular Common Questions :D<span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg">
+          <img src="code.png" alt="Image">
+        </a>
+      </span>
         </p>
       </div>
     </div>
