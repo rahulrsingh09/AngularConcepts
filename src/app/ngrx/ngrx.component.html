@@ -1,33 +1,91 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="test">
-      Ngrx Store & Animation Angular 2
-    </h3>
-  </div>
 
-  <div class="col-md-4">
-      <span mdTooltip="View Source">
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Redux in Angular, Really using NGRX <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/ngrx/ngrx.component.ts">
           <img src="code.png" alt="Image">
         </a>
       </span>
+    </p>
   </div>
 </div>
-  <hr>
+<hr>
 
-  <button md-mini-fab (click)="increment()">+</button>
-  <button md-mini-fab (click)="decrement()">-</button>
-
-  <div><h3>Current Count: {{ counter | async }}</h3>
-    <button md-raised-button (click)="reset()">Reset</button></div>
-
-  <hr>
-  <md-input-container>
-    <input mdInput type="text" placeholder="Add to List" #list>
-  </md-input-container>
-
-  <button md-raised-button (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>
-
-  <div *ngFor = "let i of item | async" [@flyInOut] >
-    <div class = "well" (click) = get(i,index)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+<div class="row">
+  <div class="col-md-1">
+    <button md-mini-fab (click)="increment()">+</button>
   </div>
+  <div class="col-md-1">
+    <p>Count: {{ counter | async }}</p>
+  </div>
+  <div class="col-md-1">
+    <button md-mini-fab (click)="decrement()">-</button>
+  </div>
+  <div class="col-md-3">
+    <button md-raised-button (click)="reset()">Reset</button>
+  </div>
+  <div class="col-md-4">
+    <md-input-container>
+      <input mdInput type="text" placeholder="Add to List" #list>
+    </md-input-container>
+  </div>
+  <div class="col-md-2">
+    <button md-raised-button (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <div *ngFor = "let i of item | async" [@flyInOut] >
+      <div class = "well" (click) = get(i,index)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+
+  <div class="col-md-6">
+    <p><strong>What's Redux ? </strong></p> <br>
+    <p>Redux is an application state manager for JavaScript applications, and keeps with the core principles of the Flux-architecture by having a unidirectional data flow in your application.
+      Redux applications have only one global, read-only application state.
+      This state is calculated by "reducing" over a collection or stream of actions that update it in controlled ways.</p>
+  </div>
+
+  <div class="col-md-6">
+    <p><strong> and Ngrx ?</strong></p><br>
+    <p>Redux state managers have been very well received and have inspired the creation of @ngrx,
+      a set of modules that implement the same way of managing state as well as some of the middleware and tools in the Redux ecosystem.
+      @ngrx was created to be used specifically with Angular and RxJS, as it leans heavily on the observable paradigm.
+      Both the Components you see above are managed using ngrx store </p>
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <p><strong>Reducer function for each data type you have in your application. The combination of these reducers will make up your application state:</strong></p>
+      <pre class="counter">
+        <code [innerHTML]="counterTs">
+        </code>
+      </pre>
+  </div>
+  <div class="col-md-6">
+    <p><strong>In your app's main module, import those reducers and use the StoreModule.provideStore(reducers) function to provide them to Angular's injector:</strong></p>
+    <pre class="reducer">
+        <code [innerHTML]="reducers"></code>
+    </pre>
+    <p><strong>You can then inject the Store service into your components and services. Use store.select to select slice(s) of state:</strong></p>
+    <pre class="component">
+        <code [innerHTML]="component"></code>
+    </pre>
+  </div>
+</div>
+
+
+
+
+
+

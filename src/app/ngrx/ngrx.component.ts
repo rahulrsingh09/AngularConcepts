@@ -116,4 +116,64 @@ export class NgrxComponent implements OnInit, OnChanges {
     console.log('Started Animation');
   }
 
+
+
+  counterTs = `
+// counter.ts
+import { ActionReducer, Action } from '@ngrx/store';
+
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+export const RESET = 'RESET';
+
+export function counterReducer(state: number = 0, action: Action) {
+	switch (action.type) {
+		case INCREMENT:
+			return state + 1;
+
+		case DECREMENT:
+			return state - 1;
+
+		case RESET:
+			return 0;
+
+		default:
+			return state;
+	}
+}`;
+
+  reducers = `
+import { NgModule } from '@angular/core'
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    StoreModule.provideStore({ counter: counterReducer })
+  ]
+})
+export class AppModule {}`;
+
+component = `
+class MyAppComponent {
+	counter: Observable&lt;number&gt;;
+
+	constructor(private store: Store&lt;AppState&gt;){
+		this.counter = store.select('counter');
+	}
+
+	increment(){
+		this.store.dispatch({ type: INCREMENT });
+	}
+
+	decrement(){
+		this.store.dispatch({ type: DECREMENT });
+	}
+
+	reset(){
+		this.store.dispatch({ type: RESET });
+	}
+}`;
+
 }

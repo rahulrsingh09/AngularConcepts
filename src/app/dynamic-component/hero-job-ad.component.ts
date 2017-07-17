@@ -3,8 +3,8 @@ import { AdComponent }      from './ad.component';
 @Component({
   template: `
     <div class="job-ad">
-      <h4>{{data.headline}}</h4> 
-      {{data.body}}
+      <p class="myHeader">{{data.headline}}</p> 
+      <p>{{data.body}}</p>
     </div>
   `
 })

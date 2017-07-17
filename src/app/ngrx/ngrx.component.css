@@ -1,4 +1,15 @@
-.align{
-  float: right;
-  cursor: pointer;
+md-input-container{
+  display: inherit;
+}
+
+.reducer{
+  height: 280px;
+}
+
+.component{
+  height: 410px;
+}
+
+.counter{
+  height: 470px;
 }

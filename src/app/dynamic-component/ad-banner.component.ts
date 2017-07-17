@@ -10,10 +10,12 @@ import {AdComponent} from "./ad.component";
 @Component({
   selector: 'add-banner',
   template: `
+          
               <div class="ad-banner">
-                <h3>Advertisements</h3>
+                <p class="myHeader">Advertisements</p>
                 <ng-template appDynamicDirective></ng-template>
               </div>
+
             `
 })
 export class AdBannerComponent implements AfterContentInit, OnDestroy {
