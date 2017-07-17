@@ -6,7 +6,7 @@
 
 body, html {
   font-family: 'Open Sans', sans-serif;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.8);
   text-align: justify;
   line-height: 25px;
 }
@@ -28,7 +28,7 @@ pre code {
 
 .myHeader {
   font-family: 'Bangers', cursive;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.9);
   font-size: 30px;
   text-align: center;
 }
