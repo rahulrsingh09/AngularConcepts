@@ -8,6 +8,7 @@ import {AdItem} from "../dynamic-component/ad-item";
 import {HeroJobAdComponent} from "../dynamic-component/hero-job-ad.component";
 import {AngularFireDatabase} from "angularfire2/database/database";
 import * as firebase from 'firebase/app';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AngularService {
@@ -17,9 +18,16 @@ export class AngularService {
   private client_id = "ca1f1104614b5c2440b3";
   private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
 
+  private _pageCount = new BehaviorSubject<number>(0);
+  count$ = this._pageCount.asObservable();
+
 
   constructor(private http:Http, private af: AngularFireDatabase) { }
 
+
+  changeCount(number) {
+    this._pageCount.next(number);
+  }
 
   getLukeSkywalkerObservable(){
       return this.http.get('https://swapi.co/api/people/1/')

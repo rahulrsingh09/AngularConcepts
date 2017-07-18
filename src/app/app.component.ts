@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   cityName :string;
 
 
-  constructor(private weatherService:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
+  constructor(private service:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
              , public dialog: MdDialog){
     mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('angular.svg'));
 
@@ -33,8 +33,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.service.incrementPageCount().then(data => this.service.changeCount(data));
   }
-
 
 }
 
