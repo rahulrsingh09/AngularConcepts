@@ -63,6 +63,8 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {TestResolve} from "./test/test.resolve";
 import {ReversePipe} from "./comment/reverse.pipe";
+import {firebaseConfig} from './shared/firebase.config';
+import {firebaseConfigDev} from './shared/firebase.config';
 
 
 export function highchartsFactory() {
@@ -76,15 +78,6 @@ export function highchartsFactory() {
   drill(hc)
   return hc;
 }
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyB0UI7IuR2yzBWYdDlJbMTPVyWVvDIAhZw",
-  authDomain: "angularapp-f8d55.firebaseapp.com",
-  databaseURL: "https://angularapp-f8d55.firebaseio.com",
-  projectId: "angularapp-f8d55",
-  storageBucket: "angularapp-f8d55.appspot.com",
-  messagingSenderId: "538402879016"
-};
 
 
 @NgModule({

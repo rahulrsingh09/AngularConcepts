@@ -14,9 +14,6 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class AngularService {
 
   private increment = 7;
-  private username = 'rahulrsingh09';
-  private client_id = "ca1f1104614b5c2440b3";
-  private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
 
   private _pageCount = new BehaviorSubject<number>(0);
   count$ = this._pageCount.asObservable();
