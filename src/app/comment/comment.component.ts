@@ -141,7 +141,9 @@ export class CommentComponent implements OnInit {
   }
 
   deleteComment(i:number){
-    this.service.deleteComment(this.comments[i].$key);
+    //disable call to this method while testing
+    const index = ((this.comments.length-1) - i);
+    this.service.deleteComment(this.comments[index].$key);
   }
 
 

@@ -62,6 +62,7 @@ import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {TestResolve} from "./test/test.resolve";
+import {ReversePipe} from "./comment/reverse.pipe";
 
 
 export function highchartsFactory() {
@@ -123,7 +124,8 @@ export const firebaseConfig = {
     CommentComponent,
     TestComponent,
     RelativeTimeFilterPipe,
-    StringFilterPipe
+    StringFilterPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

@@ -73,7 +73,7 @@
               </div><br>
 
               <div
-                *ngFor="let i of comments | stringFilter: filter | paginate: { itemsPerPage: 5, currentPage: page } ; let index = index"
+                *ngFor="let i of comments |  reverse | stringFilter: filter | paginate: { itemsPerPage: 5, currentPage: page }; let index = index"
                 [@flyInOut]>
                 <div *ngIf="user?.uid === i?.userid">
                   <div class="well">
