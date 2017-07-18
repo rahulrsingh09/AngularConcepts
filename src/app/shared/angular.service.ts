@@ -12,7 +12,7 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AngularService {
 
-  private increment = 1;
+  private increment = 1001;
   private username = 'rahulrsingh09';
   private client_id = "ca1f1104614b5c2440b3";
   private client_secret = "96620cea135b2297d7bf95cbc246f56efa116c25";
@@ -83,7 +83,6 @@ export class AngularService {
 
   fetchData(){
     return this.af.list('/comments/users/');
-
   }
 
   postComment(comment:string, user: firebase.User){
@@ -106,6 +105,17 @@ export class AngularService {
   deleteComment(key:String){
     this.af.object('/comments/users/'+key).remove();
   }
+
+  incrementPageCount(){
+    const pageCount = this.af.object('/pageCount/').$ref
+      .ref.transaction(count => {
+        return count + 1;
+      }).then((data) => {return data.snapshot.A.B;});
+
+    return pageCount;
+  }
+
+
 }
 
 

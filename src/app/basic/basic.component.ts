@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
+import {AngularService} from "../shared/angular.service";
 
 
 @Component({
@@ -10,10 +11,12 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class BasicComponent implements OnInit {
 
   message:string;
+  pageCount:number;
 
-  constructor(private router: Router,private route: ActivatedRoute){}
+  constructor(private router: Router,private route: ActivatedRoute, private service: AngularService){}
 
   ngOnInit() {
+    this.service.incrementPageCount().then(data => this.pageCount = data);
     this.message = this.route.snapshot.params['message'];
   }
 
