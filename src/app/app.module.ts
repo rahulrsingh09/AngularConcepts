@@ -134,7 +134,7 @@ export function highchartsFactory() {
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(firebaseConfigDev),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
