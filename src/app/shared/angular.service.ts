@@ -97,7 +97,6 @@ export class AngularService {
 
   postComment(comment:string, user: firebase.User){
     //const comments = this.af.list('/comments/users/'+ user.uid);
-    console.log("here3");
     const comments = this.af.list('/comments/users/');
     comments.push({
       id: this.increment += 1,
