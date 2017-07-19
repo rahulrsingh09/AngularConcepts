@@ -113,7 +113,8 @@ export class CommentComponent implements OnInit {
 
   edit(i:number){
     let now = new Date();
-    let ts = new Date(this.comments[i].createdAt);
+    const index = ((this.comments.length-1) - i);
+    let ts = new Date(this.comments[index].createdAt);
     let diff = now.getTime() -  ts.getTime();
 
 
@@ -134,7 +135,8 @@ export class CommentComponent implements OnInit {
   }
 
   submitEdit(i:number,comment:string){
-    const updated = this.comments[i];
+    const index = ((this.comments.length-1) - i);
+    const updated = this.comments[index];
     updated.comment  = comment;
     //console.log(updated.$key);
     this.service.editComment(updated.$key,updated);
