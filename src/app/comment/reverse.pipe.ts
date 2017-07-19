@@ -6,10 +6,11 @@ import {Pipe} from '@angular/core';
 
 @Pipe({
   name: 'reverse',
-  pure: false
+  pure: true
 })
 export class ReversePipe {
   transform (values) {
+    //console.log("pipe called");
     if (values) {
       return values.reverse();
     }
