@@ -1,6 +1,6 @@
-# AngularCli
+# AngularConcepts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 By Rahul Singh <rahulrsingh09@gmail.com>
 
 Please pardon the use of CSS here as this more to do with Angular than UI and UX design.
@@ -19,7 +19,6 @@ Angular Core Concepts
 <li><Example of Http Module how to create a service in angular and error handling in Services/li>
 <li>Angular 4 Rc2 IF else</li>
 <li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
- 
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
 <li>Passing Data via Router and also Retriving them look at Angular4Component for code</li>
 <li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
@@ -30,6 +29,10 @@ Angular Core Concepts
 <li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/footballdetails I have used them in Detail</li>
 <li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/footballdetails </li>
 <li>Use of HighCharts to Show Graphical Info of Data that is mostly used now a days in web apps [Multi level , Multi level - multi chart  Drill Down Included]</li>
+<li>Using Firebase with Angular using ng2 Firebase</li>
+<li>Saving data to Real time Firebase Database and making a Commenting Section out of it using Renderer 2</li>
+<li>Facebook and google Auth in Angular Apps</li>
+<li>Notes on very common Angular Questions in the Notes section and use of third party JS Library In Angular</li>
 
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts
