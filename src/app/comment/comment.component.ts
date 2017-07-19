@@ -80,7 +80,10 @@ export class CommentComponent implements OnInit {
     if(this.display){
       this.showProgress = true;
       this.user = JSON.parse(localStorage.getItem("user"));
-      this.service.fetchData().subscribe((data) => {this.comments = data;this.showProgress = false;});
+      this.service.fetchData().subscribe((data) => {
+        this.comments = data;
+        this.showProgress = false;
+      });
     } else {
       this.afAuth.authState.subscribe((data) => {
         if (data) {
@@ -113,8 +116,7 @@ export class CommentComponent implements OnInit {
 
   edit(i:number){
     let now = new Date();
-    const index = ((this.comments.length-1) - i);
-    let ts = new Date(this.comments[index].createdAt);
+    let ts = new Date(this.comments[i].createdAt);
     let diff = now.getTime() -  ts.getTime();
 
 
@@ -135,8 +137,7 @@ export class CommentComponent implements OnInit {
   }
 
   submitEdit(i:number,comment:string){
-    const index = ((this.comments.length-1) - i);
-    const updated = this.comments[index];
+    const updated = this.comments[i];
     updated.comment  = comment;
     //console.log(updated.$key);
     this.service.editComment(updated.$key,updated);
@@ -144,8 +145,7 @@ export class CommentComponent implements OnInit {
 
   deleteComment(i:number){
     //disable call to this method while testing
-    const index = ((this.comments.length-1) - i);
-    this.service.deleteComment(this.comments[index].$key);
+    this.service.deleteComment(this.comments[i].$key);
   }
 
 

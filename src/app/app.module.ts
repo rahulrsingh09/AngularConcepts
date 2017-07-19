@@ -62,7 +62,6 @@ import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {TestResolve} from "./test/test.resolve";
-import {ReversePipe} from "./comment/reverse.pipe";
 import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 
@@ -117,8 +116,7 @@ export function highchartsFactory() {
     CommentComponent,
     TestComponent,
     RelativeTimeFilterPipe,
-    StringFilterPipe,
-    ReversePipe
+    StringFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -136,7 +134,7 @@ export function highchartsFactory() {
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(firebaseConfigDev),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
