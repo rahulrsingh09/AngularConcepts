@@ -43,7 +43,7 @@ export class ViewChildContentEgComponent implements AfterViewInit{
   ngAfterViewInit() {
     // After the view is initialized, this.userProfile will be available
     this.update();
-    alert(JSON.stringify(this.div));
+    console.log("Due to ngAfterview Init and ViewChild"+JSON.stringify(this.div));
   }
 
   update(){
