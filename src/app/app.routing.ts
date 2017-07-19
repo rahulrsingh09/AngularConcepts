@@ -47,7 +47,6 @@ const routes: Routes = [
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
   { path: 'dynamic', component : DynamicComponentComponent},
-  { path: 'tabs', component : ViewChildContentEgComponent},
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
   { path: 'test', component : TestComponent, resolve :{Resolve: TestResolve}}
 

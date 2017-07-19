@@ -24,7 +24,7 @@ import {Tab} from './tab';
     </div>
     <hr>
     <tabs>
-      <tab [tabTitle]="'View Child Tab'" (click) = "update()"><p>Click on me & see alert</p></tab>
+       <tab [tabTitle]="'View Child Tab'" (click) = "update()"><p>Click on me & see Console Log Press F12</p></tab>
        <tab [tabTitle]="'Notes'"><app-notes></app-notes></tab>
     </tabs>
     <div class="small">
