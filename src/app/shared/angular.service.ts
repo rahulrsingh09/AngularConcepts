@@ -9,6 +9,7 @@ import {HeroJobAdComponent} from "../dynamic-component/hero-job-ad.component";
 import {AngularFireDatabase} from "angularfire2/database/database";
 import * as firebase from 'firebase/app';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {FirebaseListObservable} from "angularfire2/database/firebase_list_observable";
 
 @Injectable()
 export class AngularService {
@@ -87,11 +88,16 @@ export class AngularService {
   }
 
   fetchData(){
-    return this.af.list('/comments/users/');
+    return this.af.list('/comments/users/',{
+      query: {
+        orderByChild: 'createdAt'
+      }
+    }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
   }
 
   postComment(comment:string, user: firebase.User){
     //const comments = this.af.list('/comments/users/'+ user.uid);
+    console.log("here3");
     const comments = this.af.list('/comments/users/');
     comments.push({
       id: this.increment += 1,

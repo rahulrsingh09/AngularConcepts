@@ -74,13 +74,13 @@ export class CommentComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.display = this.route.snapshot.data['Auth'];
 
     if(this.display){
       this.showProgress = true;
       this.user = JSON.parse(localStorage.getItem("user"));
       this.service.fetchData().subscribe((data) => {
+        console.log("Here");
         this.comments = data;
         this.showProgress = false;
       });
@@ -143,13 +143,16 @@ export class CommentComponent implements OnInit {
     const updated = this.comments[index];
     updated.comment  = comment;
     this.service.editComment(updated.$key,updated);
-
+    //work around not ideal solution for issue #1 and #2
+    //this.service.fetchData().subscribe(data => this.comments = data);
   }
 
   deleteComment(i:number){
     //disable call to this method while testing
     const index = ((this.page-1)*5)+i;
     this.service.deleteComment(this.comments[index].$key);
+    //work around not ideal solution #2
+    //this.service.fetchData().subscribe(data => this.comments = data);
   }
 
 
