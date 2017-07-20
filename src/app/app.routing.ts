@@ -25,7 +25,7 @@ import {NotesComponent} from "./notes/notes.component";
 import {CommentComponent} from "./comment/comment.component";
 import {FireAuthResolve} from "./comment/fireauth.resolve";
 import {TestComponent} from "./test/test.component";
-import {TestResolve} from "./test/test.resolve";
+
 
 
 const routes: Routes = [
@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'charts', component:  ChartsComponent },
   { path: 'dynamic', component : DynamicComponentComponent},
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
-  { path: 'test', component : TestComponent, resolve :{Resolve: TestResolve}}
+  { path: 'test', component : TestComponent}
 
 ];
 
