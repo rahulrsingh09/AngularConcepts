@@ -4,6 +4,9 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {AngularService} from "../shared/angular.service";
 import {Observable} from "rxjs";
 
+//using external js modules in Angular
+declare var jsSHA: any;
+
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
@@ -24,6 +27,17 @@ export class NotesComponent implements OnInit {
   //Testing moments
   myDate: Date;
 
+  shaObj:any;
+  hash:string;
+
+  ifElse:string = ` 
+  &lt;ng-template #fetching&gt
+    &lt;p&gtFetching...&lt;/p&gt
+  &lt;/ng-template&gt
+
+  &lt;p *ngIf="auth | async; else fetching; let user"&gt
+    &lt;strong&gtAngular 4 If else Usage - {{user.username }}&lt;/strong&gt
+  &lt;/p&gt`;
 
   code: string = `
   getLukeSkywalkerObservable(){
@@ -87,7 +101,9 @@ export class NotesComponent implements OnInit {
     this.data = this.route.snapshot.data['ping'];
     //console.log("t"+this.data);
 
-
+    this.shaObj = new jsSHA("SHA-512", "TEXT");
+    this.shaObj.update("This is a Test");
+    this.hash = this.shaObj.getHash("HEX");
   }
 
 }

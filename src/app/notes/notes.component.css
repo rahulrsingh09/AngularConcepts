@@ -8,3 +8,11 @@ pre code {
   overflow-wrap: normal;
   white-space: pre;
 }
+
+.ifelseNote{
+  height : 210px;
+}
+
+.smaller{
+  font-size: 5px;
+}

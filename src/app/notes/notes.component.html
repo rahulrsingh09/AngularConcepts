@@ -1,3 +1,8 @@
+<span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/notes">
+          <img src="code.png" alt="Image">
+        </a>
+      </span>
 <div class="row">
   <div class="col-md-8">
     <div class="well">
@@ -84,48 +89,100 @@
     </div>
   </div>
 
-  <div class = "col-md-3">
+  <div class = "col-md-6">
     <div class="well">
       <ng-template #fetching>
         <p>Fetching...</p>
       </ng-template>
 
-      <p *ngIf="auth | async; else fetching; let user">
+      <p *ngIf="auth | async; else fetching; let user;">
         <strong>Angular 4 If else Usage - {{user.username }}</strong>
       </p>
+      <pre class="ifelseNote">
+        <code [innerHTML]="ifElse">
+        </code>
+      </pre>
     </div>
+
   </div>
 
 
   <div class="col-md-3">
     <div class="well">
       <p><strong>Testing Moment in Angular</strong></p>
+      <p>import MomentModule from "angular2-moment"</p>
       <p>Last updated: {{myDate | amTimeAgo}}</p>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="well">
-      <p>Planet of the Greatest Jedi using Observable - {{lsObservable}}</p>
-      <p>Greatest Jedi using promise - {{lsPromise}} </p>
     </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
+
     <p><strong>Code for Fetching Greatest Jedi using observables</strong></p>
+    <p>Planet of the Greatest Jedi using Observable - {{lsObservable}}</p>
     <pre>
     <code [innerHTML]="code"></code>
   </pre>
   </div>
   <div class="col-md-6">
     <p><strong>Code for Fetching Greatest Jedi using Promises</strong></p>
+    <p>Greatest Jedi using promise - {{lsPromise}} </p>
     <pre>
     <code [innerHTML]="promsieCode"></code>
   </pre>
   </div>
 </div>
+
+<div class="row" id = "externalJS">
+  <div class="col-md-12"><p><strong>Importing 3rd Party Js Library in a Angular App using Cli</strong><br>
+    There are two options for the Same one without typings and other using typings[recommended] </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="well">
+      <p>Without typings<span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/notes">
+          <img src="code.png" alt="Image">
+        </a>
+      </span><br>
+        <strong>Step One</strong></p>
+      <code>npm install jssha --save  [using jssha for this demo]</code>
+      <p><strong>Step two</strong><br>Add the jssha scripts file in .angular-cli.json file</p><br>
+      <code>"scripts": [
+        "../node_modules/jssha/src/sha.js"
+        ]</code>
+      <p><strong>Step three</strong> <br>Adding a var in component to be used as a global variable</p><br>
+      <code>//using external js modules in Angular<br>
+        declare var jsSHA: any;<br>
+        shaObj:any;<br>
+        hash:string;<br>
+        this.shaObj = new jsSHA("SHA-512", "TEXT");<br>
+        this.shaObj.update("This is a Test");<br>
+        this.hash = this.shaObj.getHash("HEX")</code>
+
+      <p>This is value of hash below and it works yayy</p>
+      <small class="smaller">HEX: {{hash}}</small>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="well">
+      <p>With typings<br>
+        <strong>Step One</strong></p>
+      <code>npm install lodash --save  [using loadash for this demo]</code>
+      <p><strong>Step two</strong><br>Add the typings for the library for popular library you will have types defined like we have for lodash</p><br>
+      <code>npm install @types/lodash --save</code>
+      <p><strong>Step three</strong> <br>Import it in your component Directly</p><br>
+      <code>import * as _ from 'lodash';</code>
+      <p> And it works </p>
+    </div>
+  </div>
+</div>
+
+
 <hr>
 
 <div class="row">

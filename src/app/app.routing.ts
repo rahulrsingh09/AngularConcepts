@@ -50,7 +50,6 @@ const routes: Routes = [
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
   { path: 'test', component : TestComponent, resolve :{Resolve: TestResolve}}
 
-
 ];
 
 export const routing = RouterModule.forRoot(routes);

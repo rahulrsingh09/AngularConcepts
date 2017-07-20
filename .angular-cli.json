@@ -22,6 +22,7 @@
         "styles.css"
       ],
       "scripts": [
+        "../node_modules/jssha/src/sha.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
