@@ -61,7 +61,6 @@ import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
-import {TestResolve} from "./test/test.resolve";
 import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 
@@ -154,8 +153,7 @@ export function highchartsFactory() {
     },
     {provide: LocationStrategy, useClass: HashLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
     AngularFireAuth,
-    FireAuthResolve,
-    TestResolve
+    FireAuthResolve
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultExampleDialog, HeroJobAdComponent, HeroProfileComponent]

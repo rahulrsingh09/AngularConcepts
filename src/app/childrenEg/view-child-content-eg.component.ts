@@ -25,7 +25,7 @@ import {Tab} from './tab';
     <hr>
     <tabs>
        <tab [tabTitle]="'View Child Tab'" (click) = "update()"><p>Click on me & see Console Log Press F12</p></tab>
-       <tab [tabTitle]="'Q&A'"><app-notes></app-notes></tab>
+       <tab [tabTitle]="'Test View Children Tab'"><p>Data inside Tab can add component Also</p></tab>
     </tabs>
     <div class="small">
     <div #child>Console for View Child Example
