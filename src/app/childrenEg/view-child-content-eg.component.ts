@@ -28,11 +28,11 @@ import {Tab} from './tab';
        <tab [tabTitle]="'Test View Children Tab'"><p>Data inside Tab can add component Also</p></tab>
     </tabs>
     <div class="small">
-    <div #child>Console for View Child Example
+    <div #child>Check Console for View Child Example
     <div>Check Console for View Children Example</div></div>
     </div>
   `,
-  styles : ['.small { font-size: 5px; }']
+  styles : ['.small { font-size: 10px; }']
 })
 
 
