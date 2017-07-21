@@ -16,3 +16,26 @@ pre code {
 .smaller{
   font-size: 5px;
 }
+
+
+.card-header {
+  background-color: #7b59ba;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  padding: 0;
+}
+
+.mb-0 a {
+  display: block;
+  color: #fff;
+  padding: 4px;
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a{
+  text-decoration: none;
+}
+
