@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Renderer2, ElementRef} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {AngularService} from "../shared/angular.service";
@@ -69,7 +69,10 @@ export class NotesComponent implements OnInit {
  // and then bind it using flat map as when we use in observables.
 `;
 
-  constructor(private route: ActivatedRoute, private weatherService: AngularService, private fb: FormBuilder) {
+  allQuestions :any [];
+
+  constructor(private route: ActivatedRoute, private weatherService: AngularService, private fb: FormBuilder,
+              private el:ElementRef,private r2: Renderer2) {
     this.searchField = new FormControl();
     this.coolForm = fb.group({search: this.searchField});
 
@@ -84,6 +87,9 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.allQuestions = this.el.nativeElement.querySelectorAll('.card');
+    console.log(this.allQuestions);
 
     this.show = false;
     this.auth = Observable
@@ -105,5 +111,18 @@ export class NotesComponent implements OnInit {
     this.shaObj.update("This is a Test");
     this.hash = this.shaObj.getHash("HEX");
   }
+
+  submit(text:string){
+
+    this.allQuestions.forEach(value => {
+      if(value.firstElementChild.textContent.includes(text) && text){
+        console.log(value.firstElementChild.textContent);
+        this.r2.addClass(value,"hide");
+      } else{
+        this.r2.removeClass(value,"hide");
+      }
+    });
+  }
+
 
 }
