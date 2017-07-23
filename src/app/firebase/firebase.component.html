@@ -1,0 +1,41 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      Firebase Cloud f <sup>un's</sup>. I always thought it's just a DB :(
+    </p>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>This is a very specific requirement i am about to explain but now a days in apps using Ionic and also web apps using Angular
+      or any other frontend or server side technologies have this feature, like its a must.<br>So whats's this feature ? <br> <strong>Let me first explain the requirement <br></strong>
+    </p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      I have a Application in which if any new user signs up I want to send him a welcome mail or if he deletes his account I want to send a
+      note stating the reason of the delete or having the USer subscribe/unsubcribe to a newsletter <br>This is seen now a days in multiple applications and can be achieved in a variety of ways , Here is
+      one such very easy approach if you are using <code>Firebase</code> .<br>
+      I have used this feature in this very app in which you are currently viewing this post, but its a trivial implementation as i have no
+      user sign up or delete , but i keep a track of the User's comment in the comment Section and also the page hits.
+    </p>
+
+    <p> The Example shown here <strong>Send's mail to New User's who signed into our app</strong> , you need node mailer for this <code>npm install nodemailer --save</code>
+    Also, to write and Deploy this function to firebase you will need Firebase tools and firebase cli <a href = "https://firebase.google.com/docs/functions/get-started"> Here is a link on all you need to know about them</a></p>
+  </div>
+
+  <div class="col-md-6">
+    <pre>
+      <code [innerHTML]="firebasefun"></code>
+    </pre>
+  </div>
+</div>
+
+

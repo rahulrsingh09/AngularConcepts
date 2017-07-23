@@ -113,16 +113,13 @@ export class NotesComponent implements OnInit {
   }
 
   submit(text:string){
-
     this.allQuestions.forEach(value => {
-      if(value.firstElementChild.textContent.includes(text) && text){
-        console.log(value.firstElementChild.textContent);
-        this.r2.addClass(value,"hide");
-      } else{
+      if(value.firstElementChild.textContent.toLowerCase().includes(text.toLowerCase())){
         this.r2.removeClass(value,"hide");
+      } else{
+        this.r2.addClass(value,"hide");
       }
     });
   }
-
 
 }

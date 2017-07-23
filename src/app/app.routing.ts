@@ -25,6 +25,7 @@ import {NotesComponent} from "./notes/notes.component";
 import {CommentComponent} from "./comment/comment.component";
 import {FireAuthResolve} from "./comment/fireauth.resolve";
 import {TestComponent} from "./test/test.component";
+import {FirebaseComponent} from "./firebase/firebase.component";
 
 
 
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'dynamic', component : DynamicComponentComponent},
   { path: 'faq', component : NotesComponent},
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
+  { path: 'firebase', component : FirebaseComponent},
   { path: 'test', component : TestComponent}
 
 ];

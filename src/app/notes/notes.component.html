@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-3 col-md-offset-4">
     <p class="myHeader">
       FAQ on Angular <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/notes">
@@ -9,6 +9,12 @@
       </span>
     </p>
   </div>
+  <div class="col-md-1 col-md-offset-4">
+    <input type="search" placeholder="Search" (keyup) = "submit(input.value)" #input>
+  </div>
+</div>
+<div class="row">
+
 </div>
 <hr>
 
@@ -16,7 +22,6 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-7">
     <small>* For any other questions or suggestions please comment in the comment's page  </small>
-    <input type="text" (keyup)="submit(input.value)" #input/>
   </div>
 </div>
 

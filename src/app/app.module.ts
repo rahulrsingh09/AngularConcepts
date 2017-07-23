@@ -63,6 +63,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
+import { FirebaseComponent } from './firebase/firebase.component';
 
 
 export function highchartsFactory() {
@@ -115,7 +116,8 @@ export function highchartsFactory() {
     CommentComponent,
     TestComponent,
     RelativeTimeFilterPipe,
-    StringFilterPipe
+    StringFilterPipe,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
