@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Renderer2, ElementRef} from "@angular/core";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import * as firebase from "firebase/app";
 import User = firebase.User;
@@ -10,16 +10,13 @@ import User = firebase.User;
 })
 export class TestComponent implements OnInit {
 
+  all:any[];
 
-
-  constructor(public afAuth: AngularFireAuth) { }
 
   ngOnInit() {
 
   }
 
-  signInWithGoogle() {
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-  }
-
 }
+
+
