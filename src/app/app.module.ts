@@ -64,6 +64,7 @@ import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 import { FirebaseComponent } from './firebase/firebase.component';
+import {ShareButtonsModule} from "ngx-sharebuttons";
 
 
 export function highchartsFactory() {
@@ -143,7 +144,8 @@ export function highchartsFactory() {
     }),
     ModalModule.forRoot(),
     BootstrapModalModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ShareButtonsModule.forRoot()
   ],
   providers: [AngularService,
     TestService,
