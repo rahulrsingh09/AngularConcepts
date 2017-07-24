@@ -149,10 +149,12 @@ export class CommentComponent implements OnInit {
 
   deleteComment(i:number){
     //disable call to this method while testing
-    const index = ((this.page-1)*5)+i;
-    this.service.deleteComment(this.comments[index].$key);
-    //work around not ideal solution #2
-    this.service.fetchData().subscribe(data => this.comments = data);
+    if(confirm("Are you sure you want to delete your Comment")) {
+      const index = ((this.page-1)*5)+i;
+      this.service.deleteComment(this.comments[index].$key);
+      //work around not ideal solution #2
+      this.service.fetchData().subscribe(data => this.comments = data);
+    }
   }
 
 
