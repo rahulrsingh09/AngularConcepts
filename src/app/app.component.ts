@@ -3,6 +3,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AngularService} from "./shared/angular.service";
 import {MdDialog, MdDialogRef, MdIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit{
   selectedOption: string;
   hello = "Angular";
   cityName :string;
-
+  subscription:Subscription;
+  showProgress: boolean ;
 
   constructor(private service:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
              , public dialog: MdDialog){
@@ -33,7 +35,16 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.subscription = this.service.spinner$
+      .subscribe(item => this.showProgress = item);
+    console.log(this.showProgress);
     this.service.incrementPageCount().then(data => this.service.changeCount(data));
+
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component is destroyed
+    this.subscription.unsubscribe();
   }
 
 }

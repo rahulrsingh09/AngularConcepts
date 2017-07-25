@@ -19,12 +19,19 @@ export class AngularService {
   private _pageCount = new BehaviorSubject<number>(0);
   count$ = this._pageCount.asObservable();
 
+  private _showSpinner = new BehaviorSubject<boolean>(false);
+  spinner$ = this._showSpinner.asObservable();
+
 
   constructor(private http:Http, private af: AngularFireDatabase) { }
 
 
   changeCount(number) {
     this._pageCount.next(number);
+  }
+
+  changeSpinnerStatus(status:boolean){
+    this._showSpinner.next(status);
   }
 
   getLukeSkywalkerObservable(){

@@ -61,10 +61,12 @@
   </div>
 </nav>
 
-
 <div class ="top">
+  <div *ngIf="true">
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
+  </div>
     <div class="container">
     <!--<h3>Hello {{hello}}</h3>  un comment this or one test spec will fail should display hello Angular the error message-->
     <router-outlet></router-outlet>
-<div>
-
+    <div>
+</div>

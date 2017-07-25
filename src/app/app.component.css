@@ -105,3 +105,14 @@
   height: 40px;
   width: 40px;
 }
+
+
+md-progress-bar{
+  top: -49px;
+}
+
+@media screen and (max-width: 980px) {
+  md-progress-bar{
+    top: -59px;
+  }
+}

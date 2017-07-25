@@ -19,7 +19,7 @@ export class BasicComponent implements OnInit,OnDestroy{
 
   ngOnInit() {
     this.subscription = this.service.count$
-      .subscribe(item => this.pageCount = item)
+      .subscribe(item => this.pageCount = item);
     this.message = this.route.snapshot.params['message'];
   }
 

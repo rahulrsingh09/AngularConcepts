@@ -57,6 +57,7 @@ export class CommentComponent implements OnInit {
 
   login(provider:string) {
     this.showProgress = true;
+    this.service.changeSpinnerStatus(true);
     if(provider === 'google') {
       this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
     } else {
@@ -74,20 +75,17 @@ export class CommentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.changeSpinnerStatus(true);
     this.display = this.route.snapshot.data['Auth'];
-
     if(this.display){
-      this.showProgress = true;
       this.user = JSON.parse(localStorage.getItem("user"));
       this.service.fetchData().subscribe((data) => {
-
-        this.comments = data;
-        this.showProgress = false;
+      this.comments = data;
+        this.service.changeSpinnerStatus(false);
       });
     } else {
       this.afAuth.authState.subscribe((data) => {
         if (data) {
-          this.showProgress = true;
           //const clone = data;
           //data.timestamp = {TimeStamp : new Date().getTime()};
           //console.log(data);
@@ -98,9 +96,10 @@ export class CommentComponent implements OnInit {
           //console.log(this.user);
           this.service.fetchData().subscribe((res) => {
             this.comments = res;
-            this.showProgress = false;
+            this.service.changeSpinnerStatus(false);
           });
         } else {
+          this.service.changeSpinnerStatus(false);
           this.comments = null;
         }
       });
