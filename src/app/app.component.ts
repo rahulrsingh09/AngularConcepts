@@ -36,8 +36,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.subscription = this.service.spinner$
-      .subscribe(item => this.showProgress = item);
-    console.log(this.showProgress);
+      .subscribe(item => setTimeout(() => this.showProgress = item, 0)); // work around for ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
     this.service.incrementPageCount().then(data => this.service.changeCount(data));
 
   }
