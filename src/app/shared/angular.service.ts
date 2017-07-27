@@ -68,8 +68,7 @@ export class AngularService {
 
   getUser(user:string){
     return this.http.get('https://api.github.com/users/'+user)
-      .map(response => response.json())
-      .map(data => console.log("No of public Repos" + data.public_repos));
+      .map(response => response.json());
   }
 
  /* getChartDataAsync(){
@@ -128,7 +127,7 @@ export class AngularService {
     const pageCount = this.af.object('/pageCount/').$ref
       .ref.transaction(count => {
         return count + 1;
-      }).then((data) => {return data.snapshot.A.B;});
+      }).then((data) => {return data.snapshot.node_.value_;});
 
     return pageCount;
   }

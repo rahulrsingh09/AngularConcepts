@@ -29,6 +29,7 @@ export class NotesComponent implements OnInit {
 
   shaObj:any;
   hash:string;
+  result:string;
 
   ifElse:string = ` 
   &lt;ng-template #fetching&gt
@@ -81,6 +82,8 @@ export class NotesComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap(term => this.weatherService.getUser(term))
       .subscribe((result) => {
+        console.log(result);
+        this.result = result;
       });
 
     this.myDate = new Date();

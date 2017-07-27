@@ -116,3 +116,21 @@ md-progress-bar{
     top: -59px;
   }
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #673ab7;
+}
+
+.my-text{
+  color: white;
+}
+.my-text a{
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
