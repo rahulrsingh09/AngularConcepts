@@ -2,3 +2,8 @@
 md-input-container{
   display: inherit;
 }
+
+pre{
+  height: auto;
+  font-size: 15px;
+}

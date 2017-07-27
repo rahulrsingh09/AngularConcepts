@@ -13,79 +13,116 @@
 <hr>
 
 
-<form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
-
-  <div class="row">
-    <div class="col-md-4">
-      <md-input-container>
-        <input mdInput type="text" placeholder="Name" formControlName="name">
-      </md-input-container>
-    </div>
-    <div class="col-md-4">
-      <md-input-container>
-        <input mdInput type="number" formControlName="age" placeholder="Age">
-      </md-input-container>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <p><strong>Forms are Crucial, Forms are Complex</strong><br>
+    Probably the most important building block of any we application is a form. With forms we register users validate user data store it on the server use it to
+    send news letters and all sorts of things all the data is collected by means of forms and the more the control over forms the better.<br>
+    Here we going to talk about Reactive forms which is new thing in Angular which gives the more control to the user. As the component we build has access to all the
+    model and  template we can use this approach to have better control over our data and have instant access to all the validations and values by drilling 
+    down the form control.<br>
+    The Two Fundamental Blocks for forms in Angular are <code>Form Controls </code> & <code>Forms Groups </code>.<br>
+   <code>Form Controls </code> represent a single input and is the smallest unit in a Angular Form. Where as a <code>Forms Groups </code> is a a way to manage these
+   form groups as mostly we will be dealing with forms that have multiple fields. Both these classes have the same parent <code>Abstract Control</code> so we can track down 
+   the changes easily for one or even more forms. For more indepth study please visit these links <span mdTooltip="Ng book">
+        <a href="http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/">
+          <img src="code.png" alt="Image">
+        </a>
+      </span> & <span mdTooltip="Angular IO">
+        <a href="https://angular.io/guide/reactive-forms">
+          <img src="code.png" alt="Image">
+        </a>
+      </span> <br> <strong>Now Let's get our hand's dirty</strong></p> 
   </div>
+</div>
+<br><br>
 
-  <br>
+<div class="row">
+  <div class="col-md-9">
 
-  <div class="row">
-    <div class="col-md-6">
-      <label> Gender - &nbsp;&nbsp; </label>
-      <md-radio-group formControlName="gender">
-        <md-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>
-      </md-radio-group>
-    </div>
+    <form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
+
+      <div class="row">
+        <div class="col-md-4">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Name" formControlName="name">
+          </md-input-container>
+        </div>
+        <div class="col-md-4">
+          <md-input-container>
+            <input mdInput type="number" formControlName="age" placeholder="Age">
+          </md-input-container>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-6">
+          <label> Gender - &nbsp;&nbsp; </label>
+          <md-radio-group formControlName="gender">
+            <md-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>
+          </md-radio-group>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          <md-select placeholder="Role" formControlName="role">
+            <md-option *ngFor="let role of roles" [value]="role.value">
+              {{role.display}}
+            </md-option>
+          </md-select>
+        </div>
+
+        <div class="col-md-3">
+          <md-select placeholder="Theme"  formControlName="theme">
+            <md-option *ngFor="let theme of themes" [value] = "theme">
+              {{theme.display}}
+            </md-option>
+          </md-select>
+        </div>
+        <br>
+        <div class="col-md-3">
+          <md-select multiple placeholder="Topics" formControlName="topics">
+            <md-option  *ngFor="let topic of topics" [value]="topic.value">
+              {{topic.display}}
+            </md-option>
+          </md-select><!-- Multiple select is not active in multiple select -->
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-3">
+          <md-checkbox name="isActive" formControlName="isActive" >Is Active!</md-checkbox>
+        </div>
+
+        <div class="col-md-3">
+          <input type="hidden">
+          <md-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
+            {{toggles[0].display}}</md-checkbox>
+        </div>
+
+        <div class="col-md-3" [hidden] = "user.controls.gender.value !== 'F'">
+         <md-input-container>
+            <input mdInput type="text" placeholder="Discount" formControlName="discount">
+          </md-input-container>
+        </div>
+
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-md-3">
+          <button md-raised-button color = "primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <br>
-  <div class="row">
-    <div class="col-md-3">
-      <md-select placeholder="Role" formControlName="role">
-        <md-option *ngFor="let role of roles" [value]="role.value">
-          {{role.display}}
-        </md-option>
-      </md-select>
-    </div>
-
-    <div class="col-md-3">
-      <md-select placeholder="Theme"  formControlName="theme">
-        <md-option *ngFor="let theme of themes" [value] = "theme">
-          {{theme.display}}
-        </md-option>
-      </md-select>
-    </div>
-    <br>
-    <div class="col-md-3">
-      <md-select multiple placeholder="Topics" formControlName="topics">
-        <md-option  *ngFor="let topic of topics" [value]="topic.value">
-          {{topic.display}}
-        </md-option>
-      </md-select><!-- Multiple select is not active in multiple select -->
-    </div>
-
+  <div class="col-md-3">
+    <pre> {{user.value | json}} </pre>
   </div>
-
-  <br>
-
-  <div class="row">
-    <div class="col-md-3">
-      <md-checkbox name="isActive" formControlName="isActive" >Is Active!</md-checkbox>
-    </div>
-
-    <div class="col-md-3">
-      <input type="hidden">
-      <md-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
-        {{toggles[0].display}}</md-checkbox>
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-md-3">
-      <button md-raised-button color = "primary" type="submit">Submit</button>
-    </div>
-  </div>
-</form>
-
-
+</div>

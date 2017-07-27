@@ -13,7 +13,9 @@ export class ReactiveComponent implements OnInit {
   user:FormGroup;
   toggle
 
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
     this.user = new FormGroup({
@@ -24,8 +26,13 @@ export class ReactiveComponent implements OnInit {
       theme:new FormControl(''),
       topics:new FormControl(''),
       isActive:new FormControl(false),
+      discount: new FormControl(''),
       toggle:new FormControl('')
     });
+
+    this.user.controls['name'].valueChanges.subscribe(data => console.log(data)); // or
+    //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 
+    
   }
 
   public roles = [
