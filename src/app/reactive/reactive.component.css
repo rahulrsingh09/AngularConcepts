@@ -13,3 +13,8 @@ pre{
   color : blue !important;
   cursor: pointer;
 }
+
+small{
+  color: red;
+  font-weight: bold;
+}

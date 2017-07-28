@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormGroup, FormControl} from "@angular/forms";
+import {FormArray, FormGroup, FormControl, Validators} from "@angular/forms";
 
 import {Theme} from "../shared/theme.interface";
 
@@ -20,7 +20,7 @@ export class ReactiveComponent implements OnInit {
   ngOnInit() {
     this.user = new FormGroup({
       name:new FormGroup({
-        firstName : new FormControl(''),
+        firstName : new FormControl('',Validators.required),
         lastName : new FormControl('')
       }),
       age:new FormControl(''),
@@ -35,6 +35,8 @@ export class ReactiveComponent implements OnInit {
       discount: new FormControl(''),
       toggle:new FormControl('')
     });
+
+    this.user.patchValue({name :{firstName:"Rahul",lastName:"Singh"}}); // adding default values to the form
 
     this.user.controls['name'].valueChanges.subscribe(data => console.log(data)); // or
     //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 

@@ -61,7 +61,13 @@
           </md-input-container>
         </div>
       </div>
-
+      <div class="row">
+        <div class="col-md-12">
+          <small [hidden]="user.controls.name.controls.firstName.valid">
+            First Name is required
+            </small>
+        </div>
+      </div>
       <br>
 
       <div class="row" formArrayName = "addresses">
@@ -152,7 +158,6 @@
 
       </div>
       <br>
-
       <div class="row">
         <div class="col-md-3">
           <button md-raised-button color = "primary" type="submit">Submit</button>
