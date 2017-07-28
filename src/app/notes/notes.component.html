@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-3 col-md-offset-4">
     <p class="myHeader">
@@ -10,7 +9,7 @@
     </p>
   </div>
   <div class="col-md-1 col-md-offset-4">
-    <input type="search" placeholder="Search" (keyup) = "submit(input.value)" #input>
+    <input type="search" placeholder="Search" (keyup)="submit(input.value)" #input>
   </div>
 </div>
 <div class="row">
@@ -28,36 +27,10 @@
 
 <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <p><strong>1. Instead of Using Observables use either a Behaviour Subject or a Replay Subject for Passing Data between Components (Shared Services).</strong></p>
-        </a>
-      </h5>
-    </div>
-
-    <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" >
-      <div class="card-block">
-        <p>A detailed info on using behaviour subject or replay subject can be found on this link<span mdTooltip="Stack Link ans by Mark">
-        <a href="https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular2">
-          <img src="code.png" alt="Image">
-        </a>
-      </span></p>
-        <br>
-        <p>& If you want to go with Event Emitters even if it is not recommended then follow this link
-          <span mdTooltip="Stack Link ans by Mark">
-      <a href="https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular2/34402436#34402436">
-        <img src="code.png" alt="Image">
-      </a>
-    </span></p>
-      </div>
-    </div>
-  </div>
-  <div class="card">
     <div class="card-header" role="tab" id="headingThree">
       <h5 class="mb-0">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <p><strong>2. Show Loading Screen Before Component Displays Data (Router Resolve)</strong></p>
+          <p><strong>1. Show Loading Screen Before Component Displays Data (Router Resolve)</strong></p>
         </a>
       </h5>
     </div>
@@ -68,12 +41,61 @@
         <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
           <img src="code.png" alt="Image">
         </a>
-      </span></p><br><p>My implementaion for the same problem
-        <span mdTooltip="My Implementation of the Same">
+      </span></p><br>
+        <p>My implementaion for the same problem
+          <span mdTooltip="My Implementation of the Same">
         <a href="https://stackoverflow.com/questions/37069609/show-loading-screen-when-navigating-between-routes-in-angular-2">
           <img src="code.png" alt="Image">
         </a>
       </span></p>
+      </div>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <p><strong>2. Instead of Using Observables use either a Behaviour Subject or a Replay Subject for Passing Data between Components (Shared Services).</strong></p>
+        </a>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class= "collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <p>A Subject is both an Observable (so we can subscribe() to it) and an Observer (so we can call next() on it to emit
+          a new value).
+          <br>We exploit this feature. A Subject allows values to be multicast to many Observers.
+          <br>We don't exploit this feature (we only have one Observer).
+          <br>BehaviorSubject is a variant of Subject. It has the notion of "the current value". We exploit this: whenever
+          we create an ObservingComponent, it gets the current navigation item value from the BehaviorSubject automatically.
+          <br>ReplaySubject is another variant of Subject.
+          <br>If you want to wait until a value is actually produced, use ReplaySubject(1). Whereas a BehaviorSubject requires
+          an initial value (which will be provided immediately), ReplaySubject does not. ReplaySubject will always provide
+          the most recent value, but since it does not have a required initial value, the service can do some async operation
+          before returning it's first value. It will still fire immediately on subsequent calls with the most recent value.
+          If you just want one value, use first() on the subscription. You do not have to unsubscribe if you use first().
+
+          <br>Below Code is using Behaviour Subject<br>
+          <strong>Your Service</strong>
+        </p>
+        <pre>
+          <code [innerHTML]="service"></code>
+        </pre>
+        <p><strong>Observing Component</strong></p>
+        <pre>
+          <code [innerHTML]="observing"></code>
+        </pre>
+        <p><strong>Updating Info Component</strong></p>
+        <pre>
+          <code [innerHTML]="updating"></code>
+        </pre>
+        <br>
+        <p>If you want to go with Event Emitters even if it is not recommended then follow this link
+          <span mdTooltip="Stack Link ans by Mark">
+      <a href="https://stackoverflow.com/questions/34376854/delegation-eventemitter-or-observable-in-angular2/34402436#34402436">
+        <img src="code.png" alt="Image">
+      </a>
+    </span></p>
       </div>
     </div>
   </div>
@@ -240,7 +262,8 @@
         <p>With typings<br>
           <strong>Step One</strong></p>
         <code>npm install lodash --save  [using loadash for this demo]</code>
-        <p><strong>Step two</strong><br>Add the typings for the library for popular library you will have types defined like we have for lodash</p><br>
+        <p><strong>Step two</strong><br>Add the typings for the library for popular library you will have types defined like
+          we have for lodash</p><br>
         <code>npm install @types/lodash --save</code>
         <p><strong>Step three</strong> <br>Import it in your component Directly</p><br>
         <code>import * as _ from 'lodash';</code>
@@ -258,18 +281,19 @@
     </div>
     <div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="heading13">
       <div class="card-block">
-        <p>Ngrx is nothing but flux architecture that was first originated and created by facebook dev's which was
-        later trimmed and changed to Redux .<br> It's sole use is state management. <br>A small scenario will make its use quite clear <br>
-        I am sure quite a lot of you might have used facebook right :P so if you look @ facebook's website you will see multiple
-        components like navbar, left panel, chatbox etc. Ever wondered when a new message is delivered to you all these are updated
-        simultaneously how ? If they went for Observables or Event Emitters they would be engulfed in a sea of spaghetti code. Which
-        even if implemented will be very hard to debug or make changes .<br> Here comes the use of ngrx state management all the
-        information is stored @ a single place and all the components are identified when the state of the data is changed . A Look @ this answer from
-          stack overflow will clear the concepts even more <span mdTooltip="Stack overflow Answer">
+        <p>Ngrx is nothing but flux architecture that was first originated and created by facebook dev's which was later trimmed
+          and changed to Redux .<br> It's sole use is state management. <br>A small scenario will make its use quite clear
+          <br> I am sure quite a lot of you might have used facebook right :P so if you look @ facebook's website you will
+          see multiple components like navbar, left panel, chatbox etc. Ever wondered when a new message is delivered to
+          you all these are updated simultaneously how ? If they went for Observables or Event Emitters they would be engulfed
+          in a sea of spaghetti code. Which even if implemented will be very hard to debug or make changes .<br> Here comes
+          the use of ngrx state management all the information is stored @ a single place and all the components are identified
+          when the state of the data is changed . A Look @ this answer from stack overflow will clear the concepts even more
+          <span mdTooltip="Stack overflow Answer">
         <a href="https://stackoverflow.com/a/37543811/7805613">
           <img src="code.png" alt="Image">
         </a>
-          </span>clear. <br>I have a separate page just dedicated for <strong><a href="https://rahulrsingh09.github.io/AngularConcepts/#/ngrx">NGRX</a></strong> please check that for more info. </p>
+          </span>clear. <br>I have a separate page just dedicated for <strong><a href="https://rahulrsingh09.github.io/AngularConcepts/#/ngrx">NGRX</a></strong>          please check that for more info. </p>
       </div>
     </div>
   </div>
@@ -308,11 +332,10 @@
             <input mdInput type="text" placeholder="Search Github Repo" formControlName="search">
           </md-input-container>
         </form>
-        <p *ngIf = "result" >{{result?.name}} has {{result?.followers}} followers on github</p>
+        <p *ngIf="result">{{result?.name}} has {{result?.followers}} followers on github</p>
         <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we
-          show how we can use debouce time and switchmap in a form control to limit request to a server.
-          To have a enlarged view of this example Please check my repo <a
-            href="https://github.com/rahulrsingh09/GitSearch-App"> Repo </a> which
+          show how we can use debouce time and switchmap in a form control to limit request to a server. To have a enlarged
+          view of this example Please check my repo <a href="https://github.com/rahulrsingh09/GitSearch-App"> Repo </a> which
           has a full Reproduction of the above example.</p>
         <br>
       </div>

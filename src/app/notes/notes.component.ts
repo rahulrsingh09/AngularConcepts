@@ -31,13 +31,72 @@ export class NotesComponent implements OnInit {
   hash:string;
   result:string;
 
+
+  service : string = `
+    import {Injectable}      from '@angular/core'
+    import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+
+    @Injectable()
+    export class NavService {
+      // Observable navItem source
+      private _navItemSource = new BehaviorSubject<number>(0);
+      // Observable navItem stream
+      navItem$ = this._navItemSource.asObservable();
+      // service command
+      changeNav(number) {
+        this._navItemSource.next(number);
+      }
+    }
+  `;
+
+  observing: string = `
+    import {Component}    from '@angular/core';
+    import {NavService}   from './nav.service';
+    import {Subscription} from 'rxjs/Subscription';
+
+    @Component({
+      selector: 'obs-comp',
+      template: 'obs component, item: {{item}}'
+    })
+    export class ObservingComponent {
+      item: number;
+      subscription:Subscription;
+      constructor(private _navService:NavService) {}
+      ngOnInit() {
+        this.subscription = this._navService.navItem$
+          .subscribe(item => this.item = item)
+      }
+      ngOnDestroy() {
+        // prevent memory leak when component is destroyed
+        this.subscription.unsubscribe();
+      }
+    }
+  `;
+
+  updating: string = `
+    @Component({
+    selector: 'my-nav',
+    template: '
+      &lt;div class="nav-item" (click)="selectedNavItem(1)"&gt;nav 1 (click me)&lt;/div&gt;
+      &lt;div class="nav-item" (click)="selectedNavItem(2)"&gt;nav 2 (click me)&lt;/div&gt;'
+    })
+    export class Navigation {
+    item = 1;
+    constructor(private _navService:NavService) {}
+    selectedNavItem(item: number) {
+      console.log('selected nav item ' + item);
+      this._navService.changeNav(item);
+    }
+    }
+  `;
+
   ifElse:string = ` 
-  &lt;ng-template #fetching&gt
-    &lt;p&gtFetching...&lt;/p&gt
+  &lt;ng-template #fetching&gt;
+    &lt;p&gtFetching...&lt;/p&gt;
   &lt;/ng-template&gt
 
-  &lt;p *ngIf="auth | async; else fetching; let user"&gt
-    &lt;strong&gtAngular 4 If else Usage - {{user.username }}&lt;/strong&gt
+  &lt;p *ngIf="auth | async; else fetching; let user"&gt;
+    &lt;strong&gtAngular 4 If else Usage - {{user.username }}&lt;/strong&gt;
   &lt;/p&gt`;
 
   code: string = `
