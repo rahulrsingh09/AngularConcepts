@@ -57,6 +57,37 @@
 
       <br>
 
+      <div class="row" formArrayName = "addresses">
+        <div class="col-md-12" *ngFor = "let address of user.controls.addresses.controls ; let i = index">
+          <div class="row">
+            <div class="col-md-11">
+              <span>Address  {{i+1}} </span>
+            </div>
+            <div class="col-md-1">  
+              <span *ngIf = "user.get('addresses').controls.length > 1" (click) = "removeAddress(i)"class="glyphicon glyphicon-remove"></span>
+            </div>
+          </div>
+          <div [formGroupName] = "i" class="row">
+            <div class="col-md-6">
+              <md-input-container>
+                <input mdInput type="text" formControlName="street" placeholder="Street">
+              </md-input-container>
+            </div>
+            <div class="col-md-6">
+              <md-input-container>
+                <input mdInput type="text" formControlName="postcode" placeholder="Pin">
+              </md-input-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <a (click)="addAddress()" class="point">
+            <strong> another address + </strong>
+          </a>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-6">
           <label> Gender - &nbsp;&nbsp; </label>
@@ -126,3 +157,4 @@
     <pre> {{user.value | json}} </pre>
   </div>
 </div>
+<br><br><br><br>

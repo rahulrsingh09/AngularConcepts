@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from "@angular/forms";
+import {FormArray, FormGroup, FormControl} from "@angular/forms";
 
 import {Theme} from "../shared/theme.interface";
 
@@ -21,6 +21,9 @@ export class ReactiveComponent implements OnInit {
     this.user = new FormGroup({
       name:new FormControl(''),
       age:new FormControl(''),
+      addresses: new FormArray([
+        this.initAddress(), 
+      ]),
       gender:new FormControl(''),
       role:new FormControl(''),
       theme:new FormControl(''),
@@ -33,6 +36,25 @@ export class ReactiveComponent implements OnInit {
     this.user.controls['name'].valueChanges.subscribe(data => console.log(data)); // or
     //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 
     
+  }
+
+
+  initAddress(){
+    return new FormGroup({
+      street : new FormControl(''),
+      postcode : new FormControl('')
+    });
+  }
+
+
+  addAddress(){
+    const control = <FormArray>this.user.controls['addresses'];
+    control.push(this.initAddress());
+  }
+
+  removeAddress(i: number){
+    const control = <FormArray>this.user.controls['addresses'];
+    control.removeAt(i);
   }
 
   public roles = [

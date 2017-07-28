@@ -7,3 +7,9 @@ pre{
   height: auto;
   font-size: 15px;
 }
+
+.point{
+  font-size: 12px;
+  color : blue !important;
+  cursor: pointer;
+}
