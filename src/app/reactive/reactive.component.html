@@ -43,10 +43,17 @@
     <form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
 
       <div class="row">
-        <div class="col-md-4">
-          <md-input-container>
-            <input mdInput type="text" placeholder="Name" formControlName="name">
-          </md-input-container>
+        <div formGroupName = "name">
+          <div class="col-md-4">
+            <md-input-container>
+              <input mdInput type="text" placeholder="First Name" formControlName="firstName">
+            </md-input-container>
+          </div>
+          <div class="col-md-4">
+            <md-input-container>
+              <input mdInput type="text" placeholder="Last Name" formControlName="lastName">
+            </md-input-container>
+          </div>
         </div>
         <div class="col-md-4">
           <md-input-container>
@@ -157,4 +164,4 @@
     <pre> {{user.value | json}} </pre>
   </div>
 </div>
-<br><br><br><br>
+

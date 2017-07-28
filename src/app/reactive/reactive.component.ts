@@ -19,7 +19,10 @@ export class ReactiveComponent implements OnInit {
 
   ngOnInit() {
     this.user = new FormGroup({
-      name:new FormControl(''),
+      name:new FormGroup({
+        firstName : new FormControl(''),
+        lastName : new FormControl('')
+      }),
       age:new FormControl(''),
       addresses: new FormArray([
         this.initAddress(), 
