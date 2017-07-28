@@ -1,4 +1,4 @@
-# AngularConcepts TEST
+# AngularConcepts
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 By Rahul Singh <rahulrsingh09@gmail.com>
