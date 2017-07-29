@@ -24,7 +24,7 @@ export class AsyncAgeValidator implements Validator{
 
   validateAgeObservable( age: number ) {
     return new Observable(observer => {
-      observer.next(age === 20 ? null : {asyncInvalid: true});
+      observer.next(age > 18 ? null : {asyncInvalid: true});
       // observer.complete(); or this or .first();
     });
   }
@@ -32,7 +32,7 @@ export class AsyncAgeValidator implements Validator{
   validateAgePromise( age: number ) {
     return new Promise(resolve => {
       setTimeout(() => {
-        if( age === 20 ) {
+        if( age < 18 ) {
           resolve({
             asyncInvalid: true
           })

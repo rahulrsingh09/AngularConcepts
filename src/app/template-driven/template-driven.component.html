@@ -13,121 +13,306 @@
 <hr>
 
 
-
-<p><strong>Simple Angular Template Driven Form</strong></p>
-<br>
-<form #f="ngForm" novalidate>
-  <div class="row">
-    <div class="col-md-4">
-      <md-input-container>
-        <input mdInput type="text"
-               placeholder="Name"
-               name = "name"
-               [(ngModel)] = "user.name"
-               #userName = "ngModel"
-               minlength="4"
-               required
-               nameRahul>
-      </md-input-container>
-    </div>
-    <div class="col-md-4">
-      <md-input-container>
-        <input mdInput type="number" name="age" [(ngModel)]="user.age" placeholder="Age" required asyncValidator>
-      </md-input-container>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-md-4">
-      <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
-        <md-option *ngFor="let role of roles" [value]="role.value">
-          {{role.display}}
-        </md-option>
-      </md-select>
-    </div>
-
-    <div class="col-md-4">
-      <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
-        <md-option *ngFor="let theme of themes" [value] = "theme">
-          {{theme.display}}
-        </md-option>
-      </md-select>
-    </div>
-
-    <div class="col-md-4">
-      <md-select multiple placeholder="Topics" name="topics" [(ngModel)]="user.topics">
-        <md-option  *ngFor="let topic of topics" [value]="topic.value">
-          {{topic.display}}
-        </md-option>
-      </md-select><!-- Multiple select is not active in multiple select -->
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-md-3">
-      <md-checkbox name="isActive" [(ngModel)]="user.isActive" >Is Active!</md-checkbox>
-    </div>
-    <div class="col-md-3">
-      <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
-      <md-checkbox [checked]="user.toggle === toggles[0].value"
-                   (change)="$event.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-        {{toggles[0].display}}</md-checkbox>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-md-3">
-      <button md-raised-button  color = "primary" type="submit" (click)="save(f.valid,f.value)" [disabled] = !f.valid >Submit</button>
-    </div>
-  </div>
-
-
-<!--
-  <md-radio-group [(ngModel)]="user.gender">
-    <md-radio-button ngDefaultControl *ngFor="let gender of genders" [checked]="gender.value == user.gender"
-                     name="gender" [value]="gender.value"> {{gender.display}}
-    </md-radio-button>
-  </md-radio-group>
-  <div>
-    <label>Gender</label>
-    <div *ngFor="let gender of genders">
-      <label>
-        <input type="radio" name="gender" [(ngModel)]="user.gender"
-               [value]="gender.value">
-        {{gender.display}}
-      </label>
-    </div>
-  </div>
-
-  <div>
-    <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
-    <div>
-      <label>
-        <input type="checkbox"
-               [checked]="user.toggle === toggles[0].value"
-               (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
-        {{toggles[0].display}}
-      </label>
-    </div>
-  </div>
--->
-
-</form>
-<br><br>
 <div class="row">
-  <div class="col-md-3" *ngIf="formErrors.name[0]">
-      <div *ngFor = "let data of formErrors.name" class="alert alert-danger">
-        {{data}}
-      </div>
-  </div>
-
-  <div class="col-md-3" *ngIf="formErrors.age | json">
-    <div *ngFor = "let data of formErrors.age" class="alert alert-danger">
-      {{data}}
-    </div>
+  <div class="col-md-12">
+    <p>Angular JS tackled forms via the famous ng-model directive.<br>
+      The instantaneous two-way data binding of ng-model in Angular 1 is really a life-saver as it allows to transparently keep in sync a form with a view model. 
+      Forms built with this directive can only be tested in an end to end test because this requires the presence of a DOM, but still this mechanism is very useful and simple to understand.<br>
+      Angular 2 provides a similar mechanism also called ng-model, that allow us to build what is now called Template-Driven forms.<br>For more indepth study please visit these links .<span mdTooltip="Angular IO">
+        <a href="https://angular.io/guide/forms">
+          <img src="code.png" alt="Image">
+        </a>
+      </span> <br> <strong>Now Let's get our hand's dirty</strong> You need to Import the <strong>Forms Module</strong> in NgModule to kick start Template Driven Forms.</p>
   </div>
 </div>
+
+<div class="row">
+    <div class="col-md-9">
+    <br>
+    <form #f="ngForm" novalidate>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row" ngModelGroup = "name">
+          <div class="col-md-6">
+            <md-input-container>
+              <input mdInput type="text"
+                      placeholder="First Name"
+                      name = "firstName"
+                      [(ngModel)] = "user.name.firstName"
+                      #firstName = "ngModel"
+                      minlength="4"
+                      required
+                      nameRahul>
+            </md-input-container>
+          </div>
+          <div class="col-md-6">
+            <md-input-container>
+              <input mdInput type="text"
+                      placeholder="Last Name"
+                      name = "lastName"
+                      [(ngModel)] = "user.name.lastName"
+                      #lastName = "ngModel"
+                      >
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <md-input-container>
+          <input mdInput type="number" name="age" [(ngModel)]="user.age" #age = "ngModel" placeholder="Age" required asyncValidator >
+        </md-input-container>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-8" *ngIf="formErrors.name">
+        <div *ngFor="let data of formErrors.name">
+          <small>{{data}}</small>
+        </div>
+      </div>
+
+      <div class="col-md-4" *ngIf="formErrors.age | json">
+        <div *ngFor="let data of formErrors.age">
+          <small>{{data}}</small>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <md-input-container>
+              <input mdInput type="text"
+                      placeholder="email"
+                      name = "email"
+                      [(ngModel)] = "user.email"
+                      #email = "ngModel"
+                      >
+            </md-input-container>
+      </div>
+    </div>
+    <br>  
+    <div class="row">
+      <div class="col-md-4">
+        <md-select placeholder="Role" name="role" [(ngModel)]="user.role">
+          <md-option *ngFor="let role of roles" [value]="role.value">
+            {{role.display}}
+          </md-option>
+        </md-select>
+      </div>
+
+      <div class="col-md-4">
+        <md-select placeholder="Theme" name="theme" [(ngModel)]="user.theme">
+          <md-option *ngFor="let theme of themes" [value] = "theme">
+            {{theme.display}}
+          </md-option>
+        </md-select>
+      </div>
+
+      <div class="col-md-4">
+        <md-select multiple placeholder="Topics" name="topics" [(ngModel)]="user.topics">
+          <md-option  *ngFor="let topic of topics" [value]="topic.value">
+            {{topic.display}}
+          </md-option>
+        </md-select><!-- Multiple select is not active in multiple select -->
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-3">
+        <md-checkbox name="isActive" [(ngModel)]="user.isActive" >Is Active!</md-checkbox>
+      </div>
+      <div class="col-md-3">
+        <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
+        <md-checkbox [checked]="user.toggle === toggles[0].value"
+                      (change)="$event.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+          {{toggles[0].display}}</md-checkbox>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <button md-raised-button  color = "primary" type="submit" (click)="save(f.valid,f.value)" [disabled] = !f.valid >Submit</button>
+      </div>
+    </div>
+
+
+    <!--
+    <md-radio-group [(ngModel)]="user.gender">
+      <md-radio-button ngDefaultControl *ngFor="let gender of genders" [checked]="gender.value == user.gender"
+                        name="gender" [value]="gender.value"> {{gender.display}}
+      </md-radio-button>
+    </md-radio-group>
+    <div>
+      <label>Gender</label>
+      <div *ngFor="let gender of genders">
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="user.gender"
+                  [value]="gender.value">
+          {{gender.display}}
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <input type="hidden" name="toggle" [(ngModel)]="user.toggle">
+      <div>
+        <label>
+          <input type="checkbox"
+                  [checked]="user.toggle === toggles[0].value"
+                  (change)="$event.target.checked?(user.toggle = toggles[0].value): (user.toggle = toggles[1].value)">
+          {{toggles[0].display}}
+        </label>
+      </div>
+    </div>
+    -->
+
+    </form>
+  </div>
+  <div class="col-md-3">
+    <pre> {{f.value | json}} </pre>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-md-12">
+      <p><strong>So Now what is this Form whats is Happening</strong><br>
+      <br> Its is a Form which highlights all the key features of an Template Driven Forms Key features are - Easy to use,
+        Suitable for simple scenarios and fails for complex scenarios,
+        Similar to angular js
+        Two way data binding(using [(NgModel)] syntax)
+        Minimal component code
+        Automatic track of the form and its data(handled by Angular). <br>
+        All the magic happens in the template in Template driven forms as the name suggests .
+      </p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <p><strong>A Small portion of the Template used for the Above Form</strong></p>
+   <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;form</span> <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">f=</span><span style="background-color: #fff0f0">&quot;ngForm&quot;</span> <span style="color: #0000CC">novalidate</span><span style="color: #007700">&gt;</span>
+      <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span><span style="color: #007700">&gt;</span>
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-8&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span> <span style="color: #0000CC">ngModelGroup =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;name&quot;</span><span style="color: #007700">&gt;</span>
+            <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span><span style="color: #007700">&gt;</span>
+              <span style="color: #007700">&lt;md</span><span style="color: #0000CC">-input-container</span><span style="color: #007700">&gt;</span>
+                <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">mdInput</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;text&quot;</span>
+                        <span style="color: #0000CC">placeholder=</span><span style="background-color: #fff0f0">&quot;First Name&quot;</span>
+                        <span style="color: #0000CC">name =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;firstName&quot;</span>
+                        <span style="color: #FF0000; background-color: #FFAAAA">[(</span><span style="color: #0000CC">ngModel</span><span style="color: #FF0000; background-color: #FFAAAA">)]</span> <span style="color: #FF0000; background-color: #FFAAAA">=</span> <span style="color: #FF0000; background-color: #FFAAAA">&quot;</span><span style="color: #0000CC">user</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">name</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">firstName</span><span style="color: #FF0000; background-color: #FFAAAA">&quot;</span>
+                        <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">firstName =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;ngModel&quot;</span>
+                        <span style="color: #0000CC">minlength=</span><span style="background-color: #fff0f0">&quot;4&quot;</span>
+                        <span style="color: #0000CC">required</span>
+                        <span style="color: #0000CC">nameRahul</span><span style="color: #007700">&gt;</span>
+              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/md-input-container&gt;
+            <span style="color: #007700">&lt;/div&gt;</span>
+            <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span><span style="color: #007700">&gt;</span>
+              <span style="color: #007700">&lt;md</span><span style="color: #0000CC">-input-container</span><span style="color: #007700">&gt;</span>
+                <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">mdInput</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;text&quot;</span>
+                        <span style="color: #0000CC">placeholder=</span><span style="background-color: #fff0f0">&quot;Last Name&quot;</span>
+                        <span style="color: #0000CC">name =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;lastName&quot;</span>
+                        <span style="color: #FF0000; background-color: #FFAAAA">[(</span><span style="color: #0000CC">ngModel</span><span style="color: #FF0000; background-color: #FFAAAA">)]</span> <span style="color: #FF0000; background-color: #FFAAAA">=</span> <span style="color: #FF0000; background-color: #FFAAAA">&quot;</span><span style="color: #0000CC">user</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">name</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">lastName</span><span style="color: #FF0000; background-color: #FFAAAA">&quot;</span>
+                        <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">lastName =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;ngModel&quot;</span>
+                        <span style="color: #007700">&gt;</span>
+              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/md-input-container&gt;
+            <span style="color: #007700">&lt;/div&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+        <span style="color: #007700">&lt;/div&gt;</span>
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;md</span><span style="color: #0000CC">-input-container</span><span style="color: #007700">&gt;</span>
+            <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">mdInput</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;age&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">[(</span><span style="color: #0000CC">ngModel</span><span style="color: #FF0000; background-color: #FFAAAA">)]=&quot;</span><span style="color: #0000CC">user</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">age</span><span style="color: #FF0000; background-color: #FFAAAA">&quot;</span> <span style="color: #0000CC">placeholder=</span><span style="background-color: #fff0f0">&quot;Age&quot;</span> <span style="color: #0000CC">required</span> <span style="color: #0000CC">asyncValidator</span><span style="color: #007700">&gt;</span>
+          <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/md-input-container&gt;
+        <span style="color: #007700">&lt;/div&gt;</span>
+      <span style="color: #007700">&lt;/div&gt;</span>
+      <span style="color: #007700">&lt;br&gt;</span>
+      <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span><span style="color: #007700">&gt;</span>
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngIf=</span><span style="background-color: #fff0f0">&quot;formErrors.name&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngFor=</span><span style="background-color: #fff0f0">&quot;let data of formErrors.name&quot;</span><span style="color: #007700">&gt;</span>
+            <span style="color: #007700">&lt;small&gt;</span>{{data}}<span style="color: #007700">&lt;/small&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+        <span style="color: #007700">&lt;/div&gt;lidat</span>
+
+        <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngIf=</span><span style="background-color: #fff0f0">&quot;formErrors.age | json&quot;</span><span style="color: #007700">&gt;</span>
+          <span style="color: #007700">&lt;div</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngFor=</span><span style="background-color: #fff0f0">&quot;let data of formErrors.age&quot;</span><span style="color: #007700">&gt;</span>
+            <span style="color: #007700">&lt;small&gt;</span>{{data}}<span style="color: #007700">&lt;/small&gt;</span>
+          <span style="color: #007700">&lt;/div&gt;</span>
+        <span style="color: #007700">&lt;/div&gt;</span>
+      <span style="color: #007700">&lt;/div&gt;</span>
+  </pre></div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p>I have used a Different Method to Validate my forms here i am attaching directives to the template which makes these Validators Reusable.
+    <br> On such Validator where i check if name is Rahul.</p>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123;AbstractControl, ValidatorFn, Validator, FormControl, NG_VALIDATORS&#125; from <span style="background-color: #fff0f0">&quot;@angular/forms&quot;</span>;
+    <span style="color: #008800; font-weight: bold">import</span> &#123;Directive&#125; from <span style="background-color: #fff0f0">&#39;@angular/core&#39;</span>;
+
+    <span style="color: #008800; font-weight: bold">function</span> validateName()<span style="color: #333333">:</span> ValidatorFn &#123;
+    <span style="color: #008800; font-weight: bold">return</span> (c : <span style="color: #333399; font-weight: bold">AbstractControl</span>) <span style="color: #333333">=&gt;</span> &#123;
+      <span style="color: #008800; font-weight: bold">let</span> isValid <span style="color: #333333">=</span> c.value <span style="color: #333333">===</span> <span style="background-color: #fff0f0">&#39;Rahul&#39;</span>;
+      <span style="color: #008800; font-weight: bold">if</span>(isValid)&#123;
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">null</span>;
+      &#125;<span style="color: #008800; font-weight: bold">else</span>&#123;
+        <span style="color: #008800; font-weight: bold">return</span> &#123;
+          nameRahul<span style="color: #333333">:</span> &#123;
+            valid: <span style="color: #333399; font-weight: bold">false</span>
+          &#125;
+        &#125;;
+      &#125;
+
+    &#125;
+    &#125;
+
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>Directive(&#123;
+    selector<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;[nameRahul][ngModel]&#39;</span>,
+    providers<span style="color: #333333">:</span> [&#123;
+      provide: <span style="color: #333399; font-weight: bold">NG_VALIDATORS</span>, useExisting: <span style="color: #333399; font-weight: bold">NameValidatorDirective</span>, multi: <span style="color: #333399; font-weight: bold">true</span>
+    &#125;]
+    &#125;)
+
+    <span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">class</span> NameValidatorDirective <span style="color: #008800; font-weight: bold">implements</span> Validator&#123;
+
+    validator: <span style="color: #333399; font-weight: bold">ValidatorFn</span>;
+
+    <span style="color: #008800; font-weight: bold">constructor</span>() &#123;
+      <span style="color: #008800; font-weight: bold">this</span>.validator <span style="color: #333333">=</span> validateName();
+    &#125;
+
+    validate(c: <span style="color: #333399; font-weight: bold">FormControl</span>) &#123;
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">this</span>.validator(c);
+    &#125;
+
+    &#125;
+    </pre></div>
+
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p><strong>Why are we using NG_VALIDATORS can't we use a normal function ?</strong><br>
+    Yes we can but to make it resuable we are doing this and NG_VALIDATORS is Providers for validators to be used for FormControls in a form.
+  <br> We use <code>multi: true</code> to add our own validator to NG_VALIDATORS . <br><br>
+      Now this is not the whole picture I wanted to highlight the main components of a Template Driven forms but there is more to than what on this
+      page. There is <strong>Async Validators</strong> , how to show validation messages in a sophisticated manner, use of ngModelGroup.  I am posting this Link -> <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/template-driven">
+          <img src="code.png" alt="Image">
+        </a>
+      </span> . It is the Repo Folder link for this whole page, you can get to see how i created this Reactive Form Template as well as all the Css,Html and Angular.
+</p>
+  </div>
+</div>
+
 
 
 

@@ -5,8 +5,9 @@
 import { Theme } from './theme.interface';
 
 export interface User{
-  name:string;
+  name: {firstName : string ; lastName : string;},
   age?:number;
+  email: string;
   gender?:string;
   role?:string;
   theme?:Theme;

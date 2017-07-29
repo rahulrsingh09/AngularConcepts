@@ -7,8 +7,7 @@ import {NgForm} from "@angular/forms";
 @Component({
   selector: 'app-template-driven',
   templateUrl: './template-driven.component.html',
-  styleUrls: ['./template-driven.component.css'],
-  host: {'(click)': 'onClick()'}
+  styleUrls: ['./template-driven.component.css']
 })
 export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
 
@@ -34,16 +33,19 @@ export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
   onValueChanged(data?: any) {
     if (!this.f) { return; }
     const form = this.f.form;
-
     for (const field in this.formErrors) {
       // clear previous error message (if any)
       this.formErrors[field] = [];
       const control = form.get(field);
-
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
           this.formErrors[field].push(messages[key]);
+        }
+        if(control.get('firstName')){
+          for (const key in control.get('firstName').errors) {
+            this.formErrors[field].push(messages[key]);
+          }
         }
       }
     }
@@ -105,14 +107,16 @@ export class TemplateDrivenComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.user = {
-      name:'',
+      name : {firstName: "Rahul", lastName : "Singh"},
+      email :'rahulrsingh09@gmail.com',
       gender:this.genders[0].value,
       role:null,
       theme:this.themes[0],
       isActive:false,
       toggle:this.toggles[1].value,
       topics:[this.topics[1].value]
-    }
+    };
+
   }
 
 

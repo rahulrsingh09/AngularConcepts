@@ -3,9 +3,7 @@ import {Directive} from '@angular/core';
 
 function validateName(): ValidatorFn {
   return (c : AbstractControl) => {
-
     let isValid = c.value === 'Rahul';
-
     if(isValid){
       return null;
     }else{
