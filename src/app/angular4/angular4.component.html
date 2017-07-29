@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-12">
     <p class="myHeader">
@@ -14,22 +13,57 @@
 
 <div class="row">
   <div class="col-md-8">
-      <pre>
-        <code [innerHTML]="component">
-        </code>
-      </pre>
+    <div style="background: #ffffff; overflow:auto;width:auto;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123; Component &#125; from <span style="background-color: #fff0f0">&#39;@angular/core&#39;</span>;
+
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>Component(&#123;
+      
+      selector<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;my-component&#39;</span>,  
+      template<span style="color: #333333">:</span> 
+        <span style="color: #333333">&amp;</span>lt;div<span style="color: #333333">&amp;</span>gt;Hello my name is &#123;&#123;name&#125;&#125;.<span style="color: #333333">&amp;</span>lt;div<span style="color: #333333">&amp;</span>gt;,
+      styles <span style="color: #333333">:</span> [<span style="background-color: #fff0f0">&#39;div &#123; font-size: 20px; &#125;&#39;</span>]
+    &#125;)
+    <span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">class</span> MyComponent <span style="color: #008800; font-weight: bold">implements</span> onInit&#123;
+      
+      name: <span style="color: #333399; font-weight: bold">string</span>;
+      <span style="color: #008800; font-weight: bold">constructor</span>() &#123;&#125;
+      
+      ngOnInit() &#123;
+        console.log(<span style="background-color: #fff0f0">&#39;Its a good practise to always use ngOnInit instead of </span>
+    <span style="background-color: #fff0f0">                 using Constructors for doing heavy tasks&#39;</span>);
+        <span style="color: #008800; font-weight: bold">this</span>.name <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;Angular&#39;</span>;
+      &#125;
+    &#125;
+    </pre>
+    </div>
   </div>
   <div class="col-md-4">
     <p>
       Components are a logical piece of code for a Angular application. It has some vital Cogs −
     </p>
     <ul>
-      <li><p>Template − This is used to render the view for the application. This contains the HTML that needs to be rendered in the application. This part also includes the binding and directives.</p></li>
-      <li><p>Class − This is like a class defined in any language such as C. This contains properties and methods. This has the code which is used to support the view. It is defined in TypeScript.</p></li>
-      <li><p>Metadata − This has the extra data defined for the Angular class. It is defined with a decorator. eg - @Component, @Host , @Directives etc.</p></li>
-      <li><a href="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html"><p>Angular Components Doc</p></a></li>
-      <li><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md"> <p>Angular 4 ChangeLog</p></a></li>
+      <li>
+        <p>Template − This is used to render the view for the application. This contains the HTML that needs to be rendered
+          in the application. This part also includes the binding and directives.</p>
+      </li>
+      <li>
+        <p>Class − This is like a class defined in any language such as C. This contains properties and methods. This has the
+          code which is used to support the view. It is defined in TypeScript.</p>
+      </li>
+      <li>
+        <p>Metadata − This has the extra data defined for the Angular class. It is defined with a decorator. eg - @Component,
+          @Host , @Directives etc.</p>
+      </li>
+      <li>
+        <a href="https://angular.io/docs/ts/latest/tutorial/toh-pt3.html">
+          <p>Angular Components Doc</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md">
+          <p>Angular 4 ChangeLog</p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
-

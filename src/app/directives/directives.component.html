@@ -1,5 +1,3 @@
-
-
 <div class="row">
   <div class="col-md-12">
     <p class="myHeader">
@@ -16,28 +14,54 @@
 
 <div class="row">
   <div class="col-md-12">
-    <pre>
-        <code [innerHTML]="directive">
-        </code>
-    </pre>
+    <div style="background: #ffffff; overflow:auto;width:auto;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123;Directive, Input, HostListener&#125; from <span style="background-color: #fff0f0">&#39;@angular/core&#39;</span>;
+
+  <span style="color: #FF0000; background-color: #FFAAAA">@</span>Directive(&#123;
+    selector<span style="color: #333333">:</span> <span style="background-color: #fff0f0">&#39;[appConfirm]&#39;</span>
+  &#125;)
+  <span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">class</span> ConfirmDirective &#123;
+
+    <span style="color: #888888">//we can also add the attribute directive likek this [appconfirm] if the input in the directive has same name as appConfirm like</span>
+    <span style="color: #888888">//@Input() appConfirm:string; and then in component button we can use the directive like</span>
+    <span style="color: #888888">//&lt;button type=&quot;button&quot; [appConfirm] = &quot;Rahul&quot;&gt;Click to Send to Directive&lt;/button&gt;</span>
+    <span style="color: #888888">//we can also add the attribute directive like this [appconfirm] if the input in the directive has same name as appConfirm</span>
+    <span style="color: #888888">// we can also pass values to the directives from the component like instead of &quot;[value]&quot; send a variable from component</span>
+
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>Input() value:<span style="color: #333399; font-weight: bold">string</span>;
+
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>HostListener(<span style="background-color: #fff0f0">&#39;click&#39;</span>,[<span style="background-color: #fff0f0">&#39;$event&#39;</span>])
+    confirm()&#123;
+        <span style="color: #008800; font-weight: bold">const</span> confirmed <span style="color: #333333">=</span> <span style="color: #007020">window</span>.confirm(<span style="background-color: #fff0f0">&quot;Are you Sure ?&quot;</span>);
+        <span style="color: #008800; font-weight: bold">if</span>(confirmed)&#123;
+          <span style="color: #007020">window</span>.alert(<span style="background-color: #fff0f0">&quot;This is Value [&quot;</span><span style="color: #333333">+</span><span style="color: #008800; font-weight: bold">this</span>.value<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;] Passed by the Component to the Directive&quot;</span>)
+        &#125;
+    &#125;
+
+    <span style="color: #008800; font-weight: bold">constructor</span>() &#123; &#125;
+
+  &#125;
+  </pre>
+    </div>
+
   </div>
 </div>
-
+<br>
 <div class="row">
-    <div class="col-md-4">
-      <button md-raised-button color = "primary" appConfirm value = "Rahul"><p>Click to intitate a Directive</p></button>
-      <span mdTooltip="View Source">
+  <div class="col-md-4">
+    <button md-raised-button color="primary" appConfirm value="Rahul"><p>Click to intitate a Directive</p></button>
+    <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/directives/confirm.directive.ts">
           <img src="code.png" alt="Image">
         </a>
       </span>
-    </div>
-    <div class="col-md-8">
-      <p>Directives aren't limited attribute usage. Directives add behaviour to an existing DOM element. One example use case for @Directive would be to add a highlight on mouse hover.
-        Directives is a like an attribute (but more than an attribute) . you can get elements from the existing DOM and then can make changes to it or even modify the DOM model.
-        Keep in mind Directive is not the template it just a extension that allows you to modify the template.
+  </div>
+  <div class="col-md-8">
+    <p>Directives aren't limited attribute usage. Directives add behaviour to an existing DOM element. One example use case
+      for @Directive would be to add a highlight on mouse hover. Directives is a like an attribute (but more than an attribute)
+      . you can get elements from the existing DOM and then can make changes to it or even modify the DOM model. Keep in
+      mind Directive is not the template it just a extension that allows you to modify the template.
 
-        <a href="https://angular-2-training-book.rangle.io/handout/advanced-angular/directives/creating_an_attribute_directive.html">More on Directives</a></p>
-    </div>
+      <a href="https://angular-2-training-book.rangle.io/handout/advanced-angular/directives/creating_an_attribute_directive.html">More on Directives</a></p>
+  </div>
 </div>
-
