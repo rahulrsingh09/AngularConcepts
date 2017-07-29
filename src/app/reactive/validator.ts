@@ -8,7 +8,7 @@ export function  validate(c: AbstractControl): Observable<{[key : number] : any}
 
   function validateAgeObservable( age: number ) {
     return new Observable(observer => {
-      setTimeout(()=> {observer.next(age > 18 ?  null: {inValid: true});} ,5000);
+      setTimeout(()=> {observer.next(age > 18 ?  null: {inValid: true});} ,2000);
       // observer.complete(); or this or .first();
     });
   }

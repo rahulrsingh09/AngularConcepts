@@ -178,8 +178,8 @@
       <br>
       <div class="row">
         <div class="col-md-3">
-          <button md-raised-button color = "primary" type="submit">Submit</button>
-        </div>
+          <button md-raised-button color = "primary" type="submit" [disabled] = "!user.valid">Submit</button>
+        </div> 
       </div>
     </form>
   </div>
@@ -187,4 +187,93 @@
     <pre> {{user.value | json}} </pre>
   </div>
 </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+      <p><strong>So Now what is this Form whats is Happening</strong><br>
+      <br> Its is a Form which highlights all the key features of an Angular Reactive Forms . Here all the
+      control resides with the developer. Key Features here are Nested Form Groups and Form Array.
+      As you can see from the output on the side of the form. Nested Groups are like nested objects in Javascript. 
+      where as a Form Array is a array of objects like in javascript you can interlieve these two together here is how I created them .
+      </p>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+    <p><strong>Nested Groups</strong></p><br>
+    <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%">  ngOnInit() &#123;
+        <span style="color: #008800; font-weight: bold">this</span>.user <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> FormGroup(&#123;
+          name:<span style="color: #333399; font-weight: bold">new</span> FormGroup(&#123;
+            firstName : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,Validators.required),
+            lastName : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>)
+        &#125;),
+          age:<span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,<span style="color: #008800; font-weight: bold">null</span>,validate),
+          email: <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,emailValidator),
+          addresses: <span style="color: #333399; font-weight: bold">new</span> FormArray([
+            <span style="color: #008800; font-weight: bold">this</span>.initAddress(), 
+          ])
+      &#125;);
+    &#125;
+
+    initAddress()&#123;
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> FormGroup(&#123;
+          street : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>),
+          postcode : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>)
+      &#125;);
+    &#125;
+    </pre></div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p>You must be wondering what's those <strong>email Validator & validate</strong> doing with the Form Control Those are Custom Angular Validators .There are 
+      two types of validators one is synchronous other is Async. Async is used for Server side validations if any for this page I am simualting a server call. 
+    </p>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+<div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123; ValidatorFn, AbstractControl&#125; from <span style="background-color: #fff0f0">&#39;@angular/forms&#39;</span>;
+<span style="color: #008800; font-weight: bold">import</span> &#123; Observable&#125; from <span style="background-color: #fff0f0">&#39;rxjs&#39;</span>;
+
+<span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">function</span>  validate(c: <span style="color: #333399; font-weight: bold">AbstractControl</span>)<span style="color: #333333">:</span> Observable<span style="color: #333333">&lt;</span>&#123;[key : <span style="color: #333399; font-weight: bold">number</span>] <span style="color: #333333">:</span> any}<span style="color: #333333">&gt;</span>&#123;
+    <span style="color: #888888">// return this.validateAgeObservable(c.value);</span>
+    <span style="color: #008800; font-weight: bold">return</span> validateAgeObservable(c.value).first();
+ &#125;
+
+  <span style="color: #008800; font-weight: bold">function</span> validateAgeObservable( age: <span style="color: #333399; font-weight: bold">number</span> ) &#123;
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> Observable(observer <span style="color: #333333">=&gt;</span> &#123;
+      setTimeout(()<span style="color: #333333">=&gt;</span> &#123;observer.next(age <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">18</span> <span style="color: #333333">?</span>  <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">:</span> &#123;inValid: <span style="color: #333399; font-weight: bold">true</span>});} ,<span style="color: #0000DD; font-weight: bold">2000</span>);
+      <span style="color: #888888">// observer.complete(); or this or .first();</span>
+   &#125;);
+ &#125;
+
+<span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">function</span> emailValidator(control: <span style="color: #333399; font-weight: bold">AbstractControl</span>)<span style="color: #333333">:</span>&#123;[key: <span style="color: #333399; font-weight: bold">string</span>]<span style="color: #333333">:</span> <span style="color: #008800; font-weight: bold">boolean</span>} &#123;
+  console.log(<span style="background-color: #fff0f0">&quot;called&quot;</span>);
+        <span style="color: #008800; font-weight: bold">var</span> EMAIL_REGEXP <span style="color: #333333">=</span> <span style="color: #000000; background-color: #fff0ff">/^(([^&lt;&gt;()\[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]&#123;1,3}\.[0-9]&#123;1,3}\.[0-9]&#123;1,3}\.[0-9]&#123;1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,}))$/</span>;
+        <span style="color: #008800; font-weight: bold">if</span> (control.value <span style="color: #333333">!=</span> <span style="background-color: #fff0f0">&quot;&quot;</span> <span style="color: #333333">&amp;&amp;</span> (control.value.length <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">5</span> <span style="color: #333333">||</span> <span style="color: #333333">!</span>EMAIL_REGEXP.test(control.value))) &#123;
+              <span style="color: #008800; font-weight: bold">return</span> &#123;invalid:<span style="color: #333399; font-weight: bold">true</span>};
+       &#125;
+        <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">null</span>;
+   &#125;
+</pre></div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p> Now this is not the whole picture I wanted to highlight the main components of a Reactive Template but there is more to than what on this
+      page. There is <strong>Reactive form Tempalates</strong> , how to show validation messages only on focus and blur events . For that I have created a 
+      directive here which sets the form classes accordingly. I am posting this Link -> <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/reactive">
+          <img src="code.png" alt="Image">
+        </a>
+      </span> . It is the Repo Folder link for this whole page, you can get to see how i created this Reactive Form Template as well as all the Css,Html and Angular. </p>
+  </div>
+</div>
+
 
