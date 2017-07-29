@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { ValidatorFn, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export function  validate(c: AbstractControl): Observable<{[key : number] : any}>{
@@ -13,3 +13,11 @@ export function  validate(c: AbstractControl): Observable<{[key : number] : any}
     });
   }
 
+export function emailValidator(control: AbstractControl):{[key: string]: boolean} {
+  console.log("called");
+        var EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (control.value != "" && (control.value.length <= 5 || !EMAIL_REGEXP.test(control.value))) {
+              return {invalid:true};
+        }
+        return null;
+    }

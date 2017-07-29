@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormArray, FormGroup, FormControl, Validators} from "@angular/forms";
 import {Theme} from "../shared/theme.interface";
 
-import {validate} from './validator';
+import {validate,emailValidator} from './validator';
 
 @Component({
   selector: 'app-reactive',
@@ -24,6 +24,7 @@ export class ReactiveComponent implements OnInit {
         lastName : new FormControl('')
       }),
       age:new FormControl('',null,validate),
+      email: new FormControl('',emailValidator),
       addresses: new FormArray([
         this.initAddress(), 
       ]),

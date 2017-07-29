@@ -74,7 +74,20 @@
         </div>
       </div>
       <br>
-
+      <div class="row">
+          <div class="col-md-12">
+            <md-input-container>
+              <input mdInput type="text" placeholder="Email" formControlName="email" validate-onblur>
+            </md-input-container>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span *ngIf="user.get('email').touched && !user.get('email').valid && !user.get('email').pristine">
+            <small>Invalid email</small>
+          </span>
+        </div>
+      </div>
       <div class="row" formArrayName = "addresses">
         <div class="col-md-12" *ngFor = "let address of user.controls.addresses.controls ; let i = index">
           <div class="row">
