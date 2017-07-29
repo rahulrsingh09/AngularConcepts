@@ -57,15 +57,20 @@
         </div>
         <div class="col-md-4">
           <md-input-container>
-            <input mdInput type="number" formControlName="age" placeholder="Age">
+            <input mdInput type="number" formControlName="age" placeholder="Age" validate-onblur>
           </md-input-container>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <small [hidden]="user.controls.name.controls.firstName.valid">
+        <div class="col-md-6">
+          <small [hidden]="user.get('name').controls.firstName.valid">
             First Name is required
             </small>
+        </div>
+          <div class="col-md-6">
+          <span *ngIf="user.get('age').touched && !user.get('age').valid && !user.get('age').pristine">
+            <small>Age should be greater than 18 </small>
+        </span>
         </div>
       </div>
       <br>

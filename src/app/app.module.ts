@@ -1,3 +1,4 @@
+import { ValidateOnBlurDirective } from './reactive/validateOnBlur.directive';
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
@@ -118,7 +119,8 @@ export function highchartsFactory() {
     TestComponent,
     RelativeTimeFilterPipe,
     StringFilterPipe,
-    FirebaseComponent
+    FirebaseComponent,
+    ValidateOnBlurDirective
   ],
   imports: [
     BrowserModule,

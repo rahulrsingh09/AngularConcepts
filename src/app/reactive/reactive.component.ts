@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormGroup, FormControl, Validators} from "@angular/forms";
-
 import {Theme} from "../shared/theme.interface";
+
+import {validate} from './validator';
 
 @Component({
   selector: 'app-reactive',
@@ -11,8 +12,7 @@ import {Theme} from "../shared/theme.interface";
 export class ReactiveComponent implements OnInit {
 
   user:FormGroup;
-  toggle
-
+  toggle;
   constructor() {
     
    }
@@ -23,7 +23,7 @@ export class ReactiveComponent implements OnInit {
         firstName : new FormControl('',Validators.required),
         lastName : new FormControl('')
       }),
-      age:new FormControl(''),
+      age:new FormControl('',null,validate),
       addresses: new FormArray([
         this.initAddress(), 
       ]),
@@ -36,11 +36,11 @@ export class ReactiveComponent implements OnInit {
       toggle:new FormControl('')
     });
 
-    this.user.patchValue({name :{firstName:"Rahul",lastName:"Singh"}}); // adding default values to the form
-
-    this.user.controls['name'].valueChanges.subscribe(data => console.log(data)); // or
+      this.user.patchValue({name :{firstName:"Rahul",lastName:"Singh"}}); // adding default values to the form
+      
+    //this.user.get('name').valueChanges.subscribe(data => console.log(this.user.get('age'))); // or
     //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 
-    
+      
   }
 
 
