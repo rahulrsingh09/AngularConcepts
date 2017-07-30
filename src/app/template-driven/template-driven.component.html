@@ -183,7 +183,7 @@
         Similar to angular js
         Two way data binding(using [(NgModel)] syntax)
         Minimal component code
-        Automatic track of the form and its data(handled by Angular). <br>
+        Automatic track of the form and its data - handled by Angular. <br>
         All the magic happens in the template in Template driven forms as the name suggests .
       </p>
   </div>
@@ -231,13 +231,13 @@
       <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span><span style="color: #007700">&gt;</span>
         <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngIf=</span><span style="background-color: #fff0f0">&quot;formErrors.name&quot;</span><span style="color: #007700">&gt;</span>
           <span style="color: #007700">&lt;div</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngFor=</span><span style="background-color: #fff0f0">&quot;let data of formErrors.name&quot;</span><span style="color: #007700">&gt;</span>
-            <span style="color: #007700">&lt;small&gt;</span>{{data}}<span style="color: #007700">&lt;/small&gt;</span>
+            <span style="color: #007700">&lt;small&gt;</span><code>[use Interpolation]data</code><span style="color: #007700">&lt;/small&gt;</span>
           <span style="color: #007700">&lt;/div&gt;</span>
         <span style="color: #007700">&lt;/div&gt;lidat</span>
 
         <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngIf=</span><span style="background-color: #fff0f0">&quot;formErrors.age | json&quot;</span><span style="color: #007700">&gt;</span>
           <span style="color: #007700">&lt;div</span> <span style="color: #FF0000; background-color: #FFAAAA">*</span><span style="color: #0000CC">ngFor=</span><span style="background-color: #fff0f0">&quot;let data of formErrors.age&quot;</span><span style="color: #007700">&gt;</span>
-            <span style="color: #007700">&lt;small&gt;</span>{{data}}<span style="color: #007700">&lt;/small&gt;</span>
+            <span style="color: #007700">&lt;small&gt;</span><code>[use Interpolation]data</code><span style="color: #007700">&lt;/small&gt;</span>
           <span style="color: #007700">&lt;/div&gt;</span>
         <span style="color: #007700">&lt;/div&gt;</span>
       <span style="color: #007700">&lt;/div&gt;</span>

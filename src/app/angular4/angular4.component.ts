@@ -10,6 +10,8 @@ import {Observable} from "rxjs";
 })
 export class Angular4Component implements OnInit {
 
+  testHtml = `{{name}}`;
+
   constructor(){
 
   }

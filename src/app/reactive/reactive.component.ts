@@ -102,5 +102,12 @@ export class ReactiveComponent implements OnInit {
     }
   }
 
+  getAddresses(form){
+    return form.get('addresses').controls;
+  }
+
+  getUserControl(form){
+    return form.get('name').controls;
+  }
 
 }
