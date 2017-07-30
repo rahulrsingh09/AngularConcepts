@@ -18,7 +18,13 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px !important;
+  margin-bottom: 40px !important;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-bottom: 80px !important;
+  }
 }
 
 
