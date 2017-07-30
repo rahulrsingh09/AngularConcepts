@@ -126,6 +126,12 @@ md-progress-bar{
   background-color: #673ab7;
 }
 
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 130px;
+  }
+}
+
 .my-text{
   color: white;
 }
