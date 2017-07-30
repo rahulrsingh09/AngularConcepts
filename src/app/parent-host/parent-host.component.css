@@ -2,3 +2,13 @@
   background: darkkhaki;
   border-radius: 4px;
 }
+
+:host-context(.direct) ::ng-deep {
+  border: 3px solid hotpink;
+  border-radius: 12px;
+}
+
+
+pre{
+  height: 200px;
+}

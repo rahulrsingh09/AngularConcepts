@@ -16,15 +16,33 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p>The Class Applied here is using host</p>
-    <app-child class = "parent-host"><p>This Should be red</p></app-child>
+    <p>The Class Applied here is using host has css class as <code>parent-host</code> and the child component <code>app-child</code> with <code>ng-content</code>.</p>
+    <app-child class = "parent-host"><p>This Should be red</p></app-child><br>
+    <p><strong>Modifying Child css from parent using host deep</strong></p>
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">:host</span> <span style="color: #333333">/</span><span style="color: #007700">deep</span><span style="color: #333333">/</span> <span style="color: #BB0066; font-weight: bold">.direct</span>&#123;
+      <span style="color: #008800; font-weight: bold">background</span><span style="color: #333333">:</span> <span style="color: #007020">darkkhaki</span>;
+      <span style="color: #008800; font-weight: bold">border</span><span style="color: #333333">-</span>radius<span style="color: #333333">:</span> <span style="color: #6600EE; font-weight: bold">4px</span>;
+    &#125;
+    </pre></div>
+
   </div>
 
   <div class="col-md-6">
-    <p>The Class Applied here is using host Context</p>
+    <p>The Class Applied here is using host deep has css class as <code>parent-host-context</code></p>
     <div class ="parent-host-context">
       <app-child><p>This should be green</p></app-child>
+     <br> <p><strong>Modifying parent css from child using host</strong></p> 
     </div>
+
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;"><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">:host</span><span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">.parent-host</span><span style="color: #333333">)</span>&#123;
+      <span style="color: #008800; font-weight: bold">color</span><span style="color: #333333">:</span><span style="color: #007020">red</span>;
+    &#125;
+
+    <span style="color: #555555; font-weight: bold">:host-context</span><span style="color: #333333">(</span><span style="color: #BB0066; font-weight: bold">.parent-host-context</span><span style="color: #333333">)</span>&#123;
+      <span style="color: #008800; font-weight: bold">color</span><span style="color: #333333">:</span> <span style="color: #007020">darkgreen</span>;
+    &#125;
+    </pre></div>
+
   </div>
 
 </div>

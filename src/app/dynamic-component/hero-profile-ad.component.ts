@@ -4,7 +4,7 @@ import { AdComponent } from './ad.component';
 @Component({
   template: `
     <div class="hero-profile">
-      <p class="myHeader">Featured Hero Profile</p>
+      <p class="myHeader">Featured Profile</p>
       <p>{{data.name}}</p>
       <p>{{data.bio}}</p>
       <p><strong>Hire this hero today!</strong></p>
