@@ -12,6 +12,15 @@
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
     <link href="styles.bundle.css" rel="stylesheet" />
+    <script>
+        (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+            history.replaceState(null, null, redirect);
+        }
+        })();
+    </script>
 </head>
 
 <body><a class="github-fork-ribbon" href="https://github.com/rahulrsingh09/AngularConcepts.git" title="Fork me on GitHub">Fork me on GitHub</a>
