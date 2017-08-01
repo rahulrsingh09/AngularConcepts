@@ -363,4 +363,70 @@
       </div>
     </div>
   </div>
+
+<div class="card">
+    <div class="card-header" role="tab" id="heading15">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="false" aria-controls="collapseThree">
+          <p><strong>15. Gh-Pages 404 when refreshing Browser for a Angular Application[SPA]  </strong></p>
+        </a>
+      </h5>
+    </div>
+    <div id="collapse15" class="collapse" role="tabpanel" aria-labelledby="heading15">
+      <div class="card-block">
+        <p>
+        <strong>This is not a permanent Fix for the problem but more like a workaround or hack</strong><br><br>
+        I had this very same issue when deploying my Angular App to gh-pages.<br>
+        First I was greeted with <code>404</code> when Refreshing my pages on gh-pages.<br>
+        Then as I started using <code>HashLocationStrategy</code> which was provided with Angular 2 .<br>
+        But that came with it's own set of problems the <code>#</code> in the url it was really bad made the url look wierd like this <code>https://rahulrsingh09.github.io/AngularConcepts/#/faq</code>.<br>
+        I started researching out about this problem and came across a blog. I tried giving it a shot and it worked .<br>
+        Here is what i did as mentioned in that blog.<br><br>
+
+        <code> You’ll need to start by adding a 404.html file to your gh-pages repo
+        that contains an empty HTML document inside it – but your document
+        must total more than 512 bytes (explained below). <br>Next put the
+        following markup in your 404.html page’s head element:<br></code></p><br><br>
+        <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="height: 110px; margin: 0; line-height: 125%"><span style="color: #007700">&lt;script&gt;</span>
+          sessionStorage.redirect <span style="color: #333333">=</span> location.href;
+        <span style="color: #007700">&lt;/script&gt;</span>
+        <span style="color: #007700">&lt;meta</span> <span style="color: #0000CC">http-equiv=</span><span style="background-color: #fff0f0">&quot;refresh&quot;</span> <span style="color: #0000CC">content=</span><span style="background-color: #fff0f0">&quot;0;URL=&#39;/REPO_NAME_HERE&#39;&quot;</span><span style="color: #007700">&gt;&lt;/meta&gt;</span>
+        </pre></div><br><br>
+
+
+        <code> This code sets the attempted entrance URL to a variable on the
+         standard sessionStorage object and immediately redirects to your
+         project’s index.html page using a meta refresh tag. <br>If you’re doing a
+         Github Organization site, don’t put a repo name in the content
+         attribute replacer text, just do this: content="0;URL='/'"<br><br>
+        
+         
+         In order to capture and restore the URL the user initially navigated
+         to, you’ll need to add the following script tag to the head of your
+         index.html page before any other JavaScript acts on the page’s current
+         state:</code><br><br>
+
+        <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="height:190px; margin: 0; line-height: 125%"><span style="color: #007700">&lt;script&gt;</span>
+        (<span style="color: #008800; font-weight: bold">function</span>()&#123;
+          <span style="color: #008800; font-weight: bold">var</span> redirect <span style="color: #333333">=</span> sessionStorage.redirect;
+          <span style="color: #008800; font-weight: bold">delete</span> sessionStorage.redirect;
+          <span style="color: #008800; font-weight: bold">if</span> (redirect <span style="color: #333333">&amp;&amp;</span> redirect <span style="color: #333333">!=</span> location.href) &#123;
+            history.replaceState(<span style="color: #008800; font-weight: bold">null</span>, <span style="color: #008800; font-weight: bold">null</span>, redirect);
+          &#125;
+        &#125;)();
+      <span style="color: #007700">&lt;/script&gt;</span>
+      </pre></div>
+
+
+        <code> This bit of JavaScript retrieves the URL we cached in sessionStorage
+         over on the 404.html page and replaces the current history entry with
+         it.</code><br><br>
+
+
+        <p>Reference <a href ="http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/">backalleycoder</a><br>
+         <code>Now the above URL changes to https://rahulrsingh09.github.io/AngularConcepts/faq</code>
+
+      </div>
+    </div>
+  </div>
 </div>
