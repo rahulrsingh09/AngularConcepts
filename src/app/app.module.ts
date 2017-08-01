@@ -6,7 +6,7 @@ import {HttpModule} from "@angular/http";
 import {RouterModule} from "@angular/router";
 import {counterReducer, itemReducer} from "./counter";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
 import {AngularService} from "./shared/angular.service";
 import {NgrxComponent} from "./ngrx/ngrx.component";
@@ -157,7 +157,7 @@ export function highchartsFactory() {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
     },
-    {provide: LocationStrategy, useClass: HashLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
+    {provide: LocationStrategy, useClass: PathLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
     AngularFireAuth,
     FireAuthResolve
   ],
