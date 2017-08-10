@@ -66,6 +66,7 @@ import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 import { FirebaseComponent } from './firebase/firebase.component';
 import {ShareButtonsModule} from "ngx-sharebuttons";
+import { MyworkComponent } from './mywork/mywork.component';
 
 
 export function highchartsFactory() {
@@ -120,7 +121,8 @@ export function highchartsFactory() {
     RelativeTimeFilterPipe,
     StringFilterPipe,
     FirebaseComponent,
-    ValidateOnBlurDirective
+    ValidateOnBlurDirective,
+    MyworkComponent
   ],
   imports: [
     BrowserModule,

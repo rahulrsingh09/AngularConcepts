@@ -1,3 +1,4 @@
+import { MyworkComponent } from './mywork/mywork.component';
 /**
  * Created by SINGH on 3/1/2017.
  */
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'faq', component : NotesComponent},
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
   { path: 'firebase', component : FirebaseComponent},
+  { path: 'myworks', component : MyworkComponent},
   { path: 'test', component : TestComponent}
 
 ];

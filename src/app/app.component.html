@@ -42,6 +42,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
           <a class="dropdown-item" [routerLink]="['/charts']">Angular + HighCharts</a>
           <a class="dropdown-item" [routerLink]="['/firebase']">FireBase Functions</a>
+          <a class="dropdown-item" [routerLink]="['/myworks']">My Angular Projects</a>
         </div>
       </li>
 
@@ -69,15 +70,4 @@
     <!--<h3>Hello {{hello}}</h3>  un comment this or one test spec will fail should display hello Angular the error message-->
     <router-outlet></router-outlet>
   </div>
-  <br><br><br><br>
-  <footer class="footer">
-    <div class="container">
-      <p class="my-text">*For Any issues or clarification on any of these concepts please contact me, use the contact card, or drop in a <a [routerLink]="['/comment']"><strong>comment</strong></a> in the comment Section [the fasted way]
-      , Click on this tooltip in any page --> <span mdTooltip="View Source">
-        <a>
-          <img src="code.png" alt="Image">
-        </a>
-      </span> to view the source code or reference.</p>
-    </div>
-    </footer>
 </div>
