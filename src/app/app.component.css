@@ -123,14 +123,13 @@ md-progress-bar{
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-	 background-color:#333333;
+	background-color:#333333;
 }
 
-@media screen and (max-width: 768px) {
-  .footer{
-    visibility: hidden;
-  }
+.my-color{
+  background-color:#333333;
 }
+
 
 .my-text{
   color: white;
