@@ -6,6 +6,7 @@
 
 # dependencies
 /node_modules
+/src/app/shared/firebase.config.ts
 
 # IDEs and editors
 /.idea
