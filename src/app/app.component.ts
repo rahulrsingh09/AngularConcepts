@@ -1,9 +1,12 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 
 import {AngularService} from "./shared/angular.service";
 import {MdDialog, MdDialogRef, MdIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Subscription} from "rxjs";
+
+declare var $ : any;
 
 @Component({
   selector: 'app-root',
@@ -13,7 +16,7 @@ import {Subscription} from "rxjs";
 })
 
 export class AppComponent implements OnInit{
-
+  @ViewChild('button') el:ElementRef;
   isActive:boolean = false;
   selectedOption: string;
   hello = "Angular";
@@ -45,6 +48,10 @@ export class AppComponent implements OnInit{
     // prevent memory leak when component is destroyed
     this.subscription.unsubscribe();
   }
+
+    ngAfterViewInit() {
+      $(this.el.nativeElement).sideNav();
+    }      
 
 }
 
