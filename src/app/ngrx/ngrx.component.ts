@@ -1,8 +1,7 @@
+import { AppState } from './state-management/ngrx-reducer';
 import {Component, OnInit, OnChanges} from '@angular/core';
 import {Observable} from "rxjs";
-
 import { Store } from '@ngrx/store';
-import {INCREMENT, DECREMENT, RESET, ADD, DEL} from '../counter';
 import {
   trigger,
   state,
@@ -11,10 +10,7 @@ import {
   transition, group
 } from '@angular/animations';
 
-interface AppState {
-  counter: number;
-  item: string[];
-}
+import {INCREMENT, DECREMENT, RESET, ADD, DEL} from './state-management/ngrx-actions';
 
 @Component({
   selector: 'app-ngrx',
@@ -85,7 +81,7 @@ export class NgrxComponent implements OnInit, OnChanges {
   }
 
   increment(){
-      this.store.dispatch({ type: INCREMENT });
+    this.store.dispatch({ type: INCREMENT });
   }
 
   decrement(){

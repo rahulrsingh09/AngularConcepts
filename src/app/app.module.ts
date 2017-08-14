@@ -4,7 +4,6 @@ import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RouterModule} from "@angular/router";
-import {counterReducer, itemReducer} from "./counter";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
@@ -67,6 +66,7 @@ import {firebaseConfigDev} from './shared/firebase.config';
 import { FirebaseComponent } from './firebase/firebase.component';
 import {ShareButtonsModule} from "ngx-sharebuttons";
 import { MyworkComponent } from './mywork/mywork.component';
+import * as fromRoot from "./ngrx/state-management/ngrx-reducer";
 
 
 export function highchartsFactory() {
@@ -126,9 +126,9 @@ export function highchartsFactory() {
   ],
   imports: [
     BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer ,item : itemReducer}),
-    StoreDevtoolsModule.instrumentOnlyWithExtension({
-      maxAge: 5
+    StoreModule.forRoot(fromRoot.reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
     }),
     ChartModule,
     FormsModule,
