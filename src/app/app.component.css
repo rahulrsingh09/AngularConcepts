@@ -129,21 +129,19 @@ md-progress-bar{
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-	background-color:#333333;
+	background-color:#e5e5e5;
 }
 
 .my-color{
-  background-color:#333333;
+  background-color:#e5e5e5;
+  text-align: center;
 }
 
-
 .my-text{
-  color: white;
   font-size: 10px;
   padding-top: 15px;
 }
 .my-text a{
   text-decoration: none;
   cursor: pointer;
-  color: white;
 }
