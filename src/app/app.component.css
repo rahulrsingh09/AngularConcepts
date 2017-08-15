@@ -125,15 +125,15 @@ md-progress-bar{
 
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-	background-color:#e5e5e5;
+	background-color:#C0C0C0;
 }
 
 .my-color{
-  background-color:#e5e5e5;
+  background-color:#C0C0C0;
   text-align: center;
 }
 

@@ -116,11 +116,13 @@ export class NgrxComponent implements OnInit, OnChanges {
 
   counterTs = `
 // counter.ts
-import { ActionReducer, Action } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+import { ADD,DEL,INCREMENT, DECREMENT, RESET, Actions } from './ngrx-actions';
+
+export interface AppState {
+  counter: number;
+}
 
 export function counterReducer(state: number = 0, action: Action) {
 	switch (action.type) {
@@ -136,17 +138,50 @@ export function counterReducer(state: number = 0, action: Action) {
 		default:
 			return state;
 	}
-}`;
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+     counter: counterReducer
+};
+
+//Additional Action in ngrx4 . Now the payload property has been removed from ngrx v4 
+//so we have to define our own payload and actions
+
+import { Action } from '@ngrx/store';
+
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+export const RESET = 'RESET';
+
+export class increment implements Action {
+  readonly type = INCREMENT;
+}
+
+export class decrement implements Action {
+  readonly type = DECREMENT;
+}
+
+export class reset implements Action {
+  readonly type = RESET;
+
+  constructor(public payload: any) {}
+}
+}
+export type Actions =
+  | increment
+  | decrement
+  | reset
+`;
 
   reducers = `
 import { NgModule } from '@angular/core'
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter';
+import * as fromRoot from "./ngrx/state-management/ngrx-reducer";
 
 @NgModule({
   imports: [
     BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer })
+    StoreModule.forRoot(fromRoot.reducers),
   ]
 })
 export class AppModule {}`;
@@ -170,6 +205,7 @@ class MyAppComponent {
 	reset(){
 		this.store.dispatch({ type: RESET });
 	}
-}`;
+}
+`;
 
 }
