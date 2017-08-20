@@ -71,6 +71,7 @@ import * as fromRoot from "./ngrx/state-management/ngrx-reducer";
 import { ValidateOnBlurDirective } from './reactive/validateOnBlur.directive';
 import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
+import { ServicesComponent } from './services/services.component';
 
 
 export function highchartsFactory() {
@@ -126,7 +127,8 @@ export function highchartsFactory() {
     StringFilterPipe,
     FirebaseComponent,
     ValidateOnBlurDirective,
-    MyworkComponent
+    MyworkComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
