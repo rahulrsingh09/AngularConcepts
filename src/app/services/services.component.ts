@@ -1,15 +1,21 @@
+import { FakeService } from './fake.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  styleUrls: ['./services.component.css'],
+  providers:[FakeService]
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  get:any[];
+
+  constructor(private fake : FakeService) { }
 
   ngOnInit() {
+    this.fake.get().subscribe(data => this.get = data);
   }
+
 
 }
