@@ -7,7 +7,7 @@ import { HttpErrorResponse } from "@angular/common/http";
 export class AngularInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).do(event => {}, err => {
-        if(err instanceof HttpErrorResponse && err.status == 404){
+        if(err instanceof HttpErrorResponse){
             console.log("Error Caught By Interceptor");
             //Observable.throw(err);
         }
