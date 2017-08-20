@@ -29,7 +29,7 @@ export class NotesComponent implements OnInit {
 
   shaObj:any;
   hash:string;
-  result:string;
+  result;
 
 
   service : string = `

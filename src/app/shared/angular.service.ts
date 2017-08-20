@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs";
@@ -10,6 +10,7 @@ import {AngularFireDatabase} from "angularfire2/database/database";
 import * as firebase from 'firebase/app';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {FirebaseListObservable} from "angularfire2/database/firebase_list_observable";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class AngularService {
@@ -23,7 +24,7 @@ export class AngularService {
   spinner$ = this._showSpinner.asObservable();
 
 
-  constructor(private http:Http, private af: AngularFireDatabase) { }
+  constructor(private af: AngularFireDatabase, private client: HttpClient) { }
 
 
   changeCount(number) {
@@ -35,15 +36,15 @@ export class AngularService {
   }
 
   getLukeSkywalkerObservable(){
-      return this.http.get('https://swapi.co/api/people/1/')
-              .map(res => {
-                 return  res.json(); // using maps to filter data returned form the http call
+      return this.client.get('https://swapi.co/api/people/1/')
+              .map((res:Response) => {
+                 return  res; // using maps to filter data returned form the http call
               }).map(data => {
                 return data; // using maps of maps to filter data returned form the map
-        }).flatMap((jedi) => this.http.get(jedi.homeworld))
+        }).flatMap((jedi) => this.client.get(jedi['homeworld'])
           .map(res => {
-           return res.json().name; // using flat maps to combine data returned from two observables into one
-          }).catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+           return res['name']; // using flat maps to combine data returned from two observables into one
+          }).catch((error:any) => Observable.throw(error.json().error || 'Server error')));
 
       //switchMap is very similar to flatMap, but with a very important distinction.
     // Any events to be merged into the trunk stream are ignored if a new event comes in.
@@ -51,13 +52,13 @@ export class AngularService {
 
 
   getLukeSkywalkerPromise(){
-    return this.http.get('https://swapi.co/api/people/1/').toPromise()
+    return this.client.get('https://swapi.co/api/people/1/').toPromise()
       .then((data) => {
         console.log(data); // binding the result from the promise
-        return data.json();
+        return data;
       }).then((data) => {
-        console.log(data.name); // more like map of map but limited functionality
-        return data.name;
+        console.log(data['name']); // more like map of map but limited functionality
+        return data['name'];
       }).catch((ex) => {
           console.error('Server Error'+ex);
       })
@@ -67,14 +68,8 @@ export class AngularService {
 
 
   getUser(user:string){
-    return this.http.get('https://api.github.com/users/'+user)
-      .map(response => response.json());
+    return this.client.get('https://api.github.com/users/'+user);
   }
-
- /* getChartDataAsync(){
-    return this.http.get("https://cdn.rawgit.com/gevgeny/angular2-highcharts/99c6324d/examples/aapl.json")
-                .map(reponse => reponse.json());
-  }*/
 
 
   //AdService

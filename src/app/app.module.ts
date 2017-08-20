@@ -20,6 +20,7 @@ import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
@@ -69,6 +70,7 @@ import { FirebaseComponent } from './firebase/firebase.component';
 import * as fromRoot from "./ngrx/state-management/ngrx-reducer";
 import { ValidateOnBlurDirective } from './reactive/validateOnBlur.directive';
 import {Tab} from "./childrenEg/tab";
+import { AngularInterceptor } from './shared/angular.interceptor';
 
 
 export function highchartsFactory() {
@@ -137,7 +139,7 @@ export function highchartsFactory() {
     routing,
     RouterModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     MomentModule,
     MaterialModule,
     BrowserAnimationsModule,
@@ -163,7 +165,12 @@ export function highchartsFactory() {
     },
     {provide: LocationStrategy, useClass: PathLocationStrategy}, //Angular 2 : 404 error occur when i refresh through Browser [duplicate]
     AngularFireAuth,
-    FireAuthResolve
+    FireAuthResolve,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AngularInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultExampleDialog, HeroJobAdComponent, HeroProfileComponent]
