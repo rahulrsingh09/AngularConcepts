@@ -1,3 +1,4 @@
+import { Observable, Subscriber } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,5 +12,10 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  count = new Observable<number>((observer: Subscriber<number>) => {
+    setInterval(() => observer.next(5), 1000);
+  });
+
 
 }
