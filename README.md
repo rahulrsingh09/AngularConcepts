@@ -3,9 +3,9 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 By Rahul Singh <rahulrsingh09@gmail.com>
 
-Please pardon the use of CSS here as this more to do with Angular than UI and UX design.
+Please fork this repo or write to me at rahulrsingh09@gmail.com to add more concepts that you have .
 
-Please fork this repo or write to me at rahulrsingh09@gmail.com to add more concepts that you have any problem with will be glad to help.
+For any problem raise and issue will be glad to to help.
 
 This Repo Gives a code Demo of some of the Concepts of Angular 2 in a basic way , will update it for more soon :- 
 Angular Core Concepts
@@ -16,7 +16,7 @@ Angular Core Concepts
 <li>Event Emitters  Input & Output</li>
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Form Controls In Template Driven Forms</li>
-<li><Example of Http Module how to create a service in angular and error handling in Services/li>
+<li>Example of Http Module how to create a service in angular and error handling in Services</li>
 <li>Angular 4 Rc2 IF else</li>
 <li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
