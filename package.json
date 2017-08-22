@@ -43,6 +43,7 @@
     "jquery": "^3.2.1",
     "jssha": "^2.3.1",
     "ng2-prism": "^2.3.2",
+    "ngx-gist": "git+https://github.com/rahulrsingh09/ngx-gist.git",
     "ngx-pagination": "^3.0.1",
     "ngx-sharebuttons": "^3.0.0",
     "rxjs": "^5.4.2",

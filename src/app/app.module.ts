@@ -21,7 +21,7 @@ import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-
+import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
 
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
 import {AngularService} from "./shared/angular.service";
@@ -144,6 +144,7 @@ export function highchartsFactory() {
     HttpClientModule,
     MomentModule,
     MaterialModule,
+    NgxGistModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
