@@ -10,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class ServicesComponent implements OnInit {
 
   get:any[];
+  body = {
+      "name": "morpheus",
+      "job": "leader"
+    };
+  postData:Object;
 
   constructor(private fake : FakeService) { }
 
   ngOnInit() {
     this.fake.get().subscribe(data => this.get = data);
+    this.fake.post(this.body).subscribe( data => this.postData = data);
   }
 
 
