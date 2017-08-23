@@ -1,6 +1,7 @@
 import { FakeService } from './fake.service';
 import { Component, OnInit } from '@angular/core';
 
+import { User } from './../shared/user.interface';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
-  get:any[];
+  users:User[];
   body = {
       "name": "morpheus",
       "job": "leader"
@@ -19,7 +20,7 @@ export class ServicesComponent implements OnInit {
   constructor(private fake : FakeService) { }
 
   ngOnInit() {
-    this.fake.get().subscribe(data => this.get = data);
+    this.fake.get().subscribe(data => this.users = data);
     this.fake.post(this.body).subscribe( data => this.postData = data);
   }
 

@@ -4,13 +4,20 @@ import { Injectable } from '@angular/core';
 
 const headers = new HttpHeaders().set("content-Type", "application/json");
 
+interface User {
+    id: number;
+    first_name:string;
+    last_name:string;
+    avatar:string;
+}
+
 @Injectable()
 export class FakeService{
     
     constructor(private httpClient : HttpClient){}
 
     get(){
-        return this.httpClient.get<any[]>('https://reqres.in/api/users?page=2');
+        return this.httpClient.get<User[]>('https://reqres.in/api/users?page=2').map(value => value['data']);
     }
 
     post(body:Object){

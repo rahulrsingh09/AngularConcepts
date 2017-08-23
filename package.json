@@ -42,6 +42,7 @@
     "firebase": "^4.1.3",
     "jquery": "^3.2.1",
     "jssha": "^2.3.1",
+    "ng2-gist": "git+https://github.com/rahulrsingh09/ngx-gist.git",
     "ng2-prism": "^2.3.2",
     "ngx-gist": "git+https://github.com/rahulrsingh09/ngx-gist.git",
     "ngx-pagination": "^3.0.1",
