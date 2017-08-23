@@ -29,6 +29,62 @@
 <br>
 <div class="row">
   <div class="col-md-12">
+      <p class="bigger">Using the new Http Client Module</p>
       <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'01.ts'" style="height:450px"></ngx-gist> 
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Client Get</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'02.ts'" style="height:600px"></ngx-gist> 
+      <br>
+      <p>In this Get call see what all the new features have been added</p>
+      <ul>
+        <li><p>We can now give the type of the call in the get which leads to Type safety</p></li>
+        <li><p>No more <code>.json()</code>. By default it is considered json</p></li>
+      </ul>
+      <p>All the other Api calls will mimic the same Interface and call it from a Angular Service .</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Request Parameters</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'03.ts'" style="height:320px"></ngx-gist> 
+      <p>Notice that we are building the HTTPParams object by chaining successive set() methods. This is because HTTPParams is immutable, and its API methods do not cause object mutation.
+          Instead, a call to set will return a new HttpParams object containing the new value properties. So this means that the following will NOT work:</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'04.ts'" style="height:200px"></ngx-gist> 
+      <p>If we try to populate our parameters like this, we will not have the expected result. Instead, we would have an empty HTTPParams object, and the two calls to set would have add no effect.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Headers</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'07.ts'" style="height:310px"></ngx-gist> 
+      <p>HttpHeaders also has an immutable API, and we are passing a configuration object as the second argument of the get() call</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Put</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'08.ts'" style="height:650px"></ngx-gist> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Patch</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'09.ts'" style="height:620px"></ngx-gist> 
+  </div>
+</div>
+  
+<div class="row">
+    <div class="col-md-12">
+      <p>More detailed Info can be found on this page by <a href="http://blog.angular-university.io/angular-http/">Angular University</a></p>
+    </div>
+  </div>
+  
