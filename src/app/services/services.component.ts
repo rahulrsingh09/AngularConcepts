@@ -31,6 +31,10 @@ export class ServicesComponent implements OnInit {
     this.fake.post(this.post).subscribe( data => this.postData = data);
     this.fake.put(this.put).subscribe( data => console.log(data));
     this.fake.patch(this.patch).subscribe( data => console.log(data));
+    this.fake.delete().subscribe(()=> console.log("delete call success"),
+                                  (err) => console.log("delete call erored"));
+              
+
   }
 
 

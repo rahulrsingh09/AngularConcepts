@@ -37,9 +37,10 @@ export class FakeService{
         return this.httpClient.patch<Object>('https://reqres.in/api/users/2',body,{headers});
     }
 
-    delete(body: Object){
+    delete(){
         return this.httpClient.delete('https://reqres.in/api/users/2',{headers});
     }
+
 
     
 

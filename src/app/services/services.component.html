@@ -51,7 +51,7 @@
 <div class="row">
   <div class="col-md-12">
       <p class="bigger">Http Request Parameters</p>
-      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'03.ts'" style="height:320px"></ngx-gist> 
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'03.ts'" style="height:340px"></ngx-gist> 
       <p>Notice that we are building the HTTPParams object by chaining successive set() methods. This is because HTTPParams is immutable, and its API methods do not cause object mutation.
           Instead, a call to set will return a new HttpParams object containing the new value properties. So this means that the following will NOT work:</p>
   </div>
@@ -78,13 +78,52 @@
 <div class="row">
   <div class="col-md-12">
       <p class="bigger">Http Patch</p>
-      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'09.ts'" style="height:620px"></ngx-gist> 
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'09.ts'" style="height:550px"></ngx-gist> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Delete</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'10.ts'" style="height:420px"></ngx-gist> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Post</p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'11.ts'" style="height:620px"></ngx-gist> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <p class="bigger">Http Interceptors</p>
+      <p>A new feature available in the new HTTP client is HTTP Interceptors. An HTTP Interceptor allows us to add some generic functionality to all our HTTP requests in only one place.
+        Interceptors are ideal for cross-cutting concerns like for example adding an authentication token header transparently to all the requests made by the HTTP client.
+        </p>
+      <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'19.ts'" style="height:430px"></ngx-gist> 
+      <ul>
+        <li><p>The <code>next.handle</code> method needs to be called to continue the interceptor chain, and for the HTTP request to be made</p></li>
+        <li><p>The <code>next.handle</code> method returns an observable, and this is then returned by the intercept method
+            this API is similar to middleware libraries such as express</p></li>
+        <li><p>The request object is immutable, so if we want to modify the request for example to add a header, we need to clone it</p></li>
+        <li><p>The headers object is also immutable, so as we saw before we need to clone it and create a modified copy of it, for example using <code>(headers.set())</code></p></li>
+        <li><p>The cloned request will now have the new HTTP header X-CustomAuthHeader
+            The cloned and modified HTTP request is then returned to the middleware chain, and the resulting HTTP call will have the new header included</p></li>
+      </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p class="bigger">In order to activate this interceptor and apply it to any HTTP request made using the HTTP client, we need to configure it in our application module by adding it to the HTTP_INTERCEPTORS multi-provider:</p>
+    <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'20.ts'" style="height:500px"></ngx-gist> 
   </div>
 </div>
   
 <div class="row">
     <div class="col-md-12">
-      <p>More detailed Info can be found on this page by <a href="http://blog.angular-university.io/angular-http/">Angular University</a></p>
+      <p>More detailed Info on <code>HTTP CLIENT MODULE</code> be found on this page by <a href="http://blog.angular-university.io/angular-http/">Angular University</a>.</p>
+      <p>To Look at all the <code>gists</code> used in the code check this link there are some extra gists too of http client <a href="https://gist.github.com/rahulrsingh09/271aaff4cb134685ed7a62197670938c">gists</a>.</p>
+      <p> I have also implemented these http methods but its always a good practise to make use of services instead of making http calls
+        in the component itself . I have made a service and called these methods in the ServicesComponent. Check the repository for the code link in the Header .</p>
     </div>
-  </div>
+</div>
   
