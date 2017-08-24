@@ -141,6 +141,7 @@ export function highchartsFactory() {
     routing,
     RouterModule,
     ReactiveFormsModule,
+    HttpModule,
     HttpClientModule,
     MomentModule,
     MaterialModule,
