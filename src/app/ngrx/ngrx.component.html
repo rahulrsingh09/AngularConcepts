@@ -47,19 +47,33 @@
 <div class="row">
 
   <div class="col-md-6">
-    <p><strong>What's Redux ? </strong></p> <br>
+    <p><strong>What's Redux ? </strong></p>
     <p>Redux is an application state manager for JavaScript applications, and keeps with the core principles of the Flux-architecture by having a unidirectional data flow in your application.
       Redux applications have only one global, read-only application state.
       This state is calculated by "reducing" over a collection or stream of actions that update it in controlled ways.</p>
+      <p><strong>Where to use it ?</strong><br>
+        A small scenario will make its use quite clear <br><br>        
+        <i> I am hoping you might have used facebook right :P so if you look @ facebook's website you will see multiple components like 
+        navbar, left panel, chatbox etc. Ever wondered when a new message is delivered to you all these are updated simultaneously 
+        how ? <br>
+        If they went for srevices or Event Emitters they would be engulfed in a sea of spaghetti code.
+        Which even if implemented will be very hard to debug or make changes .</i><br>
+        <br>Here comes the use of ngrx state management all the information is stored @ a single place and all the components are notified when the state of the data is changed .</p>
   </div>
 
   <div class="col-md-6">
-    <p><strong> and Ngrx ?</strong></p><br>
+    <p><strong> and Ngrx ?</strong></p>
     <p>Redux state managers have been very well received and have inspired the creation of @ngrx,
       a set of modules that implement the same way of managing state as well as some of the middleware and tools in the Redux ecosystem.
       @ngrx was created to be used specifically with Angular and RxJS, as it leans heavily on the observable paradigm.
-      <br>Both the Components you see above are managed using ngrx store (updated to v4) Advantages of upgrading now we have support for lazy loading directly in ngrx using Featured Module and better state management
-      . Npm command to install ngrx <code>npm install @ngrx/core @ngrx/store --save</code></p>
+      <br>Both the Components you see above are managed using ngrx store (updated to v4).<br><br>
+      Advantages of upgrading</p><br>
+      <ul>
+          <li><p>Official support for lazy loading</p></li>
+          <li><p>implified testing</p></li>
+          <li><p>Redesigned router integration</p></li>
+      </ul>
+      <p>Npm command to install ngrx <code>npm install @ngrx/core @ngrx/store --save</code></p>
   </div>
 
 </div>
