@@ -38,9 +38,11 @@ export class ReactiveComponent implements OnInit {
     });
 
       this.user.patchValue({name :{firstName:"Rahul",lastName:"Singh"}}); // adding default values to the form
-      
-    //this.user.get('name').valueChanges.subscribe(data => console.log(this.user.get('age'))); // or
-    //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 
+
+      //let val = this.user.get('addresses') as FormArray; form control of for array
+      //console.log(val.at(1));
+      //this.user.get('name').valueChanges.subscribe(data => console.log(this.user.get('age'))); // or
+      //this.user.get('name').valueChanges.subscribe(data => console.log(data)); 
       
   }
 
