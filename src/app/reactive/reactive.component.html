@@ -112,6 +112,35 @@
           </div>
         </div>
       </div>
+      <div class="row" formArrayName = "qualifications">
+        <div class="col-md-12" *ngFor = "let address of getQualifications(user) ; let i = index">
+          <div class="row">
+            <div class="col-md-11">
+              <span>Qualifications  {{i+1}} </span>
+            </div>
+            <div class="col-md-1">  
+              <!-- <span *ngIf = "getAddresses(user).length > 1" (click) = "removeAddress(i)"class="glyphicon glyphicon-remove"></span> -->
+            </div>
+          </div>
+            <div [formGroupName] = "i" class="row">
+              <div class="col-md-12">
+                <md-input-container>
+                  <input mdInput type="text" formControlName="qualification" placeholder="Qualification">
+                </md-input-container>
+                <div class="row" formArrayName = "institution">
+                  <div class="col-md-12" *ngFor = "let address of getInstitutions(user) ; let i = index">
+                    <div [formGroupName] = "i" class="row">
+                      <div class="col-md-12">
+                        <md-input-container>
+                          <input mdInput type="text" formControlName="name" placeholder="Name">
+                        </md-input-container>
+                      </div>
+                  </div>
+                </div>
+             </div>
+           </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <a (click)="addAddress()" class="point">
