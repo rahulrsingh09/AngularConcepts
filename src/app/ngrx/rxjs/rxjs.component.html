@@ -1,5 +1,10 @@
 <div class="row">
-    <div class="col-md-12">
+  <div class="col-md-1">
+    <a (click) = "back()">
+        <span class="glyphicon glyphicon-backward"></span>
+    </a>
+  </div>
+    <div class="col-md-11">
       <p class="myHeader">
         World of Observables :)<span mdTooltip="View Source">
           <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/ngrx/rxjs">
@@ -53,7 +58,7 @@
       where as in switchmap, 
       Switch subscribes to an Observable that emits Observables. Each time it observes one of these emitted Observables, the Observable returned by Switch unsubscribes from the previously-emitted Observable begins emitting items from the latest Observable. Note that it will unsubscribe from the previously-emitted Observable when a new Observable is emitted from the source Observable, not when the new Observable emits an item.    
          </p>
-    <p><code>Map</code><br>The Map operator applies a function of your choosing to each item emitted by the source Observable, 
+    <p>3.<code>Map</code><br>The Map operator applies a function of your choosing to each item emitted by the source Observable, 
       and returns an Observable that emits the results of these function applications.You can look at <code>ForkJoin</code> on how 
       we use maps in observables.
     </p>  

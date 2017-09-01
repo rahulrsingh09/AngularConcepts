@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RxjsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+
+  back(){
+    //console.log("called");
+    this.router.navigate(['ngrx']);
   }
 
 }
