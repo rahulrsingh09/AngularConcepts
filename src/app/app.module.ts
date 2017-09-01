@@ -72,6 +72,7 @@ import { ValidateOnBlurDirective } from './reactive/validateOnBlur.directive';
 import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
+import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
 
 
 export function highchartsFactory() {
@@ -128,7 +129,8 @@ export function highchartsFactory() {
     FirebaseComponent,
     ValidateOnBlurDirective,
     MyworkComponent,
-    ServicesComponent
+    ServicesComponent,
+    RxjsComponent
   ],
   imports: [
     BrowserModule,

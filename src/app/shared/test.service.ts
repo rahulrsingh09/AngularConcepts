@@ -15,5 +15,9 @@ export class TestService {
 
 
   constructor(private http: Http) {}
+  getBlogs(url: string): any {
+    return this.http.get(url)
+      .map((response) => response.json());
+  }
 
 }

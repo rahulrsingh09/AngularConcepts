@@ -1,5 +1,3 @@
-import { ServicesComponent } from './services/services.component';
-import { MyworkComponent } from './mywork/mywork.component';
 /**
  * Created by SINGH on 3/1/2017.
  */
@@ -28,7 +26,9 @@ import {CommentComponent} from "./comment/comment.component";
 import {FireAuthResolve} from "./comment/fireauth.resolve";
 import {TestComponent} from "./test/test.component";
 import {FirebaseComponent} from "./firebase/firebase.component";
-
+import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
+import { ServicesComponent } from './services/services.component';
+import { MyworkComponent } from './mywork/mywork.component';
 
 
 const routes: Routes = [
@@ -40,7 +40,11 @@ const routes: Routes = [
   { path: 'inout' , component: ParentchildComponent},
   { path: 'template', component:  TemplateDrivenComponent},
   { path: 'reactive', component:  ReactiveComponent},
-  { path: 'ngrx', component:  NgrxComponent},
+  { path: 'ngrx',
+      children: [
+        { path: 'rxjs', component: RxjsComponent },
+        { path: '', component:NgrxComponent}
+  ]},
   { path: 'viewchild', component:  ViewChildContentEgComponent},
   { path: 'host', component:  ParentHostComponent},
   { path: 'directives', component:  DirectivesComponent},

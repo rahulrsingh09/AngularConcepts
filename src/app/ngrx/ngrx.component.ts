@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AppState } from './state-management/ngrx-reducer';
 import {Component, OnInit, OnChanges} from '@angular/core';
 import {Observable} from "rxjs";
@@ -75,7 +76,7 @@ export class NgrxComponent implements OnInit, OnChanges {
   state: string = 'inactive';
 
 
-  constructor(private store: Store<AppState>){
+  constructor(private store: Store<AppState>, private router : Router){
     this.counter = store.select('counter');
     this.item = store.select('item');
   }
@@ -110,6 +111,10 @@ export class NgrxComponent implements OnInit, OnChanges {
 
   animationStarted(event : any) {
     console.log('Started Animation');
+  }
+
+  rxjs(){
+    this.router.navigate(['/ngrx/rxjs']);
   }
 
 
