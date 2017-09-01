@@ -28,9 +28,6 @@ export class ReactiveComponent implements OnInit {
       addresses: new FormArray([
         this.initAddress(), 
       ]),
-      qualifications: new FormArray([
-        this.initQualifications()
-      ]),
       gender:new FormControl(''),
       role:new FormControl(''),
       theme:new FormControl(''),
@@ -51,16 +48,7 @@ export class ReactiveComponent implements OnInit {
 
   initQualifications(){
     return new FormGroup({
-      qualification : new FormControl(''),
-      institution : new FormArray([
-        this.initInstitution()
-      ]),
-    });
-  }
-
-  initInstitution(){
-    return new FormGroup({
-      name : new FormControl('')
+      qualification : new FormControl('')
     });
   }
 
