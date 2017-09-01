@@ -15,12 +15,17 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p><strong>Forms are Crucial, Forms are Complex</strong><br>
+    <p><strong>Forms are Crucial, Forms are Complex</strong><br><br>
     Probably the most important building block of any we application is a form. With forms we register users validate user data store it on the server use it to
     send news letters and all sorts of things all the data is collected by means of forms and the more the control over forms the better.<br>
     Here we going to talk about Reactive forms which is new thing in Angular which gives the more control to the user. As the component we build has access to all the
     model and  template we can use this approach to have better control over our data and have instant access to all the validations and values by drilling 
-    down the form control.<br>
+    down the form control.<br><br>
+    <b>Quick Shout</b> - This Post has received a lot of views and developers are now looking for highly nested forms which 
+      is not part of this tutorial. To one such request the user @irfan helped me to learn and develop deep nesting and create highly nested 
+    forms for better data processing, uses both FormBuilder as well as Form Control for the same. <u>I will Leave this StackBlitz <a href="https://stackblitz.com/edit/deep-nested-reactive-form">
+    Link</a></u>.Check the whole source code and a working example . If you want me to post that stuff instead of this please comment.
+    <br><br>
     The Two Fundamental Blocks for forms in Angular are <code>Form Controls </code> & <code>Forms Groups </code>.<br>
    <code>Form Controls </code> represent a single input and is the smallest unit in a Angular Form. Where as a <code>Forms Groups </code> is a a way to manage these
    form groups as mostly we will be dealing with forms that have multiple fields. Both these classes have the same parent <code>Abstract Control</code> so we can track down 
@@ -266,11 +271,6 @@
 <br>
 <div class="row">
   <div class="col-md-12">
-    <p><b>Quick Shout</b> - This Post has received a lot of views and developers are now looking for highly nested forms which 
-      is not part of this tutorial. But not be depressed thanks to one such request the user @irfan helped to learn the deep nesting and create highly nested 
-    forms, uses both FormBuilder as well as Form Control for the same. <u>I will Leave this StackBlitz <a href="https://stackblitz.com/edit/deep-nested-reactive-form">
-    Link</a></u>.Check the whole source code and a working example . If you want me to post that stuff instead of this please comment.
-    </p><br>
     <p> Now this is not the whole picture I wanted to highlight the main components of a Reactive Template but there is more to than what on this
       page. There is <strong>Reactive form Tempalates</strong> , how to show validation messages only on focus and blur events . For that I have created a 
       directive here which sets the form classes accordingly. I am posting this Link -> <span mdTooltip="View Source">
