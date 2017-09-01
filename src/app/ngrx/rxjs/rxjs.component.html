@@ -50,15 +50,15 @@
       FlatMap or switch map is how we handle dependencies between observables. 
       </p>
       <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'24.ts'" style="height:180px"></ngx-gist>
-      <p><code>Switch Map</code>It allows us to map and flatten like flatMap, but it “switches” to each new observable and forgets whatever came before it.</p>
+    <p>3.<code>Switch Map</code>It allows us to map and flatten like flatMap, but it “switches” to each new observable and forgets whatever came before it.</p>
       <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'25.ts'" style="height:280px"></ngx-gist>
-      <p>The eas­i­est way to remem­ber the dif­fer­ence between mergeMap/flatmap and switchMap is    
+    <p>The eas­i­est way to remem­ber the dif­fer­ence between mergeMap/flatmap and switchMap is    
       When you hear the word merge, think — use every­thing on all the streams aka. merge every­thing. 
       Whereas when you hear the word switch, think — switch to using data on the newer stream no data is ever lost in flat or merge map as both contibue to emit.
       where as in switchmap, 
       Switch subscribes to an Observable that emits Observables. Each time it observes one of these emitted Observables, the Observable returned by Switch unsubscribes from the previously-emitted Observable begins emitting items from the latest Observable. Note that it will unsubscribe from the previously-emitted Observable when a new Observable is emitted from the source Observable, not when the new Observable emits an item.    
          </p>
-    <p>3.<code>Map</code><br>The Map operator applies a function of your choosing to each item emitted by the source Observable, 
+    <p>4.<code>Map</code><br>The Map operator applies a function of your choosing to each item emitted by the source Observable, 
       and returns an Observable that emits the results of these function applications.You can look at <code>ForkJoin</code> on how 
       we use maps in observables.
     </p>  
