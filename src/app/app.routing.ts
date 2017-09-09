@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'cli', component: AngularcliComponent },
   { path: 'a4', component:  Angular4Component, data:{ ping:'passed via router'}},
   { path: 'a4/:message', component:  Angular4Component, data:{ ping:'passed via router'}},
-  { path: 'inout' , component: ParentchildComponent},
+  { path: 'event' , component: ParentchildComponent},
   { path: 'template', component:  TemplateDrivenComponent},
   { path: 'reactive', component:  ReactiveComponent},
   { path: 'ngrx',

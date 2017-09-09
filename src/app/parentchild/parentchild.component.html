@@ -46,5 +46,19 @@
 
 <!--You can also pass the event to a method-->
 <!--You can also send in objects in input parameters-->
+<br>
 
+<div class="row">
+  <div class="col-md-12">
+    <p><b>You can think of Event Emitters as nothing but a means to bridge the gap or provide a means of communication
+      between parent and child components. </b> This is one of the first things you learn in Angular as everything in Angular is 
+      components and thats waht help modularize the code. <br>
+      If you want to notify the child component of any change from the parent component make use of the <code>Input()</code> decorator.<br>
+      If you want to notify the parent component about something from the child component make sure to use <code>Output()</code> decorator
+      along with a <code>Event Emitter</code>.
+    </p>
+    <p>You might be wondering what are these dont worry we have got you covered the above example code will make it a lot clear .</p>
+  </div>
+</div>
 
+<ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'26.ts'" style="height:750px"></ngx-gist>
