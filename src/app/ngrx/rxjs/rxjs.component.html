@@ -61,7 +61,8 @@
     <p>4.<code>Map</code><br>The Map operator applies a function of your choosing to each item emitted by the source Observable, 
       and returns an Observable that emits the results of these function applications.You can look at <code>ForkJoin</code> on how 
       we use maps in observables.
-    </p>  
+    </p>
+    <p><b>Note :- Observables as stated emits values , but in case of a http service call in Angular, the obServable emits the values once and unsubscribes.</b></p>  
   </div>
 </div>
 
