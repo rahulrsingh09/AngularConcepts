@@ -1,3 +1,4 @@
+
 /**
  * Created by SINGH on 3/1/2017.
  */
@@ -20,7 +21,7 @@ import {ParentchildComponent} from "./parentchild/parentchild.component";
 import {BasicComponent} from "./basic/basic.component";
 import {AngularcliComponent} from "./angularcli/angularcli.component";
 import {ChartsComponent} from "./charts/charts.component";
-import {DynamicComponentComponent} from "./dynamic-component/dynamic-component.component";
+import {BaseDynamicComponent} from "./dynamic-component/base-dynamic.component";
 import {NotesComponent} from "./notes/notes.component";
 import {CommentComponent} from "./comment/comment.component";
 import {FireAuthResolve} from "./comment/fireauth.resolve";
@@ -53,7 +54,7 @@ const routes: Routes = [
   { path: 'guard', component:  GuardsComponent , canDeactivate:[DeactivateGuard]},
   { path: 'guardcheck', component:  CheckComponent , canActivate: [AuthGuard]},
   { path: 'charts', component:  ChartsComponent },
-  { path: 'dynamic', component : DynamicComponentComponent},
+  { path: 'dynamic', component : BaseDynamicComponent},
   { path: 'faq', component : NotesComponent},
   { path: 'comment', component : CommentComponent, resolve : {Auth: FireAuthResolve}},
   { path: 'firebase', component : FirebaseComponent},

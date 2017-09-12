@@ -3,9 +3,6 @@ import { Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from "rxjs";
-import {HeroProfileComponent} from "../dynamic-component/hero-profile-ad.component";
-import {AdItem} from "../dynamic-component/ad-item";
-import {HeroJobAdComponent} from "../dynamic-component/hero-job-ad.component";
 import {AngularFireDatabase} from "angularfire2/database/database";
 import * as firebase from 'firebase/app';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
@@ -74,7 +71,7 @@ export class AngularService {
 
   //AdService
 
-  getAds() {
+/*   getAds() {
     return [
       new AdItem(HeroProfileComponent, {name: 'Rahul Singh', bio: 'Angular Admirer'}),
 
@@ -86,7 +83,7 @@ export class AngularService {
       new AdItem(HeroJobAdComponent,   {headline: 'Openings in all departments',
         body: 'Apply today'}),
     ];
-  }
+  } */
 
   fetchData(){
     return this.af.list('/comments/users/',{

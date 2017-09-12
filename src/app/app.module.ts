@@ -23,6 +23,8 @@ import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
 
+import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
+import { DynamicComponent } from './dynamic-component/dynamic/dynamic.component';
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
 import {AngularService} from "./shared/angular.service";
 import {NgrxComponent} from "./ngrx/ngrx.component";
@@ -51,11 +53,7 @@ import {BasicComponent} from "./basic/basic.component";
 import {ChartsComponent} from "./charts/charts.component";
 import {NameValidatorDirective} from "./template-driven/NameValidator";
 import {AsyncAgeValidator} from "./template-driven/AsyncAgeValidator";
-import {DynamicComponentComponent} from "./dynamic-component/dynamic-component.component";
-import {DynamicDirectiveDirective} from "./dynamic-component/dynamic-directive.directive";
-import {HeroJobAdComponent} from "./dynamic-component/hero-job-ad.component";
-import {HeroProfileComponent} from "./dynamic-component/hero-profile-ad.component";
-import {AdBannerComponent} from "./dynamic-component/ad-banner.component";
+import {BaseDynamicComponent} from "./dynamic-component/base-dynamic.component";
 import {NotesComponent} from "./notes/notes.component";
 import {CommentComponent} from "./comment/comment.component";
 import {FireAuthResolve} from "./comment/fireauth.resolve";
@@ -73,6 +71,7 @@ import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
 import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
+
 
 
 export function highchartsFactory() {
@@ -116,11 +115,7 @@ export function highchartsFactory() {
     ChartsComponent,
     NameValidatorDirective,
     AsyncAgeValidator,
-    DynamicComponentComponent,
-    DynamicDirectiveDirective,
-    AdBannerComponent,
-    HeroJobAdComponent,
-    HeroProfileComponent,
+    BaseDynamicComponent,
     NotesComponent,
     CommentComponent,
     TestComponent,
@@ -130,7 +125,9 @@ export function highchartsFactory() {
     ValidateOnBlurDirective,
     MyworkComponent,
     ServicesComponent,
-    RxjsComponent
+    RxjsComponent,
+    DynamicComponent,
+    HelloWorldComponent
   ],
   imports: [
     BrowserModule,
@@ -179,6 +176,6 @@ export function highchartsFactory() {
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogResultExampleDialog, HeroJobAdComponent, HeroProfileComponent]
+  entryComponents: [DialogResultExampleDialog]
 })
 export class AppModule { }
