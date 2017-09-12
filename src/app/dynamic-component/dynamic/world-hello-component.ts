@@ -4,18 +4,12 @@ import {Component, Injector} from '@angular/core';
   selector: 'hello-world',
   template: `
     <div>Hello World {{name}}</div>
-    <button (click)="removeComponent()" > Remove Component </button>
   `,
 })
-export class HelloWorldComponent {
-  name = "";
-  ref: any;
+export class WorldHelloComponent {
+  name = ""
 
   constructor(private injector: Injector) {
     this.name = this.injector.get('name');
-  }
-
-  removeComponent(){
-    this.ref.destroy();
   }
 }

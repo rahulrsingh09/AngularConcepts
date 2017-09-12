@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularService} from "../shared/angular.service";
 
+import { WorldHelloComponent } from './dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
 
 @Component({
@@ -28,7 +29,7 @@ export class BaseDynamicComponent implements OnInit{
 
   createWorldHello(){
     this.componentData = {
-      "component" : "WorldHelloComponent",
+      "component" : WorldHelloComponent,
       "inputs" : {
         "name" : "Rahul Singh"
       }

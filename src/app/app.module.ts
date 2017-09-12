@@ -23,6 +23,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
 
+import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
 import { DynamicComponent } from './dynamic-component/dynamic/dynamic.component';
 import {AppComponent, DialogResultExampleDialog} from "./app.component";
@@ -127,7 +128,8 @@ export function highchartsFactory() {
     ServicesComponent,
     RxjsComponent,
     DynamicComponent,
-    HelloWorldComponent
+    HelloWorldComponent,
+    WorldHelloComponent
   ],
   imports: [
     BrowserModule,

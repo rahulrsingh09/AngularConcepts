@@ -2,10 +2,11 @@ import { Component, OnInit, Input, ViewChild, ViewContainerRef, ComponentFactory
 import { AngularService } from "app/shared/angular.service";
 
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
+import { WorldHelloComponent } from './world-hello-component';
 
 @Component({
   selector: 'dynamic',
-  entryComponents: [HelloWorldComponent],
+  entryComponents: [HelloWorldComponent, WorldHelloComponent],
   template: `<div #dynamicContainer></div>`
 })
 export class DynamicComponent implements OnInit{
@@ -33,13 +34,13 @@ export class DynamicComponent implements OnInit{
     //console.log(component.hostView);
     // We insert the component into the dom container
     this.decorator.insert(component.hostView);
-    
     // We can destroy the old component is we like by calling destroy
     if (this.currentComponent) {
       this.currentComponent.destroy();
     }
     
     this.currentComponent = component;
+    this.currentComponent.instance.ref = component;
     
   }
 
