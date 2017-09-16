@@ -22,7 +22,7 @@ export class BaseDynamicComponent implements OnInit{
     this.componentData = {
       "component" : HelloWorldComponent,
       "inputs" : {
-        "name" : "Rahul"
+        "name" : "Heart of all the logic you hit the jackpot :)"
       }
     };
   }
@@ -31,7 +31,7 @@ export class BaseDynamicComponent implements OnInit{
     this.componentData = {
       "component" : WorldHelloComponent,
       "inputs" : {
-        "name" : "Rahul Singh"
+        "name" : "It wasn't me After All . Check the other button he is Better @ Dynamic Components :P !!"
       }
     };
   }

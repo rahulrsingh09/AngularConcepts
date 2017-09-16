@@ -15,22 +15,27 @@
 
 
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <button (click) = "createHelloWorld()"> Create Hello World </button>
-    <button (click) = "createWorldHello()"> Create World Hello </button>
+  <div class="col-md-4">
+    <p> Guess Dynamic Component with helper code</p>
+    <button md-raised-button color = "primary" (click) = "createHelloWorld()"> It's me</button>
+    <button md-raised-button color = "primary" (click) = "createWorldHello()"> No It's me</button>
   </div>
-  <dynamic [componentData] = "componentData"></dynamic>
+  <div class="col-md-8">
+      <dynamic [componentData] = "componentData"></dynamic>      
+  </div>
 </div>
 <br><br>
 <div class="row">
   <div class="col-md-12">
-    <p><strong>Why use Dynamic Component in Angular ?</strong><br>
+    <p><strong>Why use Dynamic Component in Angular ?</strong><br><br>
       There arises situations where it's necessary to drop specific components into the view, 
       and the current view should not be tied to URLs at this point in such a scenario router won't help. Dynamic Component 
       loads the various components dynamically into the view. This gives the power to handle the logic in one persistent smart component 
-      which is bound to a URL.<br>
-      <a href="https://angular.io/guide/dynamic-component-loader">More On Angular Dynamic Components</a><br>
-      <a href="https://hackernoon.com/here-is-what-you-need-to-know-about-dynamic-components-in-angular-ac1e96167f9e">Hackernoon Dynamic Component Blog </a><br>
-      <a href="http://blog.rangle.io/dynamically-creating-components-with-angular-2/"> Rangle.io on dynamic-component </a></p>   
+      which is bound to a URL.</p>
+      <ul>
+        <li><a href="https://angular.io/guide/dynamic-component-loader">More On Angular Dynamic Components</a></li>
+        <li><a href="https://hackernoon.com/here-is-what-you-need-to-know-about-dynamic-components-in-angular-ac1e96167f9e">Hackernoon Dynamic Component Blog </a></li>
+        <li><a href="http://blog.rangle.io/dynamically-creating-components-with-angular-2/"> Rangle.io on dynamic-component </a></li>
+      </ul>   
     </div>
 </div>

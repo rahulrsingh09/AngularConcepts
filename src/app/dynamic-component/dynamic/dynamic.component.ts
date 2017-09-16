@@ -35,6 +35,7 @@ export class DynamicComponent implements OnInit{
     // We insert the component into the dom container
     this.decorator.insert(component.hostView);
     // We can destroy the old component is we like by calling destroy
+    // keep this if you want only one instacne of the component as in this example else remove it and play around
     if (this.currentComponent) {
       this.currentComponent.destroy();
     }
