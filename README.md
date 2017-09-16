@@ -16,18 +16,19 @@ Angular Core Concepts
 <li>Event Emitters  Input & Output</li>
 <li>Form Controls in Reactive or Data Driven Forms </li>
 <li>Form Controls In Template Driven Forms</li>
-<li>Example of Http Module how to create a service in angular and error handling in Services</li>
+<li>Example of Http Client Module how to create a service in angular, error handling and Interceptors in Services</li>
 <li>Angular 4 Rc2 IF else</li>
+<li>Dynamic Components using Component Factory Resolver </li>
 <li>Angular Testing Components and Custom Components like Directives ,Pipes, Router etc [work in progress] </li>
 <li>Angular Router Guards using CanActivate and Can Deactivate Interfaces</li>
 <li>Passing Data via Router and also Retriving them look at Angular4Component for code</li>
 <li>Usage of Host and Host-Context in Angular 2 Components [The shadow Dom]</li>
 <li>View Child , View Children and Content Children Example</li>
-<li>Ngrx Store[Redux] Simple Example</li>
+<li>Ngrx Store[Redux] Simple Example and Observables Gist</li>
 <li>Angular Router Resolve Explanation</li>
-<li>For Router Resolve Please Refer to my Other repo as i have used them in detail over there in https://github.com/rahulrsingh09/footballdetails</li>
-<li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/footballdetails I have used them in Detail</li>
-<li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/footballdetails </li>
+<li>For Router Resolve Please Refer to my Other repo as i have used them in detail over there in https://github.com/rahulrsingh09/FootBallScores</li>
+<li>For Lazy Loading in Angular Please Refer the Same repo https://github.com/rahulrsingh09/FootBallScores I have used them in Detail</li>
+<li>Also i have used Shared Modules , Feature Modules and Core Modules in repo https://github.com/rahulrsingh09/FootBallScores </li>
 <li>Use of HighCharts to Show Graphical Info of Data that is mostly used now a days in web apps [Multi level , Multi level - multi chart  Drill Down Included]</li>
 <li>Using Firebase with Angular using ng2 Firebase</li>
 <li>Saving data to Real time Firebase Database and making a Commenting Section out of it using Renderer 2</li>
