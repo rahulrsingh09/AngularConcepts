@@ -18,7 +18,7 @@ import {HighchartsStatic} from "angular2-highcharts/dist/HighchartsService";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
 import {AngularFireAuth} from "angularfire2/auth/auth";
-import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
 
