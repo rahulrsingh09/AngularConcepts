@@ -12,7 +12,6 @@ import {MaterialModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ChartModule} from "angular2-highcharts";
 import {LocalStorageModule} from "angular-2-local-storage";
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {AngularFireModule} from "angularfire2";
 import {NgxPaginationModule} from "ngx-pagination";
 import {HighchartsStatic} from "angular2-highcharts/dist/HighchartsService";
@@ -148,7 +147,6 @@ export function highchartsFactory() {
     MaterialModule,
     NgxGistModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
