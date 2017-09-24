@@ -8,7 +8,6 @@ import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@ang
 import {StoreModule} from "@ngrx/store";
 import {ShareButtonsModule} from "ngx-sharebuttons";
 import {MomentModule} from "angular2-moment";
-import {MaterialModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ChartModule} from "angular2-highcharts";
 import {LocalStorageModule} from "angular-2-local-storage";
@@ -21,6 +20,10 @@ import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material/select";
+import { MatCheckboxModule, MatRadioModule } from "@angular/material";
 
 import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
@@ -143,7 +146,11 @@ export function highchartsFactory() {
     HttpModule,
     HttpClientModule,
     MomentModule,
-    MaterialModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatRadioModule,
     NgxGistModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
