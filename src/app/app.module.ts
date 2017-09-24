@@ -1,3 +1,5 @@
+declare var require: any;
+
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
