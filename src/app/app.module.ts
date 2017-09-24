@@ -61,7 +61,6 @@ import {TestService} from "./shared/test.service";
 import {TestComponent} from "./test/test.component";
 import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
-import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 import { MyworkComponent } from './mywork/mywork.component';
 import { FirebaseComponent } from './firebase/firebase.component';
