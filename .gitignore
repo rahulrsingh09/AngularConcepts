@@ -16,6 +16,8 @@
 *.launch
 .settings/
 *.sublime-workspace
+myNodeTest.js
+
 
 # IDE - VSCode
 .vscode/*

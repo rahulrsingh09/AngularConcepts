@@ -5,7 +5,7 @@ import {FormsModule} from "@angular/forms";
 
 
 import {Pipe, PipeTransform} from '@angular/core';
-import {MaterialModule} from "@angular/material";
+
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @Pipe({name: 'square'})

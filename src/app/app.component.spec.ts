@@ -8,7 +8,6 @@ import {DebugElement, NO_ERRORS_SCHEMA} from "@angular/core";
 import {By} from "@angular/platform-browser";
 import {AngularService} from "./shared/angular.service";
 import {HttpModule} from "@angular/http";
-import { MaterialModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
