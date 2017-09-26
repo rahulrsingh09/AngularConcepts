@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
@@ -16,7 +17,6 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {HighchartsStatic} from "angular2-highcharts/dist/HighchartsService";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
-import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
