@@ -20,6 +20,11 @@ import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
+import { MatIconModule, MatDialogModule, MatProgressBarModule, 
+        MatCheckboxModule,
+        MatInputModule, MatRadioModule, MatTooltipModule, 
+        MatButtonModule, MatSelectModule} from '@angular/material';
+
 
 import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
@@ -70,14 +75,6 @@ import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
 import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
-import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatInputModule } from "@angular/material/input";
-import { MatRadioModule } from "@angular/material/radio";
-import { MatTooltipModule } from "@angular/material/tooltip";
-import { MatButtonModule } from "@angular/material/button";
-import { MatSelectModule } from "@angular/material/select";
-
 
 
 export function highchartsFactory() {
@@ -155,10 +152,12 @@ export function highchartsFactory() {
     MatProgressBarModule,
     MatButtonModule,
     MatTooltipModule,
+    MatIconModule,
     MatRadioModule,
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
