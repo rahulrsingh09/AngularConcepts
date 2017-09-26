@@ -23,7 +23,7 @@ describe('PipesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule,MaterialModule,BrowserAnimationsModule ],
+      imports: [ FormsModule,BrowserAnimationsModule ],
       declarations: [ PipesComponent,MockPipe ], // declare the test component
     })
       .compileComponents();  // compile template and css

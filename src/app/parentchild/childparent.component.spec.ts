@@ -10,7 +10,7 @@ describe('ChildparentComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChildparentComponent ],
-      imports: [MaterialModule,BrowserAnimationsModule],
+      imports: [BrowserAnimationsModule],
     })
     .compileComponents();
   }));

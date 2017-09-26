@@ -24,7 +24,7 @@ describe('TestComponent', () => {
         { provide: ComponentFixtureAutoDetect, useValue: true},
          AngularService
       ],
-      imports: [HttpModule,MaterialModule,BrowserAnimationsModule],
+      imports: [HttpModule,BrowserAnimationsModule],
       schemas: [ NO_ERRORS_SCHEMA]
     })
       .compileComponents();

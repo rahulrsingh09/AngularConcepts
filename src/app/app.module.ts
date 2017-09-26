@@ -70,6 +70,13 @@ import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
 import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatInputModule } from "@angular/material/input";
+import { MatRadioModule } from "@angular/material/radio";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material/select";
 
 
 
@@ -145,6 +152,13 @@ export function highchartsFactory() {
     MomentModule,
     NgxGistModule,
     BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
