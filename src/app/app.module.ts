@@ -1,4 +1,6 @@
 import { AngularFireAuth } from 'angularfire2/auth';
+declare var require: any;
+
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
@@ -24,7 +26,6 @@ import { MatIconModule, MatDialogModule, MatProgressBarModule,
         MatCheckboxModule,
         MatInputModule, MatRadioModule, MatTooltipModule, 
         MatButtonModule, MatSelectModule} from '@angular/material';
-
 
 import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
@@ -65,7 +66,6 @@ import {TestService} from "./shared/test.service";
 import {TestComponent} from "./test/test.component";
 import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
-import {firebaseConfig} from './shared/firebase.config';
 import {firebaseConfigDev} from './shared/firebase.config';
 import { MyworkComponent } from './mywork/mywork.component';
 import { FirebaseComponent } from './firebase/firebase.component';
