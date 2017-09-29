@@ -6,7 +6,9 @@
 
 # dependencies
 /node_modules
-/src/app/shared/firebase.config.ts
+#/src/app/shared/firebase.config.ts
+myNodeTest.js
+.gitignore
 
 # IDEs and editors
 /.idea

@@ -5,10 +5,11 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "bootstrap-v4-dev": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "firebase": "^4.4.0",
+    "express": "^4.15.4",
     "jquery": "^3.2.1",
     "jssha": "^2.3.1",
     "ng2-prism": "^2.3.2",
@@ -51,7 +53,6 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
-    "@angular/cli": "^1.2.3",
     "@types/jasmine": "2.5.53",
     "@types/node": "~6.0.81",
     "angular2-http-testing": "^1.1.0",
