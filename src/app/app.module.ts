@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 declare var require: any;
 
 import {BrowserModule} from "@angular/platform-browser";
@@ -18,14 +19,13 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {HighchartsStatic} from "angular2-highcharts/dist/HighchartsService";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
-import {AngularFireAuth} from "angularfire2/auth/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
-import { MatInputModule } from "@angular/material/input";
-import { MatButtonModule } from "@angular/material/button";
-import { MatSelectModule } from "@angular/material/select";
-import { MatCheckboxModule, MatRadioModule } from "@angular/material";
+import { MatIconModule, MatDialogModule, MatProgressBarModule, 
+        MatCheckboxModule,
+        MatInputModule, MatRadioModule, MatTooltipModule, 
+        MatButtonModule, MatSelectModule} from '@angular/material';
 
 import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
 import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
@@ -75,7 +75,6 @@ import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
 import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
-
 
 
 export function highchartsFactory() {
@@ -148,13 +147,17 @@ export function highchartsFactory() {
     HttpModule,
     HttpClientModule,
     MomentModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatRadioModule,
     NgxGistModule,
     BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatRadioModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(firebaseConfigDev),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({

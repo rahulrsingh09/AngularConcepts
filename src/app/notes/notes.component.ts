@@ -151,7 +151,7 @@ export class NotesComponent implements OnInit {
   ngOnInit() {
 
     this.allQuestions = this.el.nativeElement.querySelectorAll('.card');
-    console.log(this.allQuestions);
+    //console.log(this.allQuestions);
 
     this.show = false;
     this.auth = Observable

@@ -1,5 +1,5 @@
 import {Component, OnInit, Renderer2, ElementRef} from "@angular/core";
-import {AngularFireAuth} from "angularfire2/auth/auth";
+import {AngularFireAuth} from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import {ActivatedRoute} from "@angular/router";
 import {AngularService} from "../shared/angular.service";
