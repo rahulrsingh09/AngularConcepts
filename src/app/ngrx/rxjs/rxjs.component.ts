@@ -1,20 +1,29 @@
+
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-rxjs',
   templateUrl: './rxjs.component.html'
 })
-export class RxjsComponent implements OnInit {
+export class RxjsComponent implements OnInit{
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, public dialog: MdDialog) { }
 
-  ngOnInit() {
-  }
+  ngOnInit(){setTimeout(() => this.dialog.open(LazyDailog),0);}
 
   back(){
-    //console.log("called");
+    
     this.router.navigate(['ngrx']);
   }
 
+}
+
+@Component({
+  selector: 'lazyDailog',
+  templateUrl: './lazyDailog.html',
+})
+export class LazyDailog {
+  constructor(public dialogRef: MdDialogRef<LazyDailog>) {}
 }

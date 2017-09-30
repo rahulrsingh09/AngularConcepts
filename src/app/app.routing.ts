@@ -43,8 +43,8 @@ const routes: Routes = [
   { path: 'reactive', component:  ReactiveComponent},
   { path: 'ngrx',
       children: [
-        { path: 'rxjs', component: RxjsComponent },
-        { path: '', component:NgrxComponent}
+        { path: '', component:NgrxComponent},
+        { path: 'rxjs', loadChildren:'app/ngrx/rxjs/rxjs.module#RxjsModule'}
   ]},
   { path: 'viewchild', component:  ViewChildContentEgComponent},
   { path: 'host', component:  ParentHostComponent},
