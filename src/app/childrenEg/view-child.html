@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      View Child & Children + Some Notes on Angular Common Questions :D<span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/childrenEg">
+          <img src="code.png" alt="Image">
+        </a>
+      </span>
+    </p>
+  </div>
+</div>
+<hr>
+<tabs>
+  <tab [tabTitle]="'View Child Tab'" (click)="update()">
+    <p>Click on me & see Console Log Press F12</p>
+    <p>As the name suggests, <code>@ContentChild</code> and <code>@ContentChildren</code> queries will return directives existing inside the 
+      <code>ng-content</code> element of your view, whereas <code>@ViewChild</code> and <code>@ViewChildren</code> only look at elements 
+      that are on your view template directly</p>
+  </tab>
+  <tab [tabTitle]="'Test View Children Tab'">
+    <p>Data inside Tab can add component Also</p>
+  </tab>
+</tabs>
+<div class="small">
+  <div #child>Check Console for View Child Example
+    <div>Check Console for View Children Example</div>
+  </div>
+</div>
+
+<ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'viewchild.ts'" style="height:700px"></ngx-gist>
