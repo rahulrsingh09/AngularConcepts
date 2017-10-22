@@ -9,24 +9,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class GuardsComponent implements OnInit {
 
   message:string;
-
-  code = `    
-  @Injectable()
-  export class FireAuthResolve implements Resolve<any> {
-
-  constructor(private localStorage: LocalStorageService) {}
-
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any>|Promise<any>|any {
-    if (localStorage.getItem("something")){
-      return Observable.of(true);
-    } else {
-      return Observable.of(false);
-    }
-  }
-}
-
-          `;
-
+  
   constructor(private router:Router,) { }
 
   ngOnInit() {

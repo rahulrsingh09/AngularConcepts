@@ -15,7 +15,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p>Pass Input Value as X to navigate to the Guarded component. Else wont be allowed to enter .</p>
+    <p>Pass Input Value as 'X' to navigate to the Guarded component. Else wont be allowed to enter .</p>
     <md-input-container>
       <input mdInput type="text" placeholder="Pass value" #input>
     </md-input-container>
@@ -26,9 +26,7 @@
 <div class="row">
   <div class="col-md-8">
     <p><strong>Router Resolve</strong></p>
-    <pre>
-      <code [innerHTML]="code"></code>
-    </pre>
+    <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'routerResolve.ts'" style="height:420px"></ngx-gist>
   </div>
   <div class="col-md-4">
     <p>In order to do some task when routing from one component to another we can make use of Router resolve which will only
