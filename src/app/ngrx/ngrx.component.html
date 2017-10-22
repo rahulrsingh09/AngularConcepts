@@ -47,7 +47,7 @@
 <div class="row">
   <div class="col-md-4">
     <div *ngFor = "let i of item | async" [@flyInOut] >
-      <div class = "well" (click) = get(i,index)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
+      <div class = "well" (click) = get(i)>{{i}}<a><i class="align remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div>
     </div>
   </div>
 </div>

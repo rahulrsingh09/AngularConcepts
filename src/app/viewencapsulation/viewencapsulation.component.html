@@ -13,19 +13,17 @@
 <hr>
 
 <div class="row">
-  <div class="col-md-4">
-    <div class="none">
-      <p>The div is applied with class none the css is defined in app.component.css and due to viewEncapsulation set to none in app.component the style
+  <div class="col-md-6">
+    <div>
+      <p class="none">This para is applied with class none the css is defined in <code>app.component.css</code> and due to viewEncapsulation set to none in app.component the style
         can flow from one component to another view encapsulation works! </p>
     </div>
+  </div>  
+  <div class="col-md-6">
+    <p><a href="https://plnkr.co/iVatYgdxXXiKwaZlpYdZ" > Demo of View Encapuslation In Angular </a></p>
     <p>For more info on the same check out <a href="https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation"> View Encapuslation</a></p>
-  </div>
-
-  <div class="col-md-8">
-    <div class="intrinsic-container">
-    <iframe style="width: 100%; height: 400px" src="https://plnkr.co/iVatYgdxXXiKwaZlpYdZ" frameborder="0" allowfullscren></iframe>
-    </div>
   </div>
 </div>
 
+<ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'viewEncapsultation.ts'" style="height:800px"></ngx-gist>
 

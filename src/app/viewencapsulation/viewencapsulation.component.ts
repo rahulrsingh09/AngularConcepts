@@ -2,8 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-viewencapsulation',
-  templateUrl: './viewencapsulation.component.html',
-  styleUrls: ['./viewencapsulation.component.css'],
+  templateUrl: './viewencapsulation.component.html'
 
 })
 export class ViewencapsulationComponent implements OnInit {
