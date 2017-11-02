@@ -39,3 +39,31 @@
     </p>
   </div>
 </div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p>With the Release of <b>Angular version 5 pentagonal-donut</b> we havegot some great hooks for our application.
+        Router Events is one such Stuff which allows us to hook into certain events so that we can have more control on the component 
+        that is rendered.
+    </p>
+    <p>This allows you to track the lifecycle of the router, The sequence of router events is:</p>
+    <ol>
+      <li>NavigationStart</li>
+      <li>RouteConfigLoadStart</li>
+      <li>RouteConfigLoadEnd</li>
+      <li>RoutesRecognized</li>
+      <li>GuardsCheckStart</li>
+      <li>ChildActivationStart</li>
+      <li>ActivationStart</li>
+      <li>GuardsCheckEnd</li>
+      <li>ResolveStart</li>
+      <li>ResolveEnd</li>
+      <li>ActivationEnd</li>
+      <li>ChildActivationEnd</li>
+      <li>NavigationEnd</li>
+      <li>NavigationCancel</li>
+      <li>NavigationError</li>
+    </ol>
+  </div>
+</div>
+<ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'routerevents.ts'" style="height:700px"></ngx-gist>

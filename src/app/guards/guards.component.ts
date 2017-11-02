@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
+import { Router, ActivatedRoute, Event, GuardsCheckStart, RoutesRecognized, NavigationStart } from "@angular/router";
 
 @Component({
   selector: 'app-guards',
@@ -10,7 +10,13 @@ export class GuardsComponent implements OnInit {
 
   message:string;
   
-  constructor(private router:Router,) { }
+  constructor(private router:Router,) { 
+    router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        console.log("GuardsCheckStart event");
+      }
+    });
+  }
 
   ngOnInit() {
 
