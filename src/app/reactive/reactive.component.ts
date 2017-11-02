@@ -24,7 +24,7 @@ export class ReactiveComponent implements OnInit {
         lastName : new FormControl('')
       }),
       age:new FormControl('',null,validate),
-      email: new FormControl('',emailValidator),
+      email: new FormControl('',{validators : emailValidator, updateOn : 'blur'}),
       addresses: new FormArray([
         this.initAddress(), 
       ]),

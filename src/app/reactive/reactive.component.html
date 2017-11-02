@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-12">
     <p class="myHeader">
@@ -15,21 +14,22 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p><strong>Forms are Crucial, Forms are Complex</strong><br><br>
-    Probably the most important building block of any we application is a form. With forms we register users validate user data store it on the server use it to
-    send news letters and all sorts of things all the data is collected by means of forms and the more the control over forms the better.<br>
-    Here we going to talk about Reactive forms which is new thing in Angular which gives the more control to the user. As the component we build has access to all the
-    model and  template we can use this approach to have better control over our data and have instant access to all the validations and values by drilling 
-    down the form control.<br><br>
-    <b>Quick Shout</b> - This Post has received a lot of views and developers are now looking for highly nested forms which 
-      is not part of this tutorial. To one such request the user @irfan helped me to learn and develop deep nesting and create highly nested 
-    forms for better data processing, uses both FormBuilder as well as Form Control for the same. <u>I will Leave this StackBlitz <a href="https://stackblitz.com/edit/deep-nested-reactive-form">
-    Link</a></u>.Check the whole source code and a working example . If you want me to post that stuff instead of this please comment.
-    <br><br>
-    The Two Fundamental Blocks for forms in Angular are <code>Form Controls </code> & <code>Forms Groups </code>.<br>
-   <code>Form Controls </code> represent a single input and is the smallest unit in a Angular Form. Where as a <code>Forms Groups </code> is a a way to manage these
-   form groups as mostly we will be dealing with forms that have multiple fields. Both these classes have the same parent <code>Abstract Control</code> so we can track down 
-   the changes easily for one or even more forms. For more indepth study please visit these links <span mdTooltip="Ng book">
+    <p><strong>Forms are Crucial, Forms are Complex</strong><br><br> Probably the most important building block of any we application
+      is a form. With forms we register users validate user data store it on the server use it to send news letters and all
+      sorts of things all the data is collected by means of forms and the more the control over forms the better.<br> Here
+      we going to talk about Reactive forms which is new thing in Angular which gives the more control to the user. As the
+      component we build has access to all the model and template we can use this approach to have better control over our
+      data and have instant access to all the validations and values by drilling down the form control.<br><br>
+      <b>Quick Shout</b> - This Post has received a lot of views and developers are now looking for highly nested forms which
+      is not part of this tutorial. To one such request the user @irfan helped me to learn and develop deep nesting and create
+      highly nested forms for better data processing, uses both FormBuilder as well as Form Control for the same.
+      <u>I will Leave this StackBlitz <a href="https://stackblitz.com/edit/deep-nested-reactive-form">
+    Link</a></u>.Check the whole source code and a working example . If you want me to post that stuff instead of this please
+      comment.
+      <br><br> The Two Fundamental Blocks for forms in Angular are <code>Form Controls </code> & <code>Forms Groups </code>.<br>
+      <code>Form Controls </code> represent a single input and is the smallest unit in a Angular Form. Where as a <code>Forms Groups </code>      is a a way to manage these form groups as mostly we will be dealing with forms that have multiple fields. Both these
+      classes have the same parent <code>Abstract Control</code> so we can track down the changes easily for one or even
+      more forms. For more indepth study please visit these links <span mdTooltip="Ng book">
         <a href="http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/">
           <img src="code.png" alt="Image">
         </a>
@@ -37,7 +37,7 @@
         <a href="https://angular.io/guide/reactive-forms">
           <img src="code.png" alt="Image">
         </a>
-      </span> <br> <strong>Now Let's get our hand's dirty</strong> You need to Import the <strong>Reactive Forms Module</strong> in NgModule to kick start Reactive Forms.</p> 
+      </span> <br> <strong>Now Let's get our hand's dirty</strong> You need to Import the <strong>Reactive Forms Module</strong>      in NgModule to kick start Reactive Forms.</p>
   </div>
 </div>
 <br><br>
@@ -45,10 +45,10 @@
 <div class="row">
   <div class="col-md-9">
 
-    <form [formGroup] = "user" novalidate (ngSubmit)="onSubmit(user)">
+    <form [formGroup]="user" novalidate (ngSubmit)="onSubmit(user)">
 
       <div class="row">
-        <div formGroupName = "name">
+        <div formGroupName="name">
           <div class="col-md-4">
             <md-input-container>
               <input mdInput type="text" placeholder="First Name" formControlName="firstName">
@@ -72,7 +72,7 @@
             First Name is required
             </small>
         </div>
-          <div class="col-md-6">
+        <div class="col-md-6">
           <span *ngIf="user.get('age').touched && !user.get('age').valid && !user.get('age').pristine">
             <small>Age should be greater than 18 </small>
         </span>
@@ -80,30 +80,30 @@
       </div>
       <br>
       <div class="row">
-          <div class="col-md-12">
-            <md-input-container>
-              <input mdInput type="text" placeholder="Email" formControlName="email" validate-onblur>
-            </md-input-container>
-          </div>
+        <div class="col-md-12">
+          <md-input-container>
+            <input mdInput type="text" placeholder="Email" formControlName="email" validate-onblur>
+          </md-input-container>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <span *ngIf="user.get('email').touched && !user.get('email').valid && !user.get('email').pristine">
+          <span *ngIf="user.get('email').touched && !user.get('email').valid">
             <small>Invalid email</small>
           </span>
         </div>
       </div>
-      <div class="row" formArrayName = "addresses">
-        <div class="col-md-12" *ngFor = "let address of getAddresses(user) ; let i = index">
+      <div class="row" formArrayName="addresses">
+        <div class="col-md-12" *ngFor="let address of getAddresses(user) ; let i = index">
           <div class="row">
             <div class="col-md-11">
               <span>Address  {{i+1}} </span>
             </div>
-            <div class="col-md-1">  
-              <span *ngIf = "getAddresses(user).length > 1" (click) = "removeAddress(i)"class="glyphicon glyphicon-remove"></span>
+            <div class="col-md-1">
+              <span *ngIf="getAddresses(user).length > 1" (click)="removeAddress(i)" class="glyphicon glyphicon-remove"></span>
             </div>
           </div>
-          <div [formGroupName] = "i" class="row">
+          <div [formGroupName]="i" class="row">
             <div class="col-md-6">
               <md-input-container>
                 <input mdInput type="text" formControlName="street" placeholder="Street">
@@ -143,8 +143,8 @@
         </div>
 
         <div class="col-md-3">
-          <md-select placeholder="Theme"  formControlName="theme">
-            <md-option *ngFor="let theme of themes" [value] = "theme">
+          <md-select placeholder="Theme" formControlName="theme">
+            <md-option *ngFor="let theme of themes" [value]="theme">
               {{theme.display}}
             </md-option>
           </md-select>
@@ -152,10 +152,11 @@
         <br>
         <div class="col-md-3">
           <md-select multiple placeholder="Topics" formControlName="topics">
-            <md-option  *ngFor="let topic of topics" [value]="topic.value">
+            <md-option *ngFor="let topic of topics" [value]="topic.value">
               {{topic.display}}
             </md-option>
-          </md-select><!-- Multiple select is not active in multiple select -->
+          </md-select>
+          <!-- Multiple select is not active in multiple select -->
         </div>
 
       </div>
@@ -164,7 +165,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <md-checkbox name="isActive" formControlName="isActive" >Is Active!</md-checkbox>
+          <md-checkbox name="isActive" formControlName="isActive">Is Active!</md-checkbox>
         </div>
 
         <div class="col-md-3">
@@ -173,8 +174,8 @@
             {{toggles[0].display}}</md-checkbox>
         </div>
 
-        <div class="col-md-3" [hidden] = "user.controls.gender.value !== 'F'">
-         <md-input-container>
+        <div class="col-md-3" [hidden]="user.controls.gender.value !== 'F'">
+          <md-input-container>
             <input mdInput type="text" placeholder="Discount" formControlName="discount">
           </md-input-container>
         </div>
@@ -183,8 +184,8 @@
       <br>
       <div class="row">
         <div class="col-md-3">
-          <button md-raised-button color = "primary" type="submit" [disabled] = "!user.valid">Submit</button>
-        </div> 
+          <button md-raised-button color="primary" type="submit" [disabled]="!user.valid">Submit</button>
+        </div>
       </div>
     </form>
   </div>
@@ -196,26 +197,27 @@
 
 <div class="row">
   <div class="col-md-12">
-      <p><strong>So Now what is this Form whats is Happening</strong><br>
-      <br> Its is a Form which highlights all the key features of an Angular Reactive Forms . Here all the
-      control resides with the developer. Key Features here are Nested Form Groups and Form Array.
-      As you can see from the output on the side of the form. Nested Groups are like nested objects in Javascript. 
-      where as a Form Array is a array of objects like in javascript you can interlieve these two together here is how I created them .
-      </p>
+    <p><strong>So Now what is this Form whats is Happening</strong><br>
+      <br> Its is a Form which highlights all the key features of an Angular Reactive Forms . Here all the control resides
+      with the developer. Key Features here are Nested Form Groups and Form Array. As you can see from the output on the
+      side of the form. Nested Groups are like nested objects in Javascript. where as a Form Array is a array of objects
+      like in javascript you can interlieve these two together here is how I created them .
+    </p>
   </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+  <div class="col-md-12">
     <p><strong>Nested Groups</strong></p><br>
-    <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%">  ngOnInit() &#123;
+    <div style="background: #ffffff; overflow:auto;width:auto;">
+      <pre style="margin: 0; line-height: 125%">  ngOnInit() &#123;
         <span style="color: #008800; font-weight: bold">this</span>.user <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> FormGroup(&#123;
             name:<span style="color: #333399; font-weight: bold">new</span> FormGroup(&#123;
             firstName : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,Validators.required),
             lastName : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>)
         &#125;),
           age:<span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,<span style="color: #008800; font-weight: bold">null</span>,validate),
-          email: <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,emailValidator),
+          email: <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>,&#123;validator : emailValidator , updateOn : &#39;blur&#39;&#125;), // new feature added in Angular (v5)
           addresses: <span style="color: #333399; font-weight: bold">new</span> FormArray([
             <span style="color: #008800; font-weight: bold">this</span>.initAddress(), 
           ])
@@ -228,21 +230,24 @@
           postcode : <span style="color: #333399; font-weight: bold">new</span> FormControl(<span style="background-color: #fff0f0">&#39;&#39;</span>)
       &#125;);
     &#125;
-    </pre></div>
+    </pre>
+    </div>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-md-12">
-    <p>You must be wondering what's those <strong>email Validator & validate</strong> doing with the Form Control Those are Custom Angular Validators .There are 
-      two types of validators one is synchronous other is Async. Async is used for Server side validations if any for this page I am simualting a server call. 
+    <p>You must be wondering what's those <strong>email Validator & validate</strong> doing with the Form Control Those are
+      Custom Angular Validators .There are two types of validators one is synchronous other is Async. Async is used for Server
+      side validations if any for this page I am simualting a server call.
     </p>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-md-12">
-<div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123; ValidatorFn, AbstractControl&#125; from <span style="background-color: #fff0f0">&#39;@angular/forms&#39;</span>;
+    <div style="background: #ffffff; overflow:auto;width:auto;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> &#123; ValidatorFn, AbstractControl&#125; from <span style="background-color: #fff0f0">&#39;@angular/forms&#39;</span>;
 <span style="color: #008800; font-weight: bold">import</span> &#123; Observable&#125; from <span style="background-color: #fff0f0">&#39;rxjs&#39;</span>;
 
 <span style="color: #008800; font-weight: bold">export</span> <span style="color: #008800; font-weight: bold">function</span>  validate(c: <span style="color: #333399; font-weight: bold">AbstractControl</span>)<span style="color: #333333">:</span> Observable<span style="color: #333333">&lt;</span>&#123;[key : <span style="color: #333399; font-weight: bold">number</span>] <span style="color: #333333">:</span> any}<span style="color: #333333">&gt;</span>&#123;
@@ -265,20 +270,21 @@
        &#125;
         <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">null</span>;
    &#125;
-</pre></div>
+</pre>
+    </div>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col-md-12">
-    <p> Now this is not the whole picture I wanted to highlight the main components of a Reactive Template but there is more to than what on this
-      page. There is <strong>Reactive form Tempalates</strong> , how to show validation messages only on focus and blur events . For that I have created a 
-      directive here which sets the form classes accordingly. I am posting this Link -> <span mdTooltip="View Source">
+    <p> Now this is not the whole picture I wanted to highlight the main components of a Reactive Template but there is more
+      to than what on this page. There is <strong>Reactive form Tempalates</strong> , how to show validation messages only
+      on focus and blur events . For that I have created a directive here which sets the form classes accordingly. I am posting
+      this Link -> <span mdTooltip="View Source">
         <a href="https://github.com/rahulrsingh09/AngularConcepts/tree/master/src/app/reactive">
           <img src="code.png" alt="Image">
         </a>
-      </span> . It is the Repo Folder link for this whole page, you can get to see how I created Reactive Form Template as well as all the Css,Html and Angular. </p>
+      </span> . It is the Repo Folder link for this whole page, you can get to see how I created Reactive Form Template as
+      well as all the Css,Html and Angular. </p>
   </div>
 </div>
-
-
