@@ -2,6 +2,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Bangers");
+@import url('https://fonts.googleapis.com/css?family=Creepster');
 @import '~bootstrap/dist/css/bootstrap.css';
 
 body, html {
@@ -19,6 +20,12 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 40px !important;
+}
+
+.highlighter{
+  font-family: 'Creepster', sans-serif;
+  font-size: x-large;
+  color: #d34836;
 }
 
 @media screen and (max-width: 768px) {

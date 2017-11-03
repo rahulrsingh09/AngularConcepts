@@ -23,20 +23,21 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
 import { MatIconModule, MatDialogModule, MatProgressBarModule, 
-        MatCheckboxModule,
-        MatInputModule, MatRadioModule, MatTooltipModule, 
-        MatButtonModule, MatSelectModule} from '@angular/material';
-
-import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
-import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
-import { DynamicComponent } from './dynamic-component/dynamic/dynamic.component';
-import {AppComponent, DialogResultExampleDialog} from "./app.component";
-import {AngularService} from "./shared/angular.service";
-import {NgrxComponent} from "./ngrx/ngrx.component";
-import {routing} from "./app.routing";
-import {TemplateDrivenComponent} from "./template-driven/template-driven.component";
-import {ReactiveComponent} from "./reactive/reactive.component";
-import {Angular4Component} from "./angular4/angular4.component";
+  MatCheckboxModule,
+  MatInputModule, MatRadioModule, MatTooltipModule, 
+  MatButtonModule, MatSelectModule} from '@angular/material';
+  
+  import { BlinkerDirective } from './basic/blinker.directive';
+  import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
+  import { HelloWorldComponent } from 'app/dynamic-component/dynamic/hello-world-component';
+  import { DynamicComponent } from './dynamic-component/dynamic/dynamic.component';
+  import {AppComponent, DialogResultExampleDialog} from "./app.component";
+  import {AngularService} from "./shared/angular.service";
+  import {NgrxComponent} from "./ngrx/ngrx.component";
+  import {routing} from "./app.routing";
+  import {TemplateDrivenComponent} from "./template-driven/template-driven.component";
+  import {ReactiveComponent} from "./reactive/reactive.component";
+  import {Angular4Component} from "./angular4/angular4.component";
 import {Tabs} from "./childrenEg/tabs";
 import {ViewChildContentEgComponent} from "./childrenEg/view-child-content-eg.component";
 import {ParentHostComponent} from "./parent-host/parent-host.component";
@@ -130,7 +131,8 @@ export function highchartsFactory() {
     ServicesComponent,
     DynamicComponent,
     HelloWorldComponent,
-    WorldHelloComponent
+    WorldHelloComponent,
+    BlinkerDirective
   ],
   imports: [
     BrowserModule,
