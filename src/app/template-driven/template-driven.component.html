@@ -29,7 +29,7 @@
 <div class="row">
     <div class="col-md-9">
     <br>
-    <form #f="ngForm" [ngFormOptions]="{updateOn: blur}">
+    <form #f="ngForm" [ngFormOptions]="{updateOn: 'blur'}" novalidate>
     <div class="row">
       <div class="col-md-8">
         <div class="row" ngModelGroup = "name">
@@ -193,7 +193,7 @@
 <div class="row">
   <div class="col-md-12">
     <p><strong>A Small portion of the Template used for the Above Form</strong></p>
-   <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;form</span> <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">f=</span><span style="background-color: #fff0f0">&quot;ngForm&quot;</span> <span style="color: #0000CC">novalidate</span><span style="color: #007700">&gt;</span>
+   <div style="background: #ffffff; overflow:auto;width:auto;"><pre style="margin: 0; line-height: 125%"><span style="color: #007700">&lt;form</span> <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">f=</span><span style="background-color: #fff0f0">&quot;ngForm&quot;</span> <span style="color: #0000CC"> <span style="color: #FF0000; background-color: #FFAAAA">[</span><span style="color: #0000CC">ngFormOptions]="&#123;updateOn: 'blur'&#125;"</span><span style="color: #FF0000; background-color: #FFAAAA"></span> novalidate</span><span style="color: #007700">&gt;</span> // new feature in Angular v5.0.0
       <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span><span style="color: #007700">&gt;</span>
         <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-8&quot;</span><span style="color: #007700">&gt;</span>
           <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;row&quot;</span> <span style="color: #0000CC">ngModelGroup =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;name&quot;</span><span style="color: #007700">&gt;</span>
