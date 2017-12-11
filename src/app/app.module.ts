@@ -1,6 +1,7 @@
-import { AngularFireAuth } from 'angularfire2/auth';
 declare var require: any;
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { environment } from './../environments/environment';
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
@@ -26,6 +27,7 @@ import { MatIconModule, MatDialogModule, MatProgressBarModule,
   MatCheckboxModule,
   MatInputModule, MatRadioModule, MatTooltipModule, 
   MatButtonModule, MatSelectModule} from '@angular/material';
+  
   
   import { BlinkerDirective } from './basic/blinker.directive';
   import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
@@ -68,6 +70,7 @@ import {TestComponent} from "./test/test.component";
 import {RelativeTimeFilterPipe} from "./comment/realtiveTime.filter.pipe";
 import {StringFilterPipe} from "./comment/string.filter.pipe";
 import {firebaseConfigDev} from './shared/firebase.config';
+import {firebaseConfig} from './shared/firebase.config';
 import { MyworkComponent } from './mywork/mywork.component';
 import { FirebaseComponent } from './firebase/firebase.component';
 import * as fromRoot from "./ngrx/state-management/ngrx-reducer";
@@ -159,7 +162,7 @@ export function highchartsFactory() {
     MatCheckboxModule,
     MatSelectModule,
     MatDialogModule,
-    AngularFireModule.initializeApp(firebaseConfigDev),
+    AngularFireModule.initializeApp(environment.firebaseConfiguration),
     AngularFireDatabaseModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
