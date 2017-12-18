@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 import {AngularService} from "./shared/angular.service";
-import {MdDialog, MdDialogRef, MdIconRegistry} from "@angular/material";
+import {MatDialog, MatDialogRef, MatIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Subscription} from "rxjs";
 
@@ -21,8 +21,8 @@ export class AppComponent implements OnInit{
   subscription:Subscription;
   showProgress: boolean ;
 
-  constructor(private service:AngularService , mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer
-             , public dialog: MdDialog){
+  constructor(private service:AngularService , mdIconRegistry: MatIconRegistry, sanitizer: DomSanitizer
+             , public dialog: MatDialog){
     mdIconRegistry.addSvgIcon('icon', sanitizer.bypassSecurityTrustResourceUrl('angular.svg'));
 
   }
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit{
   templateUrl: './dialog-result-example-dialog.html',
 })
 export class DialogResultExampleDialog {
-  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>) {}
+  constructor(public dialogRef: MatDialogRef<DialogResultExampleDialog>) {}
 }
 
 

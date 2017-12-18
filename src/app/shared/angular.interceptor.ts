@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import 'rxjs/add/operator/do';
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import { HttpErrorResponse } from "@angular/common/http";

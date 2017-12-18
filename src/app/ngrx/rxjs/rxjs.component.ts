@@ -1,7 +1,7 @@
 
 import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-rxjs',
@@ -9,7 +9,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 })
 export class RxjsComponent implements OnInit{
 
-  constructor(private router : Router, public dialog: MdDialog) { }
+  constructor(private router : Router, public dialog: MatDialog) { }
 
   ngOnInit(){setTimeout(() => this.dialog.open(LazyDailog),0);}
 
@@ -25,5 +25,5 @@ export class RxjsComponent implements OnInit{
   templateUrl: './lazyDailog.html',
 })
 export class LazyDailog {
-  constructor(public dialogRef: MdDialogRef<LazyDailog>) {}
+  constructor(public dialogRef: MatDialogRef<LazyDailog>) {}
 }

@@ -17,30 +17,30 @@
 
 <div class="row">
   <div class="col-md-12">
-      <button md-raised-button color = "primary" (click)="rxjs()">Building blocks of ngrx @ Observables</button>
+      <button mat-raised-button color = "primary" (click)="rxjs()">Building blocks of ngrx @ Observables</button>
   </div>
 </div><br>
 
 <div class="row">
   <div class="col-md-1">
-    <button md-mini-fab (click)="increment()">+</button>
+    <button mat-mini-fab (click)="increment()">+</button>
   </div>
   <div class="col-md-1">
     <p>Count: {{ counter | async }}</p>
   </div>
   <div class="col-md-1">
-    <button md-mini-fab (click)="decrement()">-</button>
+    <button mat-mini-fab (click)="decrement()">-</button>
   </div>
   <div class="col-md-3">
-    <button md-raised-button color = "primary" (click)="reset()">Reset</button>
+    <button mat-raised-button color = "primary" (click)="reset()">Reset</button>
   </div>
   <div class="col-md-4">
-    <md-input-container>
-      <input mdInput type="text" placeholder="Add to List" #list>
-    </md-input-container>
+    <mat-input-container>
+      <input matInput type="text" placeholder="Add to List" #list>
+    </mat-input-container>
   </div>
   <div class="col-md-2">
-    <button md-raised-button color = "primary" (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>
+    <button mat-raised-button color = "primary" (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>
   </div>
 </div>
 <br>

@@ -3,7 +3,9 @@ import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {AngularService} from "../shared/angular.service";
 import {Observable} from "rxjs";
-
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
 //using external js modules in Angular
 declare var jsSHA: any;
 

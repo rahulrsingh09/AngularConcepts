@@ -50,20 +50,20 @@
       <div class="row">
         <div formGroupName="name">
           <div class="col-md-4">
-            <md-input-container>
-              <input mdInput type="text" placeholder="First Name" formControlName="firstName">
-            </md-input-container>
+            <mat-input-container>
+              <input matInput type="text" placeholder="First Name" formControlName="firstName">
+            </mat-input-container>
           </div>
           <div class="col-md-4">
-            <md-input-container>
-              <input mdInput type="text" placeholder="Last Name" formControlName="lastName">
-            </md-input-container>
+            <mat-input-container>
+              <input matInput type="text" placeholder="Last Name" formControlName="lastName">
+            </mat-input-container>
           </div>
         </div>
         <div class="col-md-4">
-          <md-input-container>
-            <input mdInput type="number" formControlName="age" placeholder="Age" validate-onblur>
-          </md-input-container>
+          <mat-input-container>
+            <input matInput type="number" formControlName="age" placeholder="Age" validate-onblur>
+          </mat-input-container>
         </div>
       </div>
       <div class="row">
@@ -81,9 +81,9 @@
       <br>
       <div class="row">
         <div class="col-md-12">
-          <md-input-container>
-            <input mdInput type="text" placeholder="Email" formControlName="email" validate-onblur>
-          </md-input-container>
+          <mat-input-container>
+            <input matInput type="text" placeholder="Email" formControlName="email" validate-onblur>
+          </mat-input-container>
         </div>
       </div>
       <div class="row">
@@ -105,14 +105,14 @@
           </div>
           <div [formGroupName]="i" class="row">
             <div class="col-md-6">
-              <md-input-container>
-                <input mdInput type="text" formControlName="street" placeholder="Street">
-              </md-input-container>
+              <mat-input-container>
+                <input matInput type="text" formControlName="street" placeholder="Street">
+              </mat-input-container>
             </div>
             <div class="col-md-6">
-              <md-input-container>
-                <input mdInput type="text" formControlName="postcode" placeholder="Pin">
-              </md-input-container>
+              <mat-input-container>
+                <input matInput type="text" formControlName="postcode" placeholder="Pin">
+              </mat-input-container>
             </div>
           </div>
         </div>
@@ -127,35 +127,35 @@
       <div class="row">
         <div class="col-md-6">
           <label> Gender - &nbsp;&nbsp; </label>
-          <md-radio-group formControlName="gender">
-            <md-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</md-radio-button>
-          </md-radio-group>
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button *ngFor="let gender of genders" [value]="gender.value"> {{gender.display}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>
+          </mat-radio-group>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-md-3">
-          <md-select placeholder="Role" formControlName="role">
-            <md-option *ngFor="let role of roles" [value]="role.value">
+          <mat-select placeholder="Role" formControlName="role">
+            <mat-option *ngFor="let role of roles" [value]="role.value">
               {{role.display}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
         </div>
 
         <div class="col-md-3">
-          <md-select placeholder="Theme" formControlName="theme">
-            <md-option *ngFor="let theme of themes" [value]="theme">
+          <mat-select placeholder="Theme" formControlName="theme">
+            <mat-option *ngFor="let theme of themes" [value]="theme">
               {{theme.display}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
         </div>
         <br>
         <div class="col-md-3">
-          <md-select multiple placeholder="Topics" formControlName="topics">
-            <md-option *ngFor="let topic of topics" [value]="topic.value">
+          <mat-select multiple placeholder="Topics" formControlName="topics">
+            <mat-option *ngFor="let topic of topics" [value]="topic.value">
               {{topic.display}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
           <!-- Multiple select is not active in multiple select -->
         </div>
 
@@ -165,19 +165,19 @@
 
       <div class="row">
         <div class="col-md-3">
-          <md-checkbox name="isActive" formControlName="isActive">Is Active!</md-checkbox>
+          <mat-checkbox name="isActive" formControlName="isActive">Is Active!</mat-checkbox>
         </div>
 
         <div class="col-md-3">
           <input type="hidden">
-          <md-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
-            {{toggles[0].display}}</md-checkbox>
+          <mat-checkbox (change)="$event.checked?(toggle = toggles[0].value): (toggle = toggles[1].value)" formControlName="toggle">
+            {{toggles[0].display}}</mat-checkbox>
         </div>
 
         <div class="col-md-3" [hidden]="user.controls.gender.value !== 'F'">
-          <md-input-container>
-            <input mdInput type="text" placeholder="Discount" formControlName="discount">
-          </md-input-container>
+          <mat-input-container>
+            <input matInput type="text" placeholder="Discount" formControlName="discount">
+          </mat-input-container>
         </div>
 
       </div>
