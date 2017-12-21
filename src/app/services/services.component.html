@@ -95,6 +95,18 @@
 </div>
 <div class="row">
   <div class="col-md-12">
+    <p class="bigger">Tapping into Http Response and handling error using Rxjs Operators </p>
+    <p>Tapping into each observable using pipes in Http Services
+      In general, an Observable can return multiple values over time. 
+      An Observable from HttpClient always emits a single value and then completes, never to emit again. 
+      To catch errors, you <code>pipe</code> the observable result from <code>http.get()</code> through an RxJS <code>catchError()</code> operator.
+      The general catch should be applicable to all the other methods in the service
+      <b>like</b></p>
+    <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'handlingErrors.ts'" style="height:700px"></ngx-gist> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
       <p class="bigger">Http Interceptors</p>
       <p>A new feature available in the new HTTP client is HTTP Interceptors. An HTTP Interceptor allows us to add some generic functionality to all our HTTP requests in only one place.
         Interceptors are ideal for cross-cutting concerns like for example adding an authentication token header transparently to all the requests made by the HTTP client.

@@ -78,6 +78,7 @@ import { ValidateOnBlurDirective } from './reactive/validateOnBlur.directive';
 import {Tab} from "./childrenEg/tab";
 import { AngularInterceptor } from './shared/angular.interceptor';
 import { ServicesComponent } from './services/services.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 
@@ -135,7 +136,8 @@ export function highchartsFactory() {
     DynamicComponent,
     HelloWorldComponent,
     WorldHelloComponent,
-    BlinkerDirective
+    BlinkerDirective,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
