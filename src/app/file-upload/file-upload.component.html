@@ -1,4 +1,17 @@
 <div class="row">
+  <div class="col-md-12">
+    <p class="myHeader">
+      File Upload & Download using Angular (take any version you want)
+      <span mdTooltip="View Source">
+        <a href="https://github.com/rahulrsingh09/AngularConcepts/blob/master/src/app/file-upload">
+          <img src="code.png" alt="Image">
+        </a>
+      </span>
+    </p>
+  </div>
+</div>
+<hr>
+<div class="row">
   <div class="col-md-8">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="row">
@@ -48,5 +61,11 @@
         <button mat-button color="warn" (click)="deleteUploaded()" [disabled] = "fileName">Delete Uploaded File</button>
       </mat-card-actions>
     </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'fileUpload.ts'" style="height:720px"></ngx-gist>
   </div>
 </div>
