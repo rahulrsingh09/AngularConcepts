@@ -30,6 +30,7 @@ import {FirebaseComponent} from "./firebase/firebase.component";
 import { RxjsComponent } from './ngrx/rxjs/rxjs.component';
 import { ServicesComponent } from './services/services.component';
 import { MyworkComponent } from './mywork/mywork.component';
+import { FileUploadComponent } from 'app/file-upload/file-upload.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,8 @@ const routes: Routes = [
   { path: 'firebase', component : FirebaseComponent},
   { path: 'services', component : ServicesComponent},
   { path: 'myworks', component : MyworkComponent},
-  { path: 'test', component : TestComponent}
+  { path: 'test', component : TestComponent},
+  { path: 'upload', component : FileUploadComponent},  
 
 ];
 

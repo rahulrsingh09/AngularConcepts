@@ -27,7 +27,7 @@ import { MatIconModule, MatDialogModule, MatProgressBarModule,
   MatCheckboxModule,
   MatInputModule, MatRadioModule, MatTooltipModule, 
   MatButtonModule, MatSelectModule} from '@angular/material';
-  
+  import {MatCardModule} from '@angular/material/card';  
   
   import { BlinkerDirective } from './basic/blinker.directive';
   import { WorldHelloComponent } from './dynamic-component/dynamic/world-hello-component';
@@ -151,6 +151,7 @@ export function highchartsFactory() {
     RouterModule,
     ReactiveFormsModule,
     HttpModule,
+    MatCardModule,
     HttpClientModule,
     MomentModule,
     NgxGistModule,

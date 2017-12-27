@@ -125,6 +125,14 @@ export class AngularService {
     return pageCount;
   }
 
+  uploadFiles(formData){
+    return this.client.post('https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/upload', formData);
+  }
+
+  deleteFiles(fileName:string){
+    return this.client.delete('https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/files/'+fileName);
+  }
+
 
 }
 
