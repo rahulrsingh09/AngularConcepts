@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularService } from 'app/shared/angular.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -8,7 +8,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./file-upload.component.css']
 })
 export class FileUploadComponent implements OnInit {
-
+  @ViewChild('fileInput') fileInput: ElementRef;
   form: FormGroup;
   loading:boolean;
   image_src:string; 
@@ -62,6 +62,11 @@ export class FileUploadComponent implements OnInit {
       this.image_src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/"+fileName;
       console.log(data);
     });
+  }
+
+  clearFile(){
+    this.form.get('avatar').setValue(null);
+    this.fileInput.nativeElement.value = '';
   }
 
   deleteUploaded(){
