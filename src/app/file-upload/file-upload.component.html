@@ -45,10 +45,8 @@
         </ng-template>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="warn" (click)="deleteUploaded()" [disabled] = "!fileName">Delete Uploaded File</button>
+        <button mat-button color="warn" (click)="deleteUploaded()" [disabled] = "fileName">Delete Uploaded File</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
-
-<img src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/Mee.jpeg"/>

@@ -12,14 +12,19 @@ export class FileUploadComponent implements OnInit {
   form: FormGroup;
   loading:boolean;
   image_src:string; 
-  fileName:string;
-  uploaded:boolean;
+  fileName:boolean = true;
+  uploaded:boolean = true;
   constructor(private client: AngularService, private fb : FormBuilder) { }
   
   ngOnInit() {
     this.buildForm();
     this.uploaded = false;
-    this.image_src = "assets/images/n.jpg"
+    if(localStorage.getItem("filename")){
+      this.image_src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/"+localStorage.getItem("filename");
+      this.fileName = false;
+    } else {
+      this.image_src = "assets/images/n.jpg";
+    }
   }
 
   buildForm(){
@@ -32,7 +37,10 @@ export class FileUploadComponent implements OnInit {
   onFileChange(event){
     if(event.target.files.length > 0){
       let file = event.target.files[0];
-      this.fileName = file.name;
+      if(file.name){
+        this.fileName = false;
+        localStorage.setItem("filename", file.name);
+      }
       this.form.get('avatar').setValue(file);
     }
   }
@@ -47,14 +55,19 @@ export class FileUploadComponent implements OnInit {
   onSubmit(){
     this.loading = true;
     const formModel = this.prepareSave();
+    let fileName =  localStorage.getItem("filename");
     this.client.uploadFiles(formModel).subscribe(data => {
       this.loading = false;
-      this.image_src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/"+this.fileName;
+      this.uploaded = true;
+      this.image_src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/"+fileName;
       console.log(data);
     });
   }
 
   deleteUploaded(){
-    this.client.deleteFiles(this.fileName).subscribe(data => console.log(data));
+    let fileName =  localStorage.getItem("filename");
+    this.client.deleteFiles(fileName).subscribe(data => this.loading = true);
+    localStorage.removeItem('filename');
+    this.image_src = "assets/images/n.jpg";
   }
 }
