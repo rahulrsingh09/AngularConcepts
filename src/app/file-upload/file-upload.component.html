@@ -13,33 +13,44 @@
 <hr>
 <div class="row">
   <div class="col-md-8">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row">
-        <div class="col-md-12">
-          <mat-input-container>
-            <input matInput type="text" id="name" placeholder="Enter Name" formControlName="name">
-          </mat-input-container>
-        </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-input-container>
+                <input matInput type="text" id="name" placeholder="Enter Name" formControlName="name">
+              </mat-input-container>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <button mat-raised-button color="primary" type = "button" (click)="fileInput.click()">Import file</button> {{ fileInput.value }}
+              <input type="file" (change)="onFileChange($event)" #fileInput [style.display]="'none'" >
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-md-2">
+              <button mat-mini-fab color="warn" type="button" (click) ="clearFile()">clear</button>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">Submit
+                <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+              </button>
+            </div>
+          </div>
+        </form>    
       </div>
-      <div class="row">
-        <div class="col-md-3">
-          <button mat-raised-button color="primary" type = "button" (click)="fileInput.click()">Import file</button> {{ fileInput.value }}
-          <input type="file" (change)="onFileChange($event)" #fileInput [style.display]="'none'" >
-        </div>
-        <div class="col-md-2">
-          <button mat-mini-fab color="warn" type="button" (click) ="clearFile()">clear</button>
-        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="row">
+      <div class="col-md-12">
+        <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'fileUpload.ts'" style="height:720px"></ngx-gist>
       </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-12">
-          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">Submit
-            <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
   <div class="col-md-4">
     <mat-card class="example-card">
@@ -66,6 +77,5 @@
 
 <div class="row">
   <div class="col-md-8">
-    <ngx-gist [gistId]="'rahulrsingh09/271aaff4cb134685ed7a62197670938c'" [file] = "'fileUpload.ts'" style="height:720px"></ngx-gist>
   </div>
 </div>

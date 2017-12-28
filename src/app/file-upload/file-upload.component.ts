@@ -23,7 +23,7 @@ export class FileUploadComponent implements OnInit {
       this.image_src = "https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/download/"+localStorage.getItem("filename");
       this.fileName = false;
     } else {
-      this.image_src = "assets/images/n.jpg";
+      this.image_src = "no.jpg";
     }
   }
 
