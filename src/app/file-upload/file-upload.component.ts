@@ -73,6 +73,6 @@ export class FileUploadComponent implements OnInit {
     let fileName =  localStorage.getItem("filename");
     this.client.deleteFiles(fileName).subscribe(data => this.loading = true);
     localStorage.removeItem('filename');
-    this.image_src = "assets/images/n.jpg";
+    this.image_src = "no.jpg";
   }
 }
