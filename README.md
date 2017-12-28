@@ -34,7 +34,7 @@ Angular Core Concepts
 <li>Saving data to Real time Firebase Database and making a Commenting Section out of it using Renderer 2</li>
 <li>Facebook and google Auth in Angular Apps</li>
 <li>Notes on very common Angular Questions in the Notes section and use of third party JS Library In Angular</li>
-
+<li>File Upload and Download Using Angular HttpClient and Node Server</li>
 Working Example of the following code can be found under 
 https://rahulrsingh09.github.io/AngularConcepts
 
@@ -50,7 +50,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-Build using AOT  ng build --prod --aot
+Build using AOT `ng build --prod --env=prod --output-hashing none`
+
 
 ## Running unit tests
 
