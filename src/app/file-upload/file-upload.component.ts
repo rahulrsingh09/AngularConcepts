@@ -74,5 +74,6 @@ export class FileUploadComponent implements OnInit {
     this.client.deleteFiles(fileName).subscribe(data => this.loading = true);
     localStorage.removeItem('filename');
     this.image_src = "no.jpg";
+    this.fileName = true;
   }
 }
