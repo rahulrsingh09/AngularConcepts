@@ -84,7 +84,7 @@ While Forking this Repo and trying to build the same,  you might encounter this 
 This is because i have some Production and Development Enviornment Settings that load my Firebase Details accordindly, you need to create your own firebase credentials.
 
 
-So whay you need to do is to create a file named as firebase.config.ts in Shared folder
+So what you need to do is to create a file named as firebase.config.ts in Shared folder
 and add your Firebase Credentials to the same , with a Structure like this in your firebase database
 ```
 YOUR APP
