@@ -107,7 +107,7 @@ export const firebaseConfigDev = {
     messagingSenderId: "XXXX"
 };
 ```
-and like wise or prod if any 
+and like wise for prod if any 
 ```
 export const firebaseConfig = {
     apiKey: "XXXXX",
