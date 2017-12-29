@@ -75,3 +75,48 @@ npm install @angular/common@next @angular/compiler@next @angular/compiler-cli@ne
 ##To get Latest Info on Angular 
 
 https://github.com/angular/angular/blob/master/CHANGELOG.md
+
+### Things to Note
+
+While Forking this Repo and trying to build the same,  you might encounter this error 
+Cannot find module './shared/firebase.config' in app.module and enviornment
+
+This is because i have some Production and Development Enviornment Settings that load my Firebase Details accordindly, you need to create your own firebase credentials.
+
+
+So whay you need to do is to create a file named as firebase.config.ts in Shared folder
+and add your Firebase Credentials to the same , with a Structure like this in your firebase database
+
+YOUR APP
+|
+|
+| Comments
+|   |
+|    users
+| pageCount
+
+
+Like - 
+
+export const firebaseConfigDev = {
+    apiKey: "XXXXX",
+    authDomain: "XXX",
+    databaseURL: "XXX",
+    projectId: "XXX",
+    storageBucket: "XXXX",
+    messagingSenderId: "XXXX"
+};
+
+and like wise or prod if any 
+
+export const firebaseConfig = {
+    apiKey: "XXXXX",
+    authDomain: "XXX",
+    databaseURL: "XXX",
+    projectId: "XXX",
+    storageBucket: "XXXX",
+    messagingSenderId: "XXXX"
+};
+
+This credentials will be given by Firebase when you create a new Webapp inside of ther console if any doubts please comment or get in touch .
+
