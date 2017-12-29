@@ -86,7 +86,7 @@ This is because i have some Production and Development Enviornment Settings that
 
 So whay you need to do is to create a file named as firebase.config.ts in Shared folder
 and add your Firebase Credentials to the same , with a Structure like this in your firebase database
-
+```
 YOUR APP
 |
 |
@@ -94,10 +94,10 @@ YOUR APP
 |   |
 |    users
 | pageCount
-
+```
 
 Like - 
-
+```
 export const firebaseConfigDev = {
     apiKey: "XXXXX",
     authDomain: "XXX",
@@ -106,9 +106,9 @@ export const firebaseConfigDev = {
     storageBucket: "XXXX",
     messagingSenderId: "XXXX"
 };
-
+```
 and like wise or prod if any 
-
+```
 export const firebaseConfig = {
     apiKey: "XXXXX",
     authDomain: "XXX",
@@ -117,6 +117,6 @@ export const firebaseConfig = {
     storageBucket: "XXXX",
     messagingSenderId: "XXXX"
 };
-
+```
 This credentials will be given by Firebase when you create a new Webapp inside of ther console if any doubts please comment or get in touch .
 
