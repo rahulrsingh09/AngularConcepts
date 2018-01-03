@@ -42,7 +42,6 @@
     "firebase": "4.4.0",
     "jquery": "3.2.1",
     "jssha": "2.3.1",
-    "ng2-prism": "2.3.2",
     "ngx-gist": "1.0.4",
     "ngx-pagination": "3.0.1",
     "ngx-sharebuttons": "3.0.0",
@@ -52,7 +51,7 @@
     "zone.js": "0.8.12"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.0",
+    "@angular/cli": "1.6.3",
     "@angular/compiler-cli": "4.3.6",
     "@types/jasmine": "2.5.53",
     "@types/node": "~6.0.81",
