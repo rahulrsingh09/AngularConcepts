@@ -12,7 +12,7 @@
     }
     constructor() { }
 
-    @HostListener('click')open(){
+    @HostListener('mouseover')open(){
       this.isOpen = true;
     }
 
