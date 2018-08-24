@@ -7,7 +7,6 @@ import {Observable} from "rxjs";
 import {AngularFireDatabase} from "angularfire2/database/database";
 import * as firebase from 'firebase/app';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {FirebaseListObservable} from "angularfire2/database/firebase_list_observable";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable()
@@ -86,44 +85,44 @@ export class AngularService {
     ];
   } */
 
-  fetchData(){
-    return this.af.list('/comments/users/',{
-      query: {
-        orderByChild: 'createdAt'
-      }
-    }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
-  }
+  // fetchData(){
+  //   return this.af.list('/comments/users/',{
+  //     query: {
+  //       orderByChild: 'createdAt'
+  //     }
+  //   }).map((array) => array.reverse()) as FirebaseListObservable<any[]>;
+  // }
 
-  postComment(comment:string, user: firebase.User){
-    //const comments = this.af.list('/comments/users/'+ user.uid);
-    const comments = this.af.list('/comments/users/');
-    comments.push({
-      id: this.increment += 1,
-      name: user.displayName,
-      photo: user.photoURL,
-      comment : comment,
-      userid : user.uid,
-      createdAt : firebase.database.ServerValue.TIMESTAMP});
+  // postComment(comment:string, user: firebase.User){
+  //   //const comments = this.af.list('/comments/users/'+ user.uid);
+  //   const comments = this.af.list('/comments/users/');
+  //   comments.push({
+  //     id: this.increment += 1,
+  //     name: user.displayName,
+  //     photo: user.photoURL,
+  //     comment : comment,
+  //     userid : user.uid,
+  //     createdAt : firebase.database.ServerValue.TIMESTAMP});
 
-  }
+  // }
 
-  editComment(key:string,updatedComment:any){
-    this.af.object('/comments/users/'+key).update(updatedComment);
-  }
+  // editComment(key:string,updatedComment:any){
+  //   this.af.object('/comments/users/'+key).update(updatedComment);
+  // }
 
-  deleteComment(key:String){
-    //console.log("key"+key); // please disable this while testing
-    this.af.object('/comments/users/'+key).remove();
-  }
+  // deleteComment(key:String){
+  //   //console.log("key"+key); // please disable this while testing
+  //   this.af.object('/comments/users/'+key).remove();
+  // }
 
-  incrementPageCount(){
-    const pageCount = this.af.object('/pageCount/').$ref
-      .ref.transaction(count => {
-        return count + 1;
-      }).then((data) => {return data.snapshot.node_.value_;});
+  // incrementPageCount(){
+  //   const pageCount = this.af.object('/pageCount/').$ref
+  //     .ref.transaction(count => {
+  //       return count + 1;
+  //     }).then((data) => {return data.snapshot.node_.value_;});
 
-    return pageCount;
-  }
+  //   return pageCount;
+  // }
 
   uploadFiles(formData){
     return this.client.post('https://loopback-angular-starterkit.herokuapp.com/api/Uploads/images/upload', formData);

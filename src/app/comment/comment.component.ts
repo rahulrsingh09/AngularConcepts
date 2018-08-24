@@ -38,7 +38,7 @@ import {Modal} from "angular2-modal/plugins/bootstrap";
   ])
   ]
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent{
 
   display: boolean;
   user: any;
@@ -55,106 +55,106 @@ export class CommentComponent implements OnInit {
               private service: AngularService,private el:ElementRef,private r2: Renderer2,
               public modal: Modal) {}
 
-  login(provider:string) {
-    this.showProgress = true;
-    this.service.changeSpinnerStatus(true);
-    if(provider === 'google') {
-      this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-    } else {
-      this.afAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
-    }
-    /*this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
-     this.user = data;console.log("data"+data);});*/
+  // login(provider:string) {
+  //   this.showProgress = true;
+  //   this.service.changeSpinnerStatus(true);
+  //   if(provider === 'google') {
+  //     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  //   } else {
+  //     this.afAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+  //   }
+  //   /*this.afAuth.authState.subscribe((data) => {localStorage.setItem("user",JSON.stringify(data));
+  //    this.user = data;console.log("data"+data);});*/
 
-  }
+  // }
 
-  logout() {
-    this.user = null;
-    this.afAuth.auth.signOut();
-    localStorage.removeItem("user");
-  }
+  // logout() {
+  //   this.user = null;
+  //   this.afAuth.auth.signOut();
+  //   localStorage.removeItem("user");
+  // }
 
-  ngOnInit() {
-    this.service.changeSpinnerStatus(true);
-    this.display = this.route.snapshot.data['Auth'];
-    if(this.display){
-      this.user = JSON.parse(localStorage.getItem("user"));
-      this.service.fetchData().subscribe((data) => {
-      this.comments = data;
-        this.service.changeSpinnerStatus(false);
-      });
-    } else {
-      this.afAuth.authState.subscribe((data) => {
-        if (data) {
-          //const clone = data;
-          //data.timestamp = {TimeStamp : new Date().getTime()};
-          //console.log(data);
-          localStorage.setItem("user", JSON.stringify(data));
-          //console.log(JSON.parse(localStorage.getItem("user")));
-          this.user = data;
-          //localStorage.setItem(this.user.uid,""+new Date().getTime());
-          //console.log(this.user);
-          this.service.fetchData().subscribe((res) => {
-            this.comments = res;
-            this.service.changeSpinnerStatus(false);
-          });
-        } else {
-          this.service.changeSpinnerStatus(false);
-          this.comments = null;
-        }
-      });
+  // ngOnInit() {
+  //   this.service.changeSpinnerStatus(true);
+  //   this.display = this.route.snapshot.data['Auth'];
+  //   if(this.display){
+  //     this.user = JSON.parse(localStorage.getItem("user"));
+  //     this.service.fetchData().subscribe((data) => {
+  //     this.comments = data;
+  //       this.service.changeSpinnerStatus(false);
+  //     });
+  //   } else {
+  //     this.afAuth.authState.subscribe((data) => {
+  //       if (data) {
+  //         //const clone = data;
+  //         //data.timestamp = {TimeStamp : new Date().getTime()};
+  //         //console.log(data);
+  //         localStorage.setItem("user", JSON.stringify(data));
+  //         //console.log(JSON.parse(localStorage.getItem("user")));
+  //         this.user = data;
+  //         //localStorage.setItem(this.user.uid,""+new Date().getTime());
+  //         //console.log(this.user);
+  //         this.service.fetchData().subscribe((res) => {
+  //           this.comments = res;
+  //           this.service.changeSpinnerStatus(false);
+  //         });
+  //       } else {
+  //         this.service.changeSpinnerStatus(false);
+  //         this.comments = null;
+  //       }
+  //     });
 
-    }
+  //   }
 
-  }
+  // }
 
-  add(){
-    this.service.postComment(this.comment, this.user);
-    this.comment = "";
-  }
+  // add(){
+  //   this.service.postComment(this.comment, this.user);
+  //   this.comment = "";
+  // }
 
-  edit(i:number){
-    let now = new Date();
-    const index = ((this.page-1)*5)+i;
-    //console.log(index);
-    let ts = new Date(this.comments[index].createdAt);
-    let diff = now.getTime() -  ts.getTime();
+  // edit(i:number){
+  //   let now = new Date();
+  //   const index = ((this.page-1)*5)+i;
+  //   //console.log(index);
+  //   let ts = new Date(this.comments[index].createdAt);
+  //   let diff = now.getTime() -  ts.getTime();
 
 
-    if(diff <  5 * 60 * 1000){
-      this.r2.removeClass(this.el.nativeElement.querySelector('#index'+i),"label-look");
-      this.r2.addClass(this.el.nativeElement.querySelector('#index'+i),"edit-Label");
-      this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
-      this.r2.removeClass( this.el.nativeElement.querySelector(".submit"+i),"submit"+i);
-      this.r2.addClass( this.el.nativeElement.querySelector("#edit"+i),"remove-edit");
-    } else {
-        this.modal.alert()
-          .size('sm')
-          .body('Cannot be Edited after 5 minutes')
-          .open();
-    }
+  //   if(diff <  5 * 60 * 1000){
+  //     this.r2.removeClass(this.el.nativeElement.querySelector('#index'+i),"label-look");
+  //     this.r2.addClass(this.el.nativeElement.querySelector('#index'+i),"edit-Label");
+  //     this.r2.removeAttribute( this.el.nativeElement.querySelector('#index'+i),"readonly");
+  //     this.r2.removeClass( this.el.nativeElement.querySelector(".submit"+i),"submit"+i);
+  //     this.r2.addClass( this.el.nativeElement.querySelector("#edit"+i),"remove-edit");
+  //   } else {
+  //       this.modal.alert()
+  //         .size('sm')
+  //         .body('Cannot be Edited after 5 minutes')
+  //         .open();
+  //   }
 
-    //console.log(ts , now);
-  }
+  //   //console.log(ts , now);
+  // }
 
-  submitEdit(i:number,comment:string){
-    const index = ((this.page-1)*5)+i;
-    const updated = this.comments[index];
-    updated.comment  = comment;
-    this.service.editComment(updated.$key,updated);
-    //work around not ideal solution for issue #1 and #2
-    this.service.fetchData().subscribe(data => this.comments = data);
-  }
+  // submitEdit(i:number,comment:string){
+  //   const index = ((this.page-1)*5)+i;
+  //   const updated = this.comments[index];
+  //   updated.comment  = comment;
+  //   this.service.editComment(updated.$key,updated);
+  //   //work around not ideal solution for issue #1 and #2
+  //   this.service.fetchData().subscribe(data => this.comments = data);
+  // }
 
-  deleteComment(i:number){
-    //disable call to this method while testing
-    if(confirm("Are you sure you want to delete your Comment")) {
-      const index = ((this.page-1)*5)+i;
-      this.service.deleteComment(this.comments[index].$key);
-      //work around not ideal solution #2
-      this.service.fetchData().subscribe(data => this.comments = data);
-    }
-  }
+  // deleteComment(i:number){
+  //   //disable call to this method while testing
+  //   if(confirm("Are you sure you want to delete your Comment")) {
+  //     const index = ((this.page-1)*5)+i;
+  //     this.service.deleteComment(this.comments[index].$key);
+  //     //work around not ideal solution #2
+  //     this.service.fetchData().subscribe(data => this.comments = data);
+  //   }
+  // }
 
 
 }

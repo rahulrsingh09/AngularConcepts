@@ -328,9 +328,9 @@
       <div class="card-block">
         <p>Search Git Api Look in console Press F12: </p>
         <form [formGroup]="coolForm">
-          <mat-input-container>
+          <mat-form-field>
             <input matInput type="text" placeholder="Search Github Repo" formControlName="search">
-          </mat-input-container>
+          </mat-form-field>
         </form>
         <p *ngIf="result">{{result?.name}} has {{result?.followers}} followers on github</p>
         <p>This above Example of Searching Git Repository is a very Simple but what the main moto of this example is that we

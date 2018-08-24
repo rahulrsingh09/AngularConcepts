@@ -34,7 +34,7 @@
       <div class="col-md-8">
         <div class="row" ngModelGroup = "name">
           <div class="col-md-6">
-            <mat-input-container>
+            <mat-form-field>
               <input matInput type="text"
                       placeholder="First Name"
                       name = "firstName"
@@ -43,24 +43,24 @@
                       minlength="4"
                       required
                       nameRahul>
-            </mat-input-container>
+            </mat-form-field>
           </div>
           <div class="col-md-6">
-            <mat-input-container>
+            <mat-form-field>
               <input matInput type="text"
                       placeholder="Last Name"
                       name = "lastName"
                       [(ngModel)] = "user.name.lastName"
                       #lastName = "ngModel"
                       >
-            </mat-input-container>
+            </mat-form-field>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <mat-input-container>
+        <mat-form-field>
           <input matInput type="number" name="age" [(ngModel)]="user.age" #age = "ngModel" placeholder="Age" required asyncValidator >
-        </mat-input-container>
+        </mat-form-field>
       </div>
     </div>
     <br>
@@ -80,14 +80,14 @@
     <br>
     <div class="row">
       <div class="col-md-12">
-        <mat-input-container>
+        <mat-form-field>
               <input matInput type="text"
                       placeholder="email"
                       name = "email"
                       [(ngModel)] = "user.email"
                       #email = "ngModel"
                       >
-            </mat-input-container>
+            </mat-form-field>
       </div>
     </div>
     <br>  
@@ -207,7 +207,7 @@
                         <span style="color: #0000CC">minlength=</span><span style="background-color: #fff0f0">&quot;4&quot;</span>
                         <span style="color: #0000CC">required</span>
                         <span style="color: #0000CC">nameRahul</span><span style="color: #007700">&gt;</span>
-              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-input-container&gt;
+              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-form-field&gt;
             <span style="color: #007700">&lt;/div&gt;</span>
             <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-6&quot;</span><span style="color: #007700">&gt;</span>
               <span style="color: #007700">&lt;md</span><span style="color: #0000CC">-input-container</span><span style="color: #007700">&gt;</span>
@@ -217,14 +217,14 @@
                         <span style="color: #FF0000; background-color: #FFAAAA">[(</span><span style="color: #0000CC">ngModel</span><span style="color: #FF0000; background-color: #FFAAAA">)]</span> <span style="color: #FF0000; background-color: #FFAAAA">=</span> <span style="color: #FF0000; background-color: #FFAAAA">&quot;</span><span style="color: #0000CC">user</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">name</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">lastName</span><span style="color: #FF0000; background-color: #FFAAAA">&quot;</span>
                         <span style="color: #FF0000; background-color: #FFAAAA">#</span><span style="color: #0000CC">lastName =</span><span style="color: #FF0000; background-color: #FFAAAA"> </span><span style="background-color: #fff0f0">&quot;ngModel&quot;</span>
                         <span style="color: #007700">&gt;</span>
-              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-input-container&gt;
+              <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-form-field&gt;
             <span style="color: #007700">&lt;/div&gt;</span>
           <span style="color: #007700">&lt;/div&gt;</span>
         <span style="color: #007700">&lt;/div&gt;</span>
         <span style="color: #007700">&lt;div</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;col-md-4&quot;</span><span style="color: #007700">&gt;</span>
           <span style="color: #007700">&lt;md</span><span style="color: #0000CC">-input-container</span><span style="color: #007700">&gt;</span>
             <span style="color: #007700">&lt;input</span> <span style="color: #0000CC">matInput</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">name=</span><span style="background-color: #fff0f0">&quot;age&quot;</span> <span style="color: #FF0000; background-color: #FFAAAA">[(</span><span style="color: #0000CC">ngModel</span><span style="color: #FF0000; background-color: #FFAAAA">)]=&quot;</span><span style="color: #0000CC">user</span><span style="color: #FF0000; background-color: #FFAAAA">.</span><span style="color: #0000CC">age</span><span style="color: #FF0000; background-color: #FFAAAA">&quot;</span> <span style="color: #0000CC">placeholder=</span><span style="background-color: #fff0f0">&quot;Age&quot;</span> <span style="color: #0000CC">required</span> <span style="color: #0000CC">asyncValidator</span><span style="color: #007700">&gt;</span>
-          <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-input-container&gt;
+          <span style="color: #FF0000; background-color: #FFAAAA">&lt;</span>/mat-form-field&gt;
         <span style="color: #007700">&lt;/div&gt;</span>
       <span style="color: #007700">&lt;/div&gt;</span>
       <span style="color: #007700">&lt;br&gt;</span>

@@ -19,9 +19,9 @@
       </div>
       <div class="col-md-12">
         <p>Enter the Text to send to the Child Component :</p>
-        <mat-input-container>
+        <mat-form-field>
           <input matInput type="text" placeholder="Enter" #parentInput (keyup)="0">
-        </mat-input-container>
+        </mat-form-field>
 
         <br>
         <p>Value passed by Child Component : {{childValue}}</p>

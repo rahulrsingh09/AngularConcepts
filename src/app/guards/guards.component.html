@@ -16,9 +16,9 @@
 <div class="row">
   <div class="col-md-12">
     <p>Pass Input Value as 'X' to navigate to the Guarded component. Else wont be allowed to enter .</p>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput type="text" placeholder="Pass value" #input>
-    </mat-input-container>
+    </mat-form-field>
     <button mat-raised-button color = "primary" type="submit" (click)="navigate(input.value)">Navigate</button>
   </div>
 </div>

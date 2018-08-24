@@ -1,9 +1,10 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { first } from 'rxjs/operators';
 
 export function  validate(c: AbstractControl): Observable<{[key : number] : any}>{
     // return this.validateAgeObservable(c.value);
-    return validateAgeObservable(c.value).first();
+    return validateAgeObservable(c.value).pipe(first());
   }
 
   function validateAgeObservable( age: number ) {

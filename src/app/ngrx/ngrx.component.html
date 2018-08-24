@@ -35,9 +35,9 @@
     <button mat-raised-button color = "primary" (click)="reset()">Reset</button>
   </div>
   <div class="col-md-4">
-    <mat-input-container>
+    <mat-form-field>
       <input matInput type="text" placeholder="Add to List" #list>
-    </mat-input-container>
+    </mat-form-field>
   </div>
   <div class="col-md-2">
     <button mat-raised-button color = "primary" (click)="add(list.value)" [@ngrxStore] = "state" (@ngrxStore.start)="animationStarted($event)">Add to List</button>

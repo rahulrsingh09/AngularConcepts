@@ -2,7 +2,7 @@
  <p>The value Passed by Parent Component is : {{valuepassed}}</p>
   <br>
  <p>Enter Value to be passed to Parent Component :</p>
- <mat-input-container>
+ <mat-form-field>
    <input matInput type="text" placeholder="Enter" #childInput (keyup)="onChange(childInput.value)">
- </mat-input-container>
+ </mat-form-field>
 

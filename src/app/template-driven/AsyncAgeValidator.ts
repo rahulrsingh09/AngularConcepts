@@ -5,6 +5,7 @@
 import {Directive, forwardRef} from "@angular/core";
 import {NG_ASYNC_VALIDATORS, Validator, AbstractControl, AsyncValidator} from "@angular/forms";
 import {Observable} from "rxjs";
+import { first } from 'rxjs/operators';
 
 
 @Directive({
@@ -19,7 +20,7 @@ export class AsyncAgeValidator implements Validator{
 
   validate(c: AbstractControl): Observable<{[key : number] : any}>{
     // return this.validateAgeObservable(c.value);
-    return this.validateAgeObservable(c.value).first();
+    return this.validateAgeObservable(c.value).pipe(first());
   }
 
   validateAgeObservable( age: number ) {
